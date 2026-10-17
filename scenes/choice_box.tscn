@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/choice_box.gd" id="1_choice"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_choice"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.05, 0.05, 0.08, 0.93)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.85)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="ChoiceBox" type="PanelContainer"]
+process_mode = 3
+visible = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_choice")
+script = ExtResource("1_choice")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+theme_override_constants/separation = 8

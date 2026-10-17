@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue_scene.gd" id="1_scene"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="2_box"]
+[ext_resource type="PackedScene" path="res://scenes/choice_box.tscn" id="3_choice"]
+
+[node name="DialogueScene" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_scene")
+
+[node name="DialogueBox" parent="." instance=ExtResource("2_box")]
+
+[node name="ChoiceBox" parent="." instance=ExtResource("3_choice")]
