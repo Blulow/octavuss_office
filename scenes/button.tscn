@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cmvpkpsuyyt8l"]
+
+[ext_resource type="Script" uid="uid://b3ccbwtmxl1sy" path="res://scripts/button.gd" id="1_mi6dp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc0a7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dmc7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pg4ym"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Button" type="Button" unique_id=258782434]
+anchors_preset = -1
+offset_left = 420.99997
+offset_top = 299.0
+offset_right = 806.0
+offset_bottom = 427.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7748445, 0.7652688)
+pivot_offset = Vector2(64, 64)
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_lc0a7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4dmc7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pg4ym")
+text = "Game stato"
+icon_alignment = 1
+script = ExtResource("1_mi6dp")
