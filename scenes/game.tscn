@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://db0cmrkkmfc16"]
 
+[ext_resource type="Script" uid="uid://cgwu70wtbliy8" path="res://scripts/UI/choice_ui.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://bg8drs1qutpj4" path="res://scenes/choice_ui.tscn" id="2_yqjtg"]
+
 [node name="Game" type="Node3D" unique_id=679770426]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=721952530]
+
+[node name="ChoiceUIManager" type="Node" parent="." unique_id=315396107 node_paths=PackedStringArray("layer")]
+script = ExtResource("1_uwrxv")
+scene = ExtResource("2_yqjtg")
+layer = NodePath("../CanvasLayer")

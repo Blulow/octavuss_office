@@ -1,5 +1,4 @@
-# player.gd
-class_name Player
+# player_data.gd
 extends Node
 
 signal money_changed(new_amount: int)
@@ -14,17 +13,16 @@ func can_afford(cost: int) -> bool:
 func spend(cost: int) -> void:
 	money -= cost
 	money_changed.emit(money)
-	print ("Money: " + str(money))
-
-	
 
 func boost_deescalation(amount: float) -> void:
-	print ("Information boosted by " + str(amount))
 	deescalationMultiplier *= amount
-	print ("Information is now at " + str (informationMultiplier))
-
 
 func boost_information(amount: float) -> void:
-	print ("Information boosted by " + str(amount))
 	informationMultiplier *= amount
-	print ("Information is now at " + str (informationMultiplier))
+
+# Autoloads survive scene changes, so you need a manual reset
+func reset() -> void:
+	money = 500
+	deescalationMultiplier = 1.0
+	informationMultiplier = 1.0
+	money_changed.emit(money)

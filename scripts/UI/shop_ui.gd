@@ -1,7 +1,7 @@
 class_name ShopUI
 extends Control
 
-@export var player: Player
+@export var player: PlayerData
 
 var current_item: Item
 
@@ -9,6 +9,7 @@ var current_item: Item
 @export var feedback_label: Label
 @export var buy_button: Button
 @export var item_price: Label
+@export var item_description_label : Label
 
 func _ready() -> void:
 	hide()
@@ -20,6 +21,7 @@ func _ready() -> void:
 func _on_item_selected(item: Item) -> void:
 	current_item = item
 	name_label.text = item.item_name
+	item_description_label.text = item.item_description
 	item_price.text = "$$ " + str(item.price)
 	feedback_label.text = "Already purchased" if item.is_purchased else ""
 	_update_buy_button(item)
@@ -28,7 +30,7 @@ func _on_item_selected(item: Item) -> void:
 func _on_buy_pressed() -> void:
 	if current_item == null:
 		return
-	if not current_item.on_buy(player):
+	if not current_item.on_buy():
 		feedback_label.text = "Not enough money!"
 
 func _on_item_purchased(item: Item) -> void:

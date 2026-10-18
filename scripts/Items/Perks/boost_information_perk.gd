@@ -4,5 +4,6 @@ extends Perk
 
 @export var multiplier: float = 1.25
 
-func apply(player: Player) -> void:
-	player.boost_information(multiplier)
+func apply() -> void:
+	print ("Information boosted by " + str(multiplier))
+	PlayerData.boost_information(multiplier)

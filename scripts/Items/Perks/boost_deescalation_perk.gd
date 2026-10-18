@@ -4,6 +4,6 @@ extends Perk
 
 @export var multiplier: float = 1.25
 
-func apply(player: Player) -> void:
+func apply() -> void:
 	print ("Deescalation boosted by " + str(multiplier))
-	player.boost_deescalation(multiplier)
+	PlayerData.boost_deescalation(multiplier)

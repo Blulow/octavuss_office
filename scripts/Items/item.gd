@@ -6,6 +6,7 @@ signal purchased(item: Item)
 
 @export var item_name: String
 @export var price: int = 100
+@export var item_description: String
 
 var is_purchased: bool = false
 
@@ -17,14 +18,15 @@ func _on_input_event(_camera: Node, event: InputEvent, _pos: Vector3, _normal: V
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		selected.emit(self)
 
-func on_buy(player: Player) -> bool:
-	if is_purchased or not player.can_afford(price):
+# item.gd
+func on_buy() -> bool:
+	if is_purchased or not PlayerData.can_afford(price):
 		return false
 
-	player.spend(price)
+	PlayerData.spend(price)
 	for child in get_children():
 		if child is Perk:
-			child.apply(player)
+			child.apply()
 
 	is_purchased = true
 	print("Bought ", item_name)
