@@ -4,16 +4,22 @@ class_name AnimatedButton
 signal tweened
 
 var _default_scale: Vector2
+var _default_position: Vector2 # Menyimpan posisi awal tombol
 
 func _ready() -> void:
 	button_down.connect(_on_button_down)
 	button_up.connect(_on_button_up)
 	
+	# Hubungkan signal hover mouse
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+	
 	# Atur pivot ke titik tengah tombol agar efek scaling berpusat di tengah
 	pivot_offset = size / 2.0
 	
-	# Simpan skala awal node
+	# Simpan skala dan posisi awal node
 	_default_scale = scale
+	_default_position = position
 	
 	# Sambungkan signal jika ukuran tombol berubah agar pivot tetap di tengah
 	resized.connect(_on_resized)
@@ -31,22 +37,16 @@ func _on_button_up() -> void:
 	tween.tween_property(self, "scale", _default_scale, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "modulate", Color(1, 1, 1), 0.1)
 	tweened.emit()
-	
-	
 
+# Efek saat mouse masuk (Hover)
+func _on_mouse_entered() -> void:
+	var tween = create_tween().set_parallel(true)
+	# Angka 10 di bawah adalah seberapa jauh tombol bergeser ke kiri (dalam satuan pixel)
+	# Angka 0.1 di belakang adalah durasi animasi (dalam detik)
+	tween.tween_property(self, "position:x", _default_position.x - 20.0, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
-func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
-
-
-func _on_button_5_pressed() -> void:
-	get_tree().quit()
-
-
-func _on_settings_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/button.tscn")
-
-
-
-func _on_quitgame_pressed() -> void:
-	get_tree().quit()
+# Efek saat mouse keluar (Kembali ke posisi normal)
+func _on_mouse_exited() -> void:
+	var tween = create_tween().set_parallel(true)
+	# Mengembalikan ke posisi awal (_default_position.x) dengan durasi 0.1 detik
+	tween.tween_property(self, "position:x", _default_position.x, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

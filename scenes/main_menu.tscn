@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://b5qqds04rkp5q"]
 
-[ext_resource type="Texture2D" uid="uid://dpkjge68xd52t" path="res://assets/buttons/checkpoint ui buku.png" id="1_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://cmvpkpsuyyt8l" path="res://scenes/button.tscn" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://c7cymthurjxhu" path="res://assets/buttons/start button.png" id="3_8ln24"]
-[ext_resource type="Texture2D" uid="uid://b7krbbr7nu755" path="res://assets/buttons/setting button.png" id="4_8ln24"]
-[ext_resource type="Texture2D" uid="uid://bdv8fkihlptlm" path="res://assets/buttons/quit game button.png" id="5_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://qtcb70prsx84" path="res://assets/buttons/checkpoint ui buku V3.png" id="1_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://086yxn6qoxj6" path="res://assets/buttons/checkpoint ui kertas.png" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://y5n3ci1jqbat" path="res://assets/buttons/button penanda buku v2 start.png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://tpmssaxnt0fx" path="res://assets/buttons/button penanda buku v2 setting.png" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://bwxf3dsr2wcd4" path="res://assets/buttons/button penanda buku v2 quit.png" id="5_tbmy8"]
 
 [node name="main_menu" type="Control" unique_id=714160219]
 layout_mode = 3
@@ -14,61 +15,62 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=753368777]
-position = Vector2(573, 324)
-scale = Vector2(0.6006775, 0.6009462)
-texture = ExtResource("1_bqqt6")
+[node name="book" type="Sprite2D" parent="." unique_id=753368777]
+position = Vector2(1010, 426.8906)
+scale = Vector2(0.45879498, 0.47016773)
+texture = ExtResource("1_rtw2f")
 
 [node name="buttons" type="Control" parent="." unique_id=995117543]
 anchors_preset = 0
-offset_left = 579.0
-offset_top = 333.0
-offset_right = 619.0
-offset_bottom = 373.0
-scale = Vector2(0.5454861, 0.5506109)
+offset_left = 439.0
+offset_top = 318.0
+offset_right = 479.0
+offset_bottom = 358.0
+scale = Vector2(0.5718911, 0.6637115)
 
-[node name="Start Button" parent="buttons" unique_id=258782434 instance=ExtResource("1_ekxnf")]
+[node name="start button" parent="buttons" unique_id=258782434 instance=ExtResource("1_ekxnf")]
 layout_mode = 0
 anchors_preset = 0
-offset_left = -174.80267
-offset_top = 74.88189
-offset_right = 217.19733
-offset_bottom = 457.8819
+offset_left = 82.49518
+offset_top = -49.0365
+offset_right = 583.4952
+offset_bottom = 78.9635
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(0.93877405, 0.9044503)
+scale = Vector2(1.0179824, 1.0326166)
 text = ""
-icon = ExtResource("3_8ln24")
+icon = ExtResource("3_rtw2f")
 flat = true
 
-[node name="Settings button" parent="buttons" unique_id=1830258996 instance=ExtResource("1_ekxnf")]
+[node name="setting button" parent="buttons" unique_id=1755993397 instance=ExtResource("1_ekxnf")]
 layout_mode = 0
 anchors_preset = 0
-offset_left = -684.2274
-offset_top = -18.304493
-offset_right = -256.22742
-offset_bottom = 474.6955
+offset_left = 82.49523
+offset_top = 103.52132
+offset_right = 583.49524
+offset_bottom = 231.52132
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(0.8865778, 0.92243594)
+scale = Vector2(1.0179824, 1.0326166)
 text = ""
-icon = ExtResource("4_8ln24")
+icon = ExtResource("4_oa1go")
 flat = true
 
-[node name="Quitgame" parent="buttons" unique_id=534266908 instance=ExtResource("1_ekxnf")]
+[node name="quit button" parent="buttons" unique_id=1861665962 instance=ExtResource("1_ekxnf")]
 layout_mode = 0
 anchors_preset = 0
-offset_left = 281.34897
-offset_top = 149.76376
-offset_right = 775.349
-offset_bottom = 532.7638
+offset_left = 82.49523
+offset_top = 248.81448
+offset_right = 583.49524
+offset_bottom = 376.81448
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(0.91283387, 0.9367157)
+scale = Vector2(1.0179824, 1.0326166)
 text = ""
-icon = ExtResource("5_rtw2f")
+icon = ExtResource("5_tbmy8")
 flat = true
 
-[connection signal="pressed" from="buttons/Start Button" to="buttons/Start Button" method="_on_pressed"]
-[connection signal="pressed" from="buttons/Settings button" to="buttons/Start Button" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="buttons/Quitgame" to="buttons/Start Button" method="_on_quitgame_pressed"]
+[node name="paper" type="Sprite2D" parent="." unique_id=1494416578]
+position = Vector2(1010, 423.8906)
+scale = Vector2(0.45879498, 0.47016773)
+texture = ExtResource("2_ekxnf")

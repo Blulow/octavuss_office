@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7krbbr7nu755"
-path="res://.godot/imported/setting button.png-0a3d75f260ff491585788220693926b9.ctex"
+uid="uid://c47nrvqnnpu62"
+path="res://.godot/imported/button penanda buku quitgame.png-ef3eb04483e0b9d625e7317edf32c39c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/setting button.png"
-dest_files=["res://.godot/imported/setting button.png-0a3d75f260ff491585788220693926b9.ctex"]
+source_file="res://assets/buttons/button penanda buku quitgame.png"
+dest_files=["res://.godot/imported/button penanda buku quitgame.png-ef3eb04483e0b9d625e7317edf32c39c.ctex"]
 
 [params]
 
