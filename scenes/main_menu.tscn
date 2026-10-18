@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dpkjge68xd52t" path="res://assets/buttons/checkpoint ui buku.png" id="1_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://cmvpkpsuyyt8l" path="res://scenes/button.tscn" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://c7cymthurjxhu" path="res://assets/buttons/setting button copy.png" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://c7cymthurjxhu" path="res://assets/buttons/start button.png" id="3_8ln24"]
 [ext_resource type="Texture2D" uid="uid://b7krbbr7nu755" path="res://assets/buttons/setting button.png" id="4_8ln24"]
 [ext_resource type="Texture2D" uid="uid://bdv8fkihlptlm" path="res://assets/buttons/quit game button.png" id="5_rtw2f"]
 
@@ -19,25 +19,35 @@ position = Vector2(573, 324)
 scale = Vector2(0.6006775, 0.6009462)
 texture = ExtResource("1_bqqt6")
 
-[node name="Start Button" parent="Sprite2D" unique_id=258782434 instance=ExtResource("1_ekxnf")]
+[node name="buttons" type="Control" parent="." unique_id=995117543]
 anchors_preset = 0
-offset_left = -174.80266
-offset_top = 74.8819
-offset_right = 217.19734
+offset_left = 579.0
+offset_top = 333.0
+offset_right = 619.0
+offset_bottom = 373.0
+scale = Vector2(0.5454861, 0.5506109)
+
+[node name="Start Button" parent="buttons" unique_id=258782434 instance=ExtResource("1_ekxnf")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = -174.80267
+offset_top = 74.88189
+offset_right = 217.19733
 offset_bottom = 457.8819
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.93877405, 0.9044503)
 text = ""
-icon = ExtResource("3_wu84c")
+icon = ExtResource("3_8ln24")
 flat = true
 
-[node name="Settings button" parent="Sprite2D" unique_id=1830258996 instance=ExtResource("1_ekxnf")]
+[node name="Settings button" parent="buttons" unique_id=1830258996 instance=ExtResource("1_ekxnf")]
+layout_mode = 0
 anchors_preset = 0
 offset_left = -684.2274
-offset_top = -18.304478
+offset_top = -18.304493
 offset_right = -256.22742
-offset_bottom = 474.69553
+offset_bottom = 474.6955
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.8865778, 0.92243594)
@@ -45,10 +55,11 @@ text = ""
 icon = ExtResource("4_8ln24")
 flat = true
 
-[node name="Quitgame" parent="Sprite2D" unique_id=534266908 instance=ExtResource("1_ekxnf")]
+[node name="Quitgame" parent="buttons" unique_id=534266908 instance=ExtResource("1_ekxnf")]
+layout_mode = 0
 anchors_preset = 0
-offset_left = 281.349
-offset_top = 149.76381
+offset_left = 281.34897
+offset_top = 149.76376
 offset_right = 775.349
 offset_bottom = 532.7638
 grow_horizontal = 1
@@ -58,6 +69,6 @@ text = ""
 icon = ExtResource("5_rtw2f")
 flat = true
 
-[connection signal="pressed" from="Sprite2D/Start Button" to="Sprite2D/Start Button" method="_on_pressed"]
-[connection signal="pressed" from="Sprite2D/Settings button" to="Sprite2D/Start Button" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Sprite2D/Quitgame" to="Sprite2D/Start Button" method="_on_quitgame_pressed"]
+[connection signal="pressed" from="buttons/Start Button" to="buttons/Start Button" method="_on_pressed"]
+[connection signal="pressed" from="buttons/Settings button" to="buttons/Start Button" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="buttons/Quitgame" to="buttons/Start Button" method="_on_quitgame_pressed"]
