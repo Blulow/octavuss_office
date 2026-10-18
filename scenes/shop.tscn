@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://c7k63givb3sj2"]
+
+[ext_resource type="Script" uid="uid://crfux4all0ux2" path="res://scripts/Items/item.gd" id="1_1l46r"]
+[ext_resource type="Script" uid="uid://bg507o0isd4yh" path="res://scripts/UI/shop_ui.gd" id="1_xfvoa"]
+[ext_resource type="Script" uid="uid://bqkr43w0nxwlj" path="res://scripts/Player/player.gd" id="2_1l46r"]
+[ext_resource type="Script" uid="uid://25yb702hmhup" path="res://scripts/Items/Perks/boost_information_perk.gd" id="2_032fp"]
+[ext_resource type="Script" uid="uid://bc0evra1uga06" path="res://scripts/Items/Perks/boost_deescalation_perk.gd" id="3_2fc2m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xrivr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrivr"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bdmwb"]
+
+[node name="Shop" type="Node3D" unique_id=926545085]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2116886696]
+
+[node name="Cupboard" type="MeshInstance3D" parent="." unique_id=326837754]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 1, -3, 0, -5.8)
+mesh = SubResource("BoxMesh_xrivr")
+surface_material_override/0 = SubResource("StandardMaterial3D_xrivr")
+
+[node name="Newspaper" type="CSGBox3D" parent="." unique_id=318283130]
+transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -5, 2, -4.5)
+script = ExtResource("1_1l46r")
+item_name = "Newspaper"
+price = 300
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Newspaper" unique_id=1181562704]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Newspaper/StaticBody3D" unique_id=721138911]
+shape = SubResource("BoxShape3D_bdmwb")
+
+[node name="InfoBoost" type="Node" parent="Newspaper" unique_id=546340805]
+script = ExtResource("2_032fp")
+
+[node name="Flower" type="CSGBox3D" parent="." unique_id=1602995017]
+transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -5, -2, -4.5)
+script = ExtResource("1_1l46r")
+item_name = "Flower"
+price = 200
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Flower" unique_id=1760755634]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower/StaticBody3D" unique_id=1846976155]
+shape = SubResource("BoxShape3D_bdmwb")
+
+[node name="Node" type="Node" parent="Flower" unique_id=192618916]
+script = ExtResource("3_2fc2m")
+multiplier = 2.0
+
+[node name="Node2" type="Node" parent="Flower" unique_id=1983217580]
+script = ExtResource("2_032fp")
+multiplier = 1.3
+
+[node name="Candy" type="CSGBox3D" parent="." unique_id=1552643880]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.5, 2, -4.5)
+script = ExtResource("1_1l46r")
+item_name = "Candy"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Candy" unique_id=1098629347]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Candy/StaticBody3D" unique_id=919523902]
+shape = SubResource("BoxShape3D_bdmwb")
+
+[node name="Node" type="Node" parent="Candy" unique_id=1971861461]
+script = ExtResource("3_2fc2m")
+multiplier = 1.5
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1437295997]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -5, -2, -4.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1134407947]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1304580484]
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ItemName" type="Label" parent="CanvasLayer/ColorRect" unique_id=392836340]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 50.0
+offset_right = 235.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 40
+text = "Item Name"
+
+[node name="ItemPrice" type="Label" parent="CanvasLayer/ColorRect" unique_id=564183313]
+modulate = Color(0, 0.60784316, 0, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -98.0
+offset_right = 112.0
+offset_bottom = -43.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "$100"
+
+[node name="ItemFeedback" type="Label" parent="CanvasLayer/ColorRect" unique_id=1830043457]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.799988
+offset_top = -167.0
+offset_right = 111.79999
+offset_bottom = -112.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect" unique_id=524466664]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -174.79999
+offset_top = -92.0
+offset_right = -28.799988
+offset_bottom = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "BUY ITEM"
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=378034434 node_paths=PackedStringArray("player", "name_label", "feedback_label", "buy_button", "item_price")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xfvoa")
+player = NodePath("../../Player")
+name_label = NodePath("../ColorRect/ItemName")
+feedback_label = NodePath("../ColorRect/ItemFeedback")
+buy_button = NodePath("../ColorRect/Button")
+item_price = NodePath("../ColorRect/ItemPrice")
+
+[node name="Player" type="Node" parent="." unique_id=1225970642]
+script = ExtResource("2_1l46r")
+metadata/_custom_type_script = "uid://bqkr43w0nxwlj"
