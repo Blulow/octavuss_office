@@ -1,22 +1,19 @@
 extends Node
 
-@export var scene: PackedScene
-@export var layer: CanvasLayer
-
-var canvas_instance: Node
+@export var canvas_instance: Node
+@export var facts_canvas: CanvasLayer
+@export var facts_button: Button
+	
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	facts_button.pressed.connect(facts_canvas.open)
 
 
 func show_ui():
-	if not is_instance_valid(canvas_instance):
-		canvas_instance = scene.instantiate()
-		canvas_instance.process_mode = Node.PROCESS_MODE_ALWAYS
-		layer.add_child(canvas_instance)
-	else:
-		canvas_instance.show()
+	canvas_instance.show()
 	get_tree().paused = true
+	print(facts_button.can_process())
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -24,6 +21,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			hide_ui()
 		else:
 			show_ui()
+
+
 
 
 func hide_ui() -> void:
