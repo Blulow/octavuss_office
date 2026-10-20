@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://deof3j2vvty4c"]
+
+[ext_resource type="PackedScene" uid="uid://ce73jorbifk2u" path="res://strip.tscn" id="1_yaoq5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qt8ay"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qt8ay"]
+albedo_color = Color(0.07409642, 0.34356076, 0.38379747, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qt8ay"]
+top_radius = 1.0664063
+bottom_radius = 1.0664063
+
+[sub_resource type="BoxMesh" id="BoxMesh_4xowi"]
+
+[node name="Node3D" type="Node3D" unique_id=2109254273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7653662)
+
+[node name="MainMenuCam" type="Camera3D" parent="." unique_id=630725611]
+transform = Transform3D(1, 0, 0, 0, 0.47035384, 0.8824779, 0, -0.8824779, 0.47035384, 0, 0.91199267, -0.84752005)
+
+[node name="Therapist" type="MeshInstance3D" parent="." unique_id=321486775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.69001126)
+mesh = SubResource("CapsuleMesh_qt8ay")
+
+[node name="Camera3D" type="Camera3D" parent="Therapist" unique_id=1778338411]
+
+[node name="Table" type="MeshInstance3D" parent="." unique_id=1846849366]
+transform = Transform3D(2.2239847, 0, 0, 0, 0.030407203, 0, 0, 0, 1.1393675, 0, 0.031629562, -1.8218733)
+material_override = SubResource("StandardMaterial3D_qt8ay")
+mesh = SubResource("CylinderMesh_qt8ay")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1095395900]
+
+[node name="Book" type="Node3D" parent="Node3D" unique_id=54414017]
+
+[node name="Books" type="MeshInstance3D" parent="Node3D/Book" unique_id=263489581]
+transform = Transform3D(1, 0, 0, 0, 0.05715538, 0, 0, 0, 0.6651118, 0.4134217, 0.097574234, -1.1577389)
+mesh = SubResource("BoxMesh_4xowi")
+
+[node name="Stripes" type="Node3D" parent="Node3D" unique_id=1676217181]
+
+[node name="Strip" parent="Node3D/Stripes" unique_id=756998187 instance=ExtResource("1_yaoq5")]
+transform = Transform3D(-0.00254696, 0, -0.7102226, 0, 0.022142954, 0, 0.17181776, 0, -0.010528065, -0.17413223, 0.10178107, -1.3629113)

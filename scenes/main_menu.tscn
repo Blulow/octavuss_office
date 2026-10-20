@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cmvpkpsuyyt8l" path="res://scenes/button.tscn" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://qtcb70prsx84" path="res://assets/buttons/checkpoint ui buku V3.png" id="1_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://086yxn6qoxj6" path="res://assets/buttons/checkpoint ui kertas.png" id="2_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://y5n3ci1jqbat" path="res://assets/buttons/button penanda buku v2 start.png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://dekoxklfl4ay0" path="res://assets/buttons/startbutton.png" id="3_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://tpmssaxnt0fx" path="res://assets/buttons/button penanda buku v2 setting.png" id="4_oa1go"]
 [ext_resource type="Texture2D" uid="uid://bwxf3dsr2wcd4" path="res://assets/buttons/button penanda buku v2 quit.png" id="5_tbmy8"]
 
