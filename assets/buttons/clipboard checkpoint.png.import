@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c47nrvqnnpu62"
-path="res://.godot/imported/button penanda buku quitgame.png-ef3eb04483e0b9d625e7317edf32c39c.ctex"
+uid="uid://qdij1tbuw2pf"
+path="res://.godot/imported/clipboard checkpoint.png-fa15535c653bbbde4370d6ae3d1ec953.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/button penanda buku quitgame.png"
-dest_files=["res://.godot/imported/button penanda buku quitgame.png-ef3eb04483e0b9d625e7317edf32c39c.ctex"]
+source_file="res://assets/buttons/clipboard checkpoint.png"
+dest_files=["res://.godot/imported/clipboard checkpoint.png-fa15535c653bbbde4370d6ae3d1ec953.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu4mk0k7p0fc5"
-path="res://.godot/imported/penanda buku start .png-e93a675ceb31492d4b38fa22bd95ae84.ctex"
+uid="uid://bpnsr7ttj5gqj"
+path="res://.godot/imported/back buttons checkpoint copy 3.png-68ffb29bb494ff08a42db8963c24fc02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/penanda buku start .png"
-dest_files=["res://.godot/imported/penanda buku start .png-e93a675ceb31492d4b38fa22bd95ae84.ctex"]
+source_file="res://assets/buttons/back buttons checkpoint copy 3.png"
+dest_files=["res://.godot/imported/back buttons checkpoint copy 3.png-68ffb29bb494ff08a42db8963c24fc02.ctex"]
 
 [params]
 

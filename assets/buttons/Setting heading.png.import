@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl3c0to1njgbi"
-path="res://.godot/imported/button penanda buku v2 start.png-0808f1358e13acf51920803ed0da9564.ctex"
+uid="uid://l6wne6abwhgy"
+path="res://.godot/imported/Setting heading.png-c0252bca263a08f1374d132039bc8ea0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button penanda buku v2 start.png"
-dest_files=["res://.godot/imported/button penanda buku v2 start.png-0808f1358e13acf51920803ed0da9564.ctex"]
+source_file="res://assets/buttons/Setting heading.png"
+dest_files=["res://.godot/imported/Setting heading.png-c0252bca263a08f1374d132039bc8ea0.ctex"]
 
 [params]
 
