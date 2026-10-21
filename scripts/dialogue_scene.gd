@@ -7,6 +7,7 @@ const DIALOG_PATH := "res://assets/dialog/dialog_en.json"
 @onready var box: DialogueBox = $DialogueBox
 @onready var choice_box: ChoiceBox = $ChoiceBox
 
+var _data: Dictionary = {}
 var _lines: Array = []
 var _vars: Dictionary = {}
 var _index := -1
@@ -29,6 +30,7 @@ func _load_dialog() -> void:
 	if typeof(data) != TYPE_DICTIONARY:
 		push_error("dialogue_scene: dialogue JSON is not an object: " + DIALOG_PATH)
 		return
+	_data = data
 	_lines = data.get("lines", [])
 	_vars = data.get("vars", {})
 
@@ -59,8 +61,17 @@ func _advance() -> void:
 
 func _show_choices(options: Array) -> void:
 	_choosing = true
-	_choices = options
-	choice_box.show_choices(options, box.position.y)
+	_choices = _filter_choices(options)
+	choice_box.show_choices(_choices, box.position.y)
+
+
+func _filter_choices(options: Array) -> Array:
+	var out: Array = []
+	for option in options:
+		var condition := String(option.get("if", ""))
+		if condition == "" or bool(_vars.get(condition, false)):
+			out.append(option)
+	return out
 
 
 func _on_choice_chosen(index: int) -> void:
