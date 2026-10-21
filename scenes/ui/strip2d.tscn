@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://df8j3swg8lxma"]
+
+[ext_resource type="Script" uid="uid://ctd1mhs0u2wdt" path="res://scripts/ui/strip2d.gd" id="1_b0lf4"]
+
+[sub_resource type="Gradient" id="Gradient_7yvfd"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u8ny3"]
+gradient = SubResource("Gradient_7yvfd")
+width = 256
+height = 48
+
+[node name="Strip" type="TextureRect" unique_id=214222789]
+offset_right = 256.0
+offset_bottom = 48.0
+texture = SubResource("GradientTexture2D_u8ny3")
+script = ExtResource("1_b0lf4")
+
+[node name="Label" type="Label" parent="." unique_id=1926367328]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 35.0
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

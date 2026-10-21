@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cw7qx4up1erpv"]
+
+[ext_resource type="Script" uid="uid://3kd1w58h611e" path="res://scripts/ui/strip.gd" id="1_cltfi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rylkq"]
+albedo_color = Color(0.22833252, 0.671875, 0.5887108, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u8ny3"]
+material = SubResource("StandardMaterial3D_rylkq")
+size = Vector2(0.5, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8ny3"]
+size = Vector3(0.5, 0.01, 0.1)
+
+[node name="Strip" type="MeshInstance3D" unique_id=1301950672]
+mesh = SubResource("PlaneMesh_u8ny3")
+script = ExtResource("1_cltfi")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=149152075]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.09174763, 0.0017037392, 0)
+text = "Start"
+font_size = 15
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1304251718]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2012636548]
+shape = SubResource("BoxShape3D_u8ny3")
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
