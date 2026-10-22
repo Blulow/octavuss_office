@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://deof3j2vvty4c"]
 
-[ext_resource type="PackedScene" uid="uid://ce73jorbifk2u" path="res://strip.tscn" id="1_yaoq5"]
+[ext_resource type="PackedScene" uid="uid://ce73jorbifk2u" path="res://scenes/strip.tscn" id="1_yaoq5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qt8ay"]
 
