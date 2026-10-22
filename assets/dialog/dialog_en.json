@@ -1,0 +1,164 @@
+{
+  "vars": {
+	"player_name": "Jin",
+	"heroine": "Sora",
+	"factcheck": true
+  },
+  "facts": [
+	{ "id": "bus_app", "text": "Bus app screenshot — arrival 7:42." },
+	{ "id": "tuesday", "text": "Last Tuesday — Sora was 20 minutes late." },
+	{ "id": "alarm", "text": "Alarm history — snoozed 4 times." },
+	{ "id": "mumble", "text": "Witness report — mumbles in full sentences." }
+  ],
+  "lines": [
+	{
+	  "speaker": "N1",
+	  "name": "Sora",
+	  "text": "Late again, {player_name}?{w0.5} [i]Always[/i] the same with you.",
+	  "punct": 0.1
+	},
+	{
+	  "speaker": "N2",
+	  "name": "Jin",
+	  "text": "[b]I can explain![/b]{w0.6} There was the bus, and then...{w0.6} [color=#ff7f50]the bus again[/color]?",
+	  "punct": 0.08
+	},
+	{
+	  "speaker": "N1",
+	  "name": "Sora",
+	  "text": "You always say that.{w0.4} Last week it was the bus, the week before that your alarm clock, and the week before that you forgot we were meeting at all. So tell me — what is it this time?",
+	  "punct": true
+	},
+	{
+	  "choices": [
+		{
+		  "text": "Okay, fine... I overslept again.",
+		  "response": {
+			"speaker": "N1",
+			"name": "Sora",
+			"text": "[i]Knew it.[/i] At least you're honest today."
+		  }
+		},
+		{
+		  "text": "It really was the bus this time!",
+		  "response": {
+			"speaker": "N1",
+			"name": "Sora",
+			"text": "Mm-hm. That's what you said last week, too.",
+			"speed": 1.4
+		  }
+		},
+		{
+		  "text": "(Say nothing and stare at your shoes.)",
+		  "response": {
+			"speaker": "N1",
+			"name": "Sora",
+			"text": "Silence, huh.{w0.6} [shake rate=20 level=4]Bold move.[/shake]"
+		  }
+		},
+		{
+		  "text": "Fact check: my bus app says 7:42.",
+		  "if": "factcheck",
+		  "fact": "bus_app",
+		  "highlight": "blue",
+		  "response": {
+			"speaker": "N1",
+			"name": "Sora",
+			"text": "[fade start=1 length=6]You screenshotted the bus app.[/fade] Of course you did."
+		  }
+		},
+		{
+		  "text": "Fact check: YOU were late last Tuesday.",
+		  "if": "factcheck",
+		  "fact": "tuesday",
+		  "highlight": "blue",
+		  "response": {
+			"speaker": "N1",
+			"name": "Sora",
+			"text": "[wave amp=20 freq=4]That was ONE time.[/wave]{w0.4} And we don't talk about it."
+		  }
+		}
+	  ]
+	},
+	{
+	  "speaker": "N2",
+	  "name": "Jin",
+	  "text": "[shake rate=25 level=10][font_size=26]WHY DO YOU HEAR EVERYTHING I MUMBLE?[/font_size][/shake]",
+	  "shake": true
+	},
+	{
+	  "speaker": "N1",
+	  "name": "Sora",
+	  "text": "[rainbow freq=1.2 sat=0.9 val=1.1][wave amp=9 freq=2.5]Because you mumble in full sentences, Jin.[/wave][/rainbow]"
+	},
+	{
+	  "speaker": "N2",
+	  "name": "Jin",
+	  "text": "[tornado radius=14 freq=2.2]My excuses are spiraling out of control[/tornado] — can we pretend that's normal?"
+	},
+	{
+	  "speaker": "N1",
+	  "name": "Sora",
+	  "text": "[u]Watch[/u] this sentence [fade start=3 length=10]materialize[/fade] from nothing."
+	},
+	{
+	  "speaker": "N2",
+	  "name": "Jin",
+	  "text": "[pulse freq=3.0 color=#77ffcc]Thump.[/pulse]{w0.4} [pulse freq=2.0]Thump.[/pulse]{w0.4} That's my conscience.",
+	  "punct": 0.1
+	},
+	{
+	  "speaker": "N1",
+	  "name": "Sora",
+	  "text": "Slow reveal...{w0.3} [speed=3]OKAY I'M SORRY I OVERSLEPT[/speed]{w0.3} ...back to calm.",
+	  "punct": 0.1
+	},
+	{
+	  "speaker": "N2",
+	  "name": "Jin",
+	  "text": "[delay=0.1]I dragged every single word out of my own mouth...[/delay] and now I'm done.",
+	  "punct": 0.12
+	},
+	{
+	  "speaker": "N1",
+	  "name": "Sora",
+	  "text": "Then the lights flickered. [instant]EVERY CLOCK IN THE ROOM STOPPED AT ONCE.[/instant] And then everything was normal again."
+	},
+	{
+	  "speaker": "N1",
+	  "name": "Sora",
+	  "text": "One. Word. At. A. Time. Is. All. The. Drama. I. Can. Take.",
+	  "word": true
+	},
+	{
+	  "speaker": "N2",
+	  "name": "Jin",
+	  "text": "[pop]S-o-r-r-y.[/pop]{w0.3} [pop]SORRY![/pop]",
+	  "punct": 0.1
+	},
+	{
+	  "speaker": "",
+	  "name": "",
+	  "text": "[glitch]CARRIER LOST // WHO IS SPEAKING // #@%$ ERROR[/glitch]"
+	},
+	{
+	  "speaker": "N1",
+	  "name": "Sora",
+	  "text": "This whole line is orange and arrives at double speed.",
+	  "color": "#ffcc66",
+	  "speed": 2.2
+	},
+	{
+	  "speaker": "N2",
+	  "name": "Jin",
+	  "text": "[center]...coffee?[/center]{w0.5} [center]I'm buying.[/center]",
+	  "punct": 0.1
+	},
+	{
+	  "speaker": "N1",
+	  "name": "Sora",
+	  "text": "[color=#a0ffa0]Deal.[/color] But you carry both cups.",
+	  "shake": true
+	}
+  ]
+}

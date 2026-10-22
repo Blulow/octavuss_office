@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ce73jorbifk2u"]
+
+[ext_resource type="Script" uid="uid://bkvfa5rdwrdav" path="res://strip.gd" id="1_vhoib"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5j4v"]
+albedo_color = Color(0.51421964, 0.69805574, 0.8194371, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qt8ay"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qt8ay"]
+
+[node name="Strip" type="MeshInstance3D" unique_id=756998187]
+transform = Transform3D(0.35174686, 0, 0, 0, 0.022142956, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_g5j4v")
+mesh = SubResource("BoxMesh_qt8ay")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=2084850296]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1279017365]
+script = ExtResource("1_vhoib")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=895773347]
+transform = Transform3D(1.0270785, 0, 0, 0, 1.6126798, 0, 0, 0, 0.9999999, 0, 0, 0)
+shape = SubResource("BoxShape3D_qt8ay")
+
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
