@@ -1,21 +1,30 @@
 # player_data.gd
 extends Node
+class_name Stats
 
 signal money_changed(new_amount: int)
 signal fact_added(new_fact: fact)
 signal facts_reset
 
 var money: int = 500
-var deescalationMultiplier: float = 1.0
-var informationMultiplier: float = 1.0
+#var deescalationMultiplier: float = 1.0
+#var informationMultiplier: float = 1.0
+
 var facts_collected : Array[fact]
 
-func _ready() -> void:
-	_seed_facts()
+var stats: Dictionary[String, int] = {
+	"calm": 2,
+	"fact": 2,
+	"sp": 6,
+}
+var multipliers: Array[int] = [1, 1, 1]
 
-func _seed_facts() -> void:
-	add_fact("Person A was Last seen somewhere")
-	add_fact("The incident occured at 9:45")
+#func _ready() -> void:
+	#_seed_facts()
+#
+#func _seed_facts() -> void:
+	#add_fact("Person A was Last seen somewhere")
+	#add_fact("The incident occured at 9:45")
 
 func can_afford(cost: int) -> bool:
 	return money >= cost
@@ -24,11 +33,11 @@ func spend(cost: int) -> void:
 	money -= cost
 	money_changed.emit(money)
 
-func boost_deescalation(amount: float) -> void:
-	deescalationMultiplier *= amount
-
-func boost_information(amount: float) -> void:
-	informationMultiplier *= amount
+#func boost_deescalation(amount: float) -> void:
+	#deescalationMultiplier *= amount
+#
+#func boost_information(amount: float) -> void:
+	#informationMultiplier *= amount
 
 func add_fact(description: String) -> void:
 	# Avoid duplicates if the player can re-trigger the same discovery
@@ -41,8 +50,16 @@ func add_fact(description: String) -> void:
 
 func reset() -> void:
 	money = 500
-	deescalationMultiplier = 1.0
-	informationMultiplier = 1.0
+	
+	multipliers = [1.0, 1.0, 1.0]
+	#deescalationMultiplier = 1.0
+	#informationMultiplier = 1.0
+	
+	stats.calm = 2
+	stats.fact = 2
+	stats.sp = 6
+	
 	facts_collected.clear()   # your current reset() doesn't clear facts
+	
 	money_changed.emit(money)
 	facts_reset.emit()
