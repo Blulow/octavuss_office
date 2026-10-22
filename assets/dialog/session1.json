@@ -5,27 +5,27 @@
 		"factcheck": true
 	},
 	"facts": [
-		{ "id": "bus_app", "text": "Bus app screenshot — arrival 7:42." },
-		{ "id": "tuesday", "text": "Last Tuesday — Sora was 20 minutes late." },
-		{ "id": "alarm", "text": "Alarm history — snoozed 4 times." },
-		{ "id": "mumble", "text": "Witness report — mumbles in full sentences." }
+		{ "id": "fact1", "text": "fact1" },
+		{ "id": "fact2", "text": "fact2" },
+		{ "id": "fact3", "text": "fact3" },
+		{ "id": "fact4", "text": "fact4" }
 	],
 	"sets": [
 		[
 			{
 				"speaker": "N1",
 				"name": "Weird",
-				"text": "yo"
+				"text": "set1 dialogue1"
 			},
 			{
 				"speaker": "N1",
 				"name": "Weird",
-				"text": "yo2"
+				"text": "set1 dialogue2"
 			},
 			{
 				"speaker": "N1",
 				"name": "Weird",
-				"text": "yo3"
+				"text": "set1 dialogue3"
 			},
 			{
 				"choices": [
@@ -34,7 +34,7 @@
 						"response": {
 							"speaker": "N1",
 							"name": "Weird",
-							"text": "e"
+							"text": "choice1 response"
 						}
 					},
 					{
@@ -42,20 +42,20 @@
 						"if": "factcheck",
 						"facts": [
 							{
-								"fact": "bus_app",
-								"text": "choice2 but different",
+								"fact": "fact1",
+								"text": "choice2 with fact1",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
-									"text": "e4"
+									"text": "choice2 fact1 response"
 								},
 							},
 							{
-								"fact": "tuesday",
-								"text": "choice2 but different2",
+								"fact": "fact2",
+								"text": "choice2 with fact2",
 								"response": {
 									"speaker": "N1",
-									"name": "Weird",
+									"name": "choice2 fact2 response",
 									"text": "e5"
 								}
 							}
@@ -66,21 +66,21 @@
 						"if": "factcheck",
 						"facts": [
 							{
-								"fact": "bus_app",
-								"text": "choice3 but different",
+								"fact": "fact1",
+								"text": "choice3 with fact1",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
-									"text": "e2"
+									"text": "choice3 fact1 response"
 								},
 							},
 							{
-								"fact": "alarm",
-								"text": "choice3 but different2",
+								"fact": "fact3",
+								"text": "choice3 with fact3",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
-									"text": "e3"
+									"text": "choice3 fact3 response"
 								}
 							}
 						]
@@ -92,7 +92,7 @@
 			{
 				"speaker": "N1",
 				"name": "Weird",
-				"text": "yo4"
+				"text": "set2 dialogue1"
 			},
 			{
 				"choices": [
@@ -101,7 +101,7 @@
 						"response": {
 							"speaker": "N1",
 							"name": "Weird",
-							"text": "e"
+							"text": "choice1 response"
 						}
 					},
 					{
@@ -109,21 +109,21 @@
 						"if": "factcheck",
 						"facts": [
 							{
-								"fact": "alarm",
-								"text": "choice2 but different",
+								"fact": "fact3",
+								"text": "choice2 fact3",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
-									"text": "e4"
+									"text": "choice2 fact3 response"
 								},
 							},
 							{
-								"fact": "mumble",
-								"text": "choice2 but different2",
+								"fact": "fact4",
+								"text": "choice2 fact4",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
-									"text": "e5"
+									"text": "choice2 fact4 response"
 								}
 							}
 						]

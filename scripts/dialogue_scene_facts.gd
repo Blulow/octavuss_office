@@ -37,7 +37,28 @@ func _filter_choices(options: Array) -> Array:
 
 
 func _on_choice_chosen(index: int) -> void:
-	super(index)
+	#super(index)
+	_choosing = false
+	if index < 0 or index >= _choices.size():
+		return
+	
+	var response: Dictionary = {}
+	
+	var choice: Dictionary = _choices[index]
+	if choice.has("facts"):
+		var facts: Array = _choices[index].facts
+		
+		for e in choice_box.updated:
+			if e.index != index:
+				continue
+			for fact in facts:
+				if e.fact_id != fact.fact:
+					continue
+				response = fact.response
+	else:
+		response = choice.response
+	
+	_show_message(response)
 	facts_box.show_facts(_facts, [])
 
 
