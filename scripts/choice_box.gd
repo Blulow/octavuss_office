@@ -70,16 +70,18 @@ func _add_button(option: Dictionary, index: int) -> void:
 		#_highlight_blue(button)
 	
 	for e in updated:
-		if e.index == index:
-			_highlight("blue", button)
-			
-			var facts: Array = option.get("facts")
-			for fact in facts:
-				if fact.fact == e.fact_id:
-					button.text = fact.text
+		if e.index != index: continue
+		
+		var facts: Array = option.get("facts")
+		for fact in facts:
+			if fact.fact == e.fact_id:
+				button.text = fact.text
+				_highlight("blue", button)
+				button.add_return_button()
 	
 	button.pressed.connect(_on_button_pressed.bind(index))
 	button.fact_dropped.connect(_on_button_fact_dropped.bind(index))
+	button.return_btn_pressed.connect(_on_button_return_pressed.bind(index))
 	
 	list.add_child(button)
 	_buttons.append(button)
@@ -124,5 +126,10 @@ func _on_button_pressed(index: int) -> void:
 	chosen.emit(index)
 
 func _on_button_fact_dropped(choices: Array, fact_id: String, index: int) -> void:
-	if choices.has(index):
-		updated.append({ "index": index, "fact_id": fact_id })
+	if not choices.has(index): return
+	
+	updated.append({ "index": index, "fact_id": fact_id })
+
+func _on_button_return_pressed(index: int):
+	updated = updated.filter(func(e): return e.index != index)
+	refresh_choices()

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://baqlk2xn7ohm5"]
+
+[ext_resource type="Script" uid="uid://db3vubq5fcob2" path="res://scripts/return_fact_button.gd" id="1_4mb02"]
+
+[sub_resource type="Gradient" id="Gradient_4mb02"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4mb02"]
+gradient = SubResource("Gradient_4mb02")
+width = 16
+height = 16
+
+[node name="ReturnFactButton" type="TextureButton" unique_id=738272854]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1136.0
+offset_bottom = -632.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("GradientTexture2D_4mb02")
+script = ExtResource("1_4mb02")
