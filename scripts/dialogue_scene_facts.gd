@@ -44,16 +44,17 @@ func _on_choice_chosen(index: int) -> void:
 	var response: Dictionary = {}
 	
 	var choice: Dictionary = _choices[index]
-	if choice.has("facts"):
-		var facts: Array = _choices[index].facts
-		
-		for e in choice_box.updated:
-			if e.index != index:
-				continue
-			for fact in facts:
-				if e.fact_id != fact.fact:
+	if choice_box.updated.any(func(e): return e.index == index):
+		if choice.has("facts"):
+			var facts: Array = _choices[index].facts
+			
+			for e in choice_box.updated:
+				if e.index != index:
 					continue
-				response = fact.response
+				for fact in facts:
+					if e.fact_id != fact.fact:
+						continue
+					response = fact.response
 	else:
 		response = choice.response
 	
