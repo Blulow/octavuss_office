@@ -71,11 +71,18 @@ func _find_fact_option(fact_id: String) -> Dictionary:
 func _usable_fact_ids() -> Array:
 	var ids: Array = []
 	for option in _current_options:
-		var fact_id := String(option.get("fact", ""))
-		if fact_id == "" or _unlocked.has(fact_id):
-			continue
-		var condition := String(option.get("if", ""))
-		if condition != "" and not bool(_vars.get(condition, false)):
-			continue
-		ids.append(fact_id)
+		var facts: Array = option.get("facts", [])
+		
+		for fact in facts:
+			var fact_id: String = fact.get("fact", "")
+			if fact_id == "" or _unlocked.has(fact_id):
+				continue
+			ids.append(fact_id)
+		
+		
+		#TODO: CONDITIONS
+		#var condition := String(option.get("if", ""))
+		#if condition != "" and not bool(_vars.get(condition, false)):
+			#continue
+	
 	return ids

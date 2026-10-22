@@ -35,9 +35,9 @@ func show_choices(options: Array, above_y: float) -> void:
 	_fit_and_place(above_y)
 
 
-func add_choice(option: Dictionary) -> void:
-	_add_button(option, _buttons.size())
-	_fit_and_place(_anchor_y)
+#func add_choice(option: Dictionary) -> void:
+	#_add_button(option, _buttons.size())
+	#_fit_and_place(_anchor_y)
 
 
 func set_drop_active(active: bool) -> void:
@@ -47,13 +47,14 @@ func set_drop_active(active: bool) -> void:
 
 
 func _add_button(option: Dictionary, index: int) -> void:
-	var button := Button.new()
+	var button := ChoiceButton.new()
 	button.text = String(option.get("text", "Option %d" % (index + 1)))
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	button.mouse_filter = Control.MOUSE_FILTER_IGNORE if _drop_active else Control.MOUSE_FILTER_STOP
 	if String(option.get("highlight", "")) == "blue":
 		_highlight_blue(button)
 	button.pressed.connect(_on_button_pressed.bind(index))
+	button.fact_dropped.connect(_on_button_fact_dropped)
 	list.add_child(button)
 	_buttons.append(button)
 
@@ -86,16 +87,9 @@ func _highlight_blue(button: Button) -> void:
 		box.content_margin_bottom = 5.0
 		button.add_theme_stylebox_override(state, box)
 
-
-func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	return visible and data is Dictionary and data.has("fact_id")
-
-
-func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	if _can_drop_data(_at_position, data):
-		fact_dropped.emit(String(data["fact_id"]))
-
-
 func _on_button_pressed(index: int) -> void:
 	hide()
 	chosen.emit(index)
+
+func _on_button_fact_dropped(fact_id: String) -> void:
+	pass

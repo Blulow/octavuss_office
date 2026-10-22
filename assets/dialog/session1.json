@@ -13,58 +13,6 @@
 	"sets": [
 		[
 			{
-			  "speaker": "N1",
-			  "name": "Sora",
-			  "text": "Late again, {player_name}?{w0.5} [i]Always[/i] the same with you.",
-			  "punct": 0.1
-			},
-			{
-			  "speaker": "N2",
-			  "name": "Jin",
-			  "text": "[b]I can explain![/b]{w0.6} There was the bus, and then...{w0.6} [color=#ff7f50]the bus again[/color]?",
-			  "punct": 0.08
-			},
-			{
-			  "speaker": "N1",
-			  "name": "Sora",
-			  "text": "You always say that.{w0.4} Last week it was the bus, the week before that your alarm clock, and the week before that you forgot we were meeting at all. So tell me — what is it this time?",
-			  "punct": true
-			},
-			{
-				"choices": [
-					{
-						"text": "Okay, fine... I overslept again.",
-						"response": {
-							"speaker": "N1",
-							"name": "Sora",
-							"text": "[i]Knew it.[/i] At least you're honest today."
-						}
-					},
-					{
-						"text": "It really was the bus this time!",
-						"response": {
-							"speaker": "N1",
-							"name": "Sora",
-							"text": "Mm-hm. That's what you said last week, too.",
-							"speed": 1.4
-						}
-					},
-					{
-						"text": "Fact check: my bus app says 7:42.",
-						"if": "factcheck",
-						"fact": "bus_app",
-						"highlight": "blue",
-						"response": {
-							"speaker": "N1",
-							"name": "Sora",
-							"text": "[fade start=1 length=6]You screenshotted the bus app.[/fade] Of course you did."
-						}
-					}
-				]
-			}
-		],
-		[
-			{
 				"speaker": "N1",
 				"name": "Weird",
 				"text": "yo"
@@ -82,7 +30,7 @@
 			{
 				"choices": [
 					{
-						"text": "fact1",
+						"text": "choice1",
 						"response": {
 							"speaker": "N1",
 							"name": "Weird",
@@ -90,15 +38,89 @@
 						}
 					},
 					{
-						"text": "fact1",
+						"text": "choice2",
 						"if": "factcheck",
-						"fact": "alarm",
-						"highlight": "blue",
+						"facts": [
+							{
+								"fact": "bus_app",
+								"response": {
+									"speaker": "N1",
+									"name": "Weird",
+									"text": "e4"
+								},
+							},
+							{
+								"fact": "tuesday",
+								"response": {
+									"speaker": "N1",
+									"name": "Weird",
+									"text": "e5"
+								}
+							}
+						]
+					},
+					{
+						"text": "choice3",
+						"if": "factcheck",
+						"facts": [
+							{
+								"fact": "bus_app",
+								"response": {
+									"speaker": "N1",
+									"name": "Weird",
+									"text": "e2"
+								},
+							},
+							{
+								"fact": "alarm",
+								"response": {
+									"speaker": "N1",
+									"name": "Weird",
+									"text": "e3"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		[
+			{
+				"speaker": "N1",
+				"name": "Weird",
+				"text": "yo4"
+			},
+			{
+				"choices": [
+					{
+						"text": "choice1",
 						"response": {
 							"speaker": "N1",
 							"name": "Weird",
-							"text": "e2"
+							"text": "e"
 						}
+					},
+					{
+						"text": "choice2",
+						"if": "factcheck",
+						"facts": [
+							{
+								"fact": "alarm",
+								"response": {
+									"speaker": "N1",
+									"name": "Weird",
+									"text": "e4"
+								},
+							},
+							{
+								"fact": "mumble",
+								"response": {
+									"speaker": "N1",
+									"name": "Weird",
+									"text": "e5"
+								}
+							}
+						]
 					}
 				]
 			}

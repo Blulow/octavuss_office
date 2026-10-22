@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfemtu0onov7" path="res://scripts/dialogue_scene_facts.gd" id="1_scene"]
 [ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="2_box"]
-[ext_resource type="PackedScene" path="res://scenes/choice_box.tscn" id="3_choice"]
+[ext_resource type="PackedScene" uid="uid://caiarpyc05rrx" path="res://scenes/choice_box.tscn" id="3_choice"]
 [ext_resource type="Script" uid="uid://bxp8arg6wt7on" path="res://scripts/facts_box.gd" id="4_facts"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_facts"]
