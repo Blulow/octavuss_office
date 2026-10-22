@@ -1,3 +1,41 @@
 [gd_scene format=3 uid="uid://db0cmrkkmfc16"]
 
+[ext_resource type="Script" uid="uid://cgwu70wtbliy8" path="res://scripts/UI/choice_ui.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://bg8drs1qutpj4" path="res://scenes/choice_ui.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://bdk0rss6jqxih" path="res://scripts/UI/facts_ui_builder.gd" id="3_lnu2h"]
+
 [node name="Game" type="Node3D" unique_id=679770426]
+
+[node name="ChoiceCanvas" type="CanvasLayer" parent="." unique_id=721952530]
+process_mode = 3
+visible = false
+
+[node name="ChoiceUi" parent="ChoiceCanvas" unique_id=539166642 instance=ExtResource("2_yqjtg")]
+
+[node name="FactsCanvas" type="CanvasLayer" parent="." unique_id=1861971381 node_paths=PackedStringArray("facts_list")]
+process_mode = 3
+visible = false
+script = ExtResource("3_lnu2h")
+facts_list = NodePath("PanelContainer/FactsPanel/FactsList")
+
+[node name="PanelContainer" type="PanelContainer" parent="FactsCanvas" unique_id=1333142142]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FactsPanel" type="ScrollContainer" parent="FactsCanvas/PanelContainer" unique_id=109208423]
+layout_mode = 2
+
+[node name="FactsList" type="VBoxContainer" parent="FactsCanvas/PanelContainer/FactsPanel" unique_id=501421150]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChoiceUIManager" type="Node" parent="." unique_id=315396107 node_paths=PackedStringArray("canvas_instance", "facts_canvas", "facts_button")]
+script = ExtResource("1_uwrxv")
+canvas_instance = NodePath("../ChoiceCanvas")
+facts_canvas = NodePath("../FactsCanvas")
+facts_button = NodePath("../ChoiceCanvas/ChoiceUi/CenterContainer/VBoxContainer/FactCheck")
+
+[editable path="ChoiceCanvas/ChoiceUi"]

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="checkpointjam"
-run/main_scene="uid://db0cmrkkmfc16"
+run/main_scene="uid://c7k63givb3sj2"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerData="*uid://bqkr43w0nxwlj"
 
 [display]
 

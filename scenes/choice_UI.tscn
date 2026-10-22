@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bg8drs1qutpj4"]
+
+[ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/UI/button_switch_scene.gd" id="1_frfir"]
+[ext_resource type="PackedScene" uid="uid://c7k63givb3sj2" path="res://scenes/shop.tscn" id="2_g3tj1"]
+
+[node name="ChoiceUi" type="Control" unique_id=539166642]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=531631355]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1236340906]
+layout_mode = 2
+
+[node name="FactCheck" type="Button" parent="CenterContainer/VBoxContainer" unique_id=196115665]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+text = "Fact Check"
+
+[node name="BuySomething" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1705236234]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+action_mode = 0
+text = "Buy Something"
+script = ExtResource("1_frfir")
+next_scene = ExtResource("2_g3tj1")
