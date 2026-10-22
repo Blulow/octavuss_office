@@ -43,6 +43,7 @@
 						"facts": [
 							{
 								"fact": "bus_app",
+								"text": "choice2 but different",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
@@ -51,6 +52,7 @@
 							},
 							{
 								"fact": "tuesday",
+								"text": "choice2 but different2",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
@@ -65,6 +67,7 @@
 						"facts": [
 							{
 								"fact": "bus_app",
+								"text": "choice3 but different",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
@@ -73,6 +76,7 @@
 							},
 							{
 								"fact": "alarm",
+								"text": "choice3 but different2",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
@@ -106,6 +110,7 @@
 						"facts": [
 							{
 								"fact": "alarm",
+								"text": "choice2 but different",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
@@ -114,6 +119,7 @@
 							},
 							{
 								"fact": "mumble",
+								"text": "choice2 but different2",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",

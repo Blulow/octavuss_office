@@ -9,7 +9,7 @@ var _current_options: Array = []
 
 func _ready() -> void:
 	super()
-	choice_box.fact_dropped.connect(_on_fact_dropped)
+	#choice_box.fact_dropped.connect(_on_fact_dropped)
 	facts_box.drag_started.connect(_on_fact_drag_started)
 	facts_box.drag_ended.connect(_on_fact_drag_ended)
 	if not _choosing:
@@ -42,23 +42,25 @@ func _on_choice_chosen(index: int) -> void:
 
 
 func _on_fact_drag_started() -> void:
-	choice_box.set_drop_active(true)
+	#choice_box.set_drop_active(true)
+	pass
 
 
 func _on_fact_drag_ended() -> void:
-	choice_box.set_drop_active(false)
+	#choice_box.set_drop_active(false)
+	pass
 
 
-func _on_fact_dropped(fact_id: String) -> void:
-	if not _choosing or _unlocked.has(fact_id):
-		return
-	var option := _find_fact_option(fact_id)
-	if option.is_empty():
-		return
-	_unlocked[fact_id] = true
-	_choices.append(option)
-	choice_box.add_choice(option)
-	facts_box.show_facts(_facts, _usable_fact_ids())
+#func _on_fact_dropped(fact_id: String) -> void:
+	#if not _choosing or _unlocked.has(fact_id):
+		#return
+	#var option := _find_fact_option(fact_id)
+	#if option.is_empty():
+		#return
+	#_unlocked[fact_id] = true
+	#_choices.append(option)
+	#choice_box.add_choice(option)
+	#facts_box.show_facts(_facts, _usable_fact_ids())
 
 
 func _find_fact_option(fact_id: String) -> Dictionary:

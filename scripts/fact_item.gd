@@ -79,6 +79,6 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	
 	for i in buttons.size():
 		if choices.has(i):
-			choice_box._highlight_blue(buttons[i])
+			choice_box._highlight("red", buttons[i])
 	
-	return {"choices": choices}
+	return {"choices": choices, "fact_id": fact_id}
