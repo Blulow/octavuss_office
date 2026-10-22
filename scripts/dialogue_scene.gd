@@ -2,15 +2,16 @@ extends CanvasLayer
 
 signal finished
 
-const DIALOG_PATH := "res://assets/dialog/dialog_en.json"
+const DIALOG_PATH := "res://assets/dialog/session1.json"
 
 @onready var box: DialogueBox = $DialogueBox
 @onready var choice_box: ChoiceBox = $ChoiceBox
 
 var _data: Dictionary = {}
-var _lines: Array = []
+var _sets: Array = []
 var _vars: Dictionary = {}
 var _index := -1
+var _set_index := 0
 var _finished := false
 var _choosing := false
 var _choices: Array = []
@@ -31,7 +32,7 @@ func _load_dialog() -> void:
 		push_error("dialogue_scene: dialogue JSON is not an object: " + DIALOG_PATH)
 		return
 	_data = data
-	_lines = data.get("lines", [])
+	_sets = data.get("sets", [])
 	_vars = data.get("vars", {})
 
 
@@ -46,13 +47,20 @@ func _advance() -> void:
 	if box.is_typing:
 		box.skip()
 		return
+	
+	var _set: Array = _sets[_set_index]
 	_index += 1
-	if _index >= _lines.size():
-		_finished = true
-		box.hide()
-		finished.emit()
-		return
-	var entry: Dictionary = _lines[_index]
+	if _index >= _set.size():
+		_set_index += 1
+		if _set_index >= _sets.size():
+			_finished = true
+			box.hide()
+			finished.emit()
+			return
+		else:
+			_index = 0
+	
+	var entry: Dictionary = _sets[_set_index][_index]
 	if entry.has("choices"):
 		box.hide()
 		_show_choices(entry["choices"])

@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene format=3 uid="uid://bq03og81goeda"]
 
-[ext_resource type="Script" path="res://scripts/dialogue_scene_facts.gd" id="1_scene"]
+[ext_resource type="Script" uid="uid://bfemtu0onov7" path="res://scripts/dialogue_scene_facts.gd" id="1_scene"]
 [ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="2_box"]
 [ext_resource type="PackedScene" path="res://scenes/choice_box.tscn" id="3_choice"]
-[ext_resource type="Script" path="res://scripts/facts_box.gd" id="4_facts"]
+[ext_resource type="Script" uid="uid://bxp8arg6wt7on" path="res://scripts/facts_box.gd" id="4_facts"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_facts"]
 content_margin_left = 12.0
@@ -21,17 +21,17 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="DialogueSceneFacts" type="CanvasLayer"]
+[node name="DialogueSceneFacts" type="CanvasLayer" unique_id=1331931773]
 layer = 10
 script = ExtResource("1_scene")
 
-[node name="DialogueBox" parent="." instance=ExtResource("2_box")]
+[node name="DialogueBox" parent="." unique_id=1938035501 instance=ExtResource("2_box")]
 
-[node name="ChoiceBox" parent="." instance=ExtResource("3_choice")]
+[node name="ChoiceBox" parent="." unique_id=1136377435 instance=ExtResource("3_choice")]
 width = 620.0
 center_offset_x = 210.0
 
-[node name="FactsBox" type="PanelContainer" parent="."]
+[node name="FactsBox" type="PanelContainer" parent="." unique_id=816443708]
 offset_left = 24.0
 offset_top = 150.0
 offset_right = 344.0
@@ -39,13 +39,16 @@ offset_bottom = 520.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_facts")
 script = ExtResource("4_facts")
 
-[node name="VBox" type="VBoxContainer" parent="FactsBox"]
+[node name="VBox" type="VBoxContainer" parent="FactsBox" unique_id=491491694]
+layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Title" type="Label" parent="FactsBox/VBox"]
+[node name="Title" type="Label" parent="FactsBox/VBox" unique_id=494439443]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
 theme_override_font_sizes/font_size = 15
 text = "FACTS"
 
-[node name="List" type="VBoxContainer" parent="FactsBox/VBox"]
+[node name="List" type="VBoxContainer" parent="FactsBox/VBox" unique_id=726815804]
+layout_mode = 2
 theme_override_constants/separation = 8
