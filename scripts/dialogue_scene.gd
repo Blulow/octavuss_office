@@ -54,6 +54,7 @@ func _advance() -> void:
 		return
 	var entry: Dictionary = _lines[_index]
 	if entry.has("choices"):
+		box.hide()
 		_show_choices(entry["choices"])
 	else:
 		_show_message(entry)
