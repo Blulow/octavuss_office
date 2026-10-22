@@ -30,57 +30,91 @@
 			{
 				"choices": [
 					{
-						"text": "choice1",
+						"text": "choice1 calm+2 sp-2",
 						"response": {
 							"speaker": "N1",
 							"name": "Weird",
-							"text": "choice1 response"
+							"text": "choice1 response",
+							"effects": {
+								"calm": "+2",
+								"sp": "-2"
+							}
 						}
 					},
 					{
-						"text": "choice2",
+						"text": "choice2 sp-1",
+						"response": {
+							"speaker": "N1",
+							"name": "Weird",
+							"text": "choice2 response",
+							"effects": {
+								"sp": "-1"
+							}
+						},
 						"if": "factcheck",
 						"facts": [
 							{
 								"fact": "fact1",
-								"text": "choice2 with fact1",
+								"text": "choice2 with fact1 calm-1",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
-									"text": "choice2 fact1 response"
+									"text": "choice2 fact1 response",
+									"effects": {
+										"calm": "-1"
+									}
 								},
 							},
 							{
 								"fact": "fact2",
-								"text": "choice2 with fact2",
+								"text": "choice2 with fact2 calm+2",
 								"response": {
 									"speaker": "N1",
-									"name": "choice2 fact2 response",
-									"text": "e5"
+									"name": "Weird",
+									"text": "choice2 fact2 response",
+									"effects": {
+										"calm": "+2"
+									}
 								}
 							}
 						]
 					},
 					{
-						"text": "choice3",
+						"text": "choice3 fact+1 sp+1",
+						"response": {
+							"speaker": "N1",
+							"name": "Weird",
+							"text": "choice3 response",
+							"effects": {
+								"fact": "+1",
+								"sp": "+1"
+							}
+						},
 						"if": "factcheck",
 						"facts": [
 							{
 								"fact": "fact1",
-								"text": "choice3 with fact1",
+								"text": "choice3 with fact1 fact+2",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
-									"text": "choice3 fact1 response"
+									"text": "choice3 fact1 response",
+									"effects": {
+										"fact": "+2"
+									}
 								},
 							},
 							{
 								"fact": "fact3",
-								"text": "choice3 with fact3",
+								"text": "choice3 with fact3 fact-1 sp+1",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
-									"text": "choice3 fact3 response"
+									"text": "choice3 fact3 response",
+									"effects": {
+										"fact": "-1",
+										"sp": "+1"
+									}
 								}
 							}
 						]
@@ -97,33 +131,54 @@
 			{
 				"choices": [
 					{
-						"text": "choice1",
+						"text": "choice1 fact-1",
 						"response": {
 							"speaker": "N1",
 							"name": "Weird",
-							"text": "choice1 response"
+							"text": "choice1 response",
+							"effects": {
+								"fact": "-1"
+							}
 						}
 					},
 					{
-						"text": "choice2",
+						"text": "choice2 calm-2 fact+1 sp+1",
+						"response": {
+							"speaker": "N1",
+							"name": "Weird",
+							"text": "choice2 response",
+							"effects": {
+								"calm": "-2",
+								"fact": "+1",
+								"sp": "+1"
+							}
+						},
 						"if": "factcheck",
 						"facts": [
 							{
 								"fact": "fact3",
-								"text": "choice2 fact3",
+								"text": "choice2 fact3 sp-1",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
-									"text": "choice2 fact3 response"
+									"text": "choice2 fact3 response",
+									"effects": {
+										"sp": "-1"
+									}
 								},
 							},
 							{
 								"fact": "fact4",
-								"text": "choice2 fact4",
+								"text": "choice2 fact4 calm+1 fact-1 sp-2",
 								"response": {
 									"speaker": "N1",
 									"name": "Weird",
-									"text": "choice2 fact4 response"
+									"text": "choice2 fact4 response",
+									"effects": {
+										"calm": "+1",
+										"fact": "-1",
+										"sp": "-2"
+									}
 								}
 							}
 						]

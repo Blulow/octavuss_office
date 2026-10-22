@@ -6,7 +6,6 @@ var _facts: Array = []
 var _unlocked: Dictionary = {}
 var _current_options: Array = []
 
-
 func _ready() -> void:
 	super()
 	#choice_box.fact_dropped.connect(_on_fact_dropped)

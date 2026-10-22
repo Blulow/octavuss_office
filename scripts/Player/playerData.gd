@@ -1,6 +1,5 @@
 # player_data.gd
 extends Node
-class_name Stats
 
 signal money_changed(new_amount: int)
 signal fact_added(new_fact: fact)

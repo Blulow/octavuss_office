@@ -93,3 +93,12 @@ func _on_choice_chosen(index: int) -> void:
 
 func _show_message(msg: Dictionary) -> void:
 	box.show_line(msg, _vars)
+	
+	if not msg.has("effects"): return
+	
+	var effects: Dictionary = msg.get("effects")
+	PlayerData.stats.calm += effects.get("calm", "0").to_int()
+	PlayerData.stats.fact += effects.get("fact", "0").to_int()
+	PlayerData.stats.sp += effects.get("sp", "0").to_int()
+	
+	$StatsLabel.text = "CALM: %d | FACT: %d | SP: %d" % [PlayerData.stats.calm, PlayerData.stats.fact, PlayerData.stats.sp]
