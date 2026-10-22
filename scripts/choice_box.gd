@@ -15,7 +15,7 @@ const HIGHLIGHT_BLUE := Color(0.45, 0.7, 1.0)
 var _buttons: Array[Button] = []
 var _anchor_y := 0.0
 var _drop_active := false
-
+var _options: Array
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -26,14 +26,27 @@ func _ready() -> void:
 
 func show_choices(options: Array, above_y: float) -> void:
 	_anchor_y = above_y
+	
 	for button in _buttons:
 		button.queue_free()
 	_buttons.clear()
+	
+	_options = options
 	for i in options.size():
 		_add_button(options[i], i)
 	show()
 	_fit_and_place(above_y)
 
+func refresh_choices() -> void:
+	
+	for button in _buttons:
+		button.queue_free()
+	_buttons.clear()
+	
+	for i in _options.size():
+		_add_button(_options[i], i)
+	show()
+	_fit_and_place(_anchor_y)
 
 #func add_choice(option: Dictionary) -> void:
 	#_add_button(option, _buttons.size())
@@ -91,5 +104,5 @@ func _on_button_pressed(index: int) -> void:
 	hide()
 	chosen.emit(index)
 
-func _on_button_fact_dropped(fact_id: String) -> void:
+func _on_button_fact_dropped(choices: Array) -> void:
 	pass

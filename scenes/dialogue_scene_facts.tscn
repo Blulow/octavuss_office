@@ -31,13 +31,14 @@ script = ExtResource("1_scene")
 width = 620.0
 center_offset_x = 210.0
 
-[node name="FactsBox" type="PanelContainer" parent="." unique_id=816443708]
+[node name="FactsBox" type="PanelContainer" parent="." unique_id=816443708 node_paths=PackedStringArray("choice_box")]
 offset_left = 24.0
 offset_top = 150.0
 offset_right = 344.0
 offset_bottom = 520.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_facts")
 script = ExtResource("4_facts")
+choice_box = NodePath("../ChoiceBox")
 
 [node name="VBox" type="VBoxContainer" parent="FactsBox" unique_id=491491694]
 layout_mode = 2
