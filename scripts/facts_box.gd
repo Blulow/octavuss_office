@@ -8,7 +8,7 @@ signal drag_ended
 const FactItemScript := preload("res://scripts/fact_item.gd")
 
 @export var choice_box: ChoiceBox
-@onready var list: VBoxContainer = $VBox/List
+@export var list: VBoxContainer
 
 var _dragging := false
 

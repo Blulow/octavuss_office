@@ -1,11 +1,14 @@
 extends CanvasLayer
+class_name DialogueScene
 
 signal finished
 
-const DIALOG_PATH := "res://assets/dialog/session1.json"
+#const DIALOG_PATH := "res://assets/dialog/session1.json"
 
-@onready var box: DialogueBox = $DialogueBox
-@onready var choice_box: ChoiceBox = $ChoiceBox
+#@onready var box: DialogueBox = $DialogueBox
+#@onready var choice_box: ChoiceBox = $ChoiceBox
+@export var box: DialogueBox
+@export var choice_box: ChoiceBox
 
 var _data: Dictionary = {}
 var _sets: Array = []
@@ -16,20 +19,19 @@ var _finished := false
 var _choosing := false
 var _choices: Array = []
 
-
-func _ready() -> void:
-	_load_dialog()
+func start_session(path: String):
+	_load_dialog(path)
 	choice_box.chosen.connect(_on_choice_chosen)
 	_advance()
 
 
-func _load_dialog() -> void:
-	if not FileAccess.file_exists(DIALOG_PATH):
-		push_error("dialogue_scene: missing dialogue file: " + DIALOG_PATH)
+func _load_dialog(path: String) -> void:
+	if not FileAccess.file_exists(path):
+		push_error("dialogue_scene: missing dialogue file: " + path)
 		return
-	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(DIALOG_PATH))
+	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
 	if typeof(data) != TYPE_DICTIONARY:
-		push_error("dialogue_scene: dialogue JSON is not an object: " + DIALOG_PATH)
+		push_error("dialogue_scene: dialogue JSON is not an object: " + path)
 		return
 	_data = data
 	_sets = data.get("sets", [])

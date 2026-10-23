@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bq03og81goeda"]
 
 [ext_resource type="Script" uid="uid://bfemtu0onov7" path="res://scripts/dialogue_scene_facts.gd" id="1_scene"]
-[ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="2_box"]
+[ext_resource type="PackedScene" uid="uid://cb5ue2xennvxk" path="res://scenes/dialogue_box.tscn" id="2_box"]
 [ext_resource type="PackedScene" uid="uid://caiarpyc05rrx" path="res://scenes/choice_box.tscn" id="3_choice"]
 [ext_resource type="Script" uid="uid://bxp8arg6wt7on" path="res://scripts/facts_box.gd" id="4_facts"]
 
@@ -21,17 +21,21 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="DialogueSceneFacts" type="CanvasLayer" unique_id=1331931773]
+[node name="DialogueSceneFacts" type="CanvasLayer" unique_id=1331931773 node_paths=PackedStringArray("facts_box", "box", "choice_box")]
 layer = 10
 script = ExtResource("1_scene")
+facts_box = NodePath("FactsBox")
+box = NodePath("DialogueBox")
+choice_box = NodePath("ChoiceBox")
 
 [node name="DialogueBox" parent="." unique_id=1938035501 instance=ExtResource("2_box")]
 
-[node name="ChoiceBox" parent="." unique_id=1136377435 instance=ExtResource("3_choice")]
+[node name="ChoiceBox" parent="." unique_id=1136377435 node_paths=PackedStringArray("facts_box") instance=ExtResource("3_choice")]
 width = 620.0
 center_offset_x = 210.0
+facts_box = NodePath("../FactsBox")
 
-[node name="FactsBox" type="PanelContainer" parent="." unique_id=816443708 node_paths=PackedStringArray("choice_box")]
+[node name="FactsBox" type="PanelContainer" parent="." unique_id=816443708 node_paths=PackedStringArray("choice_box", "list")]
 offset_left = 24.0
 offset_top = 150.0
 offset_right = 344.0
@@ -39,6 +43,7 @@ offset_bottom = 520.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_facts")
 script = ExtResource("4_facts")
 choice_box = NodePath("../ChoiceBox")
+list = NodePath("VBox/List")
 
 [node name="VBox" type="VBoxContainer" parent="FactsBox" unique_id=491491694]
 layout_mode = 2

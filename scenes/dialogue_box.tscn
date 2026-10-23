@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://cb5ue2xennvxk"]
 
-[ext_resource type="Script" path="res://scripts/dialogue_box.gd" id="1_box"]
+[ext_resource type="Script" uid="uid://b5fsm7c3w2h8t" path="res://scripts/dialogue_box.gd" id="1_box"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_box"]
 content_margin_left = 16.0
@@ -15,25 +15,27 @@ border_width_bottom = 2
 border_color = Color(1, 1, 1, 0.85)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
 
-[node name="DialogueBox" type="PanelContainer"]
+[node name="DialogueBox" type="PanelContainer" unique_id=1127138211 node_paths=PackedStringArray("speaker_label", "text_label")]
 process_mode = 3
 visible = false
 theme_override_styles/panel = SubResource("StyleBoxFlat_box")
 script = ExtResource("1_box")
+speaker_label = NodePath("VBox/SpeakerLabel")
+text_label = NodePath("VBox/TextLabel")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=590805042]
+layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="SpeakerLabel" type="Label" parent="VBox"]
+[node name="SpeakerLabel" type="Label" parent="VBox" unique_id=397560952]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.88, 0.45, 1)
 theme_override_font_sizes/font_size = 26
 
-[node name="TextLabel" type="RichTextLabel" parent="VBox"]
+[node name="TextLabel" type="RichTextLabel" parent="VBox" unique_id=1125660645]
+layout_mode = 2
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
-autowrap_mode = 3

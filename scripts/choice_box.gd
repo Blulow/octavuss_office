@@ -11,6 +11,8 @@ const HIGHLIGHT_RED := Color(1.0, 0.4, 0.5)
 @export var width := 900.0
 @export var center_offset_x := 0.0
 
+@export var facts_box: Control
+
 @onready var list: VBoxContainer = $VBox
 
 var _buttons: Array[Button] = []
@@ -25,6 +27,7 @@ func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	list.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hide()
+	if facts_box: facts_box.hide()
 
 
 func show_choices(options: Array, above_y: float) -> void:
@@ -38,6 +41,7 @@ func show_choices(options: Array, above_y: float) -> void:
 	for i in options.size():
 		_add_button(options[i], i)
 	show()
+	if facts_box: facts_box.show()
 	_fit_and_place(above_y)
 
 func refresh_choices() -> void:
@@ -123,6 +127,7 @@ func _highlight(color: String, button: Button) -> void:
 
 func _on_button_pressed(index: int) -> void:
 	hide()
+	if facts_box: facts_box.hide()
 	chosen.emit(index)
 
 func _on_button_fact_dropped(choices: Array, fact_id: String, index: int) -> void:

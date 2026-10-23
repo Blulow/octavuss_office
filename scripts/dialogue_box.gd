@@ -11,8 +11,8 @@ const SLIDE_PX := 14.0
 const PopFxScript := preload("res://scripts/fx/pop_effect.gd")
 const GlitchFxScript := preload("res://scripts/fx/glitch_effect.gd")
 
-@onready var speaker_label: Label = $VBox/SpeakerLabel
-@onready var text_label: RichTextLabel = $VBox/TextLabel
+@export var speaker_label: Label
+@export var text_label: RichTextLabel
 
 var is_typing: bool = false
 
@@ -45,7 +45,6 @@ func _ready() -> void:
 	_pop_fx.shared = _fx_state
 	text_label.install_effect(_pop_fx)
 	text_label.install_effect(_glitch_fx)
-	hide()
 
 
 func show_line(line: Dictionary, vars: Dictionary = {}) -> void:

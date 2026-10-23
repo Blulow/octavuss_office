@@ -1,13 +1,14 @@
-extends "res://scripts/dialogue_scene.gd"
+extends DialogueScene
 
-@onready var facts_box: FactsBox = $FactsBox
+#@onready var facts_box: FactsBox = $FactsBox
+@export var facts_box: FactsBox
 
 var _facts: Array = []
 var _unlocked: Dictionary = {}
 var _current_options: Array = []
 
-func _ready() -> void:
-	super()
+func start_session(path: String) -> void:
+	super.start_session(path)
 	#choice_box.fact_dropped.connect(_on_fact_dropped)
 	facts_box.drag_started.connect(_on_fact_drag_started)
 	facts_box.drag_ended.connect(_on_fact_drag_ended)
@@ -15,8 +16,8 @@ func _ready() -> void:
 		facts_box.show_facts(_facts, [])
 
 
-func _load_dialog() -> void:
-	super._load_dialog()
+func _load_dialog(path: String) -> void:
+	super._load_dialog(path)
 	_facts = PlayerData.facts_collected
 	#_facts = _data.get("facts", [])
 
