@@ -14,13 +14,16 @@ var choices: Array = []
 var _label: Label
 
 
-func setup(fact: Dictionary, usable_ids: Array) -> void:
+func setup(fact: Fact, usable_ids: Array) -> void:
 	var usables: Array = []
 	for id in usable_ids:
 		usables.append_array(id)
 	
-	var usable: bool = usables.has(String(fact.get("id", "")))
-	fact_id = String(fact.get("id", ""))
+	fact_id = fact.id
+	var usable: bool = usables.has(fact_id)
+	
+	#var usable: bool = usables.has(String(fact.get("id", "")))
+	#fact_id = String(fact.get("id", ""))
 	
 	choices = get_choices_from_facts(fact_id, usable_ids)
 	
@@ -31,7 +34,8 @@ func setup(fact: Dictionary, usable_ids: Array) -> void:
 		_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_label.add_theme_font_size_override("font_size", 17)
 		add_child(_label)
-	_label.text = String(fact.get("text", ""))
+	#_label.text = String(fact.get("text", ""))
+	_label.text = fact.fact_description
 	_label.add_theme_color_override("font_color", Color.WHITE if usable else DIM_COLOR)
 	add_theme_stylebox_override("panel", _make_panel(usable))
 

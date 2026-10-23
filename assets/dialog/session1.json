@@ -1,15 +1,7 @@
 {
 	"vars": {
-		"player_name": "Jin",
-		"heroine": "Sora",
 		"factcheck": true
 	},
-	"facts": [
-		{ "id": "fact1", "text": "fact1" },
-		{ "id": "fact2", "text": "fact2" },
-		{ "id": "fact3", "text": "fact3" },
-		{ "id": "fact4", "text": "fact4" }
-	],
 	"sets": [
 		[
 			{

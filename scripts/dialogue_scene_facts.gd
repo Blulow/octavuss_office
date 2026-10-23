@@ -17,7 +17,8 @@ func _ready() -> void:
 
 func _load_dialog() -> void:
 	super._load_dialog()
-	_facts = _data.get("facts", [])
+	_facts = PlayerData.facts_collected
+	#_facts = _data.get("facts", [])
 
 
 func _show_choices(options: Array) -> void:
