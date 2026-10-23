@@ -25,8 +25,9 @@ func load_next_session(first = false) -> void:
 func _on_dialogue_finished() -> void:
 	index += 1
 	
-	if index >= sessions_files.size(): 
-		printerr("out of bounds")
+	if index >= sessions_files.size():
+		PlayerData.get_ending()
+		
 		return
 	
 	accept_choices = true
@@ -39,4 +40,3 @@ func _process(delta: float) -> void:
 		if not accept_choices: return
 		choice_ui_manager.show_ui()
 		accept_choices = false
-	

@@ -60,6 +60,14 @@ func update_character_expression() -> void:
 	else:
 		print("kalm")
 
+func get_ending() -> void:
+	if stats.calm.value < 2:
+		print("bad ending")
+	elif stats.calm.value < 4:
+		print("mid ending")
+	else:
+		print("good ending")
+
 func reset() -> void:
 	money = 500
 	
