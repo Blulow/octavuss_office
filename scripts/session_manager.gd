@@ -15,23 +15,24 @@ func _ready():
 	await get_tree().create_timer(1.0).timeout
 	load_next_session(true)
 
-func load_session(session_file: JSON) -> void:
-	dialogue_scene.start_session(session_file.resource_path)
-
 func load_next_session(first = false) -> void:
-	if !first: index += 1
+	if index >= sessions_files.size(): 
+		printerr("out of bounds")
+		return
+	
+	dialogue_scene.start_session(sessions_files[index].resource_path)
+
+func _on_dialogue_finished() -> void:
+	index += 1
 	
 	if index >= sessions_files.size(): 
 		printerr("out of bounds")
 		return
-	load_session(sessions_files[index])
-
-func _on_dialogue_finished() -> void:
+	
 	accept_choices = true
 	
 	await choice_ui_manager.hidden
 	load_next_session()
-	
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
