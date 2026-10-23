@@ -28,7 +28,6 @@ func start_session(path: String):
 	_load_dialog(path)
 	_advance()
 
-
 func _load_dialog(path: String) -> void:
 	if not FileAccess.file_exists(path):
 		push_error("dialogue_scene: missing dialogue file: " + path)
@@ -40,7 +39,9 @@ func _load_dialog(path: String) -> void:
 	_data = data
 	_sets = data.get("sets", [])
 	_vars = data.get("vars", {})
-
+	
+	PlayerData.pending_fact.id = data.get("pending_fact").id
+	PlayerData.pending_fact.fact_description = data.get("pending_fact").text
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("interact"):

@@ -3,6 +3,10 @@
 		"something": 1,
 		"factcheck": true
 	},
+	"pending_fact": {
+		"id": "fact2",
+		"text": "fact2 text"
+	},
 	"sets": [
 		[
 			{

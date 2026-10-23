@@ -25,14 +25,7 @@ var stats: Dictionary[String, StatData] = {
 	"sp": StatData.new(6, 1),
 }
 
-func _ready() -> void:
-	_seed_facts()
-
-func _seed_facts() -> void:
-	add_fact("fact1", "fact1 text")
-	add_fact("fact2", "fact2 text")
-	add_fact("fact3", "fact3 text")
-	add_fact("fact4", "fact4 text")
+var pending_fact: Fact = Fact.new()
 
 func can_afford(cost: int) -> bool:
 	return money >= cost
@@ -46,6 +39,9 @@ func spend(cost: int) -> void:
 #
 #func boost_information(amount: float) -> void:
 	#informationMultiplier *= amount
+
+func add_pending_fact() -> void:
+	add_fact(pending_fact.id, pending_fact.fact_description)
 
 func add_fact(id: String, description: String) -> void:
 	# Avoid duplicates if the player can re-trigger the same discovery

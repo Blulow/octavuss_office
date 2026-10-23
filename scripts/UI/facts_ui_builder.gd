@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var facts_list: VBoxContainer
 
 func open() -> void:
+	PlayerData.add_pending_fact()
 	_rebuild()
 	show()
 
