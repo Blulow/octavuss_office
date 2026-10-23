@@ -1,5 +1,6 @@
 extends Button
 class_name AnimatedButton
+@onready var volume_panel: Control = $VolumePanel
 
 signal tweened
 
@@ -50,3 +51,7 @@ func _on_mouse_exited() -> void:
 	var tween = create_tween().set_parallel(true)
 	# Mengembalikan ke posisi awal (_default_position.x) dengan durasi 0.1 detik
 	tween.tween_property(self, "position:x", _default_position.x, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+
+func _on_button_3_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

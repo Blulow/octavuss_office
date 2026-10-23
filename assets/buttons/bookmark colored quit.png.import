@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwxf3dsr2wcd4"
-path="res://.godot/imported/button penanda buku v2 quit.png-eb2e9d0a0ea3d8d80ea7cb60a277f59c.ctex"
+uid="uid://wm53id1hvk0t"
+path="res://.godot/imported/bookmark colored quit.png-6456986f978963ac851eb1ac536b5c56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/button penanda buku v2 quit.png"
-dest_files=["res://.godot/imported/button penanda buku v2 quit.png-eb2e9d0a0ea3d8d80ea7cb60a277f59c.ctex"]
+source_file="res://assets/buttons/bookmark colored quit.png"
+dest_files=["res://.godot/imported/bookmark colored quit.png-6456986f978963ac851eb1ac536b5c56.ctex"]
 
 [params]
 

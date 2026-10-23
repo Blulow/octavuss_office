@@ -100,3 +100,11 @@ func _on_quit_game_onexit():
 	book_sprite.play()
 	await book_sprite.finished
 	book_sprite.visible = false
+
+
+func _on_strip_2_onclick() -> void:
+	get_tree().change_scene_to_file("res://scenes/settings menu.tscn")
+
+
+func _on_strip_3_onclick() -> void:
+	get_tree().quit()
