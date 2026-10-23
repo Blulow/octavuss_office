@@ -98,10 +98,7 @@ func _on_choice_chosen(index: int) -> void:
 	if index < 0 or index >= _choices.size():
 		return
 	var choice: Dictionary = _choices[index]
-	
-	#if choice.has("choices"):
-		#print(choice.get("choices"))
-	#else:
+
 	_show_message(choice.get("response", {}))
 
 
@@ -116,3 +113,4 @@ func _show_message(msg: Dictionary) -> void:
 	PlayerData.stats.sp.value += effects.get("sp", "0").to_int()
 	
 	$StatsLabel.text = "CALM: %d | FACT: %d | SP: %d" % [PlayerData.stats.calm.value, PlayerData.stats.fact.value, PlayerData.stats.sp.value]
+	PlayerData.update_character_expression()

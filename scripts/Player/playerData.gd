@@ -52,6 +52,14 @@ func add_fact(id: String, description: String) -> void:
 	facts_collected.append(new_fact)
 	fact_added.emit(new_fact)
 
+func update_character_expression() -> void:
+	if stats.calm.value < 2:
+		print("angery")
+	elif stats.calm.value < 4:
+		print("mid")
+	else:
+		print("kalm")
+
 func reset() -> void:
 	money = 500
 	
