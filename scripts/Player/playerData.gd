@@ -11,12 +11,19 @@ var money: int = 500
 
 var facts_collected : Array[Fact]
 
-var stats: Dictionary[String, int] = {
-	"calm": 2,
-	"fact": 2,
-	"sp": 6,
+class StatData:
+	func _init(_value: float = 1, _multipler: float = 1) -> void:
+		value = _value
+		multipler = _multipler
+	
+	var value: float
+	var multipler: float
+
+var stats: Dictionary[String, StatData] = {
+	"calm": StatData.new(2, 1),
+	"fact": StatData.new(2, 1),
+	"sp": StatData.new(6, 1),
 }
-var multipliers: Array[int] = [1, 1, 1]
 
 func _ready() -> void:
 	_seed_facts()
@@ -52,13 +59,12 @@ func add_fact(id: String, description: String) -> void:
 func reset() -> void:
 	money = 500
 	
-	multipliers = [1.0, 1.0, 1.0]
 	#deescalationMultiplier = 1.0
 	#informationMultiplier = 1.0
 	
-	stats.calm = 2
-	stats.fact = 2
-	stats.sp = 6
+	stats.calm = StatData.new(2, 1)
+	stats.fact = StatData.new(2, 1)
+	stats.sp = StatData.new(6, 1)
 	
 	facts_collected.clear()   # your current reset() doesn't clear facts
 	

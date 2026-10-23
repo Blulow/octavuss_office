@@ -105,8 +105,8 @@ func _show_message(msg: Dictionary) -> void:
 	if not msg.has("effects"): return
 	
 	var effects: Dictionary = msg.get("effects")
-	PlayerData.stats.calm += effects.get("calm", "0").to_int()
-	PlayerData.stats.fact += effects.get("fact", "0").to_int()
-	PlayerData.stats.sp += effects.get("sp", "0").to_int()
+	PlayerData.stats.calm.value += effects.get("calm", "0").to_int()
+	PlayerData.stats.fact.value += effects.get("fact", "0").to_int()
+	PlayerData.stats.sp.value += effects.get("sp", "0").to_int()
 	
-	$StatsLabel.text = "CALM: %d | FACT: %d | SP: %d" % [PlayerData.stats.calm, PlayerData.stats.fact, PlayerData.stats.sp]
+	$StatsLabel.text = "CALM: %d | FACT: %d | SP: %d" % [PlayerData.stats.calm.value, PlayerData.stats.fact.value, PlayerData.stats.sp.value]
