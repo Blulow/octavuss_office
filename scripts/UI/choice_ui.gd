@@ -3,7 +3,7 @@ extends Node
 @export var canvas_instance: Node
 @export var facts_canvas: CanvasLayer
 @export var facts_button: Button
-	
+
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -15,12 +15,12 @@ func show_ui():
 	get_tree().paused = true
 	print(facts_button.can_process())
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		if is_ui_open():
-			hide_ui()
-		else:
-			show_ui()
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_accept"):
+		#if is_ui_open():
+			#hide_ui()
+		#else:
+			#show_ui()
 
 
 

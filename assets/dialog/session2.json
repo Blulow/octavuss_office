@@ -1,0 +1,178 @@
+{
+	"vars": {
+		"something": 1,
+		"factcheck": true
+	},
+	"sets": [
+		[
+			{
+				"speaker": "N1",
+				"name": "Unordinary",
+				"text": "set1 dialogue1"
+			},
+			{
+				"speaker": "N1",
+				"name": "Unordinary",
+				"text": "set1 dialogue2"
+			},
+			{
+				"choices": [
+					{
+						"text": "choice1 calm+2 sp-2",
+						"response": {
+							"speaker": "N1",
+							"name": "Unordinary",
+							"text": "choice1 response",
+							"effects": {
+								"calm": "+2",
+								"sp": "-2"
+							}
+						}
+					},
+					{
+						"text": "choice2 sp-1",
+						"response": {
+							"speaker": "N1",
+							"name": "Unordinary",
+							"text": "choice2 response",
+							"effects": {
+								"sp": "-1"
+							}
+						},
+						"if": "factcheck",
+						"facts": [
+							{
+								"fact": "fact1",
+								"text": "choice2 with fact1 calm-1",
+								"response": {
+									"speaker": "N1",
+									"name": "Unordinary",
+									"text": "choice2 fact1 response",
+									"effects": {
+										"calm": "-1"
+									}
+								},
+							},
+							{
+								"fact": "fact2",
+								"text": "choice2 with fact2 calm+2",
+								"response": {
+									"speaker": "N1",
+									"name": "Unordinary",
+									"text": "choice2 fact2 response",
+									"effects": {
+										"calm": "+2"
+									}
+								}
+							}
+						]
+					},
+					{
+						"text": "choice3 fact+1 sp+1",
+						"response": {
+							"speaker": "N1",
+							"name": "Unordinary",
+							"text": "choice3 response",
+							"effects": {
+								"fact": "+1",
+								"sp": "+1"
+							}
+						},
+						"if": "factcheck",
+						"facts": [
+							{
+								"fact": "fact1",
+								"text": "choice3 with fact1 fact+2",
+								"response": {
+									"speaker": "N1",
+									"name": "Unordinary",
+									"text": "choice3 fact1 response",
+									"effects": {
+										"fact": "+2"
+									}
+								},
+							},
+							{
+								"fact": "fact3",
+								"text": "choice3 with fact3 fact-1 sp+1",
+								"response": {
+									"speaker": "N1",
+									"name": "Unordinary",
+									"text": "choice3 fact3 response",
+									"effects": {
+										"fact": "-1",
+										"sp": "+1"
+									}
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		[
+			{
+				"speaker": "N1",
+				"name": "Unordinary",
+				"text": "set2 dialogue1"
+			},
+			{
+				"choices": [
+					{
+						"text": "choice1 fact-1",
+						"response": {
+							"speaker": "N1",
+							"name": "Unordinary",
+							"text": "choice1 response",
+							"effects": {
+								"fact": "-1"
+							}
+						}
+					},
+					{
+						"text": "choice2 calm-2 fact+1 sp+1",
+						"response": {
+							"speaker": "N1",
+							"name": "Unordinary",
+							"text": "choice2 response",
+							"effects": {
+								"calm": "-2",
+								"fact": "+1",
+								"sp": "+1"
+							}
+						},
+						"if": "factcheck",
+						"facts": [
+							{
+								"fact": "fact3",
+								"text": "choice2 fact3 sp-1",
+								"response": {
+									"speaker": "N1",
+									"name": "Unordinary",
+									"text": "choice2 fact3 response",
+									"effects": {
+										"sp": "-1"
+									}
+								},
+							},
+							{
+								"fact": "fact4",
+								"text": "choice2 fact4 calm+1 fact-1 sp-2",
+								"response": {
+									"speaker": "N1",
+									"name": "Unordinary",
+									"text": "choice2 fact4 response",
+									"effects": {
+										"calm": "+1",
+										"fact": "-1",
+										"sp": "-2"
+									}
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	]
+}

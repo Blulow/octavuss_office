@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dl58dnjwb7fam" path="res://scripts/session_manager.gd" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bq03og81goeda" path="res://scenes/dialogue_scene_facts.tscn" id="5_p57ef"]
 [ext_resource type="JSON" path="res://assets/dialog/session1.json" id="5_u5sy4"]
+[ext_resource type="JSON" path="res://assets/dialog/session2.json" id="6_u5sy4"]
 
 [node name="Game" type="Node3D" unique_id=679770426]
 
@@ -50,7 +51,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_p57ef")
 dialogue_scene = NodePath("../DialogueSceneFacts")
-sessions_files = Array[JSON]([ExtResource("5_u5sy4")])
+sessions_files = Array[JSON]([ExtResource("5_u5sy4"), ExtResource("6_u5sy4")])
 
 [node name="DialogueSceneFacts" parent="." unique_id=1331931773 instance=ExtResource("5_p57ef")]
 

@@ -7,11 +7,14 @@ var _facts: Array = []
 var _unlocked: Dictionary = {}
 var _current_options: Array = []
 
+func _ready() -> void:
+	super()
+	facts_box.drag_started.connect(_on_fact_drag_started)
+	facts_box.drag_ended.connect(_on_fact_drag_ended)
+
 func start_session(path: String) -> void:
 	super.start_session(path)
 	#choice_box.fact_dropped.connect(_on_fact_dropped)
-	facts_box.drag_started.connect(_on_fact_drag_started)
-	facts_box.drag_ended.connect(_on_fact_drag_ended)
 	if not _choosing:
 		facts_box.show_facts(_facts, [])
 

@@ -15,13 +15,17 @@ var _sets: Array = []
 var _vars: Dictionary = {}
 var _index := -1
 var _set_index := 0
-var _finished := false
+var _finished := true
 var _choosing := false
 var _choices: Array = []
 
-func start_session(path: String):
-	_load_dialog(path)
+func _ready() -> void:
 	choice_box.chosen.connect(_on_choice_chosen)
+
+func start_session(path: String):
+	_finished = false
+	_set_index = 0
+	_load_dialog(path)
 	_advance()
 
 
@@ -40,6 +44,8 @@ func _load_dialog(path: String) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("interact"):
+		if _finished: return
+		
 		_advance()
 
 
