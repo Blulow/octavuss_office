@@ -12,13 +12,11 @@
 
 [node name="ChoiceCanvas" type="CanvasLayer" parent="." unique_id=721952530]
 process_mode = 3
-visible = false
 
 [node name="ChoiceUi" parent="ChoiceCanvas" unique_id=539166642 instance=ExtResource("2_yqjtg")]
 
 [node name="FactsCanvas" type="CanvasLayer" parent="." unique_id=1861971381 node_paths=PackedStringArray("facts_list")]
 process_mode = 3
-visible = false
 script = ExtResource("3_lnu2h")
 facts_list = NodePath("PanelContainer/FactsPanel/FactsList")
 
@@ -42,7 +40,7 @@ canvas_instance = NodePath("../ChoiceCanvas")
 facts_canvas = NodePath("../FactsCanvas")
 facts_button = NodePath("../ChoiceCanvas/ChoiceUi/CenterContainer/VBoxContainer/FactCheck")
 
-[node name="SessionManager" type="Control" parent="." unique_id=1515956607 node_paths=PackedStringArray("dialogue_scene")]
+[node name="SessionManager" type="Control" parent="." unique_id=1515956607 node_paths=PackedStringArray("dialogue_scene", "choice_ui_manager")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,6 +50,7 @@ grow_vertical = 2
 script = ExtResource("4_p57ef")
 dialogue_scene = NodePath("../DialogueSceneFacts")
 sessions_files = Array[JSON]([ExtResource("5_u5sy4"), ExtResource("6_u5sy4")])
+choice_ui_manager = NodePath("../ChoiceUIManager")
 
 [node name="DialogueSceneFacts" parent="." unique_id=1331931773 instance=ExtResource("5_p57ef")]
 

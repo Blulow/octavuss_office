@@ -3,8 +3,11 @@ class_name SessionManager
 
 @export var dialogue_scene: DialogueScene
 @export var sessions_files: Array[JSON]
+@export var choice_ui_manager: ChoiceUIManager
 
 var index: int = 0
+
+var accept_choices: bool = false
 
 func _ready():
 	dialogue_scene.finished.connect(_on_dialogue_finished)
@@ -24,4 +27,15 @@ func load_next_session(first = false) -> void:
 	load_session(sessions_files[index])
 
 func _on_dialogue_finished() -> void:
+	accept_choices = true
+	
+	await choice_ui_manager.hidden
 	load_next_session()
+	
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		if not accept_choices: return
+		choice_ui_manager.show_ui()
+		accept_choices = false
+	
