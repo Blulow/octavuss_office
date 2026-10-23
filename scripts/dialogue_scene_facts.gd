@@ -61,11 +61,59 @@ func _on_choice_chosen(index: int) -> void:
 						continue
 					response = fact.response
 	else:
-		response = choice.response
+		if choice.has("choices"):
+			if choice.choices.size() <= 1 and choice.choices[0].condition == "default":
+				response = choice.choices[0].response
+			else:
+				var default: Dictionary
+				for c in choice.choices:
+					if c.condition == "default":
+						default = c.response
+						continue
+					else:
+						var p = parse_condition(c.condition)
+						if match_condition(PlayerData.stats[p.stat].value, p.operator, p.number):
+							response = c.response
+						
+				if not response: response = default
+		else:
+			response = choice.response
 	
 	_show_message(response)
 	facts_box.show_facts(_facts, [])
 
+func parse_condition(text: String) -> Dictionary:
+	var regex = RegEx.new()
+	regex.compile("^([a-zA-Z_][a-zA-Z0-9_]*)\\s*(>=|<=|==|!=|>|<)\\s*(-?\\d+(?:\\.\\d+)?)$")
+
+	var result = regex.search(text)
+
+	if result == null:
+		return {}
+
+	return {
+		"stat": result.get_string(1),
+		"operator": result.get_string(2),
+		"number": float(result.get_string(3))
+	}
+
+func match_condition(a: float, operator: String, b: float) -> bool:
+	match operator:
+		">":
+			return a > b
+		"<":
+			return a < b
+		">=":
+			return a >= b
+		"<=":
+			return a <= b
+		"==":
+			return a == b
+		"!=":
+			return a != b
+	
+	printerr("invalid operator ", operator)
+	return false
 
 func _on_fact_drag_started() -> void:
 	#choice_box.set_drop_active(true)

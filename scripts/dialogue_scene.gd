@@ -24,6 +24,7 @@ func _ready() -> void:
 
 func start_session(path: String):
 	_finished = false
+	_index = -1
 	_set_index = 0
 	_load_dialog(path)
 	_advance()
@@ -97,6 +98,10 @@ func _on_choice_chosen(index: int) -> void:
 	if index < 0 or index >= _choices.size():
 		return
 	var choice: Dictionary = _choices[index]
+	
+	#if choice.has("choices"):
+		#print(choice.get("choices"))
+	#else:
 	_show_message(choice.get("response", {}))
 
 

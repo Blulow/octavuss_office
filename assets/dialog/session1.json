@@ -27,15 +27,32 @@
 				"choices": [
 					{
 						"text": "choice1 calm+2 sp-2",
-						"response": {
-							"speaker": "N1",
-							"name": "Weird",
-							"text": "choice1 response",
-							"effects": {
-								"calm": "+2",
-								"sp": "-2"
+						"choices": [
+							{
+								"condition": "calm>4",
+								"response": {
+									"speaker": "N1",
+									"name": "Weird",
+									"text": "choice1 response calm>4",
+									"effects": {
+										"calm": "+2",
+										"sp": "-2"
+									}
+								}
+							},
+							{
+								"condition": "default",
+								"response": {
+									"speaker": "N1",
+									"name": "Weird",
+									"text": "choice1 response default",
+									"effects": {
+										"calm": "+2",
+										"sp": "-2"
+									}
+								}
 							}
-						}
+						]
 					},
 					{
 						"text": "choice2 sp-1",
