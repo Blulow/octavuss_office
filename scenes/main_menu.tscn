@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://hl8gocycs3dn" path="res://assets/images/page_1.PNG" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
+[ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drhbd"]
 albedo_color = Color(0.13471985, 0.22307785, 0.42578125, 1)
@@ -267,5 +268,7 @@ offset_bottom = 546.0
 theme_override_font_sizes/font_size = 86
 text = "GAME
 TITLE"
+
+[node name="Game" parent="." unique_id=679770426 instance=ExtResource("12_flqon")]
 
 [connection signal="onclick" from="MainMenuUI/Book/Strips/Strip" to="." method="_on_strip_onclick"]

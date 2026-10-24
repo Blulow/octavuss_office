@@ -16,6 +16,8 @@ extends Node3D
 @onready var quit_game: Strip2D = $UI/Book/Strips/TextureRect3/Strip3
 @onready var book_sprite: AnimatedTextureRect = $UI/Book/AnimatedTextureRect
 
+@onready var dialogues: Node3D = $Game
+
 func _ready() -> void:
 	start_game.onclick.connect(_on_start_game_onclick)
 	start_game.onhover.connect(_on_start_game_onhover)
@@ -40,6 +42,9 @@ func _on_start_game_onclick():
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(trans_cam, "global_position", player_cam.global_position, 0.3)
 	tween.parallel().tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
+	
+	await tween.finished
+	dialogues.get_node("SessionManager").load_next_session(true)
 
 func _on_start_game_onhover():
 	if book_sprite.animation == "open" and book_sprite.playing:
