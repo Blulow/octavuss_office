@@ -8,7 +8,7 @@ signal purchased(item: Item)
 @export var item_name: String
 @export var price: int = 100
 @export var item_description: String
-@export var perks : 	Array[Perk]
+@export var perks : Array[Perk]
 var is_purchased: bool = false
 
 func _ready() -> void:

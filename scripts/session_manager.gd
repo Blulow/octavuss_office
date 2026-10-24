@@ -4,29 +4,24 @@ class_name SessionManager
 @export var dialogue_scene: DialogueScene
 @export var sessions_files: Array[JSON]
 @export var choice_ui_manager: ChoiceUIManager
-@export var money_add_per_session: int
-
-var index: int = 0
+@export var money_add_per_session: int = 50
 
 var accept_choices: bool = false
 
 func _ready():
 	dialogue_scene.finished.connect(_on_dialogue_finished)
-	
-	await get_tree().create_timer(1.0).timeout
-	load_next_session(true)
 
 func load_next_session(first = false) -> void:
-	if index >= sessions_files.size(): 
+	if PlayerData.session_index >= sessions_files.size(): 
 		printerr("out of bounds")
 		return
 	
-	dialogue_scene.start_session(sessions_files[index].resource_path)
+	dialogue_scene.start_session(sessions_files[PlayerData.session_index].resource_path)
 
 func _on_dialogue_finished() -> void:
-	index += 1
+	PlayerData.session_index += 1
 	
-	if index >= sessions_files.size():
+	if PlayerData.session_index >= sessions_files.size():
 		PlayerData.get_ending()
 		
 		return
