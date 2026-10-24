@@ -4,6 +4,7 @@ class_name SessionManager
 @export var dialogue_scene: DialogueScene
 @export var sessions_files: Array[JSON]
 @export var choice_ui_manager: ChoiceUIManager
+@export var money_add_per_session: int = 50
 
 var index: int = 0
 
@@ -34,6 +35,7 @@ func _on_dialogue_finished() -> void:
 	
 	await choice_ui_manager.hidden
 	load_next_session()
+	PlayerData.add_money(money_add_per_session)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):

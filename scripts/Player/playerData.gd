@@ -33,12 +33,28 @@ func can_afford(cost: int) -> bool:
 func spend(cost: int) -> void:
 	money -= cost
 	money_changed.emit(money)
-
+	
+func add_money(amount: int) -> void:
+	money += amount
+	money_changed.emit(money)
+	
 #func boost_deescalation(amount: float) -> void:
 	#deescalationMultiplier *= amount
 #
 #func boost_information(amount: float) -> void:
 	#informationMultiplier *= amount
+
+func boost_stat_value(stat_name: String, amount: float) -> void:
+	if not stats.has(stat_name):
+		push_warning("boost_stat: unknown stat '%s'" % stat_name)
+		return
+	stats[stat_name].value += amount
+	
+func boost_stat_multiplier(stat_name: String, amount: float) -> void:
+	if not stats.has(stat_name):
+		push_warning("boost_stat: unknown stat '%s'" % stat_name)
+		return
+	stats[stat_name].multipler *= amount
 
 func add_pending_fact() -> void:
 	add_fact(pending_fact.id, pending_fact.fact_description)

@@ -8,7 +8,7 @@ signal purchased(item: Item)
 @export var item_name: String
 @export var price: int = 100
 @export var item_description: String
-
+@export var perks : Array[Perk]
 var is_purchased: bool = false
 
 func _ready() -> void:
@@ -26,9 +26,8 @@ func on_buy() -> bool:
 		return false
 
 	PlayerData.spend(price)
-	for child in get_children():
-		if child is Perk:
-			child.apply()
+	for perk in perks:
+		perk.apply()
 
 	is_purchased = true
 	interactable.succeed()
