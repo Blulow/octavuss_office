@@ -11,6 +11,8 @@ var money: int = 500
 
 var facts_collected : Array[Fact]
 
+var game_started : bool
+
 class StatData:
 	func _init(_value: float = 1, _multiplier: float = 1) -> void:
 		value = _value

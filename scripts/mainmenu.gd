@@ -32,11 +32,21 @@ func _ready() -> void:
 	trans_cam.global_rotation = start_cam.global_rotation
 	
 	book_sprite.visible = false
+	if PlayerData.game_started:
+		_on_start_game_onclick()
 
 func _on_start_game_onclick():
 	#name_stand.visible = false
-	
+	PlayerData.game_started = true
 	var tween = create_tween()
+	start_game_tween(tween)
+	await tween.finished
+	
+	book.visible = false
+	title.visible = false
+	dialogues.get_node("SessionManager").load_next_session(true)
+
+func start_game_tween (tween : Tween):
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_parallel()
 	tween.tween_property(trans_cam, "global_position", player_cam.global_position, 0.3)
@@ -44,11 +54,7 @@ func _on_start_game_onclick():
 	tween.tween_property(book, "global_position:y", book.global_position.y + 1000, 0.3)
 	tween.tween_property(title, "global_position:y", title.global_position.y + 1000, 0.3)
 	
-	await tween.finished
 	
-	book.visible = false
-	title.visible = false
-	dialogues.get_node("SessionManager").load_next_session(true)
 
 func _on_start_game_onhover():
 	if book_sprite.animation == "open" and book_sprite.playing:

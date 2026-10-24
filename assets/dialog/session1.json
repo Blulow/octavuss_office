@@ -76,7 +76,7 @@
 									"effects": {
 										"calm": "-1"
 									}
-								},
+								}
 							},
 							{
 								"fact": "fact2",
@@ -115,7 +115,7 @@
 									"effects": {
 										"fact": "+2"
 									}
-								},
+								}
 							},
 							{
 								"fact": "fact3",
@@ -178,7 +178,7 @@
 									"effects": {
 										"sp": "-1"
 									}
-								},
+								}
 							},
 							{
 								"fact": "fact4",

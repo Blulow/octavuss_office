@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c7k63givb3sj2"]
 
 [ext_resource type="PackedScene" uid="uid://c7i61g8mejbsv" path="res://scenes/item.tscn" id="1_8r1wq"]
-[ext_resource type="Script" uid="uid://bg507o0isd4yh" path="res://scripts/ui/shop_ui.gd" id="1_xfvoa"]
+[ext_resource type="Script" uid="uid://bg507o0isd4yh" path="res://scripts/UI/shop_ui.gd" id="1_xfvoa"]
 [ext_resource type="Script" uid="uid://25yb702hmhup" path="res://scripts/Items/Perks/boost_information_perk.gd" id="2_032fp"]
 [ext_resource type="Script" uid="uid://bc0evra1uga06" path="res://scripts/Items/Perks/boost_deescalation_perk.gd" id="3_2fc2m"]
+[ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/UI/button_switch_scene.gd" id="4_8r1wq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_032fp"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -92,6 +93,7 @@ script = ExtResource("3_2fc2m")
 multiplier = 1.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1134407947]
+process_mode = 3
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1304580484]
 anchors_preset = -1
@@ -164,7 +166,30 @@ offset_right = 423.8
 offset_bottom = 510.0
 autowrap_mode = 1
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=378034434 node_paths=PackedStringArray("name_label", "feedback_label", "buy_button", "item_price", "item_description_label")]
+[node name="ReturnButton" type="Button" parent="CanvasLayer/ColorRect" unique_id=399203106]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -75.0
+offset_top = 12.0
+offset_right = -13.0
+offset_bottom = 43.0
+grow_horizontal = 0
+text = "Return"
+script = ExtResource("4_8r1wq")
+next_scene_path = "uid://b5qqds04rkp5q"
+
+[node name="Money" type="Label" parent="CanvasLayer/ColorRect" unique_id=1413538569]
+layout_mode = 0
+offset_left = 19.799988
+offset_top = 12.0
+offset_right = 76.79999
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "Money:"
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=378034434 node_paths=PackedStringArray("name_label", "feedback_label", "buy_button", "item_price", "item_description_label", "money_label")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -175,6 +200,7 @@ feedback_label = NodePath("../ColorRect/ItemFeedback")
 buy_button = NodePath("../ColorRect/Button")
 item_price = NodePath("../ColorRect/ItemPrice")
 item_description_label = NodePath("../ColorRect/ItemDescription")
+money_label = NodePath("../ColorRect/Money")
 
 [editable path="Newspaper"]
 [editable path="Flower"]

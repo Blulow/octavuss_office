@@ -9,10 +9,11 @@ var current_item: Item
 @export var buy_button: Button
 @export var item_price: Label
 @export var item_description_label : Label
-
+@export var money_label : Label
 
 
 func _ready() -> void:
+	money_label.text = "Money: " + str(PlayerData.money)
 	hide()
 	buy_button.pressed.connect(_on_buy_pressed)
 	for item: Item in get_tree().get_nodes_in_group("items"):
@@ -42,6 +43,7 @@ func _on_item_purchased(item: Item) -> void:
 	if item != current_item:
 		return
 	feedback_label.text = "Item purchased!"
+	money_label.text = "Money: " + str(PlayerData.money)
 	_update_buy_button(item)
 
 

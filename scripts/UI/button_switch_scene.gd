@@ -1,12 +1,16 @@
 extends Button
 
-@export var next_scene: PackedScene
+@export_file("*.tscn") var next_scene_path: String
 
-func _ready():
+
+func _ready() -> void:
 	pressed.connect(_on_pressed)
-	mouse_entered.connect(func(): print("hover"))
-	button_down.connect(func(): print("down"))
 
-func _on_pressed():
+
+func _on_pressed() -> void:
+	print("PATH = '", next_scene_path, "'")
+	if next_scene_path.is_empty():
+		push_error("%s: next_scene_path is not assigned." % name)
+		return
 	get_tree().paused = false
-	get_tree().change_scene_to_packed(next_scene)
+	get_tree().change_scene_to_file(next_scene_path)
