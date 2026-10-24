@@ -12,12 +12,12 @@ var money: int = 500
 var facts_collected : Array[Fact]
 
 class StatData:
-	func _init(_value: float = 1, _multipler: float = 1) -> void:
+	func _init(_value: float = 1, _multiplier: float = 1) -> void:
 		value = _value
-		multipler = _multipler
+		multiplier = _multiplier
 	
 	var value: float
-	var multipler: float
+	var multiplier: float
 
 var stats: Dictionary[String, StatData] = {
 	"calm": StatData.new(2, 1),
@@ -26,6 +26,7 @@ var stats: Dictionary[String, StatData] = {
 }
 
 var pending_fact: Fact = Fact.new()
+var session_index: int = 0
 
 func can_afford(cost: int) -> bool:
 	return money >= cost
@@ -54,7 +55,7 @@ func boost_stat_multiplier(stat_name: String, amount: float) -> void:
 	if not stats.has(stat_name):
 		push_warning("boost_stat: unknown stat '%s'" % stat_name)
 		return
-	stats[stat_name].multipler *= amount
+	stats[stat_name].multiplier *= amount
 
 func add_pending_fact() -> void:
 	add_fact(pending_fact.id, pending_fact.fact_description)
