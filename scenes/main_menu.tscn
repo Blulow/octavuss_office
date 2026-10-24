@@ -75,7 +75,7 @@ animations = [{
 [sub_resource type="PlaneMesh" id="PlaneMesh_drhbd"]
 size = Vector2(18.87, 12.31)
 
-[node name="Node3D" type="Node3D" unique_id=1446060369]
+[node name="MainMenu" type="Node3D" unique_id=1446060369]
 script = ExtResource("1_lgwnu")
 
 [node name="TransCam" type="Camera3D" parent="." unique_id=849756624]

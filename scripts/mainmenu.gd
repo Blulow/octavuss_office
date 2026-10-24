@@ -34,16 +34,20 @@ func _ready() -> void:
 	book_sprite.visible = false
 
 func _on_start_game_onclick():
-	book.visible = false
-	title.visible = false
 	#name_stand.visible = false
 	
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_parallel()
 	tween.tween_property(trans_cam, "global_position", player_cam.global_position, 0.3)
-	tween.parallel().tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
+	tween.tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
+	tween.tween_property(book, "global_position:y", book.global_position.y + 1000, 0.3)
+	tween.tween_property(title, "global_position:y", title.global_position.y + 1000, 0.3)
 	
 	await tween.finished
+	
+	book.visible = false
+	title.visible = false
 	dialogues.get_node("SessionManager").load_next_session(true)
 
 func _on_start_game_onhover():
