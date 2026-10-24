@@ -1,15 +1,20 @@
 class_name FactsBox
 extends Control
 
-# A clipboard-styled panel listing the facts the player has collected.
-# Click-drag the title bar to move it; the "-" button collapses it to a
-# sliver at the bottom-left that shows only the button, and "+" restores it.
+# A clipboard-styled panel that lists the facts the player has collected.
+# Drag the title bar to move it around, and press the "-" button to collapse
+# it down to a sliver in the bottom-left corner that shows only the button.
 signal drag_started
 signal drag_ended
 
 const FactItemScript := preload("res://scripts/fact_item.gd")
-const MARGIN := 16.0
-const TWEEN_TIME := 0.3
+
+@export var margin := 16.0
+@export var tween_time := 0.45
+@export var hop_px := 18.0
+@export var hop_time := 0.4
+@export var attention_gap := 0.1
+@export var attention_wait := 1.0
 
 @onready var header: HBoxContainer = $Header
 @onready var list: VBoxContainer = $List
@@ -21,23 +26,34 @@ var _collapsed := false
 var _drag_offset := Vector2.ZERO
 var _restore_position := Vector2.ZERO
 var _tween: Tween
+var _attention := false
+var _attention_tween: Tween
 
 
 func _ready() -> void:
+	# Wire up the two interactive parts: dragging the title bar and the
+	# minimise/restore button.
 	header.gui_input.connect(_on_header_gui_input)
 	minimize.pressed.connect(_toggle_collapsed)
 
 
 func show_facts(facts: Array, usable_ids: Array) -> void:
-	# Rebuild the list each time so it stays in sync with what's unlocked.
-	for child in list.get_children():
+	# Clear the old rows and rebuild the list from the facts we were given,
+	# marking which ones the player is allowed to use right now.
+	for child: Node in list.get_children():
 		list.remove_child(child)
 		child.queue_free()
+
 	for fact in facts:
-		var item = FactItemScript.new()
+		var fact_id: String = String(fact.get("id", ""))
+		var usable: bool = usable_ids.has(fact_id)
+		var item: FactItem = FactItemScript.new()
 		item.facts_box = self
-		item.setup(fact, usable_ids.has(String(fact.get("id", ""))))
+		item.setup(fact, usable)
 		list.add_child(item)
+
+	# If any fact is usable and the panel is collapsed, remind the player.
+	set_attention(not usable_ids.is_empty())
 
 
 func begin_drag() -> void:
@@ -49,41 +65,129 @@ func begin_drag() -> void:
 
 
 func _notification(what: int) -> void:
+	# When the drag ends, clear the flag and let listeners know.
 	if what == NOTIFICATION_DRAG_END and _dragging:
 		_dragging = false
 		drag_ended.emit()
 
 
 func _on_header_gui_input(event: InputEvent) -> void:
+	# Dragging is disabled while collapsed so the button stays clickable.
 	if _collapsed:
 		return
+
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		# Remember where the pointer grabbed the panel so it doesn't jump.
 		_dragging_header = event.pressed
 		_drag_offset = event.global_position - global_position
 		accept_event()
+
 	elif event is InputEventMouseMotion and _dragging_header:
-		var viewport := get_viewport_rect().size
-		global_position = (event.global_position - _drag_offset).clamp(Vector2.ZERO, viewport - size)
+		# Follow the pointer, but keep the panel inside the screen.
+		var viewport_size: Vector2 = get_viewport_rect().size
+		var next_position: Vector2 = event.global_position - _drag_offset
+		global_position = next_position.clamp(Vector2.ZERO, viewport_size - size)
 		accept_event()
 
 
 func _collapsed_position() -> Vector2:
-	# Slide left until only the minimise button pokes past the screen edge,
-	# and drop it against the bottom edge (leaving a MARGIN gap).
-	var viewport := get_viewport_rect().size
-	var button_left := header.position.x + minimize.position.x
-	var button_bottom := header.position.y + minimize.position.y + minimize.size.y
-	return Vector2(MARGIN - button_left, viewport.y - MARGIN - button_bottom)
+	# The spot that leaves only the minimise button visible: slide the panel
+	# left until just the button pokes past the edge, and rest it on the bottom.
+	var viewport_size: Vector2 = get_viewport_rect().size
+	var button_left: float = header.position.x + minimize.position.x
+	var button_bottom: float = header.position.y + minimize.position.y + minimize.size.y
+	return Vector2(margin - button_left, viewport_size.y - margin - button_bottom)
+
+
+func set_attention(active: bool) -> void:
+	# Turn the reminder hop on or off. Called by show_facts whenever the set
+	# of usable facts changes.
+	if _attention == active:
+		return
+	_attention = active
+
+	# If a collapse/expand animation is already running it will sort the hop
+	# out when it finishes, so leave it alone for now.
+	if _tween != null and _tween.is_running():
+		return
+
+	_refresh_attention()
+
+
+func _refresh_attention() -> void:
+	# Restart the hop when we are collapsed with usable facts; otherwise make
+	# sure the panel is resting in its corner.
+	_stop_attention()
+	if _collapsed and _attention:
+		_start_attention()
+	elif _collapsed:
+		position = _collapsed_position()
+
+
+func _start_attention() -> void:
+	# Loop "hop, wait, hop, wait" forever to catch the player's eye.
+	var start_position: Vector2 = _collapsed_position()
+	position = start_position
+
+	_attention_tween = create_tween()
+	_attention_tween.set_loops()
+	_attention_tween.set_trans(Tween.TRANS_QUAD)
+	_hop(start_position)
+	_attention_tween.tween_interval(attention_gap)
+	_hop(start_position)
+	_attention_tween.tween_interval(attention_wait)
+
+
+func _hop(start_position: Vector2) -> void:
+	# One bounce: up by hop_px, then back down to where it started.
+	_attention_tween.set_ease(Tween.EASE_OUT)
+	_attention_tween.tween_property(self, "position", start_position + Vector2(0.0, -hop_px), hop_time * 0.5)
+	_attention_tween.set_ease(Tween.EASE_IN)
+	_attention_tween.tween_property(self, "position", start_position, hop_time * 0.5)
+
+
+func _stop_attention() -> void:
+	# Cancel the reminder hop if it is currently playing.
+	if _attention_tween != null and _attention_tween.is_valid():
+		_attention_tween.kill()
+		_attention_tween = null
 
 
 func _toggle_collapsed() -> void:
-	if _tween and _tween.is_running():
+	# Slide the panel between its expanded spot and the collapsed corner, with
+	# a little hop at the start. Ignore the click if an animation is playing.
+	if _tween != null and _tween.is_running():
 		return
-	_collapsed = not _collapsed
-	minimize.text = "+" if _collapsed else "-"
-	list.visible = not _collapsed
-	var target := _collapsed_position() if _collapsed else _restore_position
+
+	_stop_attention()
+
+	# When expanding, settle the panel onto the corner first so the hop starts
+	# from a clean resting spot.
 	if _collapsed:
+		position = _collapsed_position()
+
+	_collapsed = not _collapsed
+
+	if _collapsed:
+		minimize.text = "+"
 		_restore_position = position
-	_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-	_tween.tween_property(self, "position", target, TWEEN_TIME)
+	else:
+		minimize.text = "-"
+		list.show()
+
+	var start_position: Vector2 = position
+	var target_position: Vector2 = _collapsed_position() if _collapsed else _restore_position
+
+	_tween = create_tween()
+
+	# A quick hop (pop up, then back to the start) before gliding to the target.
+	_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_tween.tween_property(self, "position", start_position + Vector2(0.0, -hop_px), hop_time * 0.5)
+	_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	_tween.tween_property(self, "position", start_position, hop_time * 0.5)
+	_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	_tween.tween_property(self, "position", target_position, tween_time)
+
+	if _collapsed:
+		_tween.tween_callback(list.hide)
+	_tween.tween_callback(_refresh_attention)
