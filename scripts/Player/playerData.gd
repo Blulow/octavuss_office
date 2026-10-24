@@ -68,6 +68,9 @@ func add_fact(id: String, description: String) -> void:
 	facts_collected.append(new_fact)
 	fact_added.emit(new_fact)
 
+func apply_stat(id: String, value: float) -> void:
+	stats[id].value += value * stats[id].multiplier
+
 func update_character_expression() -> void:
 	if stats.calm.value < 2:
 		print("angery")
