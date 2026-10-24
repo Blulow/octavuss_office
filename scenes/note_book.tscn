@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://c7iy0pgt87h3g"]
+
+[ext_resource type="Texture2D" uid="uid://qtcb70prsx84" path="res://assets/buttons/checkpoint ui buku V3.png" id="1_747sg"]
+[ext_resource type="Texture2D" uid="uid://086yxn6qoxj6" path="res://assets/buttons/checkpoint ui kertas.png" id="2_b403g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_page"]
+
+[node name="NoteBook" type="Node2D"]
+
+[node name="CheckpointUiBukuV3" type="Sprite2D" parent="."]
+position = Vector2(576, 326)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_747sg")
+
+[node name="CheckpointUiKertas" type="Sprite2D" parent="."]
+position = Vector2(575.00006, 317.00003)
+scale = Vector2(0.5939815, 0.59398144)
+texture = ExtResource("2_b403g")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 30
+
+[node name="LeftPage" type="TextEdit" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.0
+offset_top = 124.0
+offset_right = 545.0
+offset_bottom = 607.0
+editable = false
+theme_override_styles/normal = SubResource("StyleBoxEmpty_page")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_page")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_page")
+theme_override_colors/font_color = Color(0.1, 0.12, 0.15, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="RightPage" type="TextEdit" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 605.0
+offset_top = 124.0
+offset_right = 1074.0
+offset_bottom = 607.0
+editable = false
+theme_override_styles/normal = SubResource("StyleBoxEmpty_page")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_page")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_page")
+theme_override_colors/font_color = Color(0.1, 0.12, 0.15, 1)
+theme_override_font_sizes/font_size = 18

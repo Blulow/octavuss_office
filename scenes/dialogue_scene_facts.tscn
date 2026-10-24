@@ -4,6 +4,10 @@
 [ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="2_box"]
 [ext_resource type="PackedScene" path="res://scenes/choice_box.tscn" id="3_choice"]
 [ext_resource type="PackedScene" path="res://scenes/facts_box.tscn" id="4_facts"]
+[ext_resource type="Script" path="res://scripts/notebook_button.gd" id="5_nb"]
+[ext_resource type="Texture2D" uid="uid://bkfm0hy52tho" path="res://icon.svg" id="6_icon"]
+[ext_resource type="PackedScene" path="res://scenes/note_book.tscn" id="7_nb"]
+[ext_resource type="Shader" path="res://assets/shaders/screen_blur.gdshader" id="8_blur"]
 
 [sub_resource type="Environment" id="Environment_menu"]
 fog_enabled = true
@@ -22,6 +26,10 @@ height = 0.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_name"]
 size = Vector2(0.8, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blur"]
+shader = ExtResource("8_blur")
+shader_parameter/radius = 4.0
 
 [node name="DialogueSceneFacts" type="Node3D" unique_id=111532145]
 
@@ -79,4 +87,35 @@ offset_left = 24.0
 offset_top = 84.0
 offset_right = 384.0
 offset_bottom = 554.0
+
+[node name="NotebookButton" type="Button" parent="UI"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -98.0
+offset_right = 56.0
+offset_bottom = -58.0
+custom_minimum_size = Vector2(40, 40)
+focus_mode = 0
+icon = ExtResource("6_icon")
+expand_icon = true
+script = ExtResource("5_nb")
+
+[node name="NotebookOverlay" type="CanvasLayer" parent="."]
+layer = 20
+visible = false
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="NotebookOverlay"]
+copy_mode = 2
+
+[node name="Blur" type="ColorRect" parent="NotebookOverlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+material = SubResource("ShaderMaterial_blur")
+
+[node name="NoteBook" parent="NotebookOverlay" instance=ExtResource("7_nb")]
 
