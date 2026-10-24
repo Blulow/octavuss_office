@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d37warxbuyts5"]
+
+[ext_resource type="PackedScene" uid="uid://ykqfu2vsr87e" path="res://assets/model/scene.glb" id="1_wkta0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ajci"]
+albedo_color = Color(0.41001892, 0.4197899, 0.66015625, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkta0"]
+albedo_color = Color(0.953125, 0.9546131, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wydib"]
+albedo_color = Color(0.53686357, 0.86328125, 0.50920105, 1)
+
+[node name="scene" unique_id=2038157985 instance=ExtResource("1_wkta0")]
+
+[node name="SM_frame1" parent="." index="0" unique_id=1586795727]
+transform = Transform3D(1.392, 0, 0, 0, -3.496911e-09, -1.789, 0, 0.08, -7.8199676e-08, -1.5377791, 2.4152865, -2.5700004)
+surface_material_override/0 = SubResource("StandardMaterial3D_1ajci")
+
+[node name="SM_frame2" parent="." index="1" unique_id=1450638984]
+transform = Transform3D(1.112, 0, 0, 0, -2.4478377e-09, -1.426, 0, 0.056, -6.233244e-08, 0.24707556, 2.4152865, -2.5700004)
+surface_material_override/0 = SubResource("StandardMaterial3D_1ajci")
+
+[node name="SM_lamp" parent="." index="2" unique_id=1757344622]
+transform = Transform3D(0.027, 0, 0, 0, -1.1802075e-09, -0.027, 0, 0.027, -1.1802075e-09, -4.481242, 1.4058995, 0.0035824776)
+surface_material_override/0 = SubResource("StandardMaterial3D_1ajci")
+
+[node name="SM_paper" parent="." index="3" unique_id=813508642]
+transform = Transform3D(0.34951517, 0, 0, 0, 0, -1.8796344, 0, 0.65018004, 0, -0.028482437, 0.5037293, 3.6776848)
+surface_material_override/0 = SubResource("StandardMaterial3D_wkta0")
+
+[node name="SM_pen" parent="." index="4" unique_id=767214228]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0.33354527, 0.5096068, 3.5197484)
+surface_material_override/0 = SubResource("StandardMaterial3D_wydib")
+
+[node name="SM_pillow1" parent="." index="5" unique_id=1920185847]
+transform = Transform3D(0.0067024813, 0.004913121, -0.0033458478, 0.004354434, -0.008351616, 0.0047184285, -0.0003400723, -0.010105038, -0.005526458, 2.0776937, 0.8156873, -1.3442091)
+
+[node name="SM_pillow2" parent="." index="6" unique_id=5150630]
+transform = Transform3D(0.005600714, -0.005425741, 0.0047978517, -0.0056124446, -0.0074170073, 0.00381279, 0.0010641783, -0.010561692, -0.0051423004, -1.9781985, 0.6636449, -1.2557448)
+surface_material_override/0 = SubResource("StandardMaterial3D_1ajci")
+
+[node name="SM_plant" parent="." index="7" unique_id=1476091774]
+transform = Transform3D(0.025, 0, 0, 0, -1.0927848e-09, -0.025, 0, 0.025, -1.0927848e-09, 4.271217, 0.2768824, -0.24307632)
+surface_material_override/0 = SubResource("StandardMaterial3D_1ajci")
+
+[node name="SM_sofa" parent="." index="8" unique_id=1757915113]
+transform = Transform3D(3.645, 0, 0, 0, -1.5932801e-07, -3.645, 0, 3.645, -1.5932801e-07, 0.0013874471, 0.32230142, -1.0826421)
+
+[node name="SM_table" parent="." index="9" unique_id=616739378]
+transform = Transform3D(0.014, 0, 0, 0, -6.119594e-10, -0.014, 0, 0.014, -6.119594e-10, 0, -0.148916, 2.5000014)
+surface_material_override/0 = SubResource("StandardMaterial3D_1ajci")

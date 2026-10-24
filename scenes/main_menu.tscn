@@ -12,14 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
 [ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drhbd"]
-albedo_color = Color(0.13471985, 0.22307785, 0.42578125, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_u8ny3"]
-material = SubResource("StandardMaterial3D_drhbd")
-top_radius = 2.0
-height = 0.5
+[ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8ny3"]
 
@@ -38,8 +31,10 @@ size = Vector2(0.8, 0.2)
 
 [sub_resource type="Environment" id="Environment_u8ny3"]
 fog_enabled = true
-fog_light_color = Color(0.037597656, 0.056079865, 0.0625, 1)
+fog_light_color = Color(0.05836487, 0.073739745, 0.09765625, 1)
+fog_light_energy = 0.18
 volumetric_fog_albedo = Color(0.3359375, 0.3359375, 0.3359375, 1)
+adjustment_enabled = true
 
 [sub_resource type="Gradient" id="Gradient_85riq"]
 
@@ -77,29 +72,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_drhbd"]
+size = Vector2(18.87, 12.31)
+
 [node name="Node3D" type="Node3D" unique_id=1446060369]
 script = ExtResource("1_lgwnu")
 
 [node name="TransCam" type="Camera3D" parent="." unique_id=849756624]
-
-[node name="Table" type="MeshInstance3D" parent="." unique_id=1665573118]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5120692, 0)
-mesh = SubResource("CylinderMesh_u8ny3")
 
 [node name="Player" type="MeshInstance3D" parent="." unique_id=2141148213]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7546952)
 mesh = SubResource("CapsuleMesh_u8ny3")
 
 [node name="PlayerCam" type="Camera3D" parent="Player" unique_id=1977211648]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6272142, 0)
-
-[node name="Client1" type="MeshInstance3D" parent="." unique_id=1026843610]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4154668, 0, -3.1035836)
-mesh = SubResource("CapsuleMesh_u8ny3")
-
-[node name="Client2" type="MeshInstance3D" parent="." unique_id=229096456]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.901541, 0, -3.1035836)
-mesh = SubResource("CapsuleMesh_u8ny3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6272142, -0.37168598)
 
 [node name="StartCam" type="Camera3D" parent="." unique_id=796076622]
 transform = Transform3D(1, 0, 0, 0, 0.5222076, 0.85281837, 0, -0.85281837, 0.5222076, 0, 0.5119003, 1.7289213)
@@ -154,8 +140,29 @@ mesh = SubResource("PlaneMesh_u8ny3")
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0.057092637)
 text = "Dr Player"
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1455996595]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.7088766, 0)
+[node name="Lights" type="Node3D" parent="." unique_id=334996124]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights" unique_id=1455996595]
+transform = Transform3D(0.96775514, -0.0071286685, -0.25179207, 0.25175235, -0.006022652, 0.967773, -0.008415388, -0.9999565, -0.0040337937, -2.1907377, 6.31761, 0.07854998)
+light_color = Color(0.8745098, 1, 0.95882356, 1)
+light_energy = 9.653
+light_size = 0.34
+shadow_enabled = true
+shadow_opacity = 0.0
+spot_range = 10.382
+spot_angle = 89.23
+spot_angle_attenuation = 3.7321637
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights" unique_id=1176063429]
+transform = Transform3D(-0.96429217, 0.014743952, 0.2644302, 0.26446164, 0.00019033377, 0.96439624, 0.014168682, 0.9998913, -0.0040827473, 1.9578328, 6.31761, 0.07854998)
+light_color = Color(0.8745098, 1, 0.95882356, 1)
+light_energy = 9.653
+light_size = 0.34
+shadow_enabled = true
+shadow_opacity = 0.0
+spot_range = 10.382
+spot_angle = 89.88
+spot_angle_attenuation = 2.462306
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1359823609]
 environment = SubResource("Environment_u8ny3")
@@ -270,5 +277,30 @@ text = "GAME
 TITLE"
 
 [node name="Game" parent="." unique_id=679770426 instance=ExtResource("12_flqon")]
+
+[node name="World" type="Node3D" parent="." unique_id=69397929]
+
+[node name="scene" parent="World" unique_id=2038157985 instance=ExtResource("13_rcqid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15272617, -0.8022246, -2.214226)
+
+[node name="Wall" type="MeshInstance3D" parent="World" unique_id=1881040382]
+transform = Transform3D(1.1965013, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -4.8532753)
+mesh = SubResource("PlaneMesh_drhbd")
+
+[node name="Wall2" type="MeshInstance3D" parent="World" unique_id=209531136]
+transform = Transform3D(-1.2904843, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 1.1281772e-07, -1, 4.371139e-08, 0, 0, 4.3330913)
+mesh = SubResource("PlaneMesh_drhbd")
+
+[node name="Wall3" type="MeshInstance3D" parent="World" unique_id=1403352524]
+transform = Transform3D(1.2733958, 8.742278e-08, 9.801188e-08, -1.113238e-07, 1, 0, -1.11323786e-07, -7.1054274e-15, 1.1211253, 1.7669545e-13, -1.6133447, -0.375731)
+mesh = SubResource("PlaneMesh_drhbd")
+
+[node name="Wall4" type="MeshInstance3D" parent="World" unique_id=1665318888]
+transform = Transform3D(4.3711392e-08, 1, 4.371139e-08, -1, 4.3711413e-08, 4.3711385e-08, 4.3711385e-08, -4.3711413e-08, 1, -11.208863, -3.4930534, -0.12270117)
+mesh = SubResource("PlaneMesh_drhbd")
+
+[node name="Wall5" type="MeshInstance3D" parent="World" unique_id=1796851392]
+transform = Transform3D(-2.810162e-08, -1, -4.371139e-08, 2.4567217e-15, 4.371139e-08, -1, 0.64289016, -4.371139e-08, 1.9106855e-15, 10.724314, -0.0422287, -0.31584835)
+mesh = SubResource("PlaneMesh_drhbd")
 
 [connection signal="onclick" from="MainMenuUI/Book/Strips/Strip" to="." method="_on_strip_onclick"]
