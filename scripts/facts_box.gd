@@ -2,8 +2,9 @@ class_name FactsBox
 extends Control
 
 # A clipboard-styled panel that lists the facts the player has collected.
-# Drag the title bar to move it around, and press the "-" button to collapse
-# it down to a sliver in the bottom-left corner that shows only the button.
+# Drag any free space on it to move it around, and press the "-" button to
+# collapse it down to a sliver in the bottom-left corner that shows only the
+# button.
 signal drag_started
 signal drag_ended
 
@@ -20,8 +21,8 @@ const FactItemScript := preload("res://scripts/fact_item.gd")
 @onready var list: VBoxContainer = $List
 @onready var minimize: Button = $Header/Minimize
 
-var _dragging := false          # a fact row is being dragged (not the header)
-var _dragging_header := false   # the title bar is being dragged
+var _dragging := false          # a fact row is being dragged
+var _dragging_box := false      # the panel itself is being dragged
 var _collapsed := false
 var _drag_offset := Vector2.ZERO
 var _restore_position := Vector2.ZERO
@@ -31,9 +32,8 @@ var _attention_tween: Tween
 
 
 func _ready() -> void:
-	# Wire up the two interactive parts: dragging the title bar and the
-	# minimise/restore button.
-	header.gui_input.connect(_on_header_gui_input)
+	# Wire up the minimise/restore button. Dragging is handled by _gui_input
+	# below, which fires on any free space of the panel.
 	minimize.pressed.connect(_toggle_collapsed)
 
 
@@ -71,18 +71,18 @@ func _notification(what: int) -> void:
 		drag_ended.emit()
 
 
-func _on_header_gui_input(event: InputEvent) -> void:
+func _gui_input(event: InputEvent) -> void:
 	# Dragging is disabled while collapsed so the button stays clickable.
 	if _collapsed:
 		return
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		# Remember where the pointer grabbed the panel so it doesn't jump.
-		_dragging_header = event.pressed
+		_dragging_box = event.pressed
 		_drag_offset = event.global_position - global_position
 		accept_event()
 
-	elif event is InputEventMouseMotion and _dragging_header:
+	elif event is InputEventMouseMotion and _dragging_box:
 		# Follow the pointer, but keep the panel inside the screen.
 		var viewport_size: Vector2 = get_viewport_rect().size
 		var next_position: Vector2 = event.global_position - _drag_offset

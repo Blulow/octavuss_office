@@ -40,6 +40,7 @@ offset_left = 34.0
 offset_top = 34.0
 offset_right = 340.0
 offset_bottom = 64.000046
+mouse_filter = 2
 
 [node name="Title" type="Label" parent="Header" unique_id=897943519]
 layout_mode = 2
@@ -71,4 +72,5 @@ offset_left = 34.0
 offset_top = 92.0
 offset_right = 339.0
 offset_bottom = 417.0
+mouse_filter = 0
 theme_override_constants/separation = 8
