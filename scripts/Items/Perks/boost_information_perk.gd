@@ -1,9 +1,10 @@
 # boost_information_perk.gd
-class_name BoostInformationPerk
+class_name BoostValuePerk
 extends Perk
 
-@export var multiplier: float = 1.25
+@export var amount: int = 1
+@export var stat_name: String = "calm"
 
 func apply() -> void:
-	print ("Information boosted by " + str(multiplier))
-	PlayerData.boost_information(multiplier)
+	print (stat_name + " value boosted by " + str(amount))
+	PlayerData.boost_stat_value(stat_name ,amount)

@@ -45,25 +45,29 @@ surface_material_override/0 = SubResource("StandardMaterial3D_xrivr")
 [node name="Newspaper" parent="." unique_id=451337739 instance=ExtResource("1_8r1wq")]
 transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -5, -2.0961876, -4.5)
 
-[node name="Mesh" parent="Newspaper" index="0" unique_id=1483267050]
+[node name="Mesh" parent="Newspaper" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 item_name = "Newspaper"
 price = 300
 item_description = "A Round of Newspaper increasing Information"
+perks = [NodePath("../InformationBoost")]
 
 [node name="SelectToDisplayEffect" parent="Newspaper/Mesh/Effects" parent_id_path=PackedInt32Array(451337739, 1279989910) index="1" unique_id=1798508535 node_paths=PackedStringArray("display_point")]
 display_point = NodePath("../../../../Marker3D")
 
 [node name="InformationBoost" type="Node" parent="Newspaper" unique_id=880900231]
 script = ExtResource("2_032fp")
+amount = 2
+stat_name = "fact"
 
 [node name="Flower" parent="." unique_id=809522558 instance=ExtResource("1_8r1wq")]
 transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -5, 2, -4.5)
 
-[node name="Mesh" parent="Flower" index="0" unique_id=1483267050]
+[node name="Mesh" parent="Flower" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 transform = Transform3D(1.44, 0, 0, 0, 1.4399999, 0, 0, 0, 1.44, 0, 0, 0)
 item_name = "Flower"
 price = 200
 item_description = "A Boquet of Flowers to Increase Deescalation"
+perks = [NodePath("../DeescalationBoost")]
 
 [node name="SelectToDisplayEffect" parent="Flower/Mesh/Effects" parent_id_path=PackedInt32Array(809522558, 1279989910) index="1" unique_id=1798508535 node_paths=PackedStringArray("display_point")]
 display_point = NodePath("../../../../Marker3D")
@@ -74,20 +78,20 @@ script = ExtResource("3_2fc2m")
 [node name="Candy" parent="." unique_id=809431324 instance=ExtResource("1_8r1wq")]
 transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -1.0354147, 2, -4.5)
 
-[node name="Mesh" parent="Candy" index="0" unique_id=1483267050]
+[node name="Mesh" parent="Candy" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 item_name = "Candy"
 item_description = "Sweet Candy to Increase Deescalation, However reduces Information"
+perks = [NodePath("../InformationBoost"), NodePath("../DeescalationBoost")]
 
 [node name="SelectToDisplayEffect" parent="Candy/Mesh/Effects" parent_id_path=PackedInt32Array(809431324, 1279989910) index="1" unique_id=1798508535 node_paths=PackedStringArray("display_point")]
 display_point = NodePath("../../../../Marker3D")
 
-[node name="InformationReduce" type="Node" parent="Candy" unique_id=1542041231]
+[node name="InformationBoost" type="Node" parent="Candy" unique_id=1542041231]
 script = ExtResource("2_032fp")
-multiplier = 0.8
 
 [node name="DeescalationBoost" type="Node" parent="Candy" unique_id=1336834633]
 script = ExtResource("3_2fc2m")
-multiplier = 1.5
+multiplier = 0.8
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1134407947]
 

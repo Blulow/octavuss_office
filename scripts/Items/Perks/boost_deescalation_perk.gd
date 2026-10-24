@@ -1,9 +1,10 @@
 # boost_deescalation_perk.gd
-class_name BoostDeescalationPerk
+class_name BoostMultiplierPerk
 extends Perk
 
 @export var multiplier: float = 1.25
+@export var stat_name: String = "calm"
 
 func apply() -> void:
-	print ("Deescalation boosted by " + str(multiplier))
-	PlayerData.boost_deescalation(multiplier)
+	print (stat_name + " Multiplier boosted by " + str(multiplier))
+	PlayerData.boost_stat_multiplier(stat_name , multiplier)
