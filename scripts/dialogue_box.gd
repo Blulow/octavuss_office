@@ -7,6 +7,7 @@ const BASE_CPS := 30.0
 const PUNCT_CHARS := ".!?…,;:"
 const DEFAULT_PUNCT := 0.12
 const SLIDE_PX := 14.0
+const SCREEN_MARGIN := 72.0
 
 const PopFxScript := preload("res://scripts/fx/pop_effect.gd")
 const GlitchFxScript := preload("res://scripts/fx/glitch_effect.gd")
@@ -89,11 +90,11 @@ func _fit_and_place() -> void:
 		modulate.a = 0.0
 	var vp := get_viewport_rect().size
 	custom_minimum_size = Vector2.ZERO
-	size.x = vp.x
+	size.x = vp.x - SCREEN_MARGIN * 2.0
 	for i in 2:
 		await get_tree().process_frame
 	size.y = get_combined_minimum_size().y
-	var target := Vector2(0.0, vp.y - size.y)
+	var target := Vector2(SCREEN_MARGIN, vp.y - size.y)
 	position = target + Vector2(0.0, SLIDE_PX)
 	if _move_tween != null and _move_tween.is_valid():
 		_move_tween.kill()
@@ -196,7 +197,7 @@ func _shake() -> void:
 	_shake_tween = create_tween()
 	_shake_tween.tween_interval(0.08)
 	for amp in [4.0, -4.0, 2.5, -2.5, 0.0]:
-		_shake_tween.tween_property(self, "position:x", amp, 0.03)
+		_shake_tween.tween_property(self, "position:x", SCREEN_MARGIN + amp, 0.03)
 
 
 func _compute_word_ends() -> PackedInt32Array:

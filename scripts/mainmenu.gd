@@ -40,6 +40,8 @@ func _on_start_game_onclick():
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(trans_cam, "global_position", player_cam.global_position, 0.3)
 	tween.parallel().tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
+	await tween.finished
+	get_tree().change_scene_to_file("res://scenes/dialogue_scene_facts.tscn")
 
 func _on_start_game_onhover():
 	if book_sprite.animation == "open" and book_sprite.playing:
