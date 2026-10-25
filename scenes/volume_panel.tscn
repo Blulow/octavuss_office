@@ -120,12 +120,13 @@ script = null
 [node name="CloseButton" parent="." unique_id=1128845289 instance=ExtResource("1_m7wk6")]
 layout_mode = 0
 anchors_preset = 0
-offset_left = -530.0
-offset_top = -281.0
-offset_right = -213.0
-offset_bottom = -110.0
+offset_left = -521.0
+offset_top = -280.0
+offset_right = -204.0
+offset_bottom = -109.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.706657, 0.6950004)
 pivot_offset = Vector2(0, 0)
 icon = ExtResource("4_rdtvf")
 flat = true
