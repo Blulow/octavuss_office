@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://hl8gocycs3dn" path="res://assets/images/page_1.PNG" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
-[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/UI/settings_panel.gd" id="12_7b55j"]
+[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/ui/settings_panel.gd" id="12_7b55j"]
 [ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
-[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://settings menu.tscn" id="13_5pajh"]
+[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_5pajh"]
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8ny3"]
@@ -77,10 +77,14 @@ animations = [{
 [sub_resource type="PlaneMesh" id="PlaneMesh_drhbd"]
 size = Vector2(18.87, 12.31)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68xlc"]
+albedo_color = Color(0.27163696, 0.50390625, 0.46786442, 1)
+
 [node name="MainMenu" type="Node3D" unique_id=1446060369]
 script = ExtResource("1_lgwnu")
 
 [node name="TransCam" type="Camera3D" parent="." unique_id=849756624]
+fov = 65.0
 
 [node name="Player" type="MeshInstance3D" parent="." unique_id=2141148213]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7546952)
@@ -128,7 +132,7 @@ text = "GAME
 TITLE"
 
 [node name="NameStand" type="Node3D" parent="MainMenuUI" unique_id=346076287]
-transform = Transform3D(0.98928577, 0, 0.14599197, 0, 1, 0, -0.14599197, 0, 0.98928577, -0.46910247, -0.17482334, 0.36041564)
+transform = Transform3D(0.98928577, 0, 0.14599197, 0, 1, 0, -0.14599197, 0, 0.98928577, -0.5002061, -0.22344017, 0.5701404)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MainMenuUI/NameStand" unique_id=1193740616]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0.054950446)
@@ -290,23 +294,28 @@ direction = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15272617, -0.8022246, -2.214226)
 
 [node name="Wall" type="MeshInstance3D" parent="World" unique_id=1881040382]
-transform = Transform3D(1.1965013, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -4.8532753)
+transform = Transform3D(1.1965013, 0, 0, 0, -4.371139e-08, -1.5155723, 0, 1, -6.624777e-08, 0, 0, -5.870798)
 mesh = SubResource("PlaneMesh_drhbd")
+surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
 
 [node name="Wall2" type="MeshInstance3D" parent="World" unique_id=209531136]
 transform = Transform3D(-1.2904843, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 1.1281772e-07, -1, 4.371139e-08, 0, 0, 4.3330913)
 mesh = SubResource("PlaneMesh_drhbd")
+surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
 
 [node name="Wall3" type="MeshInstance3D" parent="World" unique_id=1403352524]
 transform = Transform3D(1.2733958, 8.742278e-08, 9.801188e-08, -1.113238e-07, 1, 0, -1.11323786e-07, -7.1054274e-15, 1.1211253, 1.7669545e-13, -1.6133447, -0.375731)
 mesh = SubResource("PlaneMesh_drhbd")
+surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
 
 [node name="Wall4" type="MeshInstance3D" parent="World" unique_id=1665318888]
 transform = Transform3D(4.3711392e-08, 1, 4.371139e-08, -1, 4.3711413e-08, 4.3711385e-08, 4.3711385e-08, -4.3711413e-08, 1, -11.208863, -3.4930534, -0.12270117)
 mesh = SubResource("PlaneMesh_drhbd")
+surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
 
 [node name="Wall5" type="MeshInstance3D" parent="World" unique_id=1796851392]
 transform = Transform3D(-2.810162e-08, -1, -4.371139e-08, 2.4567217e-15, 4.371139e-08, -1, 0.64289016, -4.371139e-08, 1.9106855e-15, 10.724314, -0.0422287, -0.31584835)
 mesh = SubResource("PlaneMesh_drhbd")
+surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
 
 [connection signal="onclick" from="MainMenuUI/Book/Strips/Strip" to="." method="_on_strip_onclick"]
