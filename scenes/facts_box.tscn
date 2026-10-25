@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://co5dhliqpfxqm"]
+
+[ext_resource type="Script" uid="uid://bxp8arg6wt7on" path="res://scripts/facts_box.gd" id="1_facts"]
+[ext_resource type="Texture2D" uid="uid://qdij1tbuw2pf" path="res://assets/buttons/clipboard checkpoint.png" id="2_clip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clip"]
+atlas = ExtResource("2_clip")
+region = Rect2(520, 20, 813, 1043)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_min"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0.05, 0.12, 0.16, 0.65)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="FactsBox" type="Control" unique_id=1208479403 node_paths=PackedStringArray("header", "list", "minimize")]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 470.0
+script = ExtResource("1_facts")
+header = NodePath("Header")
+list = NodePath("List")
+minimize = NodePath("Header/Minimize")
+
+[node name="Background" type="TextureRect" parent="." unique_id=967821443]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 470.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_clip")
+expand_mode = 1
+
+[node name="Header" type="HBoxContainer" parent="." unique_id=2115753549]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 38.0
+offset_right = 338.0
+offset_bottom = 68.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Header" unique_id=897943519]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.95)
+theme_override_colors/font_outline_color = Color(0.05, 0.12, 0.16, 0.9)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "FACTS"
+
+[node name="Spacer" type="Control" parent="Header" unique_id=1683743178]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Minimize" type="Button" parent="Header" unique_id=1037089652]
+custom_minimum_size = Vector2(30, 26)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.92, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_min")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_min")
+theme_override_styles/hover = SubResource("StyleBoxFlat_min")
+text = "-"
+
+[node name="List" type="VBoxContainer" parent="." unique_id=1353041961]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 84.0
+offset_right = 334.0
+offset_bottom = 412.0
+mouse_filter = 0
+theme_override_constants/separation = 8

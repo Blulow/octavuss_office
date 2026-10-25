@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bcwl5qkvwop3m"]
+
+[ext_resource type="Script" uid="uid://bfemtu0onov7" path="res://scripts/dialogue_scene_facts.gd" id="1_scene"]
+[ext_resource type="PackedScene" uid="uid://cb5ue2xennvxk" path="res://scenes/dialogue_box.tscn" id="2_box"]
+[ext_resource type="PackedScene" uid="uid://caiarpyc05rrx" path="res://scenes/choice_box.tscn" id="3_choice"]
+[ext_resource type="PackedScene" uid="uid://co5dhliqpfxqm" path="res://scenes/facts_box.tscn" id="4_facts"]
+[ext_resource type="Script" path="res://scripts/notebook_button.gd" id="5_nb"]
+[ext_resource type="Texture2D" uid="uid://bkfm0hy52tho" path="res://icon.svg" id="6_icon"]
+[ext_resource type="PackedScene" uid="uid://c7iy0pgt87h3g" path="res://scenes/note_book.tscn" id="7_nb"]
+[ext_resource type="Shader" uid="uid://fsoauxr4xq5r" path="res://assets/shader/screen_blur.gdshader" id="8_blur"]
+
+[sub_resource type="Environment" id="Environment_menu"]
+fog_enabled = true
+fog_light_color = Color(0.037597656, 0.056079865, 0.0625, 1)
+volumetric_fog_albedo = Color(0.3359375, 0.3359375, 0.3359375, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_table"]
+albedo_color = Color(0.13471985, 0.22307785, 0.42578125, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_table"]
+material = SubResource("StandardMaterial3D_table")
+top_radius = 2.0
+height = 0.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_client"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_name"]
+size = Vector2(0.8, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blur"]
+shader = ExtResource("8_blur")
+shader_parameter/radius = 4.0
+
+[node name="DialogueSceneFacts" type="Node3D" unique_id=111532145]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1900018286]
+environment = SubResource("Environment_menu")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1723748450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6272142, 2.7546952)
+current = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1404252891]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.7088766, 0)
+
+[node name="Table" type="MeshInstance3D" parent="." unique_id=1590192541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5120692, 0)
+mesh = SubResource("CylinderMesh_table")
+
+[node name="Client1" type="MeshInstance3D" parent="." unique_id=788986570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4154668, 0, -3.1035836)
+mesh = SubResource("CapsuleMesh_client")
+
+[node name="Client2" type="MeshInstance3D" parent="." unique_id=2116905958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.901541, 0, -3.1035836)
+mesh = SubResource("CapsuleMesh_client")
+
+[node name="NameStand" type="Node3D" parent="." unique_id=330254354]
+transform = Transform3D(0.98928577, 0, 0.14599197, 0, 1, 0, -0.14599197, 0, 0.98928577, -0.46910247, -0.17482334, 0.36041564)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NameStand" unique_id=1716158078]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0.054950446)
+mesh = SubResource("PlaneMesh_name")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NameStand" unique_id=1992983377]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, -0.08770272)
+mesh = SubResource("PlaneMesh_name")
+
+[node name="Label3D" type="Label3D" parent="NameStand" unique_id=1257743121]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0.057092637)
+text = "Dr Player"
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=286922206]
+layer = 10
+script = ExtResource("1_scene")
+
+[node name="DialogueBox" parent="UI" unique_id=116718778 instance=ExtResource("2_box")]
+
+[node name="ChoiceBox" parent="UI" unique_id=1006367709 instance=ExtResource("3_choice")]
+width = 620.0
+center_offset_x = 210.0
+
+[node name="FactsBox" parent="UI" unique_id=72779882 instance=ExtResource("4_facts")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 84.0
+offset_right = 384.0
+offset_bottom = 554.0
+
+[node name="NotebookButton" type="Button" parent="UI"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -98.0
+offset_right = 56.0
+offset_bottom = -58.0
+custom_minimum_size = Vector2(40, 40)
+focus_mode = 0
+icon = ExtResource("6_icon")
+expand_icon = true
+script = ExtResource("5_nb")
+
+[node name="NotebookOverlay" type="CanvasLayer" parent="."]
+layer = 20
+visible = false
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="NotebookOverlay"]
+copy_mode = 2
+
+[node name="Blur" type="ColorRect" parent="NotebookOverlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+material = SubResource("ShaderMaterial_blur")
+
+[node name="NoteBook" parent="NotebookOverlay" instance=ExtResource("7_nb")]
+

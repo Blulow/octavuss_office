@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bkbft5gdou8jv"]
 
 [ext_resource type="Script" uid="uid://47natouidh5q" path="res://scripts/dialogue_scene.gd" id="1_scene"]
-[ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="2_box"]
-[ext_resource type="PackedScene" path="res://scenes/choice_box.tscn" id="3_choice"]
+[ext_resource type="PackedScene" uid="uid://cb5ue2xennvxk" path="res://scenes/dialogue_box.tscn" id="2_box"]
+[ext_resource type="PackedScene" uid="uid://caiarpyc05rrx" path="res://scenes/choice_box.tscn" id="3_choice"]
 
-[node name="DialogueScene" type="CanvasLayer" unique_id=1549634544]
+[node name="DialogueScene" type="CanvasLayer" unique_id=1549634544 node_paths=PackedStringArray("box", "choice_box")]
 layer = 10
 script = ExtResource("1_scene")
+box = NodePath("DialogueBox")
+choice_box = NodePath("ChoiceBox")
 
 [node name="DialogueBox" parent="." unique_id=176074065 instance=ExtResource("2_box")]
 

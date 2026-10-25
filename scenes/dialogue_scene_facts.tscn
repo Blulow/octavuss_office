@@ -3,28 +3,12 @@
 [ext_resource type="Script" uid="uid://bfemtu0onov7" path="res://scripts/dialogue_scene_facts.gd" id="1_scene"]
 [ext_resource type="PackedScene" uid="uid://cb5ue2xennvxk" path="res://scenes/dialogue_box.tscn" id="2_box"]
 [ext_resource type="PackedScene" uid="uid://caiarpyc05rrx" path="res://scenes/choice_box.tscn" id="3_choice"]
-[ext_resource type="Script" uid="uid://bxp8arg6wt7on" path="res://scripts/facts_box.gd" id="4_facts"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_facts"]
-content_margin_left = 12.0
-content_margin_top = 10.0
-content_margin_right = 12.0
-content_margin_bottom = 12.0
-bg_color = Color(0.05, 0.05, 0.08, 0.88)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 0.25)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[ext_resource type="PackedScene" uid="uid://co5dhliqpfxqm" path="res://scenes/facts_box.tscn" id="4_facts"]
 
 [node name="DialogueSceneFacts" type="CanvasLayer" unique_id=1331931773 node_paths=PackedStringArray("facts_box", "box", "choice_box")]
 layer = 10
 script = ExtResource("1_scene")
-facts_box = NodePath("FactsBox")
+facts_box = NodePath("FactsBox2")
 box = NodePath("DialogueBox")
 choice_box = NodePath("ChoiceBox")
 
@@ -33,31 +17,10 @@ choice_box = NodePath("ChoiceBox")
 [node name="ChoiceBox" parent="." unique_id=1136377435 node_paths=PackedStringArray("facts_box") instance=ExtResource("3_choice")]
 width = 620.0
 center_offset_x = 210.0
-facts_box = NodePath("../FactsBox")
+facts_box = NodePath("../FactsBox2")
 
-[node name="FactsBox" type="PanelContainer" parent="." unique_id=816443708 node_paths=PackedStringArray("choice_box", "list")]
-offset_left = 24.0
-offset_top = 150.0
-offset_right = 344.0
-offset_bottom = 520.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_facts")
-script = ExtResource("4_facts")
+[node name="FactsBox2" parent="." unique_id=847717659 node_paths=PackedStringArray("choice_box") instance=ExtResource("4_facts")]
 choice_box = NodePath("../ChoiceBox")
-list = NodePath("VBox/List")
-
-[node name="VBox" type="VBoxContainer" parent="FactsBox" unique_id=491491694]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Title" type="Label" parent="FactsBox/VBox" unique_id=494439443]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
-theme_override_font_sizes/font_size = 15
-text = "FACTS"
-
-[node name="List" type="VBoxContainer" parent="FactsBox/VBox" unique_id=726815804]
-layout_mode = 2
-theme_override_constants/separation = 8
 
 [node name="StatsLabel" type="Label" parent="." unique_id=1943265462]
 offset_right = 40.0
