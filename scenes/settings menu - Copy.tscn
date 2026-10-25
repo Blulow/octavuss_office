@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bfe4lt1ardi36"]
+
+[ext_resource type="Texture2D" uid="uid://qdij1tbuw2pf" path="res://assets/buttons/clipboard checkpoint.png" id="1_6lyqx"]
+[ext_resource type="Texture2D" uid="uid://l6wne6abwhgy" path="res://assets/buttons/Setting heading.png" id="2_h7v07"]
+[ext_resource type="PackedScene" uid="uid://cmvpkpsuyyt8l" path="res://scenes/input_elements/button.tscn" id="3_7ihbn"]
+[ext_resource type="Texture2D" uid="uid://umbj172l423q" path="res://assets/buttons/Audio buttons checkpoint copy.png" id="4_qcxcu"]
+[ext_resource type="Texture2D" uid="uid://njtv70s3uie8" path="res://assets/buttons/other buttons checkpoint copy 2.png" id="5_fvl7d"]
+[ext_resource type="Texture2D" uid="uid://bpnsr7ttj5gqj" path="res://assets/buttons/back buttons checkpoint copy 3.png" id="6_a4thb"]
+[ext_resource type="Script" uid="uid://lqe5v5fu7lcu" path="res://scripts/UI/panel_closer.gd" id="7_wxhqg"]
+
+[node name="Control" type="Control" unique_id=428628215]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=307924277]
+position = Vector2(575, 322)
+scale = Vector2(0.5987002, 0.59894365)
+texture = ExtResource("1_6lyqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1847729256]
+position = Vector2(-11.691995, -318.89478)
+texture = ExtResource("2_h7v07")
+
+[node name="Button" parent="." unique_id=258782434 instance=ExtResource("3_7ihbn")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 453.0
+offset_top = 175.0
+offset_right = 773.0
+offset_bottom = 350.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.51866215, 0.5123724)
+text = ""
+icon = ExtResource("4_qcxcu")
+flat = true
+
+[node name="Button2" parent="." unique_id=1035443828 instance=ExtResource("3_7ihbn")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 452.99997
+offset_top = 273.0
+offset_right = 773.0
+offset_bottom = 448.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.51866215, 0.5123724)
+text = ""
+icon = ExtResource("5_fvl7d")
+flat = true
+
+[node name="Button3" parent="." unique_id=581254869 instance=ExtResource("3_7ihbn")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 452.99997
+offset_top = 371.0
+offset_right = 773.0
+offset_bottom = 546.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.51866215, 0.5123724)
+text = ""
+icon = ExtResource("6_a4thb")
+flat = true
+
+[node name="RemoveSettings" type="Node" parent="." unique_id=1412309010 node_paths=PackedStringArray("close_button", "panel")]
+script = ExtResource("7_wxhqg")
+close_button = NodePath("../Button3")
+panel = NodePath("..")
+direction = 1

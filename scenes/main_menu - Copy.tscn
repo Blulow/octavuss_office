@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://c4asxrco5dq5p"]
+
+[ext_resource type="Script" uid="uid://c37vg6jhe0ay0" path="res://scripts/mainmenu.gd" id="1_lgwnu"]
+[ext_resource type="PackedScene" uid="uid://cw7qx4up1erpv" path="res://scenes/ui/strip.tscn" id="2_flqon"]
+[ext_resource type="Texture2D" uid="uid://dljk52dilrweh" path="res://assets/images/book.PNG" id="3_rcqid"]
+[ext_resource type="Texture2D" uid="uid://dekoxklfl4ay0" path="res://assets/buttons/startbutton.png" id="3_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://df8j3swg8lxma" path="res://scenes/ui/strip2d.tscn" id="4_1ajci"]
+[ext_resource type="Texture2D" uid="uid://tpmssaxnt0fx" path="res://assets/buttons/button penanda buku v2 setting.png" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://bwxf3dsr2wcd4" path="res://assets/buttons/button penanda buku v2 quit.png" id="5_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://co642745b7vsm" path="res://scenes/ui/animated_texture_rect.tscn" id="8_7b55j"]
+[ext_resource type="Texture2D" uid="uid://hl8gocycs3dn" path="res://assets/images/page_1.PNG" id="9_5pajh"]
+[ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
+[ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
+[ext_resource type="Script" uid="uid://bb7duecckfmbd" path="res://scripts/UI/settings_panel.gd" id="12_flqon"]
+[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_rcqid"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drhbd"]
+albedo_color = Color(0.13471985, 0.22307785, 0.42578125, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u8ny3"]
+material = SubResource("StandardMaterial3D_drhbd")
+top_radius = 2.0
+height = 0.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u8ny3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5g8n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uguvf"]
+next_pass = SubResource("ShaderMaterial_s5g8n")
+albedo_color = Color(0.88946533, 0.9401102, 0.96484375, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u8ny3"]
+material = SubResource("StandardMaterial3D_uguvf")
+size = Vector3(0.49621582, 0.1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u8ny3"]
+size = Vector2(0.8, 0.2)
+
+[sub_resource type="Environment" id="Environment_u8ny3"]
+fog_enabled = true
+fog_light_color = Color(0.037597656, 0.056079865, 0.0625, 1)
+volumetric_fog_albedo = Color(0.3359375, 0.3359375, 0.3359375, 1)
+
+[sub_resource type="Gradient" id="Gradient_85riq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u8ny3"]
+gradient = SubResource("Gradient_85riq")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8ny3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_j7ex8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_a8gd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5pajh")
+}],
+"loop": 1,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_5pajh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_a8gd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j7ex8")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Node3D" type="Node3D" unique_id=1446060369]
+script = ExtResource("1_lgwnu")
+
+[node name="TransCam" type="Camera3D" parent="." unique_id=849756624]
+
+[node name="Table" type="MeshInstance3D" parent="." unique_id=1665573118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5120692, 0)
+mesh = SubResource("CylinderMesh_u8ny3")
+
+[node name="Player" type="MeshInstance3D" parent="." unique_id=2141148213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7546952)
+mesh = SubResource("CapsuleMesh_u8ny3")
+
+[node name="PlayerCam" type="Camera3D" parent="Player" unique_id=1977211648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6272142, 0)
+
+[node name="Client1" type="MeshInstance3D" parent="." unique_id=1026843610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4154668, 0, -3.1035836)
+mesh = SubResource("CapsuleMesh_u8ny3")
+
+[node name="Client2" type="MeshInstance3D" parent="." unique_id=229096456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.901541, 0, -3.1035836)
+mesh = SubResource("CapsuleMesh_u8ny3")
+
+[node name="StartCam" type="Camera3D" parent="." unique_id=796076622]
+transform = Transform3D(1, 0, 0, 0, 0.5222076, 0.85281837, 0, -0.85281837, 0.5222076, 0, 0.5119003, 1.7289213)
+
+[node name="MainMenuUI" type="Node3D" parent="." unique_id=36798950]
+
+[node name="Book" type="Node3D" parent="MainMenuUI" unique_id=733758904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5201809, -0.20495379, 1.1918496)
+visible = false
+
+[node name="BookLeft" type="MeshInstance3D" parent="MainMenuUI/Book" unique_id=1130963120]
+transform = Transform3D(0.9991214, 0.041911397, 0, -0.041911397, 0.9991214, 0, 0, 0, 1, -0.26269022, 0, 0)
+mesh = SubResource("BoxMesh_u8ny3")
+
+[node name="BookRight" type="MeshInstance3D" parent="MainMenuUI/Book" unique_id=25461112]
+transform = Transform3D(0.9994521, -0.033098217, 0, 0.033098217, 0.9994521, 0, 0, 0, 1, 0.20423985, 0, 0)
+mesh = SubResource("BoxMesh_u8ny3")
+
+[node name="Strips" type="Node3D" parent="MainMenuUI/Book" unique_id=1822941909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5630934, 0, 0)
+
+[node name="Strip" parent="MainMenuUI/Book/Strips" unique_id=1301950672 instance=ExtResource("2_flqon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.32196283)
+label = "Start"
+
+[node name="Strip2" parent="MainMenuUI/Book/Strips" unique_id=1841325418 instance=ExtResource("2_flqon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.023983717)
+label = "Settings"
+
+[node name="Strip3" parent="MainMenuUI/Book/Strips" unique_id=896127359 instance=ExtResource("2_flqon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2776879)
+label = "Quit"
+
+[node name="Title" type="Label3D" parent="MainMenuUI" unique_id=1710883638]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.7564903, -0.25652918, 1.1213982)
+visible = false
+text = "GAME
+TITLE"
+
+[node name="NameStand" type="Node3D" parent="MainMenuUI" unique_id=346076287]
+transform = Transform3D(0.98928577, 0, 0.14599197, 0, 1, 0, -0.14599197, 0, 0.98928577, -0.46910247, -0.17482334, 0.36041564)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MainMenuUI/NameStand" unique_id=1193740616]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0.054950446)
+mesh = SubResource("PlaneMesh_u8ny3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MainMenuUI/NameStand" unique_id=633596970]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, -0.08770272)
+mesh = SubResource("PlaneMesh_u8ny3")
+
+[node name="Label3D" type="Label3D" parent="MainMenuUI/NameStand" unique_id=1887682974]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0.057092637)
+text = "Dr Player"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1455996595]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.7088766, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1359823609]
+environment = SubResource("Environment_u8ny3")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1225004782]
+
+[node name="Book" type="Control" parent="UI" unique_id=1760123109]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 595.0
+offset_top = 260.0
+offset_right = 1090.0
+offset_bottom = 641.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Book" unique_id=14481934]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -252.0
+offset_right = 557.0
+offset_bottom = 388.0
+texture = ExtResource("3_rcqid")
+
+[node name="Strips" type="Control" parent="UI/Book" unique_id=1625685532]
+anchors_preset = 0
+offset_left = -127.0
+offset_top = 46.0
+offset_right = 208.0
+offset_bottom = 328.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Book/Strips" unique_id=215762605]
+clip_children = 1
+layout_mode = 0
+offset_left = -83.0
+offset_top = -19.0
+offset_right = 174.0
+offset_bottom = 56.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_u8ny3")
+
+[node name="Strip" parent="UI/Book/Strips/TextureRect" unique_id=214222789 node_paths=PackedStringArray("mask", "parent") instance=ExtResource("4_1ajci")]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 100.0
+offset_right = 595.0001
+offset_bottom = 82.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_rtw2f")
+mask = NodePath("..")
+parent = NodePath("../..")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Book/Strips" unique_id=44334497]
+clip_children = 1
+layout_mode = 0
+offset_left = -79.0
+offset_top = 92.99999
+offset_right = 178.0
+offset_bottom = 168.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_u8ny3")
+
+[node name="Strip2" parent="UI/Book/Strips/TextureRect2" unique_id=1484798191 node_paths=PackedStringArray("mask", "parent") instance=ExtResource("4_1ajci")]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 100.0
+offset_right = 623.0
+offset_bottom = 89.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_oa1go")
+mask = NodePath("..")
+parent = NodePath("../..")
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Book/Strips" unique_id=369985656]
+clip_children = 1
+layout_mode = 0
+offset_left = -77.0
+offset_top = 203.00002
+offset_right = 180.0
+offset_bottom = 278.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_u8ny3")
+
+[node name="Strip3" parent="UI/Book/Strips/TextureRect3" unique_id=1964119910 node_paths=PackedStringArray("mask", "parent") instance=ExtResource("4_1ajci")]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 0
+offset_left = 100.0
+offset_right = 604.0001
+offset_bottom = 86.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_tbmy8")
+mask = NodePath("..")
+parent = NodePath("../..")
+
+[node name="AnimatedTextureRect" parent="UI/Book" unique_id=1326480437 instance=ExtResource("8_7b55j")]
+layout_mode = 1
+offset_left = -66.99994
+offset_top = -235.99997
+offset_right = 355.94122
+offset_bottom = 300.94116
+scale = Vector2(0.68, 0.68)
+mouse_filter = 2
+texture = ExtResource("9_5pajh")
+sprite_frames = SubResource("SpriteFrames_u8ny3")
+playing = false
+
+[node name="Title" type="Label" parent="UI" unique_id=599290273]
+offset_left = 107.0
+offset_top = 307.0
+offset_right = 354.0
+offset_bottom = 546.0
+theme_override_font_sizes/font_size = 86
+text = "GAME
+TITLE"
+
+[node name="SettingsPanelWiring" type="Node" parent="." unique_id=2079752683 node_paths=PackedStringArray("open_button", "parent")]
+script = ExtResource("12_flqon")
+open_button = NodePath("../UI/Book/Strips/TextureRect2/Strip2")
+panel_scene = ExtResource("13_rcqid")
+parent = NodePath("../UI")
+direction = 1
+
+[connection signal="onclick" from="MainMenuUI/Book/Strips/Strip" to="." method="_on_strip_onclick"]

@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://hl8gocycs3dn" path="res://assets/images/page_1.PNG" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
+[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/UI/settings_panel.gd" id="12_7b55j"]
 [ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
+[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_5pajh"]
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8ny3"]
@@ -272,6 +274,13 @@ offset_bottom = 546.0
 theme_override_font_sizes/font_size = 86
 text = "GAME
 TITLE"
+
+[node name="SettingsPanelWiring" type="Node" parent="." unique_id=2018609453 node_paths=PackedStringArray("open_button", "parent")]
+script = ExtResource("12_7b55j")
+open_button = NodePath("../UI/Book/Strips/TextureRect2/Strip2")
+panel_scene = ExtResource("13_5pajh")
+parent = NodePath("../UI")
+direction = 1
 
 [node name="Game" parent="." unique_id=679770426 instance=ExtResource("12_flqon")]
 

@@ -20,7 +20,7 @@ extends Node3D
 
 func _ready() -> void:
 	start_game.onclick.connect(_on_start_game_onclick)
-	settings.onclick.connect(_on_settings_onclick)
+	#settings.onclick.connect(_on_settings_onclick)
 	quit_game.onclick.connect(_on_quit_game_onclick)
 	start_game.onhover.connect(_on_start_game_onhover)
 	settings.onhover.connect(_on_settings_onhover)
@@ -47,9 +47,6 @@ func _on_start_game_onclick():
 	book.visible = false
 	title.visible = false
 	dialogues.get_node("SessionManager").load_next_session(true)
-
-func _on_settings_onclick():
-	get_tree().change_scene_to_file("res://scenes/settings menu.tscn")
 
 func _on_quit_game_onclick():
 	get_tree().quit()

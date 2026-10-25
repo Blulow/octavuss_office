@@ -3,11 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://qdij1tbuw2pf" path="res://assets/buttons/clipboard checkpoint.png" id="1_j5ss8"]
 [ext_resource type="Script" uid="uid://7ih1f4rfgxml" path="res://scenes/settings_menu.gd" id="1_kks3q"]
 [ext_resource type="Texture2D" uid="uid://l6wne6abwhgy" path="res://assets/buttons/Setting heading.png" id="2_wxhqg"]
-[ext_resource type="PackedScene" uid="uid://cmvpkpsuyyt8l" path="res://scenes/input_elements/button.tscn" id="3_kks3q"]
+[ext_resource type="PackedScene" uid="uid://cmvpkpsuyyt8l" path="res://scenes/button.tscn" id="3_kks3q"]
 [ext_resource type="Texture2D" uid="uid://umbj172l423q" path="res://assets/buttons/Audio buttons checkpoint copy.png" id="4_7ndgi"]
 [ext_resource type="Texture2D" uid="uid://njtv70s3uie8" path="res://assets/buttons/other buttons checkpoint copy 2.png" id="5_cspvc"]
 [ext_resource type="Texture2D" uid="uid://bpnsr7ttj5gqj" path="res://assets/buttons/back buttons checkpoint copy 3.png" id="6_i67n8"]
 [ext_resource type="PackedScene" uid="uid://cvcvv7kvtsrkp" path="res://scenes/volume_panel.tscn" id="7_wxhqg"]
+[ext_resource type="Script" uid="uid://lqe5v5fu7lcu" path="res://scripts/ui/panel_closer.gd" id="9_7ndgi"]
 
 [node name="Control" type="Control" unique_id=428628215]
 layout_mode = 3
@@ -71,5 +72,10 @@ texture = ExtResource("2_wxhqg")
 visible = false
 layout_mode = 1
 
+[node name="RemoveSettings" type="Node" parent="." unique_id=1279102948 node_paths=PackedStringArray("close_button", "panel")]
+script = ExtResource("9_7ndgi")
+close_button = NodePath("../Button3")
+panel = NodePath("..")
+direction = 1
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
