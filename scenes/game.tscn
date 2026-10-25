@@ -59,8 +59,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_p57ef")
-sessions_files = Array[JSON]([ExtResource("5_u5sy4"), ExtResource("6_u5sy4")])
 dialogue_scene = NodePath("../DialogueSceneFacts")
+sessions_files = Array[JSON]([ExtResource("5_u5sy4"), ExtResource("6_u5sy4")])
 choice_ui_manager = NodePath("../ChoiceUIManager")
 
 [node name="DialogueSceneFacts" parent="." unique_id=1331931773 instance=ExtResource("5_p57ef")]
@@ -87,10 +87,10 @@ custom_minimum_size = Vector2(40, 40)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = -98.0
-offset_right = 56.0
-offset_bottom = -58.0
+offset_left = 6.0
+offset_top = -179.0
+offset_right = 46.0
+offset_bottom = -139.0
 grow_vertical = 0
 focus_mode = 0
 icon = ExtResource("10_kvpfn")
