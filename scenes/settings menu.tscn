@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://djtxrqeg6047t"]
+
+[ext_resource type="Texture2D" uid="uid://qdij1tbuw2pf" path="res://assets/buttons/clipboard checkpoint.png" id="1_j5ss8"]
+[ext_resource type="Script" uid="uid://7ih1f4rfgxml" path="res://scenes/settings_menu.gd" id="1_kks3q"]
+[ext_resource type="Texture2D" uid="uid://l6wne6abwhgy" path="res://assets/buttons/Setting heading.png" id="2_wxhqg"]
+[ext_resource type="PackedScene" uid="uid://cmvpkpsuyyt8l" path="res://scenes/input_elements/button.tscn" id="3_kks3q"]
+[ext_resource type="Texture2D" uid="uid://umbj172l423q" path="res://assets/buttons/Audio buttons checkpoint copy.png" id="4_7ndgi"]
+[ext_resource type="Texture2D" uid="uid://njtv70s3uie8" path="res://assets/buttons/other buttons checkpoint copy 2.png" id="5_cspvc"]
+[ext_resource type="Texture2D" uid="uid://bpnsr7ttj5gqj" path="res://assets/buttons/back buttons checkpoint copy 3.png" id="6_i67n8"]
+[ext_resource type="PackedScene" uid="uid://cvcvv7kvtsrkp" path="res://scenes/volume_panel.tscn" id="7_wxhqg"]
+
+[node name="Control" type="Control" unique_id=428628215]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kks3q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=307924277]
+position = Vector2(575, 322)
+scale = Vector2(0.5987002, 0.59894365)
+texture = ExtResource("1_j5ss8")
+
+[node name="Button" parent="." unique_id=258782434 instance=ExtResource("3_kks3q")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 411.1944
+offset_top = 174.79184
+offset_right = 731.1944
+offset_bottom = 349.79184
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.51866215, 0.5123724)
+icon = ExtResource("4_7ndgi")
+flat = true
+
+[node name="Button2" parent="." unique_id=1035443828 instance=ExtResource("3_kks3q")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 411.19437
+offset_top = 272.79184
+offset_right = 731.1944
+offset_bottom = 448.79184
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.51866215, 0.5123724)
+icon = ExtResource("5_cspvc")
+flat = true
+
+[node name="Button3" parent="." unique_id=581254869 instance=ExtResource("3_kks3q")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 411.19437
+offset_top = 370.79184
+offset_right = 731.1944
+offset_bottom = 545.7919
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.51866215, 0.5123724)
+icon = ExtResource("6_i67n8")
+flat = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1847729256]
+position = Vector2(568, 131)
+scale = Vector2(0.5987002, 0.59894365)
+texture = ExtResource("2_wxhqg")
+
+[node name="VolumePanel" parent="." unique_id=924672401 instance=ExtResource("7_wxhqg")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

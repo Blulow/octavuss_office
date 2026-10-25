@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cmvpkpsuyyt8l"]
+
+[ext_resource type="Script" uid="uid://b3ccbwtmxl1sy" path="res://scripts/button.gd" id="2_vgxan"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc0a7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dmc7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pg4ym"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Button" type="Button" unique_id=258782434]
+anchors_preset = -1
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_lc0a7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4dmc7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pg4ym")
+script = ExtResource("2_vgxan")

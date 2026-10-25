@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://c37vg6jhe0ay0" path="res://scripts/mainmenu.gd" id="1_lgwnu"]
 [ext_resource type="PackedScene" uid="uid://cw7qx4up1erpv" path="res://scenes/ui/strip.tscn" id="2_flqon"]
 [ext_resource type="Texture2D" uid="uid://dljk52dilrweh" path="res://assets/images/book.PNG" id="3_rcqid"]
-[ext_resource type="Texture2D" uid="uid://dekoxklfl4ay0" path="res://assets/buttons/startbutton.png" id="3_rtw2f"]
 [ext_resource type="PackedScene" uid="uid://df8j3swg8lxma" path="res://scenes/ui/strip2d.tscn" id="4_1ajci"]
-[ext_resource type="Texture2D" uid="uid://tpmssaxnt0fx" path="res://assets/buttons/button penanda buku v2 setting.png" id="4_oa1go"]
-[ext_resource type="Texture2D" uid="uid://bwxf3dsr2wcd4" path="res://assets/buttons/button penanda buku v2 quit.png" id="5_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://cj0n7lbjgvt88" path="res://assets/buttons/bookmark colored start.png" id="5_rcqid"]
+[ext_resource type="Texture2D" uid="uid://didx8i5u30ct6" path="res://assets/buttons/bookmark colored settings.png" id="6_1ajci"]
+[ext_resource type="Texture2D" uid="uid://wm53id1hvk0t" path="res://assets/buttons/bookmark colored quit.png" id="7_7b55j"]
 [ext_resource type="PackedScene" uid="uid://co642745b7vsm" path="res://scenes/ui/animated_texture_rect.tscn" id="8_7b55j"]
 [ext_resource type="Texture2D" uid="uid://hl8gocycs3dn" path="res://assets/images/page_1.PNG" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
@@ -203,13 +203,12 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_u8ny3")
 
 [node name="Strip" parent="UI/Book/Strips/TextureRect" unique_id=214222789 node_paths=PackedStringArray("mask", "parent") instance=ExtResource("4_1ajci")]
-modulate = Color(1, 0, 0, 1)
 layout_mode = 0
 offset_left = 100.0
 offset_right = 595.0001
 offset_bottom = 82.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_rtw2f")
+texture = ExtResource("5_rcqid")
 mask = NodePath("..")
 parent = NodePath("../..")
 
@@ -224,13 +223,12 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_u8ny3")
 
 [node name="Strip2" parent="UI/Book/Strips/TextureRect2" unique_id=1484798191 node_paths=PackedStringArray("mask", "parent") instance=ExtResource("4_1ajci")]
-modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 offset_left = 100.0
 offset_right = 623.0
 offset_bottom = 89.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_oa1go")
+texture = ExtResource("6_1ajci")
 mask = NodePath("..")
 parent = NodePath("../..")
 
@@ -245,13 +243,12 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_u8ny3")
 
 [node name="Strip3" parent="UI/Book/Strips/TextureRect3" unique_id=1964119910 node_paths=PackedStringArray("mask", "parent") instance=ExtResource("4_1ajci")]
-modulate = Color(0, 0, 1, 1)
 layout_mode = 0
 offset_left = 100.0
 offset_right = 604.0001
 offset_bottom = 86.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("5_tbmy8")
+texture = ExtResource("7_7b55j")
 mask = NodePath("..")
 parent = NodePath("../..")
 

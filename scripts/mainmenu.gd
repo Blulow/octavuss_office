@@ -20,6 +20,8 @@ extends Node3D
 
 func _ready() -> void:
 	start_game.onclick.connect(_on_start_game_onclick)
+	settings.onclick.connect(_on_settings_onclick)
+	quit_game.onclick.connect(_on_quit_game_onclick)
 	start_game.onhover.connect(_on_start_game_onhover)
 	settings.onhover.connect(_on_settings_onhover)
 	quit_game.onhover.connect(_on_quit_game_onhover)
@@ -46,6 +48,12 @@ func _on_start_game_onclick():
 	title.visible = false
 	dialogues.get_node("SessionManager").load_next_session(true)
 
+func _on_settings_onclick():
+	get_tree().change_scene_to_file("res://scenes/settings menu.tscn")
+
+func _on_quit_game_onclick():
+	get_tree().quit()
+
 func start_game_tween (tween : Tween):
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_parallel()
@@ -53,8 +61,6 @@ func start_game_tween (tween : Tween):
 	tween.tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
 	tween.tween_property(book, "global_position:y", book.global_position.y + 1000, 0.3)
 	tween.tween_property(title, "global_position:y", title.global_position.y + 1000, 0.3)
-	
-	
 
 func _on_start_game_onhover():
 	if book_sprite.animation == "open" and book_sprite.playing:

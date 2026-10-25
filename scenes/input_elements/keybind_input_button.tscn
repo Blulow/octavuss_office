@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bj84v2wj68n4"]
+
+[ext_resource type="Texture2D" uid="uid://beygy38sirtbn" path="res://icon.svg" id="1_rsfn4"]
+[ext_resource type="Script" uid="uid://cbgdn6jcojcwg" path="res://scripts/ui/input_elements/keybind_input_button.gd" id="2_b2eit"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b2eit"]
+texture = ExtResource("1_rsfn4")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+
+[node name="KeybindInputButton" type="Button" unique_id=1943209986]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -110.0
+offset_bottom = 125.0
+grow_horizontal = 0
+pivot_offset = Vector2(64, 64)
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_b2eit")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b2eit")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b2eit")
+text = "W"
+alignment = 2
+script = ExtResource("2_b2eit")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

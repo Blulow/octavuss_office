@@ -1,5 +1,6 @@
 extends Button
 class_name AnimatedButton
+@onready var volume_panel: Control = $VolumePanel
 
 signal tweened
 
@@ -41,12 +42,11 @@ func _on_button_up() -> void:
 # Efek saat mouse masuk (Hover)
 func _on_mouse_entered() -> void:
 	var tween = create_tween().set_parallel(true)
-	# Angka 10 di bawah adalah seberapa jauh tombol bergeser ke kiri (dalam satuan pixel)
-	# Angka 0.1 di belakang adalah durasi animasi (dalam detik)
-	tween.tween_property(self, "position:x", _default_position.x - 20.0, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	# Mengubah scale menjadi 1.1 kali lebih besar dari ukuran default (bisa diubah sesuai selera)
+	tween.tween_property(self, "scale", _default_scale * 1.1, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 # Efek saat mouse keluar (Kembali ke posisi normal)
 func _on_mouse_exited() -> void:
 	var tween = create_tween().set_parallel(true)
-	# Mengembalikan ke posisi awal (_default_position.x) dengan durasi 0.1 detik
-	tween.tween_property(self, "position:x", _default_position.x, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	# Mengembalikan scale ke ukuran _default_scale
+	tween.tween_property(self, "scale", _default_scale, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
