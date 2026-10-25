@@ -1,6 +1,6 @@
 {
 	"vars": {
-		"something": 1,
+		"something": 1.0,
 		"factcheck": true
 	},
 	"pending_fact": {
@@ -55,7 +55,7 @@
 									"effects": {
 										"calm": "-1"
 									}
-								},
+								}
 							},
 							{
 								"fact": "fact2",
@@ -94,7 +94,7 @@
 									"effects": {
 										"fact": "+2"
 									}
-								},
+								}
 							},
 							{
 								"fact": "fact3",
@@ -157,7 +157,7 @@
 									"effects": {
 										"sp": "-1"
 									}
-								},
+								}
 							},
 							{
 								"fact": "fact4",
