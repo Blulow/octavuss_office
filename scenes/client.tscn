@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://brw7r004eirvy"]
+
+[ext_resource type="Shader" uid="uid://casm53f54sy6y" path="res://assets/shader/paperboil.gdshader" id="1_1t5vp"]
+[ext_resource type="Texture2D" uid="uid://bkfm0hy52tho" path="res://icon.svg" id="2_4tr0r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8ny3"]
+render_priority = 0
+shader = ExtResource("1_1t5vp")
+shader_parameter/albedo_texture = ExtResource("2_4tr0r")
+
+[node name="Client" type="Sprite3D" unique_id=1698427708]
+material_override = SubResource("ShaderMaterial_u8ny3")
+texture = ExtResource("2_4tr0r")

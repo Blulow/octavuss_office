@@ -1,182 +1,754 @@
 {
 	"vars": {
-		"something": 1,
 		"factcheck": true
 	},
 	"pending_fact": {
 		"id": "fact2",
-		"text": "fact2 text"
+		"text": "Fact 2: Private messages"
 	},
 	"sets": [
-		[
-			{
+	[
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "Alright, so yesterday I talked to my bro, [b]he seems fine. I don't know why he's not bothered by this[/b]."
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "[b]The videos are still very real[/b] though, but I [b]didn't have any luck finding that person[/b]..."
+	  },
+	  {
+		"choices": [
+		  {
+			"text": "How can you confirm that the videos actually show what happened?",
+			"responses": [
+			  {
 				"speaker": "N1",
-				"name": "Unordinary",
-				"text": "set1 dialogue1"
-			},
-			{
+				"name": "John",
+				"text": "Well just look at this guy being so aggresive and obviously shoving him over."
+			  },
+			  {
 				"speaker": "N1",
-				"name": "Unordinary",
-				"text": "set1 dialogue2"
-			},
-			{
-				"choices": [
-					{
-						"text": "choice1 calm+2 sp-2",
-						"response": {
-							"speaker": "N1",
-							"name": "Unordinary",
-							"text": "choice1 response",
-							"effects": {
-								"calm": "+2",
-								"sp": "-2"
-							}
-						}
-					},
-					{
-						"text": "choice2 sp-1",
-						"response": {
-							"speaker": "N1",
-							"name": "Unordinary",
-							"text": "choice2 response",
-							"effects": {
-								"sp": "-1"
-							}
-						},
-						"if": "factcheck",
-						"facts": [
-							{
-								"fact": "fact1",
-								"text": "choice2 with fact1 calm-1",
-								"response": {
-									"speaker": "N1",
-									"name": "Unordinary",
-									"text": "choice2 fact1 response",
-									"effects": {
-										"calm": "-1"
-									}
-								},
-							},
-							{
-								"fact": "fact2",
-								"text": "choice2 with fact2 calm+2",
-								"response": {
-									"speaker": "N1",
-									"name": "Unordinary",
-									"text": "choice2 fact2 response",
-									"effects": {
-										"calm": "+2"
-									}
-								}
-							}
-						]
-					},
-					{
-						"text": "choice3 fact+1 sp+1",
-						"response": {
-							"speaker": "N1",
-							"name": "Unordinary",
-							"text": "choice3 response",
-							"effects": {
-								"fact": "+1",
-								"sp": "+1"
-							}
-						},
-						"if": "factcheck",
-						"facts": [
-							{
-								"fact": "fact1",
-								"text": "choice3 with fact1 fact+2",
-								"response": {
-									"speaker": "N1",
-									"name": "Unordinary",
-									"text": "choice3 fact1 response",
-									"effects": {
-										"fact": "+2"
-									}
-								},
-							},
-							{
-								"fact": "fact3",
-								"text": "choice3 with fact3 fact-1 sp+1",
-								"response": {
-									"speaker": "N1",
-									"name": "Unordinary",
-									"text": "choice3 fact3 response",
-									"effects": {
-										"fact": "-1",
-										"sp": "+1"
-									}
-								}
-							}
-						]
+				"name": "John",
+				"text": "And also this online forum has a ton of other media that says about this gang attacking us."
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "Well... it looks pretty real to me...",
+				"effects": {
+				  "fact": "+1",
+				  "sp": "+3"
+				}
+			  }
+			],
+			"facts": [
+			  {
+				"fact": "fact1",
+				"text": "Are you sure the videos show what happened? I have a raw footage of the event that might disprove what you said. (Fact 1)",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Well just look at this guy being so aggresive and obviously shoving him over."
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "And also this online forum has a ton of other media that says about this gang attacking us."
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "This video might show the person getting push-chained, but no one said he might not be intentional.",
+					"effects": {
+					  "fact": "+4",
+					  "sp": "+3"
 					}
+				  }
 				]
-			}
-		],
-		[
-			{
+			  }
+			]
+		  },
+		  {
+			"text": "That guy really pushed your brother, did he appear in other videos?",
+			"responses": [
+			  {
 				"speaker": "N1",
-				"name": "Unordinary",
-				"text": "set2 dialogue1"
-			},
-			{
-				"choices": [
-					{
-						"text": "choice1 fact-1",
-						"response": {
-							"speaker": "N1",
-							"name": "Unordinary",
-							"text": "choice1 response",
-							"effects": {
-								"fact": "-1"
-							}
-						}
-					},
-					{
-						"text": "choice2 calm-2 fact+1 sp+1",
-						"response": {
-							"speaker": "N1",
-							"name": "Unordinary",
-							"text": "choice2 response",
-							"effects": {
-								"calm": "-2",
-								"fact": "+1",
-								"sp": "+1"
-							}
-						},
-						"if": "factcheck",
-						"facts": [
-							{
-								"fact": "fact3",
-								"text": "choice2 fact3 sp-1",
-								"response": {
-									"speaker": "N1",
-									"name": "Unordinary",
-									"text": "choice2 fact3 response",
-									"effects": {
-										"sp": "-1"
-									}
-								},
-							},
-							{
-								"fact": "fact4",
-								"text": "choice2 fact4 calm+1 fact-1 sp-2",
-								"response": {
-									"speaker": "N1",
-									"name": "Unordinary",
-									"text": "choice2 fact4 response",
-									"effects": {
-										"calm": "+1",
-										"fact": "-1",
-										"sp": "-2"
-									}
-								}
-							}
-						]
+				"name": "John",
+				"text": "Yes he did, this online forum has a lot of videos posted and I do see the group often, including this guy...",
+				"effects": {
+				  "fact": "-1",
+				  "sp": "+1"
+				}
+			  }
+			]
+		  },
+		  {
+			"text": "I don't think you should find him yet, we don't really have any proof that shows him deliberately pushing.",
+			"choices": [
+			  {
+				"condition": "calm > 4",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "But I've seen a lot of videos from an online forum that shows different angles..."
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "And every time it just looks like he is trying to hurt him."
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "What else can it be...?",
+					"effects": {
+					  "fact": "+2"
 					}
+				  }
 				]
-			}
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "But I've seen a lot of videos from an online forum and this is still the most suitable statement for this guy.",
+					"effects": {
+					  "calm": "-1",
+					  "sp": "+1"
+					}
+				  }
+				]
+			  }
+			],
+			"facts": [
+			  {
+				"fact": "fact1",
+				"text": "I don't think you should find him yet. I have a raw footage of the event that might prove those videos wrong. (Fact 1)",
+				"choices": [
+				  {
+					"condition": "calm > 4",
+					"responses": [
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "But I've seen a lot of videos from an online forum that shows different angles..."
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "And every time it just looks like he is trying to hurt him."
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "The video showed him getting push-chained, but I don't know if it he also might be intentional.",
+						"effects": {
+						  "fact": "+5",
+						  "sp": "+1"
+						}
+					  }
+					]
+				  },
+				  {
+					"condition": "default",
+					"responses": [
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "But I've seen a lot of videos from an online forum and this is still the most suitable statement for this guy."
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "Maybe the guy did get push-chained, but who says he's not intentional?",
+						"effects": {
+						  "calm": "-2",
+						  "fact": "+3",
+						  "sp": "+1"
+						}
+					  }
+					]
+				  }
+				]
+			  }
+			]
+		  }
 		]
+	  }
+	],
+	[
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "The videos on there are [b]agreed by all of the people there[/b], there's no doubt that it is true."
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "One of the [b]big guys there even helped identifying the credibility of the videos[/b], and he confirmed that they're all true."
+	  },
+	  {
+		"choices": [
+		  {
+			"text": "What about you? Did you find any sources to the videos there? Do you think they are verified proofs?",
+			"responses": [
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "I... I did find this news organisation saying the visitor group initiated it."
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "But for the the actual push of my bro, I'm not so sure..."
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "The big guy had a lot to say about what happened to him though.",
+				"effects": {
+				  "fact": "+1",
+				  "sp": "-1"
+				}
+			  }
+			]
+		  },
+		  {
+			"text": "Did he show you and other members about how they are credible? Why would you trust him?",
+			"choices": [
+			  {
+				"condition": "sp > 4",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Well, he did say many reasons for why in text, and everyone would follow along."
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I mean he isn't really a bad guy or anything, he's just saying the truth, why wouldn't I trust him?",
+					"effects": {
+					  "fact": "-1",
+					  "sp": "+2"
+					}
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I mean he has reasons listed, but usually just in plain text without links..."
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "He isn't like a bad guy or anything, but I'm not so sure...",
+					"effects": {
+					  "fact": "-1",
+					  "sp": "-2"
+					}
+				  }
+				]
+			  }
+			]
+		  },
+		  {
+			"text": "Do you know if anything happens when someone shows disagreement in the forum?",
+			"responses": [
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "Hmm... I guess there were people who did disagree before, they always follow along after a while."
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "But I don't really know what happens to them...",
+				"effects": {
+				  "fact": "+2"
+				}
+			  }
+			]
+		  }
+		]
+	  }
+	],
+	[
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "Speaking of this big guy, I think when I joined, there were already [b]a lot of his videos being spread around[/b]."
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "Everyone in that forum [b]all believed in those videos[/b]."
+	  },
+	  {
+		"choices": [
+		  {
+			"text": "Do you think they might be propaganda instead of actual facts?",
+			"choices": [
+			  {
+				"condition": "sp > 4",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I know I really need evidence for this, but I might lose just the people who I can count on to be on my side...",
+					"effects": {
+					  "fact": "-1",
+					  "sp": "+3"
+					}
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I don't know... I guess I really believed in it as it made me more confident."
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I guess do need more real evidence.",
+					"effects": {
+					  "fact": "+2",
+					  "sp": "-2"
+					}
+				  }
+				]
+			  }
+			],
+			"facts": [
+			  {
+				"fact": "fact1",
+				"text": "Do you think they might be propaganda instead of actual facts? The footage here might say a lot about those videos (Fact 1)",
+				"choices": [
+				  {
+					"condition": "sp > 4",
+					"responses": [
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "I know the footage can be real and I can't say anything about it."
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "But I might lose just the people who I can count on to be on my side...",
+						"effects": {
+						  "fact": "+1",
+						  "sp": "+2"
+						}
+					  }
+					]
+				  },
+				  {
+					"condition": "default",
+					"responses": [
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "I don't know... I guess I really believed in the forum videos as it made me more confident."
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "I guess the footage can justify thst he didn't actually push my bro by himself I guess...",
+						"effects": {
+						  "fact": "+5",
+						  "sp": "-2"
+						}
+					  }
+					]
+				  }
+				]
+			  }
+			]
+		  },
+		  {
+			"text": "What do you know about how these videos were collected and verified?",
+			"responses": [
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "I guess I don't have anything to prove them yet, but I'm standing for it..."
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "It's the only people I have on my side after all...",
+				"effects": {
+				  "calm": "+1",
+				  "fact": "+1",
+				  "sp": "+1"
+				}
+			  }
+			]
+		  },
+		  {
+			"text": "This might all just be an influence, you should do your own research.",
+			"choices": [
+			  {
+				"condition": "calm > 4",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Maybe I do need some evidence to support it, to really really make sure...",
+					"effects": {
+					  "fact": "+2",
+					  "sp": "-1"
+					}
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I guess I do need evidence, but I still need these people, because only they are on my side now.",
+					"effects": {
+					  "fact": "+2",
+					  "sp": "+1"
+					}
+				  }
+				]
+			  }
+			]
+		  }
+		]
+	  }
+	],
+	[
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "I [b]don't really think the big guy is trying to do anything bad[/b] spreading the videos though."
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "But it's the only thing I can rely on, [b]imagine a whole forum that matches what you think[/b]."
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "Even my [b]own community doesn't even support me like the people there do[/b]."
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "Even... [b]my bro, he doesn't want me to do this[/b]."
+	  },
+	  {
+		"choices": [
+		  {
+			"text": "Have you considered what your brother wants? What does it mean to you?",
+			"choices": [
+			  {
+				"condition": "calm > 4",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I know he doesn't want me to do this. I guess I've been thinking more about what happened to him than what he actually wants now.",
+					"effects": {
+					  "calm": "+1",
+					  "sp": "-1"
+					}
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I know he wants me to not do this... but I don't want to get rid of this opportunity like that.",
+					"effects": {
+					  "calm": "+1",
+					  "sp": "+1"
+					}
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "But I won't make him as my excuse anymore..."
+				  }
+				]
+			  }
+			]
+		  },
+		  {
+			"text": "You are tied between two worlds, the forum gives you a sense of belonging that you've been missing elsewhere, but your brother's wishes matter to you.",
+			"choices": [
+			  {
+				"condition": "sp > 4",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I'm still going with the forum though, if I don't find any evidence, I'll still continue on.",
+					"effects": {
+					  "calm": "-1",
+					  "sp": "+2"
+					}
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Though, I wont involve my brother in this any longer."
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Although I still believe in the forum, I guess I shouldn't involve my brother in this.",
+					"effects": {
+					  "calm": "+1",
+					  "fact": "-1",
+					  "sp": "-1"
+					}
+				  }
+				]
+			  }
+			]
+		  },
+		  {
+			"text": "What do you fear you would lose if you change your mind?",
+			"choices": [
+			  {
+				"condition": "sp > 4",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Like I said, everyone there, I have to keep being connected...",
+					"effects": {
+					  "fact": "-1",
+					  "sp": "+1"
+					}
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "But I won't drag my brother into this anymore."
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Well, I don't really want the forum to go, maybe I'll just not bring my brother into this anymore...",
+					"effects": {
+					  "calm": "+1",
+					  "sp": "-1"
+					}
+				  }
+				]
+			  }
+			],
+			"facts": [
+			  {
+				"fact": "fact1",
+				"text": "What do you fear you would lose if you change your mind? Because these facts can prove a thing. (Fact 1)",
+				"choices": [
+				  {
+					"condition": "sp > 4",
+					"responses": [
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "Like I said, everyone there, I have to keep being connected...",
+						"effects": {
+						  "calm": "-3",
+						  "sp": "+1"
+						}
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "Why do you even think the footage even matters anymore?!"
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "But I won't drag my brother into this anymore."
+					  }
+					]
+				  },
+				  {
+					"condition": "default",
+					"responses": [
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "How does the footage even matter to here anymore?!",
+						"effects": {
+						  "calm": "-2",
+						  "sp": "-1"
+						}
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "Well, I don't really want the forum to go, I have everyone there."
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "But maybe I'll just not bring my brother into this anymore..."
+					  }
+					]
+				  }
+				]
+			  }
+			]
+		  }
+		]
+	  }
+	],
+	[
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "You know I keep coming to that time it happened, [b]I wanted to do something for my brother.[/b]"
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "And maybe the [b]big guy who is behind all this was the one who gave me validation.[/b]"
+	  },
+	  {
+		"choices": [
+		  {
+			"text": "Sounds like the big guy can anchor you forward, but how do you know what you want to accept from him?",
+			"responses": [
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "Yeah, I can trust him to move forward, but I'll still be going on my own steps.",
+				"effects": {
+				  "fact": "-1",
+				  "sp": "+1"
+				}
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "I know if it benefits (community name), I will accept that."
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "Well, I'll go think this through, I'll see you then."
+			  }
+			]
+		  },
+		  {
+			"text": "How do you think your brother would want you to handle your anger?",
+			"responses": [
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "Well, he would want me to just not use that as a reason to retaliate.",
+				"effects": {
+				  "fact": "+1",
+				  "sp": "-2"
+				}
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "But if it can benefit (community name), then I'd be happy to go for it."
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "But I really need to think about both sides, I'll go for now..."
+			  }
+			]
+		  },
+		  {
+			"text": "Then what would you personally do?",
+			"choices": [
+			  {
+				"condition": "sp > 5",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "... I see it's not just the forum, the big guy can really help me through.",
+					"effects": {
+					  "sp": "-1"
+					}
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "And it can potentially help (community name) as well..."
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I need some time to think, I'll go for now."
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Like my brother said, I won't put my anger into these things now.",
+					"effects": {
+					  "calm": "+1",
+					  "fact": "+1",
+					  "sp": "-1"
+					}
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "But maybe the forum can help (community name) to be a better place."
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "And I still need some time thinking about both sides, I'll see you next time."
+				  }
+				]
+			  }
+			]
+		  }
+		]
+	  }
 	]
+  ]
 }

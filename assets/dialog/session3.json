@@ -1,0 +1,373 @@
+{
+	"vars": {
+		"factcheck": true
+	},
+	"sets": [
+	[
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "So this time, I went and see my brother again, [b]he just told me to not trust the forum...[/b]"
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "And I met a few (community name) members along the way too, [b]I can tell they're really worried about me.[/b]"
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "Almost everyone I met [b]asked about what I'm doing for my brother.[/b]"
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "Honestly..., I still haven't figured that out yet."
+	  },
+	  {
+		"choices": [
+		  {
+			"text": "You said they're worried, what do you think they are afraid of?",
+			"choices": [
+			  {
+				"condition": "sp > 6",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "They probably worried and just trying to avoid any further trouble.",
+					"effects": {
+					  "fact": "+2"
+					}
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "I don't know whether they would wanna understand me, but it is what it is."
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Maybe they're worried because I am following this path, and think I can still come back.",
+					"effects": {
+					  "calm": "+1",
+					  "fact": "+2"
+					}
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "But I really don't know if they're understanding what I'm going through..."
+				  }
+				]
+			  }
+			]
+		  },
+		  {
+			"text": "Let's say you're in your brother's shoes, would you feel the same?",
+			"responses": [
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "Well... I guess I would be concerned to not let a brother get hurt.",
+				"effects": {
+				  "fact": "-2",
+				  "sp": "-1"
+				}
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "But it's also that I don't think he does understand the situation yet, it's conflicting..."
+			  }
+			]
+		  },
+		  {
+			"text": "Why do you think they are so concerned about you retaliating back?",
+			"responses": [
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "Probably because that they don't want me to really end up badly and also caused some further trouble.",
+				"effects": {
+				  "calm": "-1",
+				  "sp": "+1"
+				}
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "But I think there are things that are not clear here..."
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "I suppose I still don't know whether they're worried about me, or whether they just don't agree with what I want to do."
+			  }
+			]
+		  }
+		]
+	  }
+	],
+	[
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "For (community name), I know what they say [b]can be right about some things[/b], there are definitely the good and bad."
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "I keep [b]thinking about what can happen if I actually retaliate[/b]."
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "But I'm [b]more focused on the getting our reputation back[/b]..."
+	  },
+	  {
+		"speaker": "N1",
+		"name": "John",
+		"text": "While the bad ones [b]I know can end up being the worst...[/b]"
+	  },
+	  {
+		"choices": [
+		  {
+			"text": "If you think about it, you might also lose reputation if you retaliate.",
+			"choices": [
+			  {
+				"condition": "sp > 6",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Yeah... but I don't think it will, since the videos are all about the gang already, we need a name for ourselves...",
+					"effects": {
+					  "calm": "-2"
+					}
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Yeah... but we still need to get our name back because of the videos... This is conflicting...",
+					"effects": {
+					  "calm": "-1",
+					  "fact": "+1"
+					}
+				  }
+				]
+			  }
+			],
+			"if": "factcheck",
+			"facts": [
+			  {
+				"fact": "fact2",
+				"text": "You might be losing reputation if you retaliate unwisely. The forum might not be as trustworthy as you think. (Fact 2)",
+				"choices": [
+				  {
+					"condition": "sp > 6",
+					"responses": [
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "Yeah... but I don't think it will, since the videos are all about the gang already, we need a name for ourselves...",
+						"effects": {
+						  "calm": "-2",
+						  "fact": "+1"
+						}
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "And the forum might be wrong, but that still doesn't say anything about our reputation being so low now."
+					  }
+					]
+				  },
+				  {
+					"condition": "default",
+					"responses": [
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "Yeah... but we still need to get our name back because of the videos... This is conflicting...",
+						"effects": {
+						  "calm": "-1",
+						  "fact": "+2"
+						}
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "And even though the forum might be wrong, that still doesn't say anything about our reputation being so low now."
+					  }
+					]
+				  }
+				]
+			  }
+			]
+		  },
+		  {
+			"text": "How much reputation do you think you can actually get?",
+			"choices": [
+			  {
+				"condition": "sp > 6",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Okay..., even though I know the bads for this, bad news about us is already all over the place now",
+					"effects": {
+					  "calm": "-1",
+					  "fact": "+1"
+					}
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "So why wouldn't this make us better?"
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Well I've seen bad news about us everywhere now, I.. think it's a good chance for us to get it back effectively.",
+					"effects": {
+					  "fact": "+2"
+					}
+				  },
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Though it can also bring us some trouble..."
+				  }
+				]
+			  }
+			],
+			"if": "factcheck",
+			"facts": [
+			  {
+				"fact": "fact2",
+				"text": "How much reputation do you think you can actually get when the forum might not be as trustworthy as you think. (Fact 2)",
+				"choices": [
+				  {
+					"condition": "sp > 6",
+					"responses": [
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "Okay..., even though the forum might be really wrong, bad news about us is already all over the place now",
+						"effects": {
+						  "calm": "-1",
+						  "fact": "+2"
+						}
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "So why wouldn't this make us better?"
+					  }
+					]
+				  },
+				  {
+					"condition": "default",
+					"responses": [
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "Yeah... the forum can be really really wrong, but I've seen bad news about us everywhere now.",
+						"effects": {
+						  "calm": "-1",
+						  "fact": "+4"
+						}
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "I.. think it's a good chance for us to get it back effectively."
+					  },
+					  {
+						"speaker": "N1",
+						"name": "John",
+						"text": "Even though it can also bring us some trouble..."
+					  }
+					]
+				  }
+				]
+			  }
+			]
+		  },
+		  {
+			"text": "Apart from how others see your community, what do you think would actually make life better for the people in it?",
+			"responses": [
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "... I just want to make everyone be in a better place.",
+				"effects": {
+				  "fact": "+3"
+				}
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "(community name) shouldn't have any more of these encounters I guess."
+			  },
+			  {
+				"speaker": "N1",
+				"name": "John",
+				"text": "That's why I wanted to do this in the second place.. first place being for my brother..."
+			  }
+			]
+		  }
+		]
+	  }
+	],
+	[
+	  {
+		"choices": [
+		  {
+			"text": "Now, let's say it's only just you, no one else, what do you want to happen next?",
+			"choices": [
+			  {
+				"condition": "calm > 5, fact > 5, sp < 3",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Thinking about everything, I guess retaliating might be too big of a move... I do want everyone in **(community name) to be in a better place, maybe we should work together towards that instead. I guess I'd say the proofs of the videos might just be an influence after all, not sure why, but it needs more looking and finding. Well then, I'll do my best.",
+					"ending": "E1"
+				  }
+				]
+			  },
+			  {
+				"condition": "default",
+				"responses": [
+				  {
+					"speaker": "N1",
+					"name": "John",
+					"text": "Everything considered, making a move still speaks out. The videos might be fake, but the reputation we lost might not be able to be regained... I'm doing this for **(community name), so we can be in a better place. Well, I guess I'll do my best.",
+					"ending": "E2"
+				  }
+				]
+			  }
+			]
+		  }
+		]
+	  }
+	]
+  ]
+}
