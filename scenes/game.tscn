@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://db0cmrkkmfc16"]
 
-[ext_resource type="Script" uid="uid://cgwu70wtbliy8" path="res://scripts/UI/choice_ui.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://c2j2653bqfa5i" path="res://scenes/choice_ui.tscn" id="2_yqjtg"]
-[ext_resource type="Script" uid="uid://bdk0rss6jqxih" path="res://scripts/UI/facts_ui_builder.gd" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://cgwu70wtbliy8" path="res://scripts/ui/choice_ui.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://wtn734px0n1o" path="res://scenes/choice_ui.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://bdk0rss6jqxih" path="res://scripts/ui/facts_ui_builder.gd" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://dl58dnjwb7fam" path="res://scripts/session_manager.gd" id="4_p57ef"]
+[ext_resource type="JSON" path="res://assets/dialog/session3.json" id="5_dinhu"]
 [ext_resource type="PackedScene" uid="uid://bq03og81goeda" path="res://scenes/dialogue_scene_facts.tscn" id="5_p57ef"]
 [ext_resource type="JSON" path="res://assets/dialog/session1.json" id="5_u5sy4"]
 [ext_resource type="JSON" path="res://assets/dialog/session2.json" id="6_u5sy4"]
@@ -60,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_p57ef")
 dialogue_scene = NodePath("../DialogueSceneFacts")
-sessions_files = Array[JSON]([ExtResource("5_u5sy4"), ExtResource("6_u5sy4")])
+sessions_files = Array[JSON]([ExtResource("5_u5sy4"), ExtResource("6_u5sy4"), ExtResource("5_dinhu")])
 choice_ui_manager = NodePath("../ChoiceUIManager")
 
 [node name="DialogueSceneFacts" parent="." unique_id=1331931773 instance=ExtResource("5_p57ef")]

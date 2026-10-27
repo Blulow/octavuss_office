@@ -46,40 +46,69 @@ func _on_choice_chosen(index: int) -> void:
 	if index < 0 or index >= _choices.size():
 		return
 	
-	var response: Dictionary = {}
+	var responses: Array
 	
 	var choice: Dictionary = _choices[index]
+	if choice.get("no_responses"): 
+		_advance()
+		return
+	
+	
 	if choice_box.updated.any(func(e): return e.index == index):
 		if choice.has("facts"):
 			var facts: Array = _choices[index].facts
+			var fact: Dictionary
 			
 			for e in choice_box.updated:
 				if e.index != index:
 					continue
-				for fact in facts:
-					if e.fact_id != fact.fact:
+				for f in facts:
+					if e.fact_id != f.fact:
 						continue
-					response = fact.response
+					fact = f
+			
+			if fact.has("choices"):
+				# repeat choices script
+				if fact.choices.size() <= 1 and fact.choices[0].condition == "default":
+					responses = fact.choices[0].responses
+				else:
+					var default: Array
+					for c in fact.choices:
+						if c.condition == "default":
+							default = c.responses
+							continue
+						else:
+							var p = parse_condition(c.condition)
+							if match_condition(PlayerData.stats[p.stat].value, p.operator, p.number):
+								responses = c.responses
+								
+					if not responses: responses = default
+			else:
+				responses = fact.responses
 	else:
+		# repeat choices script
 		if choice.has("choices"):
 			if choice.choices.size() <= 1 and choice.choices[0].condition == "default":
-				response = choice.choices[0].response
+				responses = choice.choices[0].responses
 			else:
-				var default: Dictionary
+				var default: Array
 				for c in choice.choices:
 					if c.condition == "default":
-						default = c.response
+						default = c.responses
 						continue
 					else:
 						var p = parse_condition(c.condition)
 						if match_condition(PlayerData.stats[p.stat].value, p.operator, p.number):
-							response = c.response
+							responses = c.responses
 						
-				if not response: response = default
+				if not responses: responses = default
 		else:
-			response = choice.response
+			responses = choice.responses
 	
-	_show_message(response)
+	#_show_message(response)
+	_show_responses(responses)
+	
+	choice_box.updated.clear()
 	facts_box.show_facts(_facts, [])
 
 func parse_condition(text: String) -> Dictionary:
@@ -151,6 +180,7 @@ func _usable_fact_ids() -> Array:
 		
 		
 		var fact_ids: Array = []
+		
 		
 		for fact in facts:
 			var fact_id: String = fact.get("fact", "")

@@ -75,6 +75,7 @@ func _add_button(option: Dictionary, index: int) -> void:
 	
 	for e in updated:
 		if e.index != index: continue
+		if not option.has("facts"): continue
 		
 		var facts: Array = option.get("facts")
 		for fact in facts:

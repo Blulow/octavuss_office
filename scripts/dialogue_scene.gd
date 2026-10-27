@@ -19,6 +19,9 @@ var _finished := true
 var _choosing := false
 var _choices: Array = []
 
+var _responses: Array = []
+var _response_index: int = 0
+
 func _ready() -> void:
 	choice_box.chosen.connect(_on_choice_chosen)
 
@@ -41,8 +44,11 @@ func _load_dialog(path: String) -> void:
 	_sets = data.get("sets", [])
 	_vars = data.get("vars", {})
 	
-	PlayerData.pending_fact.id = data.get("pending_fact").id
-	PlayerData.pending_fact.fact_description = data.get("pending_fact").text
+	if data.has("pending_fact"):
+		PlayerData.pending_fact.id = data.get("pending_fact").id
+		PlayerData.pending_fact.fact_description = data.get("pending_fact").text
+	else:
+		PlayerData.pending_fact = Fact.new()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("interact"):
@@ -57,6 +63,15 @@ func _advance() -> void:
 	if box.is_typing:
 		box.skip()
 		return
+	
+	if _responses.size() > 0:
+		_response_index += 1
+		if _response_index >= _responses.size():
+			_responses.clear()
+			_response_index = 0
+		else:
+			_show_message(_responses[_response_index])
+			return
 	
 	var _set: Array = _sets[_set_index]
 	_index += 1
@@ -101,6 +116,9 @@ func _on_choice_chosen(index: int) -> void:
 
 	_show_message(choice.get("response", {}))
 
+func _show_responses(responses: Array) -> void:
+	_responses = responses
+	_show_message(_responses[_response_index])
 
 func _show_message(msg: Dictionary) -> void:
 	box.show_line(msg, _vars)
