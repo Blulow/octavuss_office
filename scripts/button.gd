@@ -5,7 +5,7 @@ class_name AnimatedButton
 signal tweened
 
 var _default_scale: Vector2
-var _default_position: Vector2 # Menyimpan posisi awal tombol
+var _default_position: Vector2
 
 func _ready() -> void:
 	button_down.connect(_on_button_down)
@@ -15,14 +15,11 @@ func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	
-	# Atur pivot ke titik tengah tombol agar efek scaling berpusat di tengah
 	pivot_offset = size / 2.0
 	
-	# Simpan skala dan posisi awal node
 	_default_scale = scale
 	_default_position = position
 	
-	# Sambungkan signal jika ukuran tombol berubah agar pivot tetap di tengah
 	resized.connect(_on_resized)
 
 func _on_resized() -> void:

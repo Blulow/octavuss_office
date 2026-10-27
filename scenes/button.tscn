@@ -37,6 +37,5 @@ mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_lc0a7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4dmc7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pg4ym")
-text = "Game stato"
 icon_alignment = 1
 script = ExtResource("1_mi6dp")
