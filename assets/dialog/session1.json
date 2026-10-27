@@ -33,7 +33,7 @@
 				"name": "John",
 				"text": "Oh.. thanks a lot.",
 				"effects": {
-				  "calm": "+1",
+				  "calm": "+3",
 				  "sp": "-2"
 				}
 			  },
@@ -100,7 +100,7 @@
 				"name": "John",
 				"text": "I guess you're right, but what can I even do at this point?",
 				"effects": {
-				  "calm": "+1",
+				  "calm": "+2",
 				  "sp": "-1"
 				}
 			  }
