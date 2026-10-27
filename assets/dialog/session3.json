@@ -341,30 +341,7 @@
 		"choices": [
 		  {
 			"text": "Now, let's say it's only just you, no one else, what do you want to happen next?",
-			"choices": [
-			  {
-				"condition": "calm > 5, fact > 5, sp < 3",
-				"responses": [
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "Thinking about everything, I guess retaliating might be too big of a move... I do want everyone in **(community name) to be in a better place, maybe we should work together towards that instead. I guess I'd say the proofs of the videos might just be an influence after all, not sure why, but it needs more looking and finding. Well then, I'll do my best.",
-					"ending": "E1"
-				  }
-				]
-			  },
-			  {
-				"condition": "default",
-				"responses": [
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "Everything considered, making a move still speaks out. The videos might be fake, but the reputation we lost might not be able to be regained... I'm doing this for **(community name), so we can be in a better place. Well, I guess I'll do my best.",
-					"ending": "E2"
-				  }
-				]
-			  }
-			]
+			"no_responses": true
 		  }
 		]
 	  }

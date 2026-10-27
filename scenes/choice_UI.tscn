@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://wtn734px0n1o"]
+[gd_scene format=3 uid="uid://c2j2653bqfa5i"]
 
 [ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/UI/button_switch_scene.gd" id="1_frfir"]
-[ext_resource type="PackedScene" uid="uid://c7k63givb3sj2" path="res://scenes/shop.tscn" id="2_g3tj1"]
 
 [node name="ChoiceUi" type="Control" unique_id=539166642]
 layout_mode = 3
@@ -34,4 +33,3 @@ layout_mode = 2
 action_mode = 0
 text = "Buy Something"
 script = ExtResource("1_frfir")
-next_scene = ExtResource("2_g3tj1")

@@ -17,6 +17,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		close()
 		get_viewport().set_input_as_handled()
+		get_tree().paused = false
+		get_tree().reload_current_scene()
 
 func _rebuild() -> void:
 	for child in facts_list.get_children():

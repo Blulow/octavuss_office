@@ -73,7 +73,6 @@ func _advance() -> void:
 			_show_message(_responses[_response_index])
 			return
 	
-	
 	var _set: Array = _sets[_set_index]
 	_index += 1
 	if _index >= _set.size():

@@ -19,6 +19,8 @@ extends Node3D
 @onready var dialogues: Node3D = $Game
 
 func _ready() -> void:
+
+	
 	start_game.onclick.connect(_on_start_game_onclick)
 	#settings.onclick.connect(_on_settings_onclick)
 	quit_game.onclick.connect(_on_quit_game_onclick)
@@ -35,6 +37,8 @@ func _ready() -> void:
 	
 	book_sprite.visible = false
 	if PlayerData.game_started:
+		print("A")
+		await get_tree().process_frame
 		_on_start_game_onclick()
 
 func _on_start_game_onclick():

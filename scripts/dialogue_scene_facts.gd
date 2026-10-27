@@ -49,6 +49,11 @@ func _on_choice_chosen(index: int) -> void:
 	var responses: Array
 	
 	var choice: Dictionary = _choices[index]
+	if choice.get("no_responses"): 
+		_advance()
+		return
+	
+	
 	if choice_box.updated.any(func(e): return e.index == index):
 		if choice.has("facts"):
 			var facts: Array = _choices[index].facts
@@ -102,6 +107,7 @@ func _on_choice_chosen(index: int) -> void:
 	
 	#_show_message(response)
 	_show_responses(responses)
+	
 	choice_box.updated.clear()
 	facts_box.show_facts(_facts, [])
 

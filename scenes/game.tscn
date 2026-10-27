@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://db0cmrkkmfc16"]
 
 [ext_resource type="Script" uid="uid://cgwu70wtbliy8" path="res://scripts/ui/choice_ui.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://wtn734px0n1o" path="res://scenes/choice_UI.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://wtn734px0n1o" path="res://scenes/choice_ui.tscn" id="2_yqjtg"]
 [ext_resource type="Script" uid="uid://bdk0rss6jqxih" path="res://scripts/ui/facts_ui_builder.gd" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://dl58dnjwb7fam" path="res://scripts/session_manager.gd" id="4_p57ef"]
 [ext_resource type="JSON" path="res://assets/dialog/session3.json" id="5_dinhu"]
