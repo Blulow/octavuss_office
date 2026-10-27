@@ -91,6 +91,17 @@ shader_parameter/curve_strength = 0.6420000779950001
 shader_parameter/albedo_tex = SubResource("ViewportTexture_a8gd2")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 
+[sub_resource type="Gradient" id="Gradient_a8gd2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hstxw"]
+gradient = SubResource("Gradient_a8gd2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8ny3"]
+bg_color = Color(0.6156863, 0.050980393, 0.050980393, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hstxw"]
+bg_color = Color(0.1254902, 0.627451, 0.19215687, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_drhbd"]
 size = Vector2(18.87, 12.31)
 
@@ -195,6 +206,7 @@ spot_angle = 88.36
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" unique_id=897654176]
 transform = Transform3D(1, 0, 0, 0, 0.15567228, 0.9878088, 0, -0.9878088, 0.15567228, 0, 8.093214, 0)
 visible = false
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1359823609]
 environment = SubResource("Environment_u8ny3")
@@ -322,6 +334,99 @@ offset_bottom = 546.0
 theme_override_font_sizes/font_size = 86
 text = "GAME
 TITLE"
+
+[node name="Paper" type="TextureRect" parent="UI" unique_id=574205171]
+offset_left = 80.99999
+offset_top = 138.0
+offset_right = 533.0
+offset_bottom = 727.0
+rotation = -0.19829032
+scale = Vector2(1.0846337, 1.1883667)
+texture = SubResource("GradientTexture2D_hstxw")
+
+[node name="Book2" type="Control" parent="UI" unique_id=481316849]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Book2" unique_id=1101243469]
+layout_mode = 0
+offset_left = 834.2573
+offset_top = 17.000002
+offset_right = 1474.2573
+offset_bottom = 657.0
+rotation = 0.19971442
+texture = ExtResource("3_rcqid")
+
+[node name="Strips" type="Control" parent="UI/Book2" unique_id=1398342477]
+anchors_preset = 0
+offset_left = 728.0
+offset_top = 287.00003
+offset_right = 1063.0
+offset_bottom = 569.0
+rotation = 0.16557047
+
+[node name="TextureRect" type="TextureRect" parent="UI/Book2/Strips" unique_id=1071189922]
+clip_children = 1
+layout_mode = 0
+offset_left = -84.0
+offset_top = -19.0
+offset_right = 173.0
+offset_bottom = 56.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_u8ny3")
+
+[node name="Strip" parent="UI/Book2/Strips/TextureRect" unique_id=1303984494 node_paths=PackedStringArray("mask", "parent") instance=ExtResource("4_1ajci")]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 595.0001
+offset_bottom = 82.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_rcqid")
+mask = NodePath("..")
+parent = NodePath("../..")
+
+[node name="Label2" type="Label" parent="UI/Book2/Strips/TextureRect/Strip" unique_id=79391529]
+layout_mode = 0
+offset_left = 52.71733
+offset_top = 12.205908
+offset_right = 244.71733
+offset_bottom = 76.20591
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_u8ny3")
+text = "RESTART"
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Book2/Strips" unique_id=1767748928]
+clip_children = 1
+layout_mode = 0
+offset_left = -92.57337
+offset_top = 97.520164
+offset_right = 164.42664
+offset_bottom = 172.52017
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_u8ny3")
+
+[node name="Strip2" parent="UI/Book2/Strips/TextureRect2" unique_id=1306023864 node_paths=PackedStringArray("mask", "parent") instance=ExtResource("4_1ajci")]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 623.0
+offset_bottom = 89.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_1ajci")
+mask = NodePath("..")
+parent = NodePath("../..")
+
+[node name="Label2" type="Label" parent="UI/Book2/Strips/TextureRect2/Strip2" unique_id=777362901]
+layout_mode = 0
+offset_left = 52.71733
+offset_top = 12.205908
+offset_right = 244.71733
+offset_bottom = 76.20591
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_hstxw")
+text = "BACK TO MAIN MENU (BRO MAKE
+THIS LONGER)"
 
 [node name="SettingsPanelWiring" type="Node" parent="." unique_id=2018609453 node_paths=PackedStringArray("open_button", "parent")]
 script = ExtResource("12_7b55j")

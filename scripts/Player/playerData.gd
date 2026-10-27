@@ -4,6 +4,7 @@ extends Node
 signal money_changed(new_amount: int)
 signal fact_added(new_fact: Fact)
 signal facts_reset
+signal game_end
 
 var money: int = 500
 #var deescalationMultiplier: float = 1.0
@@ -83,6 +84,8 @@ func update_character_expression() -> void:
 		print("kalm")
 
 func get_ending() -> void:
+	game_end.emit()
+	
 	if stats.calm.value > 5 and stats.fact.value > 5 and stats.sp.value < 3:
 		print("good ending")
 	elif stats.calm.value > 5 and stats.fact.value <= 5 and stats.sp.value >= 3:

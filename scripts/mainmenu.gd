@@ -17,6 +17,11 @@ extends Node3D
 @onready var book_sprite: AnimatedTextureRect = $UI/Book/AnimatedTextureRect
 var hovering: bool = false
 
+@onready var paper: TextureRect = $UI/Paper
+@onready var book2: Control = $UI/Book2
+@onready var restart: Strip2D = $UI/Book2/Strips/TextureRect/Strip
+@onready var back: Strip2D = $UI/Book2/Strips/TextureRect2/Strip2
+
 @onready var dialogues: Node3D = $Game
 
 @export_multiline var opening_text: String = """
@@ -81,6 +86,8 @@ var page_timer: float = 0.0
 var page_interval: float = 1/10
 
 func _ready() -> void:
+	PlayerData.game_end.connect(_on_game_end)
+	
 	start_game.onclick.connect(_on_start_game_onclick)
 	#settings.onclick.connect(_on_settings_onclick)
 	quit_game.onclick.connect(_on_quit_game_onclick)
@@ -94,6 +101,9 @@ func _ready() -> void:
 	trans_cam.make_current()
 	trans_cam.global_position = start_cam.global_position
 	trans_cam.global_rotation = start_cam.global_rotation
+	
+	paper.visible = false
+	book2.visible = false
 	
 	book_sprite.visible = false
 	
@@ -130,6 +140,19 @@ func start_game_tween (tween : Tween):
 	tween.tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
 	tween.tween_property(book, "global_position:y", book.global_position.y + 1000, 0.3)
 	tween.tween_property(title, "global_position:y", title.global_position.y + 1000, 0.3)
+
+func _on_game_end() -> void:
+	paper.global_position.y += 1000
+	book2.global_position.y += 1000
+	paper.visible = true
+	book2.visible = true
+	
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(trans_cam, "global_position", start_cam.global_position, 0.3)
+	tween.tween_property(trans_cam, "global_rotation", start_cam.global_rotation, 0.3)
+	tween.tween_property(paper, "global_position:y", paper.global_position.y - 1000, 0.3)
+	tween.tween_property(book2, "global_position:y", book2.global_position.y - 1000, 0.3)
 
 func _process(delta: float) -> void:
 	if not book.visible: return
