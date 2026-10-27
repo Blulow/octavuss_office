@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dfppk43mgk0cj"]
+
+[ext_resource type="Shader" uid="uid://bl1mycnmgx5di" path="res://assets/shader/curve_plane.gdshader" id="1_3v0ws"]
+[ext_resource type="Script" uid="uid://xlfi8x6u8udp" path="res://scripts/curved_page.gd" id="2_551yg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u8ny3"]
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uguvf"]
+viewport_path = NodePath("CurvedPage/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drhbd"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_3v0ws")
+shader_parameter/curve_strength = 0.43900006835249994
+shader_parameter/albedo_tex = SubResource("ViewportTexture_uguvf")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+
+[node name="Page" type="MeshInstance3D" unique_id=1650568177]
+mesh = SubResource("PlaneMesh_u8ny3")
+surface_material_override/0 = SubResource("ShaderMaterial_drhbd")
+script = ExtResource("2_551yg")
+text = "asdsdsadadsaasd
+asdsad
+sadsa
+dsadsad
+asdas
+dsad"
+
+[node name="CurvedPage" type="Node3D" parent="." unique_id=1949387181]
+
+[node name="Camera3D" type="Camera3D" parent="CurvedPage" unique_id=718914352]
+transform = Transform3D(1, 0, 0, 0, 0.36614603, 0.93055737, 0, -0.93055737, 0.36614603, 0, 0.8260863, 0.40006196)
+
+[node name="SubViewport" type="SubViewport" parent="CurvedPage" unique_id=1528000903]
+transparent_bg = true
+
+[node name="Label" type="Label" parent="CurvedPage/SubViewport" unique_id=1435993062]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -11.5
+offset_right = 68.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 29
+text = "
+"

@@ -12,8 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
 [ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/ui/settings_panel.gd" id="12_7b55j"]
+[ext_resource type="PackedScene" uid="uid://dfppk43mgk0cj" path="res://scenes/curved_page.tscn" id="12_a8gd2"]
 [ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
 [ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_5pajh"]
+[ext_resource type="Shader" uid="uid://bl1mycnmgx5di" path="res://assets/shader/curve_plane.gdshader" id="13_hstxw"]
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
 [ext_resource type="Shader" uid="uid://dhmu2l8b2f010" path="res://assets/shader/papercam2d.gdshader" id="17_j7ex8"]
 
@@ -74,6 +76,20 @@ animations = [{
 "name": &"open",
 "speed": 5.0
 }]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u8ny3"]
+viewport_path = NodePath("UI/Book/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a8gd2"]
+viewport_path = NodePath("CurvedPage/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hstxw"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("13_hstxw")
+shader_parameter/curve_strength = 0.6420000779950001
+shader_parameter/albedo_tex = SubResource("ViewportTexture_a8gd2")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_drhbd"]
 size = Vector2(18.87, 12.31)
@@ -276,9 +292,27 @@ offset_right = 355.94122
 offset_bottom = 300.94116
 scale = Vector2(0.68, 0.68)
 mouse_filter = 2
-texture = ExtResource("9_5pajh")
+texture = ExtResource("11_a8gd2")
 sprite_frames = SubResource("SpriteFrames_u8ny3")
 playing = false
+
+[node name="CurvedPageText" type="TextureRect" parent="UI/Book" unique_id=1499846475]
+layout_mode = 0
+offset_left = 45.0
+offset_top = -180.0
+offset_right = 557.0
+offset_bottom = 332.0
+texture = SubResource("ViewportTexture_u8ny3")
+
+[node name="SubViewport" type="SubViewport" parent="UI/Book" unique_id=1681019446]
+own_world_3d = true
+transparent_bg = true
+
+[node name="Page" parent="UI/Book/SubViewport" unique_id=1650568177 instance=ExtResource("12_a8gd2")]
+surface_material_override/0 = SubResource("ShaderMaterial_hstxw")
+camera_pos = Vector3(-1.02, 1, -0.015)
+camera_rot = Vector3(-1.555, 0, -0.01)
+font_size = 23
 
 [node name="Title" type="Label" parent="UI" unique_id=599290273]
 offset_left = 107.0
