@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
 [ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_5pajh"]
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
+[ext_resource type="Shader" uid="uid://dhmu2l8b2f010" path="res://assets/shader/papercam2d.gdshader" id="17_j7ex8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8ny3"]
 
@@ -79,6 +80,15 @@ size = Vector2(18.87, 12.31)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68xlc"]
 albedo_color = Color(0.27163696, 0.50390625, 0.46786442, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_drhbd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8ny3"]
+shader = ExtResource("17_j7ex8")
+shader_parameter/line_color = Color(0.1, 0.1, 0.1, 1)
+shader_parameter/line_thickness = 0.4950000235125
+shader_parameter/color_steps = 30.0
+shader_parameter/paper_grain_strength = 0.05
 
 [node name="MainMenu" type="Node3D" unique_id=1446060369]
 script = ExtResource("1_lgwnu")
@@ -150,25 +160,25 @@ text = "Dr Player"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lights" unique_id=1455996595]
 transform = Transform3D(0.96775514, -0.0071286685, -0.25179207, 0.25175235, -0.006022652, 0.967773, -0.008415388, -0.9999565, -0.0040337937, -2.1907377, 6.31761, 0.07854998)
-light_color = Color(0.8745098, 1, 0.95882356, 1)
-light_energy = 9.653
-light_size = 0.34
+light_color = Color(0.7578125, 1, 0.9259191, 1)
+light_energy = 9.25
 shadow_enabled = true
-shadow_opacity = 0.0
+shadow_opacity = 0.08
 spot_range = 10.382
-spot_angle = 89.23
-spot_angle_attenuation = 3.7321637
+spot_angle = 88.36
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights" unique_id=1176063429]
 transform = Transform3D(-0.96429217, 0.014743952, 0.2644302, 0.26446164, 0.00019033377, 0.96439624, 0.014168682, 0.9998913, -0.0040827473, 1.9578328, 6.31761, 0.07854998)
-light_color = Color(0.8745098, 1, 0.95882356, 1)
-light_energy = 9.653
-light_size = 0.34
+light_color = Color(0.7578125, 1, 0.9259191, 1)
+light_energy = 9.25
 shadow_enabled = true
-shadow_opacity = 0.0
+shadow_opacity = 0.08
 spot_range = 10.382
-spot_angle = 89.88
-spot_angle_attenuation = 2.462306
+spot_angle = 88.36
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" unique_id=897654176]
+transform = Transform3D(1, 0, 0, 0, 0.15567228, 0.9878088, 0, -0.9878088, 0.15567228, 0, 8.093214, 0)
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1359823609]
 environment = SubResource("Environment_u8ny3")
@@ -317,5 +327,20 @@ surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
 transform = Transform3D(-2.810162e-08, -1, -4.371139e-08, 2.4567217e-15, 4.371139e-08, -1, 0.64289016, -4.371139e-08, 1.9106855e-15, 10.724314, -0.0422287, -0.31584835)
 mesh = SubResource("PlaneMesh_drhbd")
 surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=299052200]
+transform = Transform3D(0.6072086, 2.8204692e-09, -0.7945426, -0.32044777, 0.9150629, -0.24489394, 0.7270563, 0.40331107, 0.555634, 0, 0.31939495, -1.9246533)
+mesh = SubResource("BoxMesh_drhbd")
+
+[node name="PaperShader" type="CanvasLayer" parent="." unique_id=932288097]
+
+[node name="ColorRect" type="ColorRect" parent="PaperShader" unique_id=754703757]
+material = SubResource("ShaderMaterial_u8ny3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="onclick" from="MainMenuUI/Book/Strips/Strip" to="." method="_on_strip_onclick"]

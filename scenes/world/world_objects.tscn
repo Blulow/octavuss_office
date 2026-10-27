@@ -9,15 +9,19 @@
 [ext_resource type="Texture2D" uid="uid://bgpm61h28gf1m" path="res://assets/textures/environment_sofa_OcclusionRoughnessMetallic.png" id="7_34ksg"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_34j72"]
+diffuse_mode = 3
 albedo_texture = ExtResource("2_7hq2q")
 orm_texture = ExtResource("4_kif0n")
 normal_enabled = true
+normal_scale = 9.83
 normal_texture = ExtResource("3_xvsnw")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_kdvlo"]
+diffuse_mode = 3
 albedo_texture = ExtResource("5_igk8o")
 orm_texture = ExtResource("7_34ksg")
 normal_enabled = true
+normal_scale = 3.38
 normal_texture = ExtResource("6_vswrd")
 
 [node name="scene" unique_id=2038157985 instance=ExtResource("1_wkta0")]
