@@ -20,16 +20,20 @@ var hovering: bool = false
 @onready var dialogues: Node3D = $Game
 
 @export_multiline var opening_text: String = """
-AAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAA
+Client: Leon Gaylord
+
+Details:
+1. The client’s brother was attempting to navigate
+out of a dense crowd when he was pushed.
+2. Physical contact was indirect or incidental rather
+than a targeted, direct assault, resulting in a
+fractured arm.
+3. Online forum videos show a member of an external
+visitor group causing the crowd displacement or
+push that led to the injury.
+4. More related videos of similar conduct were also
+found in the forum.
+5. Client is contemplating retaliatory actions.
 """
 @onready var page_text: Node3D = $UI/Book/SubViewport/Page
 
@@ -96,7 +100,7 @@ func _ready() -> void:
 	page_text.set_deferred("text", opening_text)
 	page_text.set_deferred("camera_pos", page_states[0].pos)
 	page_text.set_deferred("camera_rot", page_states[0].rot)
-	page_text.set_deferred("font_size", 23)
+	page_text.set_deferred("font_size", 13)
 	page_text.get_surface_override_material(0).call_deferred("set_shader_parameter", "curve_strength", page_states[0].curve)
 	
 	if PlayerData.game_started:
