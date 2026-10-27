@@ -6,7 +6,7 @@ signal fact_added(new_fact: Fact)
 signal facts_reset
 signal game_end(ending: int)
 
-var money: int = 500
+var money: int = 0
 #var deescalationMultiplier: float = 1.0
 #var informationMultiplier: float = 1.0
 
@@ -102,7 +102,7 @@ func get_ending() -> void:
 	game_end.emit(_ending)
 
 func reset() -> void:
-	money = 500
+	money = 0
 	
 	#deescalationMultiplier = 1.0
 	#informationMultiplier = 1.0
@@ -110,6 +110,8 @@ func reset() -> void:
 	stats.calm = StatData.new(2, 1)
 	stats.fact = StatData.new(2, 1)
 	stats.sp = StatData.new(6, 1)
+	
+	session_index = 0
 	
 	facts_collected.clear()   # your current reset() doesn't clear facts
 	

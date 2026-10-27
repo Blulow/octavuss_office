@@ -18,6 +18,8 @@ var end_pos: Vector2
 
 var tween
 
+var active: bool = false
+
 func _ready() -> void:
 	var total_rotation := rotation
 	var current_parent = get_parent()
@@ -29,12 +31,23 @@ func _ready() -> void:
 	start_pos = global_position
 	end_pos = global_position - Vector2(dist, 0).rotated(total_rotation)
 
+func reset() -> void:
+	if get_parent() == parent:
+		if !mask or !parent:
+			printerr("no mask no parent")
+			return
+			
+		if get_parent() == parent: parent.remove_child(self)
+		if get_parent() != mask: mask.add_child(self, true)
+		global_position = start_pos + Vector2(0, 1000)
+
 func _on_mouse_entered() -> void:
+	if not active: return
+	
 	if tween: tween.kill()
 	tween = create_tween()
 	tween.tween_property(self, "global_position", end_pos, 0.1)
 	tween.set_ease(Tween.EASE_OUT)
-	
 	
 	if !mask or !parent:
 		printerr("no mask no parent")
@@ -48,6 +61,8 @@ func _on_mouse_entered() -> void:
 	onhover.emit()
 #
 func _on_mouse_exited() -> void:
+	if not active: return
+	
 	if tween: tween.kill()
 	tween = create_tween()
 	tween.tween_property(self, "global_position", start_pos, 0.1)
@@ -68,4 +83,5 @@ func _on_mouse_exited() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			if not active: return
 			onclick.emit()

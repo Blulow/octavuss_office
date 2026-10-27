@@ -79,9 +79,15 @@ var ending_texts = [
 func _ready() -> void:
 	PlayerData.game_end.connect(_on_game_end)
 	
+	start_game.active = true
+	settings.active = true
+	quit_game.active = true
+	
 	start_game.onclick.connect(_on_start_game_onclick)
 	#settings.onclick.connect(_on_settings_onclick)
 	quit_game.onclick.connect(_on_quit_game_onclick)
+	restart.onclick.connect(_on_restart_onclick)
+	back.onclick.connect(_on_back_onclick)
 	start_game.onhover.connect(_on_start_game_onhover)
 	settings.onhover.connect(_on_settings_onhover)
 	quit_game.onhover.connect(_on_quit_game_onhover)
@@ -95,6 +101,8 @@ func _ready() -> void:
 	
 	paper.visible = false
 	book2.visible = false
+	paper.global_position.y += 1000
+	book2.global_position.y += 1000
 	
 	book_sprite.visible = false
 	
@@ -111,6 +119,10 @@ func _ready() -> void:
 	
 
 func _on_start_game_onclick():
+	start_game.active = false
+	settings.active = false
+	quit_game.active = false
+	
 	#name_stand.visible = false
 	PlayerData.game_started = true
 	var tween = create_tween()
@@ -124,6 +136,39 @@ func _on_start_game_onclick():
 func _on_quit_game_onclick():
 	get_tree().quit()
 
+func _on_restart_onclick():
+	restart.active = false
+	back.active = false
+	
+	PlayerData.reset()
+	PlayerData.game_started = true
+	
+	await close_end_tween()
+	
+	dialogues.get_node("SessionManager").load_next_session(true)
+
+func _on_back_onclick():
+	restart.active = false
+	back.active = false
+	
+	PlayerData.reset()
+	
+	await close_end_tween()
+	
+	book.visible = true
+	title.visible = true
+	start_game.reset()
+	settings.reset()
+	quit_game.reset()
+	start_game.active = true
+	settings.active = true
+	quit_game.active = true
+	
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(book, "global_position:y", book.global_position.y - 1000, 0.3)
+	tween.tween_property(title, "global_position:y", title.global_position.y - 1000, 0.3)
+
 func start_game_tween (tween : Tween):
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_parallel()
@@ -132,11 +177,23 @@ func start_game_tween (tween : Tween):
 	tween.tween_property(book, "global_position:y", book.global_position.y + 1000, 0.3)
 	tween.tween_property(title, "global_position:y", title.global_position.y + 1000, 0.3)
 
+func close_end_tween() -> void:
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(trans_cam, "global_position", player_cam.global_position, 0.3)
+	tween.tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
+	tween.tween_property(paper, "global_position:y", paper.global_position.y + 1000, 0.3)
+	tween.tween_property(book2, "global_position:y", book2.global_position.y + 1000, 0.3)
+
 func _on_game_end(ending: int) -> void:
-	paper.global_position.y += 1000
-	book2.global_position.y += 1000
+	PlayerData.game_started = false
+	
 	paper.visible = true
 	book2.visible = true
+	restart.reset()
+	back.reset()
+	restart.active = true
+	back.active = true
 	
 	paper_label.text = ending_texts[ending]
 	
