@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://dl58dnjwb7fam" path="res://scripts/session_manager.gd" id="4_p57ef"]
 [ext_resource type="JSON" path="res://assets/dialog/session3.json" id="5_dinhu"]
 [ext_resource type="PackedScene" uid="uid://bq03og81goeda" path="res://scenes/dialogue_scene_facts.tscn" id="5_p57ef"]
+[ext_resource type="JSON" path="res://assets/dialog/session1.json" id="5_u5sy4"]
+[ext_resource type="JSON" path="res://assets/dialog/session2.json" id="6_u5sy4"]
 [ext_resource type="Shader" uid="uid://fsoauxr4xq5r" path="res://assets/shader/screen_blur.gdshader" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://c7iy0pgt87h3g" path="res://scenes/note_book.tscn" id="9_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bkfm0hy52tho" path="res://icon.svg" id="10_kvpfn"]
@@ -59,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_p57ef")
 dialogue_scene = NodePath("../DialogueSceneFacts")
-sessions_files = Array[JSON]([ExtResource("5_dinhu")])
+sessions_files = Array[JSON]([ExtResource("5_u5sy4"), ExtResource("6_u5sy4"), ExtResource("5_dinhu")])
 choice_ui_manager = NodePath("../ChoiceUIManager")
 
 [node name="DialogueSceneFacts" parent="." unique_id=1331931773 instance=ExtResource("5_p57ef")]

@@ -46,7 +46,8 @@ func _load_dialog(path: String) -> void:
 	
 	if data.has("pending_fact"):
 		PlayerData.pending_fact.id = data.get("pending_fact").id
-		PlayerData.pending_fact.fact_description = data.get("pending_fact").text
+		PlayerData.pending_fact.text = data.get("pending_fact").text
+		PlayerData.pending_fact.fact_description = data.get("pending_fact").description
 	else:
 		PlayerData.pending_fact = Fact.new()
 

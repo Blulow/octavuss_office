@@ -4,18 +4,19 @@
 	},
 	"pending_fact": {
 		"id": "fact2",
-		"text": "Fact 2: Private messages"
+		"text": "Fact 2: Private messages",
+		"description": "Fact 2: You found a former member of Leon’s online group, who quit the group before. You ask about the matter with the online group’s influence, and fortunately they cooperated. They show you pieces of the private messages deeper in the group, which showed more personal comments to doubt towards the videos and other materials. Which leaves deeper questions about the people behind this."
 	},
 	"sets": [
 	[
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "Alright, so yesterday I talked to my bro, [b]he seems fine. I don't know why he's not bothered by this[/b]."
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "[b]The videos are still very real[/b] though, but I [b]didn't have any luck finding that person[/b]..."
 	  },
 	  {
@@ -25,17 +26,17 @@
 			"responses": [
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "Well just look at this guy being so aggresive and obviously shoving him over."
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "And also this online forum has a ton of other media that says about this gang attacking us."
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "Well... it looks pretty real to me...",
 				"effects": {
 				  "fact": "+1",
@@ -50,17 +51,17 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Well just look at this guy being so aggresive and obviously shoving him over."
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "And also this online forum has a ton of other media that says about this gang attacking us."
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "This video might show the person getting push-chained, but no one said he might not be intentional.",
 					"effects": {
 					  "fact": "+4",
@@ -76,7 +77,7 @@
 			"responses": [
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "Yes he did, this online forum has a lot of videos posted and I do see the group often, including this guy...",
 				"effects": {
 				  "fact": "-1",
@@ -93,17 +94,17 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "But I've seen a lot of videos from an online forum that shows different angles..."
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "And every time it just looks like he is trying to hurt him."
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "What else can it be...?",
 					"effects": {
 					  "fact": "+2"
@@ -116,7 +117,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "But I've seen a lot of videos from an online forum and this is still the most suitable statement for this guy.",
 					"effects": {
 					  "calm": "-1",
@@ -136,17 +137,17 @@
 					"responses": [
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "But I've seen a lot of videos from an online forum that shows different angles..."
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "And every time it just looks like he is trying to hurt him."
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "The video showed him getting push-chained, but I don't know if it he also might be intentional.",
 						"effects": {
 						  "fact": "+5",
@@ -160,12 +161,12 @@
 					"responses": [
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "But I've seen a lot of videos from an online forum and this is still the most suitable statement for this guy."
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "Maybe the guy did get push-chained, but who says he's not intentional?",
 						"effects": {
 						  "calm": "-2",
@@ -185,12 +186,12 @@
 	[
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "The videos on there are [b]agreed by all of the people there[/b], there's no doubt that it is true."
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "One of the [b]big guys there even helped identifying the credibility of the videos[/b], and he confirmed that they're all true."
 	  },
 	  {
@@ -200,17 +201,17 @@
 			"responses": [
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "I... I did find this news organisation saying the visitor group initiated it."
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "But for the the actual push of my bro, I'm not so sure..."
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "The big guy had a lot to say about what happened to him though.",
 				"effects": {
 				  "fact": "+1",
@@ -227,12 +228,12 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Well, he did say many reasons for why in text, and everyone would follow along."
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I mean he isn't really a bad guy or anything, he's just saying the truth, why wouldn't I trust him?",
 					"effects": {
 					  "fact": "-1",
@@ -246,12 +247,12 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I mean he has reasons listed, but usually just in plain text without links..."
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "He isn't like a bad guy or anything, but I'm not so sure...",
 					"effects": {
 					  "fact": "-1",
@@ -267,12 +268,12 @@
 			"responses": [
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "Hmm... I guess there were people who did disagree before, they always follow along after a while."
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "But I don't really know what happens to them...",
 				"effects": {
 				  "fact": "+2"
@@ -286,12 +287,12 @@
 	[
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "Speaking of this big guy, I think when I joined, there were already [b]a lot of his videos being spread around[/b]."
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "Everyone in that forum [b]all believed in those videos[/b]."
 	  },
 	  {
@@ -304,7 +305,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I know I really need evidence for this, but I might lose just the people who I can count on to be on my side...",
 					"effects": {
 					  "fact": "-1",
@@ -318,12 +319,12 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I don't know... I guess I really believed in it as it made me more confident."
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I guess do need more real evidence.",
 					"effects": {
 					  "fact": "+2",
@@ -343,12 +344,12 @@
 					"responses": [
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "I know the footage can be real and I can't say anything about it."
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "But I might lose just the people who I can count on to be on my side...",
 						"effects": {
 						  "fact": "+1",
@@ -362,12 +363,12 @@
 					"responses": [
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "I don't know... I guess I really believed in the forum videos as it made me more confident."
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "I guess the footage can justify thst he didn't actually push my bro by himself I guess...",
 						"effects": {
 						  "fact": "+5",
@@ -385,12 +386,12 @@
 			"responses": [
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "I guess I don't have anything to prove them yet, but I'm standing for it..."
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "It's the only people I have on my side after all...",
 				"effects": {
 				  "calm": "+1",
@@ -408,7 +409,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Maybe I do need some evidence to support it, to really really make sure...",
 					"effects": {
 					  "fact": "+2",
@@ -422,7 +423,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I guess I do need evidence, but I still need these people, because only they are on my side now.",
 					"effects": {
 					  "fact": "+2",
@@ -439,22 +440,22 @@
 	[
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "I [b]don't really think the big guy is trying to do anything bad[/b] spreading the videos though."
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "But it's the only thing I can rely on, [b]imagine a whole forum that matches what you think[/b]."
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "Even my [b]own community doesn't even support me like the people there do[/b]."
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "Even... [b]my bro, he doesn't want me to do this[/b]."
 	  },
 	  {
@@ -467,7 +468,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I know he doesn't want me to do this. I guess I've been thinking more about what happened to him than what he actually wants now.",
 					"effects": {
 					  "calm": "+1",
@@ -481,7 +482,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I know he wants me to not do this... but I don't want to get rid of this opportunity like that.",
 					"effects": {
 					  "calm": "+1",
@@ -490,7 +491,7 @@
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "But I won't make him as my excuse anymore..."
 				  }
 				]
@@ -505,7 +506,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I'm still going with the forum though, if I don't find any evidence, I'll still continue on.",
 					"effects": {
 					  "calm": "-1",
@@ -514,7 +515,7 @@
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Though, I wont involve my brother in this any longer."
 				  }
 				]
@@ -524,7 +525,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Although I still believe in the forum, I guess I shouldn't involve my brother in this.",
 					"effects": {
 					  "calm": "+1",
@@ -544,7 +545,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Like I said, everyone there, I have to keep being connected...",
 					"effects": {
 					  "fact": "-1",
@@ -553,7 +554,7 @@
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "But I won't drag my brother into this anymore."
 				  }
 				]
@@ -563,7 +564,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Well, I don't really want the forum to go, maybe I'll just not bring my brother into this anymore...",
 					"effects": {
 					  "calm": "+1",
@@ -583,7 +584,7 @@
 					"responses": [
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "Like I said, everyone there, I have to keep being connected...",
 						"effects": {
 						  "calm": "-3",
@@ -592,12 +593,12 @@
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "Why do you even think the footage even matters anymore?!"
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "But I won't drag my brother into this anymore."
 					  }
 					]
@@ -607,7 +608,7 @@
 					"responses": [
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "How does the footage even matter to here anymore?!",
 						"effects": {
 						  "calm": "-2",
@@ -616,12 +617,12 @@
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "Well, I don't really want the forum to go, I have everyone there."
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "But maybe I'll just not bring my brother into this anymore..."
 					  }
 					]
@@ -636,12 +637,12 @@
 	[
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "You know I keep coming to that time it happened, [b]I wanted to do something for my brother.[/b]"
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "And maybe the [b]big guy who is behind all this was the one who gave me validation.[/b]"
 	  },
 	  {
@@ -651,7 +652,7 @@
 			"responses": [
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "Yeah, I can trust him to move forward, but I'll still be going on my own steps.",
 				"effects": {
 				  "fact": "-1",
@@ -660,12 +661,12 @@
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "I know if it benefits (community name), I will accept that."
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "Well, I'll go think this through, I'll see you then."
 			  }
 			]
@@ -675,7 +676,7 @@
 			"responses": [
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "Well, he would want me to just not use that as a reason to retaliate.",
 				"effects": {
 				  "fact": "+1",
@@ -684,12 +685,12 @@
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "But if it can benefit (community name), then I'd be happy to go for it."
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "But I really need to think about both sides, I'll go for now..."
 			  }
 			]
@@ -702,7 +703,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "... I see it's not just the forum, the big guy can really help me through.",
 					"effects": {
 					  "sp": "-1"
@@ -710,12 +711,12 @@
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "And it can potentially help (community name) as well..."
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I need some time to think, I'll go for now."
 				  }
 				]
@@ -725,7 +726,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Like my brother said, I won't put my anger into these things now.",
 					"effects": {
 					  "calm": "+1",
@@ -735,12 +736,12 @@
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "But maybe the forum can help (community name) to be a better place."
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "And I still need some time thinking about both sides, I'll see you next time."
 				  }
 				]

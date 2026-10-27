@@ -6,22 +6,22 @@
 	[
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "So this time, I went and see my brother again, [b]he just told me to not trust the forum...[/b]"
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "And I met a few (community name) members along the way too, [b]I can tell they're really worried about me.[/b]"
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "Almost everyone I met [b]asked about what I'm doing for my brother.[/b]"
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "Honestly..., I still haven't figured that out yet."
 	  },
 	  {
@@ -34,7 +34,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "They probably worried and just trying to avoid any further trouble.",
 					"effects": {
 					  "fact": "+2"
@@ -42,7 +42,7 @@
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "I don't know whether they would wanna understand me, but it is what it is."
 				  }
 				]
@@ -52,7 +52,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Maybe they're worried because I am following this path, and think I can still come back.",
 					"effects": {
 					  "calm": "+1",
@@ -61,7 +61,7 @@
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "But I really don't know if they're understanding what I'm going through..."
 				  }
 				]
@@ -73,7 +73,7 @@
 			"responses": [
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "Well... I guess I would be concerned to not let a brother get hurt.",
 				"effects": {
 				  "fact": "-2",
@@ -82,7 +82,7 @@
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "But it's also that I don't think he does understand the situation yet, it's conflicting..."
 			  }
 			]
@@ -92,7 +92,7 @@
 			"responses": [
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "Probably because that they don't want me to really end up badly and also caused some further trouble.",
 				"effects": {
 				  "calm": "-1",
@@ -101,12 +101,12 @@
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "But I think there are things that are not clear here..."
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "I suppose I still don't know whether they're worried about me, or whether they just don't agree with what I want to do."
 			  }
 			]
@@ -117,22 +117,22 @@
 	[
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "For (community name), I know what they say [b]can be right about some things[/b], there are definitely the good and bad."
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "I keep [b]thinking about what can happen if I actually retaliate[/b]."
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "But I'm [b]more focused on the getting our reputation back[/b]..."
 	  },
 	  {
 		"speaker": "N1",
-		"name": "John",
+		"name": "Leon",
 		"text": "While the bad ones [b]I know can end up being the worst...[/b]"
 	  },
 	  {
@@ -145,7 +145,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Yeah... but I don't think it will, since the videos are all about the gang already, we need a name for ourselves...",
 					"effects": {
 					  "calm": "-2"
@@ -158,7 +158,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Yeah... but we still need to get our name back because of the videos... This is conflicting...",
 					"effects": {
 					  "calm": "-1",
@@ -179,7 +179,7 @@
 					"responses": [
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "Yeah... but I don't think it will, since the videos are all about the gang already, we need a name for ourselves...",
 						"effects": {
 						  "calm": "-2",
@@ -188,7 +188,7 @@
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "And the forum might be wrong, but that still doesn't say anything about our reputation being so low now."
 					  }
 					]
@@ -198,7 +198,7 @@
 					"responses": [
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "Yeah... but we still need to get our name back because of the videos... This is conflicting...",
 						"effects": {
 						  "calm": "-1",
@@ -207,7 +207,7 @@
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "And even though the forum might be wrong, that still doesn't say anything about our reputation being so low now."
 					  }
 					]
@@ -224,7 +224,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Okay..., even though I know the bads for this, bad news about us is already all over the place now",
 					"effects": {
 					  "calm": "-1",
@@ -233,7 +233,7 @@
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "So why wouldn't this make us better?"
 				  }
 				]
@@ -243,7 +243,7 @@
 				"responses": [
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Well I've seen bad news about us everywhere now, I.. think it's a good chance for us to get it back effectively.",
 					"effects": {
 					  "fact": "+2"
@@ -251,7 +251,7 @@
 				  },
 				  {
 					"speaker": "N1",
-					"name": "John",
+					"name": "Leon",
 					"text": "Though it can also bring us some trouble..."
 				  }
 				]
@@ -268,7 +268,7 @@
 					"responses": [
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "Okay..., even though the forum might be really wrong, bad news about us is already all over the place now",
 						"effects": {
 						  "calm": "-1",
@@ -277,7 +277,7 @@
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "So why wouldn't this make us better?"
 					  }
 					]
@@ -287,7 +287,7 @@
 					"responses": [
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "Yeah... the forum can be really really wrong, but I've seen bad news about us everywhere now.",
 						"effects": {
 						  "calm": "-1",
@@ -296,12 +296,12 @@
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "I.. think it's a good chance for us to get it back effectively."
 					  },
 					  {
 						"speaker": "N1",
-						"name": "John",
+						"name": "Leon",
 						"text": "Even though it can also bring us some trouble..."
 					  }
 					]
@@ -315,7 +315,7 @@
 			"responses": [
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "... I just want to make everyone be in a better place.",
 				"effects": {
 				  "fact": "+3"
@@ -323,12 +323,12 @@
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "(community name) shouldn't have any more of these encounters I guess."
 			  },
 			  {
 				"speaker": "N1",
-				"name": "John",
+				"name": "Leon",
 				"text": "That's why I wanted to do this in the second place.. first place being for my brother..."
 			  }
 			]

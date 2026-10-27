@@ -61,14 +61,14 @@ func boost_stat_multiplier(stat_name: String, amount: float) -> void:
 	stats[stat_name].multiplier *= amount
 
 func add_pending_fact() -> void:
-	add_fact(pending_fact.id, pending_fact.fact_description)
+	add_fact(pending_fact.id, pending_fact.text, pending_fact.fact_description)
 
-func add_fact(id: String, description: String) -> void:
+func add_fact(id: String, text: String, description: String) -> void:
 	# Avoid duplicates if the player can re-trigger the same discovery
 	for f in facts_collected:
-		if f.fact_description == description:
+		if f.text == description:
 			return
-	var new_fact := Fact.new(id, description)
+	var new_fact := Fact.new(id, text, description)
 	facts_collected.append(new_fact)
 	fact_added.emit(new_fact)
 

@@ -35,7 +35,7 @@ func setup(fact: Fact, usable_ids: Array) -> void:
 		_label.add_theme_font_size_override("font_size", 17)
 		add_child(_label)
 	#_label.text = String(fact.get("text", ""))
-	_label.text = fact.fact_description
+	_label.text = fact.text
 	_label.add_theme_color_override("font_color", Color.WHITE if usable else DIM_COLOR)
 	add_theme_stylebox_override("panel", _make_panel(usable))
 

@@ -164,6 +164,10 @@ func _on_back_onclick():
 	settings.active = true
 	quit_game.active = true
 	
+	page_text.camera_pos = page_states[0].pos
+	page_text.camera_rot = page_states[0].rot
+	page_text.get_surface_override_material(0).set_shader_parameter("curve_strength", page_states[0].curve)
+	
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(book, "global_position:y", book.global_position.y - 1000, 0.3)

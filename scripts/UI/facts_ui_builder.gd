@@ -30,7 +30,7 @@ func _rebuild() -> void:
 		return
 
 	for f in PlayerData.facts_collected:
-		_add_label("• " + f.fact_description)
+		_add_label(f.fact_description)
 
 func _add_label(text: String) -> void:
 	var label := Label.new()
