@@ -344,6 +344,15 @@ rotation = -0.19829032
 scale = Vector2(1.0846337, 1.1883667)
 texture = SubResource("GradientTexture2D_hstxw")
 
+[node name="Label" type="Label" parent="UI/Paper" unique_id=1887241441]
+custom_maximum_size = Vector2(370.178, 381.391)
+layout_mode = 0
+offset_left = 37.861202
+offset_top = 43.577713
+offset_right = 408.03885
+offset_bottom = 424.96893
+autowrap_mode = 2
+
 [node name="Book2" type="Control" parent="UI" unique_id=481316849]
 layout_mode = 3
 anchors_preset = 0

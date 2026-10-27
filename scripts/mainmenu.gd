@@ -18,6 +18,7 @@ extends Node3D
 var hovering: bool = false
 
 @onready var paper: TextureRect = $UI/Paper
+@onready var paper_label: Label = $UI/Paper/Label
 @onready var book2: Control = $UI/Book2
 @onready var restart: Strip2D = $UI/Book2/Strips/TextureRect/Strip
 @onready var back: Strip2D = $UI/Book2/Strips/TextureRect2/Strip2
@@ -65,25 +66,15 @@ found in the forum.
 	}
 ]
 
-# 0
-# pos: (0.02, 1.0, -0.145)
-# rot: (1.565, 0.0, -0.03)
-# curve: 0.0
-# 1
-# pos: (-0.31, 0.9, 0.1)
-# rot: (-1.46, 0.0, -0.055)
-# curve: 0.1
-# 2
-# pos: (-0.8, 0.8, 0.0)
-# rot: (-1.555, 0.0, -0.01)
-# curve: 0.3
-# 3
-# pos: (-3.0, 0.4, 0.2)
-# rot: (-1.575, 0.0, -0.01)
-# curve: 0.642
-
 var page_timer: float = 0.0
 var page_interval: float = 1/10
+
+var ending_texts = [
+	"Thinking about everything, I guess retaliating might be too big of a move... I do want everyone in **(community name) to be in a better place, maybe we should work together towards that instead. I guess I'd say the proof of the videos might just be an influence after all, not sure why, but it needs more looking and finding. Well then, this might be a good decision, I’ll see what I can do.",
+	"After all this, I still don’t understand why I shouldn’t make a move… Maybe the videos are fake, but it’s hard to get our reputation back like this… So, for **(community name), I will do this for us to be in a higher standing. I’ll give it my all.",
+	"After everything… maybe the videos are fake, maybe I shouldn’t trust the forum. But I still want to make this move, for **(community name), I need to get our reputation back. So we all can be in a higher standing, and not fall back. Then, I guess I'll do my best.",
+	"Everything considered, making a move still speaks out. The videos might be fake, but the reputation we lost might not be able to be regained... I'm doing this for **(community name), so we can be in a better place. I don’t care anymore, I have to do this."
+]
 
 func _ready() -> void:
 	PlayerData.game_end.connect(_on_game_end)
@@ -141,11 +132,13 @@ func start_game_tween (tween : Tween):
 	tween.tween_property(book, "global_position:y", book.global_position.y + 1000, 0.3)
 	tween.tween_property(title, "global_position:y", title.global_position.y + 1000, 0.3)
 
-func _on_game_end() -> void:
+func _on_game_end(ending: int) -> void:
 	paper.global_position.y += 1000
 	book2.global_position.y += 1000
 	paper.visible = true
 	book2.visible = true
+	
+	paper_label.text = ending_texts[ending]
 	
 	var tween = create_tween()
 	tween.set_parallel()
