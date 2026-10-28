@@ -19,7 +19,11 @@ extends Node3D
 @onready var dialogues: Node3D = $Game
 
 func _ready() -> void:
-
+	print("READY paused=", get_tree().paused,
+		" time_scale=", Engine.time_scale,
+		" game_started=", PlayerData.game_started,
+		" process_mode=", process_mode,
+		" mouse=", Input.mouse_mode)
 	
 	start_game.onclick.connect(_on_start_game_onclick)
 	#settings.onclick.connect(_on_settings_onclick)

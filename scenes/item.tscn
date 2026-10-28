@@ -3,12 +3,13 @@
 [ext_resource type="Shader" uid="uid://drbuviww2gyb3" path="res://assets/shader/outline3d.gdshader" id="1_ro5b8"]
 [ext_resource type="Script" uid="uid://crfux4all0ux2" path="res://scripts/Items/item.gd" id="2_6muww"]
 [ext_resource type="Script" uid="uid://c4w116vq78lhu" path="res://scripts/Items/interaction/interactable.gd" id="3_6muww"]
+[ext_resource type="PackedScene" uid="uid://c7njg7g0vds4h" path="res://scenes/item_visual_test.tscn" id="3_34t5m"]
 [ext_resource type="Script" uid="uid://dq6ksdkasoa4g" path="res://scripts/Items/interaction/interaction_effect/lift_effect.gd" id="4_vljjh"]
 [ext_resource type="Script" uid="uid://cdca8d4cw8a1a" path="res://scripts/Items/interaction/interaction_effect/outline_effect.gd" id="5_d265e"]
-[ext_resource type="Script" uid="uid://c3mugahuttm8x" path="res://scripts/Items/interaction/interaction_effect/select_to_display_effect.gd" id="5_ro5b8"]
 [ext_resource type="Script" uid="uid://ccctgufiq5qts" path="res://scripts/Items/interaction/interaction_effect/shake_effect.gd" id="6_5vp5n"]
 [ext_resource type="Script" uid="uid://b78bqwvt68mk1" path="res://scripts/Items/interaction/interaction_effect/select_idle_effect.gd" id="8_c4387"]
 [ext_resource type="Script" uid="uid://bk7fmjj2hru2u" path="res://scripts/Items/interaction/interaction_effect/alpha_effect.gd" id="9_v0cwl"]
+[ext_resource type="Script" uid="uid://ccoxf8wqei742" path="res://scripts/Items/interaction/interaction_effect/scale_effect.gd" id="10_34t5m"]
 [ext_resource type="Script" uid="uid://d1wyt8i6a3gng" path="res://scripts/Items/interaction/interaction_effect/floating_text_effect.gd" id="10_xr48l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_032fp"]
@@ -26,7 +27,10 @@ next_pass = SubResource("ShaderMaterial_032fp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bdmwb"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_xrivr"]
+
 [node name="Item" type="Node3D" unique_id=2135113639]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="Mesh" type="CSGBox3D" parent="." unique_id=1483267050 node_paths=PackedStringArray("interactable")]
 transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, 0, 0, 0)
@@ -34,6 +38,7 @@ material = SubResource("StandardMaterial3D_1l46r")
 script = ExtResource("2_6muww")
 interactable = NodePath("Interactable")
 item_name = "Item"
+preview_scene = ExtResource("3_34t5m")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Mesh" unique_id=202659764]
 
@@ -53,13 +58,6 @@ target = NodePath("../../..")
 interactable = NodePath("../../Interactable")
 metadata/_custom_type_script = "uid://dq6ksdkasoa4g"
 
-[node name="SelectToDisplayEffect" type="Node" parent="Mesh/Effects" unique_id=1798508535 node_paths=PackedStringArray("target", "interactable")]
-script = ExtResource("5_ro5b8")
-target = NodePath("../../..")
-interactable = NodePath("../../Interactable")
-trigger = 1
-metadata/_custom_type_script = "uid://c3mugahuttm8x"
-
 [node name="ShakeEffect" type="Node" parent="Mesh/Effects" unique_id=1100499471 node_paths=PackedStringArray("target", "interactable")]
 script = ExtResource("6_5vp5n")
 target = NodePath("../../..")
@@ -73,19 +71,12 @@ mesh = NodePath("../..")
 interactable = NodePath("../../Interactable")
 metadata/_custom_type_script = "uid://cdca8d4cw8a1a"
 
-[node name="SelectIdleEffect" type="Node" parent="Mesh/Effects" unique_id=573510277 node_paths=PackedStringArray("mover", "target", "interactable")]
-script = ExtResource("8_c4387")
-mover = NodePath("../SelectToDisplayEffect")
-target = NodePath("../../..")
-interactable = NodePath("../../Interactable")
-metadata/_custom_type_script = "uid://b78bqwvt68mk1"
-
 [node name="AlphaEffect" type="Node" parent="Mesh/Effects" unique_id=1094295868 node_paths=PackedStringArray("target", "reveal_node", "interactable")]
 script = ExtResource("9_v0cwl")
 target = NodePath("../..")
 target_alpha = 0.5
 from_alpha = 1.0
-reveal_node = NodePath("../../../Label3D")
+reveal_node = NodePath("../../../SoldOut")
 interactable = NodePath("../../Interactable")
 trigger = 2
 metadata/_custom_type_script = "uid://bk7fmjj2hru2u"
@@ -100,9 +91,37 @@ interactable = NodePath("../../Interactable")
 trigger = 2
 metadata/_custom_type_script = "uid://d1wyt8i6a3gng"
 
-[node name="Label3D" type="Label3D" parent="." unique_id=744121879]
+[node name="SelectIdleEffect" type="Node" parent="Mesh/Effects" unique_id=1613066753 node_paths=PackedStringArray("mover", "target", "interactable")]
+script = ExtResource("8_c4387")
+mover = NodePath("../ScaleEffect")
+target = NodePath("../../..")
+amplitude = 0.1
+interactable = NodePath("../../Interactable")
+trigger = 1
+metadata/_custom_type_script = "uid://b78bqwvt68mk1"
+
+[node name="ScaleEffect" type="Node" parent="Mesh/Effects" unique_id=2143068332 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("10_34t5m")
+target = NodePath("../../..")
+duration = 0.4
+overshoot = 0.2
+settle_fraction = 0.5
+interactable = NodePath("../../Interactable")
+trigger = 1
+metadata/_custom_type_script = "uid://ccoxf8wqei742"
+
+[node name="SoldOut" type="Label3D" parent="." unique_id=744121879]
 transform = Transform3D(0.99997514, -0.0017103245, 0.006842496, 0.0017022667, 0.99999785, 0.0011830329, -0.0068445047, -0.0011713536, 0.99997586, 0, 0, 0.76161253)
 visible = false
 text = "SOLD 
 OUT"
+font_size = 50
+
+[node name="PriceTag" type="CSGMesh3D" parent="." unique_id=1127590021]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.45200962, 0, 0, 0, 1, 0, -1.0362219, 0)
+mesh = SubResource("BoxMesh_xrivr")
+
+[node name="Price" type="Label3D" parent="PriceTag" unique_id=1470500813]
+transform = Transform3D(1.0000001, 0, 0, 0, 2.2123423, 0, 0, 0, 0.99999994, 0, 0, 1)
+text = "$5"
 font_size = 50

@@ -9,6 +9,7 @@ signal purchased(item: Item)
 @export var price: int = 100
 @export var item_description: String
 @export var perks : Array[Perk]
+@export var preview_scene: PackedScene   # the physical 3D model for this sticky note
 var is_purchased: bool = false
 
 func _ready() -> void:

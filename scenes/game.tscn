@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://db0cmrkkmfc16"]
 
-[ext_resource type="Script" uid="uid://cgwu70wtbliy8" path="res://scripts/ui/choice_ui.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://wtn734px0n1o" path="res://scenes/choice_ui.tscn" id="2_yqjtg"]
-[ext_resource type="Script" uid="uid://bdk0rss6jqxih" path="res://scripts/ui/facts_ui_builder.gd" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://cgwu70wtbliy8" path="res://scripts/UI/choice_ui.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://dfvsvdtyhsjtv" path="res://scripts/shop_navigate.gd" id="2_kvuet"]
+[ext_resource type="PackedScene" uid="uid://c2j2653bqfa5i" path="res://scenes/choice_ui.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://bdk0rss6jqxih" path="res://scripts/UI/facts_ui_builder.gd" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://dl58dnjwb7fam" path="res://scripts/session_manager.gd" id="4_p57ef"]
 [ext_resource type="JSON" path="res://assets/dialog/session3.json" id="5_dinhu"]
 [ext_resource type="PackedScene" uid="uid://bq03og81goeda" path="res://scenes/dialogue_scene_facts.tscn" id="5_p57ef"]
@@ -24,8 +25,9 @@ process_mode = 3
 
 [node name="ChoiceUi" parent="ChoiceCanvas" unique_id=539166642 instance=ExtResource("2_yqjtg")]
 
-[node name="BuySomething" parent="ChoiceCanvas/ChoiceUi/CenterContainer/VBoxContainer" parent_id_path=PackedInt32Array(539166642, 1236340906) index="1" unique_id=1705236234]
-next_scene_path = "uid://c7k63givb3sj2"
+[node name="BuySomething" parent="ChoiceCanvas/ChoiceUi/CenterContainer/VBoxContainer" parent_id_path=PackedInt32Array(539166642, 1236340906) index="1" unique_id=1705236234 node_paths=PackedStringArray("choice_ui")]
+script = ExtResource("2_kvuet")
+choice_ui = NodePath("../../../../../ChoiceUIManager")
 
 [node name="FactsCanvas" type="CanvasLayer" parent="." unique_id=1861971381 node_paths=PackedStringArray("facts_list")]
 process_mode = 3

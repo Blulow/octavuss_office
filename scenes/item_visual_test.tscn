@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c7njg7g0vds4h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7ex8"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xrivr"]
+
+[node name="ItemVisualTest" type="RigidBody3D" unique_id=508031829]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+collision_layer = 0
+collision_mask = 0
+input_ray_pickable = false
+freeze = true
+freeze_mode = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=18493879]
+material = SubResource("StandardMaterial3D_j7ex8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1824806004]
+shape = SubResource("BoxShape3D_xrivr")

@@ -6,19 +6,35 @@ var current_item: Item
 
 @export var name_label: Label
 @export var feedback_label: Label
-@export var buy_button: Button
+#@export var buy_button: Button
+@export var buy_button: StaticBody3D
+@export var button_text3d : Label3D
 @export var item_price: Label
-@export var item_description_label : Label
+@export var item_description_label : Label3D
 @export var money_label : Label
+var item_bought : bool = false
+var items: Array[Item]
+var bought_item: Item
+
+signal bought
+
+func _on_enter_shop() -> void:
+	item_bought = false
+	for item: Item in items:
+		item.is_purchased = false
+		
+	
 
 
 func _ready() -> void:
 	money_label.text = "Money: " + str(PlayerData.money)
 	hide()
-	buy_button.pressed.connect(_on_buy_pressed)
+	#buy_button.pressed.connect(_on_buy_pressed)
+	buy_button.input_event.connect(_buy_pressed)
 	for item: Item in get_tree().get_nodes_in_group("items"):
 		item.selected.connect(_on_item_selected)
 		item.purchased.connect(_on_item_purchased)
+		items.append(item)
 
 func _on_item_selected(item: Item) -> void:
 	if current_item != null and current_item != item:
@@ -39,12 +55,20 @@ func _close() -> void:
 	current_item = null
 	hide()
 
+
 func _on_item_purchased(item: Item) -> void:
 	if item != current_item:
 		return
+	bought_item = item          # new
 	feedback_label.text = "Item purchased!"
 	money_label.text = "Money: " + str(PlayerData.money)
+	item_bought = true
 	_update_buy_button(item)
+
+	# wait 1 second, then fire the event (true = timer keeps running even if the tree is paused)
+	await get_tree().create_timer(1.5, true).timeout
+	bought.emit()
+	
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -54,14 +78,31 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_buy_pressed() -> void:
 	if current_item == null:
 		return
+	if item_bought:
+		_shake_button(true)
 	if not current_item.on_buy():
 		feedback_label.text = "Not enough money!"
-		_shake_button()
+		#_shake_button()
+		_shake_button(true)
 
-func _shake_button() -> void:
-	Shake.run(buy_button, 8.0)
+func _shake_button(use_parent: bool = false) -> void:
+	if !use_parent:
+		Shake.run(buy_button, 8.0)
+	else:
+		Shake.run(buy_button.get_parent(), 0.05)
 	
-	
+
+func _buy_pressed(_cam: Node, event: InputEvent, _pos: Vector3, _normal: Vector3, _idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_on_buy_pressed()
+		
+			
 func _update_buy_button(item: Item) -> void:
-	buy_button.disabled = item.is_purchased
-	buy_button.text = "Purchased" if item.is_purchased else "Buy"
+	#buy_button.disabled = item.is_purchased
+	#buy_button.text = "Purchased" if item.is_purchased else "Buy"
+	if item.is_purchased:
+		button_text3d.text = "Purchased"
+	elif item_bought:
+		button_text3d.text = "Already Bought an Item"
+	else :
+		button_text3d.text =  "Buy"

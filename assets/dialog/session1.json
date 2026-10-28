@@ -7,267 +7,267 @@
 		"text": "Fact 1: Raw video footage"
 	},
 	"sets": [
-	[
-	  {
-		"speaker": "N1",
-		"name": "John",
-		"text": "I know why they sent me here. They want me to [b]calm down[/b], and go back pretending like everything is fine. But I figured out it's worth a shot anyway."
-	  },
-	  {
-		"speaker": "N1",
-		"name": "John",
-		"text": "My brother had his arm fractured, and [b]I knew I had to do something[/b], and... make them pay for it."
-	  },
-	  {
-		"speaker": "N1",
-		"name": "John",
-		"text": "I [b]watched those videos[/b] from the event online, I just don't know what to do..."
-	  },
-	  {
-		"choices": [
-		  {
-			"text": "Sounds really rough, I hope your brother's okay, but I'd like to hear more about what happened from you.",
-			"responses": [
-			  {
+		[
+			{
 				"speaker": "N1",
 				"name": "John",
-				"text": "Oh.. thanks a lot.",
-				"effects": {
-				  "calm": "+1",
-				  "sp": "-2"
-				}
-			  },
-			  {
+				"text": "I know why they sent me here. They want me to [b]calm down[/b], and go back pretending like everything is fine. But I figured out it's worth a shot anyway."
+			},
+			{
 				"speaker": "N1",
 				"name": "John",
-				"text": "No one in (community name) seems to support me doing this."
-			  }
-			]
-		  },
-		  {
-			"text": "Well, they definitely did something really terrible, but I think you're doing the right thing.",
-			"responses": [
-			  {
+				"text": "My brother had his arm fractured, and [b]I knew I had to do something[/b], and... make them pay for it."
+			},
+			{
 				"speaker": "N1",
 				"name": "John",
-				"text": "Yeah, right? But no one in (community name) seems to support my idea.",
-				"effects": {
-				  "sp": "+1"
-				}
-			  }
-			]
-		  },
-		  {
-			"text": "You've watched the videos quite a bit. What was it about them that convinced you that the group was responsible?",
-			"responses": [
-			  {
+				"text": "I [b]watched those videos[/b] from the event online, I just don't know what to do..."
+			},
+			{
+				"choices": [
+					{
+						"text": "Sounds really rough, I hope your brother's okay, but I'd like to hear more about what happened from you.",
+						"responses": [
+							{
+								"speaker": "N1",
+								"name": "John",
+								"text": "Oh.. thanks a lot.",
+								"effects": {
+									"calm": "+1",
+									"sp": "-2"
+								}
+							},
+							{
+								"speaker": "N1",
+								"name": "John",
+								"text": "No one in (community name) seems to support me doing this."
+							}
+						]
+					},
+					{
+						"text": "Well, they definitely did something really terrible, but I think you're doing the right thing.",
+						"responses": [
+							{
+								"speaker": "N1",
+								"name": "John",
+								"text": "Yeah, right? But no one in (community name) seems to support my idea.",
+								"effects": {
+									"sp": "+1"
+								}
+							}
+						]
+					},
+					{
+						"text": "You've watched the videos quite a bit. What was it about them that convinced you that the group was responsible?",
+						"responses": [
+							{
+								"speaker": "N1",
+								"name": "John",
+								"text": "I mean it was obvious once you see it, there are a lot of these videos that shows the group doing things to our community.",
+								"effects": {
+									"calm": "-1",
+									"sp": "+2"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		[
+			{
 				"speaker": "N1",
 				"name": "John",
-				"text": "I mean it was obvious once you see it, there are a lot of these videos that shows the group doing things to our community.",
-				"effects": {
-				  "calm": "-1",
-				  "sp": "+2"
-				}
-			  }
-			]
-		  }
+				"text": "Everyone there just seems to [b]not want me to[/b], I mean [b]just look what they did to my bro[/b]."
+			},
+			{
+				"speaker": "N1",
+				"name": "John",
+				"text": "That person definitely pushed him on purpose while trying to get through the crowd, [b]I have to find this guy and their gang somehow[/b]..."
+			},
+			{
+				"speaker": "N1",
+				"name": "John",
+				"text": "That's why I'm here in the first place, *sigh*..."
+			},
+			{
+				"choices": [
+					{
+						"text": "Hey, maybe we can try figuring things out together? A problem doesn't necessarily need retaliating to be solved.",
+						"responses": [
+							{
+								"speaker": "N1",
+								"name": "John",
+								"text": "I guess you're right, but what can I even do at this point?",
+								"effects": {
+									"calm": "+1",
+									"sp": "-1"
+								}
+							}
+						]
+					},
+					{
+						"text": "Well, they are definitely wrong. You're right to be feeling this way.",
+						"responses": [
+							{
+								"speaker": "N1",
+								"name": "John",
+								"text": "Mhm, I don't really care about what they say anyway, the people who did this to my bro has to get something back.",
+								"effects": {
+									"calm": "-1",
+									"fact": "-2"
+								}
+							}
+						]
+					},
+					{
+						"text": "What makes you think the person deliberately pushed your brother?",
+						"responses": [
+							{
+								"speaker": "N1",
+								"name": "John",
+								"text": "Well I also watched the videos dozens of times, it's very clear that the person has pushed him, he even looked at him apathetically.",
+								"effects": {
+									"fact": "-1"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		[
+			{
+				"speaker": "N1",
+				"name": "John",
+				"text": "But what can I do now... it's like [b]I'm all on my own now[/b]."
+			},
+			{
+				"speaker": "N1",
+				"name": "John",
+				"text": "Even when there is something I can do, [b]I actually don't know if I would be able to[/b]..."
+			},
+			{
+				"choices": [
+					{
+						"text": "Maybe you should think if fighting back is even worth it.",
+						"choices": [
+							{
+								"condition": "calm > 2",
+								"responses": [
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "...Maybe.",
+										"effects": {
+											"fact": "+1",
+											"sp": "-1"
+										}
+									},
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "But those videos have proven it, I don't know how else they can be wrong."
+									},
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "I need some time to think... I'll see you next time."
+									}
+								]
+							},
+							{
+								"condition": "default",
+								"responses": [
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "I think I know what to do, those videos have proven it, I just don't know how to get there yet...",
+										"effects": {
+											"sp": "+1"
+										}
+									},
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "For now I'll need some time."
+									}
+								]
+							}
+						]
+					},
+					{
+						"text": "Well, I believe you can do it, and you have those videos too.",
+						"responses": [
+							{
+								"speaker": "N1",
+								"name": "John",
+								"text": "I'll try I guess. Those videos are there to back me up.",
+								"effects": {
+									"calm": "+2",
+									"sp": "+1"
+								}
+							},
+							{
+								"speaker": "N1",
+								"name": "John",
+								"text": "I guess I'll see you the next session then."
+							}
+						]
+					},
+					{
+						"text": "What do you think is most important to you?",
+						"choices": [
+							{
+								"condition": "sp > 5",
+								"responses": [
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "My brother, and our community. The things they've done, I don't want that to happen to us again.",
+										"effects": {
+											"sp": "+2"
+										}
+									},
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "The videos proves what's real, and they've been doing to us."
+									},
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "I need some time to think... I'll go for now."
+									}
+								]
+							},
+							{
+								"condition": "default",
+								"responses": [
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "Well... my brother. But I'm not sure what entirely to do about this.",
+										"effects": {
+											"sp": "-1"
+										}
+									},
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "The videos are real though, but I can't just see what's in front of me a lie."
+									},
+									{
+										"speaker": "N1",
+										"name": "John",
+										"text": "I have to think this through, then... I'll see you again."
+									}
+								]
+							}
+						]
+					}
+				]
+			}
 		]
-	  }
-	],
-	[
-	  {
-		"speaker": "N1",
-		"name": "John",
-		"text": "Everyone there just seems to [b]not want me to[/b], I mean [b]just look what they did to my bro[/b]."
-	  },
-	  {
-		"speaker": "N1",
-		"name": "John",
-		"text": "That person definitely pushed him on purpose while trying to get through the crowd, [b]I have to find this guy and their gang somehow[/b]..."
-	  },
-	  {
-		"speaker": "N1",
-		"name": "John",
-		"text": "That's why I'm here in the first place, *sigh*..."
-	  },
-	  {
-		"choices": [
-		  {
-			"text": "Hey, maybe we can try figuring things out together? A problem doesn't necessarily need retaliating to be solved.",
-			"responses": [
-			  {
-				"speaker": "N1",
-				"name": "John",
-				"text": "I guess you're right, but what can I even do at this point?",
-				"effects": {
-				  "calm": "+1",
-				  "sp": "-1"
-				}
-			  }
-			]
-		  },
-		  {
-			"text": "Well, they are definitely wrong. You're right to be feeling this way.",
-			"responses": [
-			  {
-				"speaker": "N1",
-				"name": "John",
-				"text": "Mhm, I don't really care about what they say anyway, the people who did this to my bro has to get something back.",
-				"effects": {
-				  "calm": "-1",
-				  "fact": "-2"
-				}
-			  }
-			]
-		  },
-		  {
-			"text": "What makes you think the person deliberately pushed your brother?",
-			"responses": [
-			  {
-				"speaker": "N1",
-				"name": "John",
-				"text": "Well I also watched the videos dozens of times, it's very clear that the person has pushed him, he even looked at him apathetically.",
-				"effects": {
-				  "fact": "-1"
-				}
-			  }
-			]
-		  }
-		]
-	  }
-	],
-	[
-	  {
-		"speaker": "N1",
-		"name": "John",
-		"text": "But what can I do now... it's like [b]I'm all on my own now[/b]."
-	  },
-	  {
-		"speaker": "N1",
-		"name": "John",
-		"text": "Even when there is something I can do, [b]I actually don't know if I would be able to[/b]..."
-	  },
-	  {
-		"choices": [
-		  {
-			"text": "Maybe you should think if fighting back is even worth it.",
-			"choices": [
-			  {
-				"condition": "calm > 2",
-				"responses": [
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "...Maybe.",
-					"effects": {
-					  "fact": "+1",
-					  "sp": "-1"
-					}
-				  },
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "But those videos have proven it, I don't know how else they can be wrong."
-				  },
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "I need some time to think... I'll see you next time."
-				  }
-				]
-			  },
-			  {
-				"condition": "default",
-				"responses": [
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "I think I know what to do, those videos have proven it, I just don't know how to get there yet...",
-					"effects": {
-					  "sp": "+1"
-					}
-				  },
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "For now I'll need some time."
-				  }
-				]
-			  }
-			]
-		  },
-		  {
-			"text": "Well, I believe you can do it, and you have those videos too.",
-			"responses": [
-			  {
-				"speaker": "N1",
-				"name": "John",
-				"text": "I'll try I guess. Those videos are there to back me up.",
-				"effects": {
-				  "calm": "+2",
-				  "sp": "+1"
-				}
-			  },
-			  {
-				"speaker": "N1",
-				"name": "John",
-				"text": "I guess I'll see you the next session then."
-			  }
-			]
-		  },
-		  {
-			"text": "What do you think is most important to you?",
-			"choices": [
-			  {
-				"condition": "sp > 5",
-				"responses": [
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "My brother, and our community. The things they've done, I don't want that to happen to us again.",
-					"effects": {
-					  "sp": "+2"
-					}
-				  },
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "The videos proves what's real, and they've been doing to us."
-				  },
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "I need some time to think... I'll go for now."
-				  }
-				]
-			  },
-			  {
-				"condition": "default",
-				"responses": [
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "Well... my brother. But I'm not sure what entirely to do about this.",
-					"effects": {
-					  "sp": "-1"
-					}
-				  },
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "The videos are real though, but I can't just see what's in front of me a lie."
-				  },
-				  {
-					"speaker": "N1",
-					"name": "John",
-					"text": "I have to think this through, then... I'll see you again."
-				  }
-				]
-			  }
-			]
-		  }
-		]
-	  }
 	]
-  ]
 }

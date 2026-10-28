@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5qqds04rkp5q"]
 
 [ext_resource type="Script" uid="uid://c37vg6jhe0ay0" path="res://scripts/mainmenu.gd" id="1_lgwnu"]
+[ext_resource type="Script" uid="uid://dt8mr64jpq2w1" path="res://scripts/Items/item_delivery.gd" id="2_a8gd2"]
 [ext_resource type="PackedScene" uid="uid://cw7qx4up1erpv" path="res://scenes/ui/strip.tscn" id="2_flqon"]
 [ext_resource type="Texture2D" uid="uid://dljk52dilrweh" path="res://assets/images/book.PNG" id="3_rcqid"]
 [ext_resource type="PackedScene" uid="uid://df8j3swg8lxma" path="res://scenes/ui/strip2d.tscn" id="4_1ajci"]
@@ -11,10 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://hl8gocycs3dn" path="res://assets/images/page_1.PNG" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
-[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/ui/settings_panel.gd" id="12_7b55j"]
+[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/UI/settings_panel.gd" id="12_7b55j"]
 [ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
-[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_5pajh"]
+[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://settings menu.tscn" id="13_5pajh"]
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
+[ext_resource type="Script" uid="uid://dfvsvdtyhsjtv" path="res://scripts/shop_navigate.gd" id="15_j7ex8"]
+[ext_resource type="PackedScene" uid="uid://c7k63givb3sj2" path="res://scenes/shop.tscn" id="16_5pajh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8ny3"]
 
@@ -78,7 +81,21 @@ animations = [{
 size = Vector2(18.87, 12.31)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68xlc"]
-albedo_color = Color(0.27163696, 0.50390625, 0.46786442, 1)
+render_priority = 1
+transparency = 1
+albedo_color = Color(0.27058825, 0.5019608, 0.46666667, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+
+[sub_resource type="Gradient" id="Gradient_j7ex8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8egab"]
+gradient = SubResource("Gradient_j7ex8")
+width = 200
+height = 400
+fill_from = Vector2(0.82081914, 0.005119454)
+fill_to = Vector2(0.011945393, 0)
 
 [node name="MainMenu" type="Node3D" unique_id=1446060369]
 script = ExtResource("1_lgwnu")
@@ -92,6 +109,19 @@ mesh = SubResource("CapsuleMesh_u8ny3")
 
 [node name="PlayerCam" type="Camera3D" parent="Player" unique_id=1977211648]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6272142, -0.37168598)
+
+[node name="ItemDelivery" type="Node" parent="Player" unique_id=2092147519 node_paths=PackedStringArray("showcase", "start_point", "end_point")]
+script = ExtResource("2_a8gd2")
+showcase = NodePath("../../Shop/ItemShowcase")
+start_point = NodePath("../HandPos")
+end_point = NodePath("../../World/Client/GetPos")
+travel_time = 1.2
+rise_distance = 0.8
+rise_time = 0.7
+fade_delay = 0.5
+
+[node name="HandPos" type="Marker3D" parent="Player" unique_id=905353917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45351362, 0, 0)
 
 [node name="StartCam" type="Camera3D" parent="." unique_id=796076622]
 transform = Transform3D(1, 0, 0, 0, 0.5222076, 0.85281837, 0, -0.85281837, 0.5222076, 0, 0.5119003, 1.7289213)
@@ -288,13 +318,24 @@ direction = 1
 
 [node name="Game" parent="." unique_id=679770426 instance=ExtResource("12_flqon")]
 
+[node name="BuySomething" parent="Game/ChoiceCanvas/ChoiceUi/CenterContainer/VBoxContainer" parent_id_path=PackedInt32Array(679770426, 539166642, 1236340906) index="1" unique_id=1705236234]
+script = null
+
+[node name="SessionManager" parent="Game" index="3" unique_id=1515956607]
+mouse_filter = 2
+
+[node name="Node3D" type="Node3D" parent="Game" unique_id=1615437608 node_paths=PackedStringArray("choice_ui", "btn")]
+script = ExtResource("15_j7ex8")
+choice_ui = NodePath("../ChoiceUIManager")
+btn = NodePath("../ChoiceCanvas/ChoiceUi/CenterContainer/VBoxContainer/BuySomething")
+
 [node name="World" type="Node3D" parent="." unique_id=69397929]
 
 [node name="scene" parent="World" unique_id=2038157985 instance=ExtResource("13_rcqid")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15272617, -0.8022246, -2.214226)
 
 [node name="Wall" type="MeshInstance3D" parent="World" unique_id=1881040382]
-transform = Transform3D(1.1965013, 0, 0, 0, -4.371139e-08, -1.5155723, 0, 1, -6.624777e-08, 0, 0, -5.870798)
+transform = Transform3D(1.1965013, 0, 0, 0, -4.371139e-08, -1.5155723, 0, 1, -6.624777e-08, 0, 0, -5.871)
 mesh = SubResource("PlaneMesh_drhbd")
 surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
 
@@ -318,4 +359,35 @@ transform = Transform3D(-2.810162e-08, -1, -4.371139e-08, 2.4567217e-15, 4.37113
 mesh = SubResource("PlaneMesh_drhbd")
 surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
 
+[node name="Client" type="Sprite3D" parent="World" unique_id=416776271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5615072, -2.6116571)
+texture = SubResource("GradientTexture2D_8egab")
+
+[node name="GetPos" type="Marker3D" parent="World/Client" unique_id=1384192482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39381313, 1.2887092, 0)
+
+[node name="Shop" parent="." unique_id=1933303201 instance=ExtResource("16_5pajh")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 7.8119087, 3.1580348, 2.922977)
+
+[node name="ShopNavigate" type="Node" parent="." unique_id=301763464 node_paths=PackedStringArray("choice_ui", "destination_node", "btn", "shop", "session", "follower", "follower_start", "follower_destination", "delivery")]
+script = ExtResource("15_j7ex8")
+choice_ui = NodePath("../Game/ChoiceUIManager")
+destination_node = NodePath("../Shop/Camera3D")
+move_time = 1.0
+btn = NodePath("../Game/ChoiceCanvas/ChoiceUi/CenterContainer/VBoxContainer/BuySomething")
+shop = NodePath("../Shop/CanvasLayer/Shop_UI")
+session = NodePath("../Game/SessionManager")
+follower = NodePath("../Shop/PlayerReflect")
+follower_start = NodePath("../Shop/PlayerReflectStartPoint")
+follower_destination = NodePath("../Shop/PlayerReflectEndPoint")
+delivery = NodePath("../Player/ItemDelivery")
+
 [connection signal="onclick" from="MainMenuUI/Book/Strips/Strip" to="." method="_on_strip_onclick"]
+
+[editable path="Game"]
+[editable path="Game/ChoiceCanvas/ChoiceUi"]
+[editable path="Shop"]
+[editable path="Shop/Newspaper"]
+[editable path="Shop/Flower"]
+[editable path="Shop/Candy"]
+[editable path="Shop/Candy2"]
