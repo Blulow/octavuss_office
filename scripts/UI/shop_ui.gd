@@ -41,6 +41,7 @@ func reset_item_selection() -> void:
 	_update_buy_button(current_item)
 
 func _on_reset_game() -> void:
+	reset_item_selection()
 	
 	for item: Item in items:
 		item.is_purchased = false
@@ -91,6 +92,7 @@ func _on_buy_pressed() -> void:
 		return
 	if item_bought:
 		_shake_button(true)
+		return
 	if not current_item.on_buy():
 		feedback_label.text = "Not enough money!"
 		#_shake_button()
@@ -106,8 +108,7 @@ func _shake_button(use_parent: bool = false) -> void:
 func _buy_pressed(_cam: Node, event: InputEvent, _pos: Vector3, _normal: Vector3, _idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_on_buy_pressed()
-		
-			
+
 func _update_buy_button(item: Item) -> void:
 	#buy_button.disabled = item.is_purchased
 	#buy_button.text = "Purchased" if item.is_purchased else "Buy"
