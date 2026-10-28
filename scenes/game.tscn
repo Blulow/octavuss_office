@@ -10,12 +10,15 @@
 [ext_resource type="JSON" path="res://assets/dialog/session2.json" id="6_u5sy4"]
 [ext_resource type="Shader" uid="uid://fsoauxr4xq5r" path="res://assets/shader/screen_blur.gdshader" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://c7iy0pgt87h3g" path="res://scenes/note_book.tscn" id="9_vtaks"]
-[ext_resource type="Texture2D" uid="uid://bkfm0hy52tho" path="res://icon.svg" id="10_kvpfn"]
 [ext_resource type="Script" uid="uid://bh1kups7o0m31" path="res://scripts/notebook_button.gd" id="11_dinhu"]
+[ext_resource type="Texture2D" uid="uid://cgyfcxy8b33sg" path="res://assets/images/info_book_stamp.png" id="12_dinhu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kvpfn"]
 shader = ExtResource("8_0tnpc")
 shader_parameter/radius = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dinhu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Game" type="Node3D" unique_id=679770426]
 
@@ -83,7 +86,7 @@ anchor_bottom = 1.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=788798615]
 
-[node name="NotebookButton" type="Button" parent="UI" unique_id=787014483 node_paths=PackedStringArray("overlay")]
+[node name="NotebookButton" type="Button" parent="UI" unique_id=2014425624 node_paths=PackedStringArray("overlay")]
 custom_minimum_size = Vector2(40, 40)
 anchors_preset = 2
 anchor_top = 1.0
@@ -94,9 +97,17 @@ offset_right = 46.0
 offset_bottom = -139.0
 grow_vertical = 0
 focus_mode = 0
-icon = ExtResource("10_kvpfn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dinhu")
 expand_icon = true
 script = ExtResource("11_dinhu")
 overlay = NodePath("../../NotebookOverlay")
+metadata/_custom_type_script = "uid://b3ccbwtmxl1sy"
+
+[node name="TextureRect" type="TextureRect" parent="UI/NotebookButton" unique_id=1264000157]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("12_dinhu")
 
 [editable path="ChoiceCanvas/ChoiceUi"]

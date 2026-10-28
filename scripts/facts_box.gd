@@ -16,7 +16,7 @@ const FactItemScript := preload("res://scripts/fact_item.gd")
 @export var choice_box: ChoiceBox
 @export var header: HBoxContainer
 @export var list: VBoxContainer
-@export var minimize: Button
+@export var minimize: AnimatedButton
 
 var _dragging := false          # a fact row is being dragged
 var _dragging_box := false      # the panel itself is being dragged
@@ -156,10 +156,12 @@ func _toggle_collapsed() -> void:
 	_collapsed = not _collapsed
 
 	if _collapsed:
-		minimize.text = "+"
+		#minimize.text = "+"
+		minimize.get_node("TextureRect").texture = preload("res://assets/images/maximize.png")
 		_restore_position = position
 	else:
-		minimize.text = "-"
+		#minimize.text = "-"
+		minimize.get_node("TextureRect").texture = preload("res://assets/images/minimize.png")
 		list.show()
 
 	var start_position: Vector2 = position

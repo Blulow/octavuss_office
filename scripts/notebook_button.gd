@@ -1,4 +1,4 @@
-extends Button
+extends AnimatedButton
 
 # Toggles the notebook overlay. On open it slides up from the bottom, then a
 # blur slowly fades in behind it. Clicking anywhere outside the notebook
