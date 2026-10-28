@@ -2,7 +2,7 @@
 class_name BoostValuePerk
 extends Perk
 
-@export var amount: int = 1
+@export var amount: float = 1.0
 @export var stat_name: String = "calm"
 
 func apply() -> void:

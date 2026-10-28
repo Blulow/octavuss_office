@@ -12,9 +12,13 @@ signal purchased(item: Item)
 @export var preview_scene: PackedScene   # the physical 3D model for this sticky note
 var is_purchased: bool = false
 
+@export var label3d: Label3D
+
 func _ready() -> void:
 	add_to_group("items")
 	interactable.activated.connect(func(): selected.emit(self))
+	
+	label3d.text = "$" + str(price)
 
 func set_selected(value: bool) -> void:
 	interactable.set_selected(value)

@@ -19,6 +19,10 @@ shader_parameter/outline_thickness = 3.00000011875
 shader_parameter/constant_width = true
 shader_parameter/distance_falloff = 0.1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6sft"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_032fp")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4ofw"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
@@ -28,10 +32,6 @@ resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1v8qu"]
-resource_local_to_scene = true
-next_pass = SubResource("ShaderMaterial_032fp")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44xle"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
@@ -70,64 +70,79 @@ transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -12.913254, -0.67549
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.125342, 0.21454382, 0.9909744)
 visible = false
 
-[node name="Newspaper" parent="." unique_id=2135113639 instance=ExtResource("1_8r1wq")]
+[node name="Headphones" parent="." unique_id=2135113639 instance=ExtResource("1_8r1wq")]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -13.115808, -2, -5.163946)
 
-[node name="Mesh" parent="Newspaper" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
-material = SubResource("StandardMaterial3D_m4ofw")
+[node name="Mesh" parent="Headphones" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
+material = SubResource("StandardMaterial3D_y6sft")
 item_name = "Newspaper"
-price = 300
-item_description = "A Round of Newspaper increasing Information"
-perks = [NodePath("../InformationBoost")]
+price = 4
+item_description = "Noise muffler: Muffles out noise with negative influence, makes the client not feel pressured over time"
+perks = [NodePath("../SPMulBoost")]
 
-[node name="InformationBoost" type="Node" parent="Newspaper" unique_id=1905915769]
-script = ExtResource("2_032fp")
+[node name="SPMulBoost" type="Node" parent="Headphones" unique_id=1905915769]
+script = ExtResource("3_2fc2m")
+multiplier = -0.2
+stat_name = "sp"
 
-[node name="Flower" parent="." unique_id=1625085186 instance=ExtResource("1_8r1wq")]
+[node name="StressBall" parent="." unique_id=1625085186 instance=ExtResource("1_8r1wq")]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -13.115808, 2, -5.163946)
 
-[node name="Mesh" parent="Flower" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
+[node name="Mesh" parent="StressBall" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 transform = Transform3D(1.44, 0, 0, 0, 1.4399999, 0, 0, 0, 1.44, 0, 0, 0)
-material = SubResource("StandardMaterial3D_heatd")
-item_name = "Flower"
-price = 200
-item_description = "A Boquet of Flowers to Increase Deescalation"
-perks = [NodePath("../DeescalationBoost")]
+material = SubResource("StandardMaterial3D_m4ofw")
+item_name = "Stress Ball"
+price = 2
+item_description = "Stress Ball: Temporarily calms down client, but can make them think less actively"
+perks = [NodePath("../CalmBoost"), NodePath("../FactBoost")]
 
-[node name="DeescalationBoost" type="Node" parent="Flower" unique_id=323754971]
-script = ExtResource("3_2fc2m")
+[node name="CalmBoost" type="Node" parent="StressBall" unique_id=323754971]
+script = ExtResource("2_032fp")
+amount = 4.0
 
-[node name="Candy" parent="." unique_id=552804308 instance=ExtResource("1_8r1wq")]
+[node name="FactBoost" type="Node" parent="StressBall" unique_id=695024231]
+script = ExtResource("2_032fp")
+amount = -2.0
+stat_name = "fact"
+
+[node name="Newspaper" parent="." unique_id=552804308 instance=ExtResource("1_8r1wq")]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -11.115808, 2, -5.163946)
 
-[node name="Mesh" parent="Candy" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
-material = SubResource("StandardMaterial3D_1v8qu")
-item_name = "Candy"
-item_description = "Sweet Candy to Increase Deescalation, However reduces Information"
-perks = [NodePath("../InformationReduce"), NodePath("../DeescalationBoost")]
+[node name="Mesh" parent="Newspaper" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
+material = SubResource("StandardMaterial3D_heatd")
+item_name = "Newspaper"
+price = 5
+item_description = "Information Wiki: A wiki full of information about constructing information, lets the client gradually think more"
+perks = [NodePath("../FactMulBoost")]
 
-[node name="InformationReduce" type="Node" parent="Candy" unique_id=1685230699]
-script = ExtResource("2_032fp")
-
-[node name="DeescalationBoost" type="Node" parent="Candy" unique_id=875711680]
+[node name="FactMulBoost" type="Node" parent="Newspaper" unique_id=1685230699]
 script = ExtResource("3_2fc2m")
-multiplier = 1.5
+multiplier = 0.2
+stat_name = "fact"
 
-[node name="Candy2" parent="." unique_id=1186247369 instance=ExtResource("1_8r1wq")]
+[node name="EnergyDrink" parent="." unique_id=1186247369 instance=ExtResource("1_8r1wq")]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -9.115808, 2, -5.163946)
 
-[node name="Mesh" parent="Candy2" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
-material = SubResource("StandardMaterial3D_44xle")
-item_name = "Candy"
-item_description = "Sweet Candy to Increase Deescalation, However reduces Information"
-perks = [NodePath("../InformationReduce"), NodePath("../DeescalationBoost")]
+[node name="Mesh" parent="EnergyDrink" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
+material = SubResource("StandardMaterial3D_1v8qu")
+item_name = "Energy Drink"
+price = 1
+item_description = "Energy Drink: Boosts the client's confidence by a lot temporarily, but can worsen their logic and attitude"
+perks = [NodePath("../CalmBoost"), NodePath("../FactBoost"), NodePath("../SPBoost")]
 
-[node name="InformationReduce" type="Node" parent="Candy2" unique_id=805470727]
+[node name="CalmBoost" type="Node" parent="EnergyDrink" unique_id=713497157]
 script = ExtResource("2_032fp")
+amount = -1.0
 
-[node name="DeescalationBoost" type="Node" parent="Candy2" unique_id=961520401]
-script = ExtResource("3_2fc2m")
-multiplier = 1.5
+[node name="FactBoost" type="Node" parent="EnergyDrink" unique_id=561921654]
+script = ExtResource("2_032fp")
+amount = -1.0
+stat_name = "fact"
+
+[node name="SPBoost" type="Node" parent="EnergyDrink" unique_id=471241235]
+script = ExtResource("2_032fp")
+amount = -5.0
+stat_name = "sp"
 
 [node name="Cupboard" type="MeshInstance3D" parent="." unique_id=173810203]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 1, -11.115808, 0, -5.799999)
@@ -300,7 +315,7 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.32483435, -0.9469356
 transform = Transform3D(2.5, 0, 7.1054274e-15, 0, 2.5, 0, -1.4210855e-14, 0, 2.5, 0.107877254, -0.9450002, -14.561914)
 mesh = SubResource("CapsuleMesh_xrivr")
 
+[editable path="Headphones"]
+[editable path="StressBall"]
 [editable path="Newspaper"]
-[editable path="Flower"]
-[editable path="Candy"]
-[editable path="Candy2"]
+[editable path="EnergyDrink"]
