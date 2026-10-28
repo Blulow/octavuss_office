@@ -77,6 +77,12 @@ var ending_texts = [
 ]
 
 func _ready() -> void:
+	print("READY paused=", get_tree().paused,
+		" time_scale=", Engine.time_scale,
+		" game_started=", PlayerData.game_started,
+		" process_mode=", process_mode,
+		" mouse=", Input.mouse_mode)
+	
 	PlayerData.game_end.connect(_on_game_end)
 	
 	start_game.active = true

@@ -1,50 +1,50 @@
-[gd_scene format=3 uid="uid://c7k63givb3sj2"]
+[gd_scene format=3 uid="uid://c3x63tjv3fxev"]
 
-[ext_resource type="PackedScene" uid="uid://c7i61g8mejbsv" path="res://scenes/item.tscn" id="1_8r1wq"]
-[ext_resource type="Script" uid="uid://bg507o0isd4yh" path="res://scripts/UI/shop_ui.gd" id="1_xfvoa"]
+[ext_resource type="PackedScene" uid="uid://cgifnq3gtvylk" path="res://scenes/item.tscn" id="1_8r1wq"]
+[ext_resource type="Script" uid="uid://bg507o0isd4yh" path="res://scripts/ui/shop_ui.gd" id="1_xfvoa"]
 [ext_resource type="Script" uid="uid://25yb702hmhup" path="res://scripts/Items/Perks/boost_information_perk.gd" id="2_032fp"]
 [ext_resource type="Script" uid="uid://bc0evra1uga06" path="res://scripts/Items/Perks/boost_deescalation_perk.gd" id="3_2fc2m"]
-[ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/UI/button_switch_scene.gd" id="4_8r1wq"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_032fp"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_2fc2m"]
-sky_material = SubResource("ProceduralSkyMaterial_032fp")
-
-[sub_resource type="Environment" id="Environment_8r1wq"]
-background_mode = 2
-sky = SubResource("Sky_2fc2m")
-glow_enabled = true
+[ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/ui/button_switch_scene.gd" id="4_8r1wq"]
+[ext_resource type="Script" uid="uid://bmppctg560kb6" path="res://scripts/Items/item_showcase.gd" id="6_ajxib"]
+[ext_resource type="Script" uid="uid://bbhqup6ou0a58" path="res://scripts/Items/interaction/fall_and_hide.gd" id="7_y6sft"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xrivr"]
+size = Vector3(1, 1.0041504, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrivr"]
 albedo_color = Color(0, 0, 0, 1)
 
-[node name="Shop" type="Node3D" unique_id=926545085]
+[sub_resource type="BoxMesh" id="BoxMesh_2fc2m"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1203194221]
-environment = SubResource("Environment_8r1wq")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7ex8"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.2627451, 1, 1, 0.039215688)
+stencil_mode = 3
+stencil_flags = 2
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2044059626]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13qdw"]
+albedo_color = Color(1, 1, 0.039215688, 1)
 
-[node name="Marker3D" type="Marker3D" parent="." unique_id=199965276]
-transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, 2.2901173, 0, -1.0409126)
+[sub_resource type="BoxShape3D" id="BoxShape3D_xrivr"]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2116886696]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.523363, 0, 2.9057655)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xrivr"]
 
-[node name="Cupboard" type="MeshInstance3D" parent="." unique_id=326837754]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 1, -3, 0, -5.8)
-mesh = SubResource("BoxMesh_xrivr")
-surface_material_override/0 = SubResource("StandardMaterial3D_xrivr")
+[node name="Shop" type="Node3D" unique_id=1933303201]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0, 0, 0)
 
-[node name="Newspaper" parent="." unique_id=451337739 instance=ExtResource("1_8r1wq")]
-transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -5, -2.0961876, -4.5)
+[node name="ItemShow" type="Marker3D" parent="." unique_id=1557637050]
+transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -1.7873807, -0.67549324, -7.1126766)
+
+[node name="ItemSpawn" type="Marker3D" parent="." unique_id=172283420]
+transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -12.913254, -0.67549324, -7.1126766)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=903580205]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.125342, 0.21454382, 0.9909744)
+visible = false
+
+[node name="Newspaper" parent="." unique_id=2135113639 instance=ExtResource("1_8r1wq")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -13.115808, -2, -5.163946)
 
 [node name="Mesh" parent="Newspaper" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 item_name = "Newspaper"
@@ -52,14 +52,11 @@ price = 300
 item_description = "A Round of Newspaper increasing Information"
 perks = [NodePath("../InformationBoost")]
 
-[node name="SelectToDisplayEffect" parent="Newspaper/Mesh/Effects" parent_id_path=PackedInt32Array(451337739, 1279989910) index="1" unique_id=1798508535 node_paths=PackedStringArray("display_point")]
-display_point = NodePath("../../../../Marker3D")
-
-[node name="InformationBoost" type="Node" parent="Newspaper" unique_id=880900231]
+[node name="InformationBoost" type="Node" parent="Newspaper" unique_id=1905915769]
 script = ExtResource("2_032fp")
 
-[node name="Flower" parent="." unique_id=809522558 instance=ExtResource("1_8r1wq")]
-transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -5, 2, -4.5)
+[node name="Flower" parent="." unique_id=1625085186 instance=ExtResource("1_8r1wq")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -13.115808, 2, -5.163946)
 
 [node name="Mesh" parent="Flower" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 transform = Transform3D(1.44, 0, 0, 0, 1.4399999, 0, 0, 0, 1.44, 0, 0, 0)
@@ -68,34 +65,49 @@ price = 200
 item_description = "A Boquet of Flowers to Increase Deescalation"
 perks = [NodePath("../DeescalationBoost")]
 
-[node name="SelectToDisplayEffect" parent="Flower/Mesh/Effects" parent_id_path=PackedInt32Array(809522558, 1279989910) index="1" unique_id=1798508535 node_paths=PackedStringArray("display_point")]
-display_point = NodePath("../../../../Marker3D")
-
-[node name="DeescalationBoost" type="Node" parent="Flower" unique_id=1720272971]
+[node name="DeescalationBoost" type="Node" parent="Flower" unique_id=323754971]
 script = ExtResource("3_2fc2m")
 
-[node name="Candy" parent="." unique_id=809431324 instance=ExtResource("1_8r1wq")]
-transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -1.0354147, 2, -4.5)
+[node name="Candy" parent="." unique_id=552804308 instance=ExtResource("1_8r1wq")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -11.115808, 2, -5.163946)
 
 [node name="Mesh" parent="Candy" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 item_name = "Candy"
 item_description = "Sweet Candy to Increase Deescalation, However reduces Information"
 perks = [NodePath("../InformationReduce"), NodePath("../DeescalationBoost")]
 
-[node name="SelectToDisplayEffect" parent="Candy/Mesh/Effects" parent_id_path=PackedInt32Array(809431324, 1279989910) index="1" unique_id=1798508535 node_paths=PackedStringArray("display_point")]
-display_point = NodePath("../../../../Marker3D")
-
-[node name="InformationReduce" type="Node" parent="Candy" unique_id=1542041231]
+[node name="InformationReduce" type="Node" parent="Candy" unique_id=1685230699]
 script = ExtResource("2_032fp")
 
-[node name="DeescalationBoost" type="Node" parent="Candy" unique_id=1336834633]
+[node name="DeescalationBoost" type="Node" parent="Candy" unique_id=875711680]
 script = ExtResource("3_2fc2m")
 multiplier = 1.5
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1134407947]
-process_mode = 3
+[node name="Candy2" parent="." unique_id=1186247369 instance=ExtResource("1_8r1wq")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -9.115808, 2, -5.163946)
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1304580484]
+[node name="Mesh" parent="Candy2" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
+item_name = "Candy"
+item_description = "Sweet Candy to Increase Deescalation, However reduces Information"
+perks = [NodePath("../InformationReduce"), NodePath("../DeescalationBoost")]
+
+[node name="InformationReduce" type="Node" parent="Candy2" unique_id=805470727]
+script = ExtResource("2_032fp")
+
+[node name="DeescalationBoost" type="Node" parent="Candy2" unique_id=961520401]
+script = ExtResource("3_2fc2m")
+multiplier = 1.5
+
+[node name="Cupboard" type="MeshInstance3D" parent="." unique_id=173810203]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 1, -11.115808, 0, -5.799999)
+mesh = SubResource("BoxMesh_xrivr")
+surface_material_override/0 = SubResource("StandardMaterial3D_xrivr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1758458402]
+process_mode = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1692989539]
 anchors_preset = -1
 anchor_left = 0.6
 anchor_right = 1.0
@@ -103,7 +115,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="ItemName" type="Label" parent="CanvasLayer/ColorRect" unique_id=392836340]
+[node name="ItemName" type="Label" parent="CanvasLayer/ColorRect" unique_id=719069757]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 20.0
@@ -113,7 +125,7 @@ offset_bottom = 105.0
 theme_override_font_sizes/font_size = 40
 text = "Item Name"
 
-[node name="ItemPrice" type="Label" parent="CanvasLayer/ColorRect" unique_id=564183313]
+[node name="ItemPrice" type="Label" parent="CanvasLayer/ColorRect" unique_id=329122679]
 modulate = Color(0, 0.60784316, 0, 1)
 layout_mode = 1
 anchors_preset = 2
@@ -127,7 +139,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "$100"
 
-[node name="ItemFeedback" type="Label" parent="CanvasLayer/ColorRect" unique_id=1830043457]
+[node name="ItemFeedback" type="Label" parent="CanvasLayer/ColorRect" unique_id=700257297]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 2
@@ -140,7 +152,7 @@ offset_bottom = -112.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 
-[node name="Button" type="Button" parent="CanvasLayer/ColorRect" unique_id=524466664]
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect" unique_id=1948452405]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -156,7 +168,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "BUY ITEM"
 
-[node name="ItemDescription" type="Label" parent="CanvasLayer/ColorRect" unique_id=721298511]
+[node name="ItemDescription" type="Label" parent="CanvasLayer/ColorRect" unique_id=1192658638]
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 0
@@ -166,7 +178,7 @@ offset_right = 423.8
 offset_bottom = 510.0
 autowrap_mode = 1
 
-[node name="ReturnButton" type="Button" parent="CanvasLayer/ColorRect" unique_id=399203106]
+[node name="ReturnButton" type="Button" parent="CanvasLayer/ColorRect" unique_id=8961996]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -180,7 +192,7 @@ text = "Return"
 script = ExtResource("4_8r1wq")
 next_scene_path = "uid://b5qqds04rkp5q"
 
-[node name="Money" type="Label" parent="CanvasLayer/ColorRect" unique_id=1413538569]
+[node name="Money" type="Label" parent="CanvasLayer/ColorRect" unique_id=1283342806]
 layout_mode = 0
 offset_left = 19.799988
 offset_top = 12.0
@@ -189,7 +201,7 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 text = "Money:"
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=378034434 node_paths=PackedStringArray("name_label", "feedback_label", "buy_button", "item_price", "item_description_label", "money_label")]
+[node name="Shop_UI" type="Control" parent="CanvasLayer" unique_id=2054328244 node_paths=PackedStringArray("name_label", "feedback_label", "buy_button", "button_text3d", "item_price", "item_description_label", "money_label")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -197,11 +209,67 @@ offset_bottom = 40.0
 script = ExtResource("1_xfvoa")
 name_label = NodePath("../ColorRect/ItemName")
 feedback_label = NodePath("../ColorRect/ItemFeedback")
-buy_button = NodePath("../ColorRect/Button")
+buy_button = NodePath("../../Mirror/BuyNowBTN/StaticBody3D")
+button_text3d = NodePath("../../Mirror/BuyNowBTN/Label3D")
 item_price = NodePath("../ColorRect/ItemPrice")
-item_description_label = NodePath("../ColorRect/ItemDescription")
+item_description_label = NodePath("../../Mirror/Description")
 money_label = NodePath("../ColorRect/Money")
+
+[node name="Mirror" type="CSGMesh3D" parent="." unique_id=235643030]
+transform = Transform3D(5, 0, 0, 0, 7, 0, 0, 0, 0.2, -1.6453795, 0, -5.9492016)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_2fc2m")
+material = SubResource("StandardMaterial3D_j7ex8")
+
+[node name="Description" type="Label3D" parent="Mirror" unique_id=965422724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39723358, 0.42171583, 0.8271694)
+pixel_size = 0.002
+font_size = 20
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 400.0
+
+[node name="BuyNowBTN" type="CSGBox3D" parent="Mirror" unique_id=840385697]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, -0.401802, 1.1309016)
+material = SubResource("StandardMaterial3D_13qdw")
+
+[node name="Label3D" type="Label3D" parent="Mirror/BuyNowBTN" unique_id=1650090731]
+transform = Transform3D(0.4, 0, 0, 0, 1.428, 0, 0, 0, 10, 0, 0, 0.99365234)
+text = "BUY"
+font_size = 40
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mirror/BuyNowBTN" unique_id=456401525]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mirror/BuyNowBTN/StaticBody3D" unique_id=2094615076]
+shape = SubResource("BoxShape3D_xrivr")
+
+[node name="ItemShowcase" type="Node3D" parent="." unique_id=1216995261 node_paths=PackedStringArray("spawn_point", "display_point", "faller")]
+script = ExtResource("6_ajxib")
+spawn_point = NodePath("../ItemSpawn")
+display_point = NodePath("../ItemShow")
+overshoot = 0.1
+lean_degrees = 5.0
+faller = NodePath("FallAndHide")
+
+[node name="FallAndHide" type="Node" parent="ItemShowcase" unique_id=1566973998]
+script = ExtResource("7_y6sft")
+tumble = 0.1
+
+[node name="Marker3D3" type="Marker3D" parent="." unique_id=883503695]
+transform = Transform3D(2.88, 0, 0, 0, 2.88, 0, 0, 0, 2.88, -23.929745, 1.110807, -4.280363)
+
+[node name="PlayerReflectStartPoint" type="Marker3D" parent="." unique_id=457638123]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.07969, -0.9450002, -21.307999)
+
+[node name="PlayerReflectEndPoint" type="Marker3D" parent="." unique_id=1306431018]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.32483435, -0.94693565, -7.8578453)
+
+[node name="PlayerReflect" type="CSGMesh3D" parent="." unique_id=741920682]
+transform = Transform3D(2.5, 0, 7.1054274e-15, 0, 2.5, 0, -1.4210855e-14, 0, 2.5, 0.107877254, -0.9450002, -14.561914)
+mesh = SubResource("CapsuleMesh_xrivr")
 
 [editable path="Newspaper"]
 [editable path="Flower"]
 [editable path="Candy"]
+[editable path="Candy2"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2j2653bqfa5i"]
 
-[ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/UI/button_switch_scene.gd" id="1_frfir"]
+[ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/ui/button_switch_scene.gd" id="1_frfir"]
 
 [node name="ChoiceUi" type="Control" unique_id=539166642]
 layout_mode = 3

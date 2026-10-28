@@ -36,7 +36,7 @@ func hide_ui() -> void:
 		facts_canvas.hide()
 	
 	get_tree().paused = false
-	hidden.emit()
+	#hidden.emit()
 
 func is_ui_open() -> bool:
 
