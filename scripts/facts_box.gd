@@ -1,10 +1,6 @@
 class_name FactsBox
 extends Control
 
-# A clipboard-styled panel that lists the facts the player has collected.
-# Drag any free space on it to move it around, and press the "-" button to
-# collapse it down to a sliver in the bottom-left corner that shows only the
-# button.
 signal drag_started
 signal drag_ended
 
@@ -17,9 +13,10 @@ const FactItemScript := preload("res://scripts/fact_item.gd")
 @export var attention_gap := 0.1
 @export var attention_wait := 1.0
 
-@onready var header: HBoxContainer = $Header
-@onready var list: VBoxContainer = $List
-@onready var minimize: Button = $Header/Minimize
+@export var choice_box: ChoiceBox
+@export var header: HBoxContainer
+@export var list: VBoxContainer
+@export var minimize: Button
 
 var _dragging := false          # a fact row is being dragged
 var _dragging_box := false      # the panel itself is being dragged
@@ -30,34 +27,27 @@ var _tween: Tween
 var _attention := false
 var _attention_tween: Tween
 
-
 func _ready() -> void:
 	# Wire up the minimise/restore button. Dragging is handled by _gui_input
 	# below, which fires on any free space of the panel.
 	minimize.pressed.connect(_toggle_collapsed)
 
-
 func show_facts(facts: Array, usable_ids: Array) -> void:
-	# Clear the old rows and rebuild the list from the facts we were given,
-	# marking which ones the player is allowed to use right now.
-	for child: Node in list.get_children():
+	for child in list.get_children():
 		list.remove_child(child)
 		child.queue_free()
-
+	
 	for fact in facts:
-		var fact_id: String = String(fact.get("id", ""))
-		var usable: bool = usable_ids.has(fact_id)
-		var item: FactItem = FactItemScript.new()
+		var item = FactItemScript.new()
 		item.facts_box = self
-		item.setup(fact, usable)
+		item.setup(fact, usable_ids)
 		list.add_child(item)
-
-	# If any fact is usable and the panel is collapsed, remind the player.
+	
 	set_attention(not usable_ids.is_empty())
+	# usable_ids stuff
 
 
 func begin_drag() -> void:
-	# Called by a FactItem when the player starts dragging it toward a choice.
 	if _dragging:
 		return
 	_dragging = true
@@ -65,12 +55,12 @@ func begin_drag() -> void:
 
 
 func _notification(what: int) -> void:
-	# When the drag ends, clear the flag and let listeners know.
 	if what == NOTIFICATION_DRAG_END and _dragging:
 		_dragging = false
+		choice_box.refresh_choices()
 		drag_ended.emit()
 
-
+# TODO
 func _gui_input(event: InputEvent) -> void:
 	# Dragging is disabled while collapsed so the button stays clickable.
 	if _collapsed:
@@ -89,7 +79,6 @@ func _gui_input(event: InputEvent) -> void:
 		global_position = next_position.clamp(Vector2.ZERO, viewport_size - size)
 		accept_event()
 
-
 func _collapsed_position() -> Vector2:
 	# The spot that leaves only the minimise button visible: slide the panel
 	# left until just the button pokes past the edge, and rest it on the bottom.
@@ -97,7 +86,6 @@ func _collapsed_position() -> Vector2:
 	var button_left: float = header.position.x + minimize.position.x
 	var button_bottom: float = header.position.y + minimize.position.y + minimize.size.y
 	return Vector2(margin - button_left, viewport_size.y - margin - button_bottom)
-
 
 func set_attention(active: bool) -> void:
 	# Turn the reminder hop on or off. Called by show_facts whenever the set
@@ -136,15 +124,14 @@ func _start_attention() -> void:
 	_attention_tween.tween_interval(attention_gap)
 	_hop(start_position)
 	_attention_tween.tween_interval(attention_wait)
-
-
+	
+	
 func _hop(start_position: Vector2) -> void:
 	# One bounce: up by hop_px, then back down to where it started.
 	_attention_tween.set_ease(Tween.EASE_OUT)
 	_attention_tween.tween_property(self, "position", start_position + Vector2(0.0, -hop_px), hop_time * 0.5)
 	_attention_tween.set_ease(Tween.EASE_IN)
 	_attention_tween.tween_property(self, "position", start_position, hop_time * 0.5)
-
 
 func _stop_attention() -> void:
 	# Cancel the reminder hop if it is currently playing.

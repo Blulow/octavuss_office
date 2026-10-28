@@ -16,8 +16,14 @@ extends Node3D
 @onready var quit_game: Strip2D = $UI/Book/Strips/TextureRect3/Strip3
 @onready var book_sprite: AnimatedTextureRect = $UI/Book/AnimatedTextureRect
 
+@onready var dialogues: Node3D = $Game
+
 func _ready() -> void:
+
+	
 	start_game.onclick.connect(_on_start_game_onclick)
+	#settings.onclick.connect(_on_settings_onclick)
+	quit_game.onclick.connect(_on_quit_game_onclick)
 	start_game.onhover.connect(_on_start_game_onhover)
 	settings.onhover.connect(_on_settings_onhover)
 	quit_game.onhover.connect(_on_quit_game_onhover)
@@ -30,18 +36,32 @@ func _ready() -> void:
 	trans_cam.global_rotation = start_cam.global_rotation
 	
 	book_sprite.visible = false
+	if PlayerData.game_started:
+		print("A")
+		await get_tree().process_frame
+		_on_start_game_onclick()
 
 func _on_start_game_onclick():
+	#name_stand.visible = false
+	PlayerData.game_started = true
+	var tween = create_tween()
+	start_game_tween(tween)
+	await tween.finished
+	
 	book.visible = false
 	title.visible = false
-	#name_stand.visible = false
-	
-	var tween = create_tween()
+	dialogues.get_node("SessionManager").load_next_session(true)
+
+func _on_quit_game_onclick():
+	get_tree().quit()
+
+func start_game_tween (tween : Tween):
 	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_parallel()
 	tween.tween_property(trans_cam, "global_position", player_cam.global_position, 0.3)
-	tween.parallel().tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
-	await tween.finished
-	get_tree().change_scene_to_file("res://scenes/dialogue_scene_facts.tscn")
+	tween.tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
+	tween.tween_property(book, "global_position:y", book.global_position.y + 1000, 0.3)
+	tween.tween_property(title, "global_position:y", title.global_position.y + 1000, 0.3)
 
 func _on_start_game_onhover():
 	if book_sprite.animation == "open" and book_sprite.playing:
@@ -102,11 +122,3 @@ func _on_quit_game_onexit():
 	book_sprite.play()
 	await book_sprite.finished
 	book_sprite.visible = false
-
-
-func _on_strip_2_onclick() -> void:
-	get_tree().change_scene_to_file("res://scenes/settings menu.tscn")
-
-
-func _on_strip_3_onclick() -> void:
-	get_tree().quit()

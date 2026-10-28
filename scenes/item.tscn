@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://c7i61g8mejbsv"]
+
+[ext_resource type="Shader" uid="uid://drbuviww2gyb3" path="res://assets/shader/outline3d.gdshader" id="1_ro5b8"]
+[ext_resource type="Script" uid="uid://crfux4all0ux2" path="res://scripts/Items/item.gd" id="2_6muww"]
+[ext_resource type="Script" uid="uid://c4w116vq78lhu" path="res://scripts/Items/interaction/interactable.gd" id="3_6muww"]
+[ext_resource type="Script" uid="uid://dq6ksdkasoa4g" path="res://scripts/Items/interaction/interaction_effect/lift_effect.gd" id="4_vljjh"]
+[ext_resource type="Script" uid="uid://cdca8d4cw8a1a" path="res://scripts/Items/interaction/interaction_effect/outline_effect.gd" id="5_d265e"]
+[ext_resource type="Script" uid="uid://c3mugahuttm8x" path="res://scripts/Items/interaction/interaction_effect/select_to_display_effect.gd" id="5_ro5b8"]
+[ext_resource type="Script" uid="uid://ccctgufiq5qts" path="res://scripts/Items/interaction/interaction_effect/shake_effect.gd" id="6_5vp5n"]
+[ext_resource type="Script" uid="uid://b78bqwvt68mk1" path="res://scripts/Items/interaction/interaction_effect/select_idle_effect.gd" id="8_c4387"]
+[ext_resource type="Script" uid="uid://bk7fmjj2hru2u" path="res://scripts/Items/interaction/interaction_effect/alpha_effect.gd" id="9_v0cwl"]
+[ext_resource type="Script" uid="uid://d1wyt8i6a3gng" path="res://scripts/Items/interaction/interaction_effect/floating_text_effect.gd" id="10_xr48l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_032fp"]
+render_priority = 0
+shader = ExtResource("1_ro5b8")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/normal_threshold = 0.5
+shader_parameter/depth_threshold = 0.05
+shader_parameter/outline_thickness = 3.00000011875
+shader_parameter/constant_width = true
+shader_parameter/distance_falloff = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1l46r"]
+next_pass = SubResource("ShaderMaterial_032fp")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bdmwb"]
+
+[node name="Item" type="Node3D" unique_id=2135113639]
+
+[node name="Mesh" type="CSGBox3D" parent="." unique_id=1483267050 node_paths=PackedStringArray("interactable")]
+transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, 0, 0, 0)
+material = SubResource("StandardMaterial3D_1l46r")
+script = ExtResource("2_6muww")
+interactable = NodePath("Interactable")
+item_name = "Item"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesh" unique_id=202659764]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D" unique_id=1042782041]
+shape = SubResource("BoxShape3D_bdmwb")
+
+[node name="Interactable" type="Node" parent="Mesh" unique_id=1332941809 node_paths=PackedStringArray("body")]
+script = ExtResource("3_6muww")
+body = NodePath("../StaticBody3D")
+metadata/_custom_type_script = "uid://c4w116vq78lhu"
+
+[node name="Effects" type="Node" parent="Mesh" unique_id=1279989910]
+
+[node name="LiftEffect" type="Node" parent="Mesh/Effects" unique_id=850630767 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("4_vljjh")
+target = NodePath("../../..")
+interactable = NodePath("../../Interactable")
+metadata/_custom_type_script = "uid://dq6ksdkasoa4g"
+
+[node name="SelectToDisplayEffect" type="Node" parent="Mesh/Effects" unique_id=1798508535 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("5_ro5b8")
+target = NodePath("../../..")
+interactable = NodePath("../../Interactable")
+trigger = 1
+metadata/_custom_type_script = "uid://c3mugahuttm8x"
+
+[node name="ShakeEffect" type="Node" parent="Mesh/Effects" unique_id=1100499471 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("6_5vp5n")
+target = NodePath("../../..")
+interactable = NodePath("../../Interactable")
+trigger = 3
+metadata/_custom_type_script = "uid://ccctgufiq5qts"
+
+[node name="OutlineEffect" type="Node" parent="Mesh/Effects" unique_id=981090973 node_paths=PackedStringArray("mesh", "interactable")]
+script = ExtResource("5_d265e")
+mesh = NodePath("../..")
+interactable = NodePath("../../Interactable")
+metadata/_custom_type_script = "uid://cdca8d4cw8a1a"
+
+[node name="SelectIdleEffect" type="Node" parent="Mesh/Effects" unique_id=573510277 node_paths=PackedStringArray("mover", "target", "interactable")]
+script = ExtResource("8_c4387")
+mover = NodePath("../SelectToDisplayEffect")
+target = NodePath("../../..")
+interactable = NodePath("../../Interactable")
+metadata/_custom_type_script = "uid://b78bqwvt68mk1"
+
+[node name="AlphaEffect" type="Node" parent="Mesh/Effects" unique_id=1094295868 node_paths=PackedStringArray("target", "reveal_node", "interactable")]
+script = ExtResource("9_v0cwl")
+target = NodePath("../..")
+target_alpha = 0.5
+from_alpha = 1.0
+reveal_node = NodePath("../../../Label3D")
+interactable = NodePath("../../Interactable")
+trigger = 2
+metadata/_custom_type_script = "uid://bk7fmjj2hru2u"
+
+[node name="FloatingTextEffect" type="Node" parent="Mesh/Effects" unique_id=1787793895 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("10_xr48l")
+target = NodePath("../../..")
+rise = 0.5
+spawn_offset = Vector3(0.5, 2, 0)
+duration = 0.7
+interactable = NodePath("../../Interactable")
+trigger = 2
+metadata/_custom_type_script = "uid://d1wyt8i6a3gng"
+
+[node name="Label3D" type="Label3D" parent="." unique_id=744121879]
+transform = Transform3D(0.99997514, -0.0017103245, 0.006842496, 0.0017022667, 0.99999785, 0.0011830329, -0.0068445047, -0.0011713536, 0.99997586, 0, 0, 0.76161253)
+visible = false
+text = "SOLD 
+OUT"
+font_size = 50

@@ -3,10 +3,16 @@
 [ext_resource type="Script" uid="uid://bk0nxvqdjhgxk" path="res://scenes/volume_panel.gd" id="1_0ygss"]
 [ext_resource type="FontFile" uid="uid://cipgiamvavecd" path="res://RoadSooned-Regular.otf" id="1_1whqq"]
 [ext_resource type="PackedScene" uid="uid://cmvpkpsuyyt8l" path="res://scenes/input_elements/button.tscn" id="1_m7wk6"]
-[ext_resource type="Texture2D" uid="uid://b3gy1ydk0p40f" path="res://choice box.png" id="2_m28kp"]
 [ext_resource type="PackedScene" uid="uid://dte2085j46tfn" path="res://scenes/input_elements/slider.tscn" id="2_ylhix"]
 [ext_resource type="Texture2D" uid="uid://bpnsr7ttj5gqj" path="res://assets/buttons/back buttons checkpoint copy 3.png" id="4_rdtvf"]
 [ext_resource type="Script" uid="uid://b3ccbwtmxl1sy" path="res://scripts/button.gd" id="5_rdtvf"]
+
+[sub_resource type="Gradient" id="Gradient_jbsr6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_72yvt"]
+gradient = SubResource("Gradient_jbsr6")
+width = 512
+height = 512
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kjpw"]
 content_margin_left = 10.0
@@ -31,9 +37,7 @@ grow_vertical = 2
 script = ExtResource("1_0ygss")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=404565991]
-position = Vector2(0, -50)
-scale = Vector2(0.51932937, 1.3766481)
-texture = ExtResource("2_m28kp")
+texture = SubResource("GradientTexture2D_72yvt")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2107295325]
 layout_mode = 0
@@ -116,13 +120,13 @@ script = null
 [node name="CloseButton" parent="." unique_id=1128845289 instance=ExtResource("1_m7wk6")]
 layout_mode = 0
 anchors_preset = 0
-offset_left = -511.0
-offset_top = -326.0
-offset_right = -194.0
-offset_bottom = -155.0
+offset_left = -521.0
+offset_top = -280.0
+offset_right = -204.0
+offset_bottom = -109.0
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(0.42648384, 0.4239618)
+scale = Vector2(0.706657, 0.6950004)
 pivot_offset = Vector2(0, 0)
 icon = ExtResource("4_rdtvf")
 flat = true

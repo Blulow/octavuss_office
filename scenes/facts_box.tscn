@@ -18,13 +18,16 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[node name="FactsBox" type="Control" unique_id=847717659]
+[node name="FactsBox" type="Control" unique_id=1208479403 node_paths=PackedStringArray("header", "list", "minimize")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 360.0
 offset_bottom = 470.0
 script = ExtResource("1_facts")
+header = NodePath("Header")
+list = NodePath("List")
+minimize = NodePath("Header/Minimize")
 
 [node name="Background" type="TextureRect" parent="." unique_id=967821443]
 layout_mode = 0
@@ -36,10 +39,10 @@ expand_mode = 1
 
 [node name="Header" type="HBoxContainer" parent="." unique_id=2115753549]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 34.0
-offset_right = 340.0
-offset_bottom = 64.000046
+offset_left = 33.0
+offset_top = 38.0
+offset_right = 338.0
+offset_bottom = 68.0
 mouse_filter = 2
 
 [node name="Title" type="Label" parent="Header" unique_id=897943519]
@@ -68,9 +71,9 @@ text = "-"
 
 [node name="List" type="VBoxContainer" parent="." unique_id=1353041961]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 92.0
-offset_right = 339.0
-offset_bottom = 417.0
+offset_left = 40.0
+offset_top = 84.0
+offset_right = 334.0
+offset_bottom = 412.0
 mouse_filter = 0
 theme_override_constants/separation = 8

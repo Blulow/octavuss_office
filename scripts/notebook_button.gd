@@ -13,7 +13,7 @@ const SLIDE_TIME := 0.6
 # click landed on the notebook or somewhere else.
 const BOOK_OPAQUE := Rect2(85, 164, 1825, 916)
 
-@onready var overlay: CanvasLayer = get_tree().current_scene.get_node("NotebookOverlay")
+@export var overlay: CanvasLayer
 @onready var notebook: Node2D = overlay.get_node("NoteBook")
 @onready var notebook_ui: CanvasLayer = notebook.get_node("UI")
 @onready var blur: ColorRect = overlay.get_node("Blur")
