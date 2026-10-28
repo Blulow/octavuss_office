@@ -29,10 +29,9 @@ func _ready() -> void:
 		shop.bought.connect(reverse_move)
 
 func _on_pressed() -> void:
-	print(is_inside_tree())
-	print(get_parent())
 	get_tree().paused = false
 	choice_ui.hide_ui()
+	shop._on_enter_shop()
 	rotate_then_move(rotate_deg, destination_node, rot_time, move_time)
 
 func rotate_then_move(

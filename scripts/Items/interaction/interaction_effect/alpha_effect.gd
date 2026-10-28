@@ -35,12 +35,17 @@ func activate() -> void:
 	_tween.tween_callback(_on_done)
 
 func deactivate() -> void:
+	reveal_node.visible = false
+	
 	if not restore_on_deactivate:
 		return
 	if _tween:
 		_tween.kill()
-	_tween = create_tween()
-	_tween.tween_method(_set_alpha, _get_alpha(), _original_alpha, duration)
+	#if _get_alpha() < 1: return
+	
+	_set_alpha(1)
+	#_tween = create_tween()
+	#_tween.tween_method(_set_alpha, _get_alpha(), _original_alpha, duration)
 
 func _on_done() -> void:
 	if reveal_node != null:

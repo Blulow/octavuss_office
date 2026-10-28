@@ -3,10 +3,37 @@
 [ext_resource type="PackedScene" uid="uid://cgifnq3gtvylk" path="res://scenes/item.tscn" id="1_8r1wq"]
 [ext_resource type="Script" uid="uid://bg507o0isd4yh" path="res://scripts/ui/shop_ui.gd" id="1_xfvoa"]
 [ext_resource type="Script" uid="uid://25yb702hmhup" path="res://scripts/Items/Perks/boost_information_perk.gd" id="2_032fp"]
+[ext_resource type="Shader" uid="uid://drbuviww2gyb3" path="res://assets/shader/outline3d.gdshader" id="2_y6sft"]
 [ext_resource type="Script" uid="uid://bc0evra1uga06" path="res://scripts/Items/Perks/boost_deescalation_perk.gd" id="3_2fc2m"]
 [ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/ui/button_switch_scene.gd" id="4_8r1wq"]
 [ext_resource type="Script" uid="uid://bmppctg560kb6" path="res://scripts/Items/item_showcase.gd" id="6_ajxib"]
 [ext_resource type="Script" uid="uid://bbhqup6ou0a58" path="res://scripts/Items/interaction/fall_and_hide.gd" id="7_y6sft"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_032fp"]
+render_priority = 0
+shader = ExtResource("2_y6sft")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/normal_threshold = 0.5
+shader_parameter/depth_threshold = 0.05
+shader_parameter/outline_thickness = 3.00000011875
+shader_parameter/constant_width = true
+shader_parameter/distance_falloff = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4ofw"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_032fp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_heatd"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_032fp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1v8qu"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_032fp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44xle"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_032fp")
 
 [sub_resource type="BoxMesh" id="BoxMesh_xrivr"]
 size = Vector3(1, 1.0041504, 1)
@@ -47,6 +74,7 @@ visible = false
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -13.115808, -2, -5.163946)
 
 [node name="Mesh" parent="Newspaper" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
+material = SubResource("StandardMaterial3D_m4ofw")
 item_name = "Newspaper"
 price = 300
 item_description = "A Round of Newspaper increasing Information"
@@ -60,6 +88,7 @@ transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -13.115808, 2, -5.163
 
 [node name="Mesh" parent="Flower" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 transform = Transform3D(1.44, 0, 0, 0, 1.4399999, 0, 0, 0, 1.44, 0, 0, 0)
+material = SubResource("StandardMaterial3D_heatd")
 item_name = "Flower"
 price = 200
 item_description = "A Boquet of Flowers to Increase Deescalation"
@@ -72,6 +101,7 @@ script = ExtResource("3_2fc2m")
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -11.115808, 2, -5.163946)
 
 [node name="Mesh" parent="Candy" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
+material = SubResource("StandardMaterial3D_1v8qu")
 item_name = "Candy"
 item_description = "Sweet Candy to Increase Deescalation, However reduces Information"
 perks = [NodePath("../InformationReduce"), NodePath("../DeescalationBoost")]
@@ -87,6 +117,7 @@ multiplier = 1.5
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -9.115808, 2, -5.163946)
 
 [node name="Mesh" parent="Candy2" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
+material = SubResource("StandardMaterial3D_44xle")
 item_name = "Candy"
 item_description = "Sweet Candy to Increase Deescalation, However reduces Information"
 perks = [NodePath("../InformationReduce"), NodePath("../DeescalationBoost")]

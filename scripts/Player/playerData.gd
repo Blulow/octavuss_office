@@ -5,8 +5,9 @@ signal money_changed(new_amount: int)
 signal fact_added(new_fact: Fact)
 signal facts_reset
 signal game_end(ending: int)
+signal reset_game
 
-var money: int = 100
+var money: int = 1000
 #var deescalationMultiplier: float = 1.0
 #var informationMultiplier: float = 1.0
 
@@ -102,7 +103,7 @@ func get_ending() -> void:
 	game_end.emit(_ending)
 
 func reset() -> void:
-	money = 100
+	money = 1000
 	
 	#deescalationMultiplier = 1.0
 	#informationMultiplier = 1.0
@@ -117,3 +118,4 @@ func reset() -> void:
 	
 	money_changed.emit(money)
 	facts_reset.emit()
+	reset_game.emit()

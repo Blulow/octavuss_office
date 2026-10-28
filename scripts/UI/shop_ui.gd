@@ -20,13 +20,11 @@ signal bought
 
 func _on_enter_shop() -> void:
 	item_bought = false
-	for item: Item in items:
-		item.is_purchased = false
-		
-	
-
+	reset_item_selection()
 
 func _ready() -> void:
+	PlayerData.reset_game.connect(_on_reset_game)
+	
 	money_label.text = "Money: " + str(PlayerData.money)
 	hide()
 	#buy_button.pressed.connect(_on_buy_pressed)
@@ -35,6 +33,19 @@ func _ready() -> void:
 		item.selected.connect(_on_item_selected)
 		item.purchased.connect(_on_item_purchased)
 		items.append(item)
+
+func reset_item_selection() -> void:
+	if current_item != null:
+		current_item.set_selected(false)
+		current_item = null
+	_update_buy_button(current_item)
+
+func _on_reset_game() -> void:
+	
+	for item: Item in items:
+		item.is_purchased = false
+		if item.get_node("Effects/AlphaEffect") is AlphaEffect:
+			item.get_node("Effects/AlphaEffect").deactivate()
 
 func _on_item_selected(item: Item) -> void:
 	if current_item != null and current_item != item:
@@ -100,9 +111,11 @@ func _buy_pressed(_cam: Node, event: InputEvent, _pos: Vector3, _normal: Vector3
 func _update_buy_button(item: Item) -> void:
 	#buy_button.disabled = item.is_purchased
 	#buy_button.text = "Purchased" if item.is_purchased else "Buy"
-	if item.is_purchased:
+	if item == null:
+		button_text3d.text = ""
+	elif item.is_purchased:
 		button_text3d.text = "Purchased"
 	elif item_bought:
 		button_text3d.text = "Already Bought an Item"
-	else :
+	else:
 		button_text3d.text =  "Buy"

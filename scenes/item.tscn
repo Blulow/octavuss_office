@@ -23,6 +23,7 @@ shader_parameter/constant_width = true
 shader_parameter/distance_falloff = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1l46r"]
+resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bdmwb"]
@@ -108,7 +109,6 @@ overshoot = 0.2
 settle_fraction = 0.5
 interactable = NodePath("../../Interactable")
 trigger = 1
-metadata/_custom_type_script = "uid://ccoxf8wqei742"
 
 [node name="SoldOut" type="Label3D" parent="." unique_id=744121879]
 transform = Transform3D(0.99997514, -0.0017103245, 0.006842496, 0.0017022667, 0.99999785, 0.0011830329, -0.0068445047, -0.0011713536, 0.99997586, 0, 0, 0.76161253)
