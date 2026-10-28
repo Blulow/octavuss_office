@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://brkcy4dncnouo"]
+
+[ext_resource type="PackedScene" uid="uid://8m3pb4v714gh" path="res://assets/model/newspaper.glb" id="1_1nbiw"]
+[ext_resource type="Texture2D" uid="uid://bvb1dgsg5w8to" path="res://assets/textures/checkpoint jam environment2_BaseColor.png" id="2_g84ii"]
+[ext_resource type="Texture2D" uid="uid://defswq55j20vi" path="res://assets/textures/checkpoint jam environment2_Normal.png" id="3_bhreq"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0011j"]
+albedo_texture = ExtResource("2_g84ii")
+normal_enabled = true
+normal_texture = ExtResource("3_bhreq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8ny3"]
+size = Vector3(0.64398193, 1, 0.46902466)
+
+[node name="Newspaper" type="RigidBody3D" unique_id=1653335405]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="newspaper" parent="." unique_id=811739381 instance=ExtResource("1_1nbiw")]
+transform = Transform3D(-1.12556826e-07, 0, -2.575, -2.575, -1.12556826e-07, 1.12556826e-07, -1.12556826e-07, 2.575, 4.920015e-15, 0, 0, 0)
+
+[node name="out_of_4_models_for_item_UVed1_Newspaper_3" parent="newspaper" index="0" unique_id=1431014377]
+transform = Transform3D(0.009659256, 2.6216976e-10, 0.0025881908, 0.0024999992, -0.0025881904, -0.009330123, 0.00066987256, 0.009659257, -0.0024999992, 0, 0, 0)
+surface_material_override/0 = SubResource("ORMMaterial3D_0011j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=311123648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013824463, 0, 0.029281616)
+shape = SubResource("BoxShape3D_u8ny3")
+
+[editable path="newspaper"]

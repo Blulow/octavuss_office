@@ -5,9 +5,17 @@
 [ext_resource type="Script" uid="uid://25yb702hmhup" path="res://scripts/Items/Perks/boost_information_perk.gd" id="2_032fp"]
 [ext_resource type="Shader" uid="uid://drbuviww2gyb3" path="res://assets/shader/outline3d.gdshader" id="2_y6sft"]
 [ext_resource type="Script" uid="uid://bc0evra1uga06" path="res://scripts/Items/Perks/boost_deescalation_perk.gd" id="3_2fc2m"]
+[ext_resource type="PackedScene" uid="uid://dxubqmbsopjaw" path="res://scenes/shop_items/headphones.tscn" id="3_j14q8"]
 [ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/ui/button_switch_scene.gd" id="4_8r1wq"]
+[ext_resource type="PackedScene" uid="uid://b0ek4dm1ueos4" path="res://scenes/shop_items/stress_ball.tscn" id="5_5u241"]
 [ext_resource type="Script" uid="uid://bmppctg560kb6" path="res://scripts/Items/item_showcase.gd" id="6_ajxib"]
+[ext_resource type="PackedScene" uid="uid://brkcy4dncnouo" path="res://scenes/shop_items/newspaper.tscn" id="7_pqync"]
 [ext_resource type="Script" uid="uid://bbhqup6ou0a58" path="res://scripts/Items/interaction/fall_and_hide.gd" id="7_y6sft"]
+[ext_resource type="PackedScene" uid="uid://b3b8kk7p4djgf" path="res://scenes/shop_items/energy_drink.tscn" id="8_yuijs"]
+[ext_resource type="PackedScene" uid="uid://b1dss203uw78i" path="res://assets/model/board.glb" id="9_m4ofw"]
+[ext_resource type="PackedScene" uid="uid://cdp6ibmmjc1io" path="res://assets/model/mirror.glb" id="10_44xle"]
+[ext_resource type="Texture2D" uid="uid://bvb1dgsg5w8to" path="res://assets/textures/checkpoint jam environment2_BaseColor.png" id="11_24it5"]
+[ext_resource type="Texture2D" uid="uid://defswq55j20vi" path="res://assets/textures/checkpoint jam environment2_Normal.png" id="12_7mqwv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_032fp"]
 render_priority = 0
@@ -35,18 +43,13 @@ next_pass = SubResource("ShaderMaterial_032fp")
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
-[sub_resource type="BoxMesh" id="BoxMesh_xrivr"]
-size = Vector3(1, 1.0041504, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrivr"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_2fc2m"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_7mqwv"]
+radial_segments = 15
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7ex8"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(0.2627451, 1, 1, 0.039215688)
+albedo_color = Color(0.2627451, 1, 1, 0)
 stencil_mode = 3
 stencil_flags = 2
 
@@ -55,13 +58,28 @@ albedo_color = Color(1, 1, 0.039215688, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xrivr"]
 
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_24it5"]
+render_priority = 1
+transparency = 1
+albedo_texture = ExtResource("11_24it5")
+normal_enabled = true
+normal_texture = ExtResource("12_7mqwv")
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xrivr"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_msd4h"]
+albedo_texture = ExtResource("11_24it5")
+normal_enabled = true
+normal_texture = ExtResource("12_7mqwv")
 
 [node name="Shop" type="Node3D" unique_id=1933303201]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0, 0, 0)
 
 [node name="ItemShow" type="Marker3D" parent="." unique_id=1557637050]
-transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -1.7873807, -0.67549324, -7.1126766)
+transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -1.8926541, -1.5621834, -6.728497)
 
 [node name="ItemSpawn" type="Marker3D" parent="." unique_id=172283420]
 transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -12.913254, -0.67549324, -7.1126766)
@@ -71,7 +89,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.125342, 0.21454382, 0.9909
 visible = false
 
 [node name="Headphones" parent="." unique_id=2135113639 instance=ExtResource("1_8r1wq")]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -13.115808, -2, -5.163946)
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -11.621645, -1.0241597, -5.163946)
 
 [node name="Mesh" parent="Headphones" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 material = SubResource("StandardMaterial3D_y6sft")
@@ -79,6 +97,7 @@ item_name = "Newspaper"
 price = 4
 item_description = "Noise muffler: Muffles out noise with negative influence, makes the client not feel pressured over time"
 perks = [NodePath("../SPMulBoost")]
+preview_scene = ExtResource("3_j14q8")
 
 [node name="SPMulBoost" type="Node" parent="Headphones" unique_id=1905915769]
 script = ExtResource("3_2fc2m")
@@ -86,7 +105,7 @@ multiplier = -0.2
 stat_name = "sp"
 
 [node name="StressBall" parent="." unique_id=1625085186 instance=ExtResource("1_8r1wq")]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -13.115808, 2, -5.163946)
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -11.621645, 1.8163545, -5.163946)
 
 [node name="Mesh" parent="StressBall" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 transform = Transform3D(1.44, 0, 0, 0, 1.4399999, 0, 0, 0, 1.44, 0, 0, 0)
@@ -95,6 +114,7 @@ item_name = "Stress Ball"
 price = 2
 item_description = "Stress Ball: Temporarily calms down client, but can make them think less actively"
 perks = [NodePath("../CalmBoost"), NodePath("../FactBoost")]
+preview_scene = ExtResource("5_5u241")
 
 [node name="CalmBoost" type="Node" parent="StressBall" unique_id=323754971]
 script = ExtResource("2_032fp")
@@ -106,7 +126,7 @@ amount = -2.0
 stat_name = "fact"
 
 [node name="Newspaper" parent="." unique_id=552804308 instance=ExtResource("1_8r1wq")]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -11.115808, 2, -5.163946)
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -9.621645, 1.8163545, -5.163946)
 
 [node name="Mesh" parent="Newspaper" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 material = SubResource("StandardMaterial3D_heatd")
@@ -114,6 +134,7 @@ item_name = "Newspaper"
 price = 5
 item_description = "Information Wiki: A wiki full of information about constructing information, lets the client gradually think more"
 perks = [NodePath("../FactMulBoost")]
+preview_scene = ExtResource("7_pqync")
 
 [node name="FactMulBoost" type="Node" parent="Newspaper" unique_id=1685230699]
 script = ExtResource("3_2fc2m")
@@ -121,7 +142,7 @@ multiplier = 0.2
 stat_name = "fact"
 
 [node name="EnergyDrink" parent="." unique_id=1186247369 instance=ExtResource("1_8r1wq")]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -9.115808, 2, -5.163946)
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -7.621645, 1.8163545, -5.163946)
 
 [node name="Mesh" parent="EnergyDrink" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 material = SubResource("StandardMaterial3D_1v8qu")
@@ -129,6 +150,7 @@ item_name = "Energy Drink"
 price = 1
 item_description = "Energy Drink: Boosts the client's confidence by a lot temporarily, but can worsen their logic and attitude"
 perks = [NodePath("../CalmBoost"), NodePath("../FactBoost"), NodePath("../SPBoost")]
+preview_scene = ExtResource("8_yuijs")
 
 [node name="CalmBoost" type="Node" parent="EnergyDrink" unique_id=713497157]
 script = ExtResource("2_032fp")
@@ -143,11 +165,6 @@ stat_name = "fact"
 script = ExtResource("2_032fp")
 amount = -5.0
 stat_name = "sp"
-
-[node name="Cupboard" type="MeshInstance3D" parent="." unique_id=173810203]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 1, -11.115808, 0, -5.799999)
-mesh = SubResource("BoxMesh_xrivr")
-surface_material_override/0 = SubResource("StandardMaterial3D_xrivr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1758458402]
 process_mode = 3
@@ -261,27 +278,42 @@ item_price = NodePath("../ColorRect/ItemPrice")
 item_description_label = NodePath("../../Mirror/Description")
 money_label = NodePath("../ColorRect/Money")
 
-[node name="Mirror" type="CSGMesh3D" parent="." unique_id=235643030]
-transform = Transform3D(5, 0, 0, 0, 7, 0, 0, 0, 0.2, -1.6453795, 0, -5.9492016)
+[node name="Mirror" type="Node3D" parent="." unique_id=821524511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1707265, -0.32350802, -5.9492016)
+
+[node name="Mirror" type="CSGMesh3D" parent="Mirror" unique_id=235643030]
+transform = Transform3D(2.7, 0, 0, 0, -4.371139e-09, -2.7, 0, 0.1, -1.1802075e-07, -0.5619817, 2.1516085, 0.7012596)
 cast_shadow = 0
-mesh = SubResource("BoxMesh_2fc2m")
+mesh = SubResource("CylinderMesh_7mqwv")
+material = SubResource("StandardMaterial3D_j7ex8")
+
+[node name="Mirror2" type="CSGMesh3D" parent="Mirror" unique_id=2022051828]
+transform = Transform3D(3.2, 0, 0, 0, -4.371139e-09, -3.2, 0, 0.1, -1.3987645e-07, -0.3988998, -1.0169368, 0.7012596)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7mqwv")
+material = SubResource("StandardMaterial3D_j7ex8")
+
+[node name="Mirror3" type="CSGMesh3D" parent="Mirror" unique_id=890966991]
+transform = Transform3D(3, 0, 0, 0, -4.371139e-09, -3, 0, 0.1, -1.3113416e-07, -0.13776052, 0.41344857, 0.7012596)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7mqwv")
 material = SubResource("StandardMaterial3D_j7ex8")
 
 [node name="Description" type="Label3D" parent="Mirror" unique_id=965422724]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39723358, 0.42171583, 0.8271694)
+transform = Transform3D(1, 0, 0, 0, 1, 0, -2.2737368e-13, 0, 1, -1.3974054, 2.7719586, 0.8271694)
 pixel_size = 0.002
-font_size = 20
+font_size = 86
 horizontal_alignment = 0
 vertical_alignment = 0
 autowrap_mode = 3
-width = 400.0
+width = 1000.0
 
 [node name="BuyNowBTN" type="CSGBox3D" parent="Mirror" unique_id=840385697]
-transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, -0.401802, 1.1309016)
+transform = Transform3D(3.4209163, 0, 4.440892e-16, 0, 1, 0, -1.4210855e-14, 0, 0.15088163, -4.6666327, -2.160581, 1.0076776)
 material = SubResource("StandardMaterial3D_13qdw")
 
 [node name="Label3D" type="Label3D" parent="Mirror/BuyNowBTN" unique_id=1650090731]
-transform = Transform3D(0.4, 0, 0, 0, 1.428, 0, 0, 0, 10, 0, 0, 0.99365234)
+transform = Transform3D(0.4, 0, 5.3290705e-15, 2.5349693e-22, 1.4279997, 0, -5.684342e-14, 4.440892e-16, 10, 0, 0.010685325, 0.5205116)
 text = "BUY"
 font_size = 40
 
@@ -289,6 +321,13 @@ font_size = 40
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mirror/BuyNowBTN/StaticBody3D" unique_id=2094615076]
 shape = SubResource("BoxShape3D_xrivr")
+
+[node name="mirror" parent="Mirror" unique_id=1189326179 instance=ExtResource("10_44xle")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -0.27931833, -3.2732677, 0.7754588)
+
+[node name="Mirror_obj1_Cylinder003" parent="Mirror/mirror" index="0" unique_id=1556360157]
+transform = Transform3D(0.035, 0, 0, 0, -1.5298985e-09, -0.035, 0, 0.035, -1.5298985e-09, 0.4175501, 0, 0)
+surface_material_override/0 = SubResource("ORMMaterial3D_24it5")
 
 [node name="ItemShowcase" type="Node3D" parent="." unique_id=1216995261 node_paths=PackedStringArray("spawn_point", "display_point", "faller")]
 script = ExtResource("6_ajxib")
@@ -309,13 +348,22 @@ transform = Transform3D(2.88, 0, 0, 0, 2.88, 0, 0, 0, 2.88, -23.929745, 1.110807
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.07969, -0.9450002, -21.307999)
 
 [node name="PlayerReflectEndPoint" type="Marker3D" parent="." unique_id=1306431018]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.32483435, -0.94693565, -7.8578453)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.0753481, -0.94693565, -8.171267)
 
 [node name="PlayerReflect" type="CSGMesh3D" parent="." unique_id=741920682]
 transform = Transform3D(2.5, 0, 7.1054274e-15, 0, 2.5, 0, -1.4210855e-14, 0, 2.5, 0.107877254, -0.9450002, -14.561914)
 mesh = SubResource("CapsuleMesh_xrivr")
 
+[node name="board" parent="." unique_id=788358636 instance=ExtResource("9_m4ofw")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -11.343654, -0.2601738, -5.49668)
+
+[node name="BlackBoard_obj_Box001" parent="board" index="0" unique_id=1437998873]
+transform = Transform3D(0.04, 0, 0, 0, -1.7484555e-09, -0.04, 0, 0.04, -1.7484555e-09, 0, 0, 0.70781374)
+material_override = SubResource("ORMMaterial3D_msd4h")
+
 [editable path="Headphones"]
 [editable path="StressBall"]
 [editable path="Newspaper"]
 [editable path="EnergyDrink"]
+[editable path="Mirror/mirror"]
+[editable path="board"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b0ek4dm1ueos4"]
+
+[ext_resource type="PackedScene" uid="uid://m6a6ef5crivd" path="res://assets/model/stress_ball.glb" id="1_en275"]
+[ext_resource type="Texture2D" uid="uid://bvb1dgsg5w8to" path="res://assets/textures/checkpoint jam environment2_BaseColor.png" id="2_agwi0"]
+[ext_resource type="Texture2D" uid="uid://defswq55j20vi" path="res://assets/textures/checkpoint jam environment2_Normal.png" id="3_6pmn0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdemo"]
+size = Vector3(0.5951538, 0.585968, 0.5786743)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5u241"]
+albedo_texture = ExtResource("2_agwi0")
+normal_enabled = true
+normal_texture = ExtResource("3_6pmn0")
+
+[node name="StressBall" type="RigidBody3D" unique_id=457429304]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=530230588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09776306, 0.021270752)
+shape = SubResource("BoxShape3D_kdemo")
+
+[node name="stress_ball" parent="." unique_id=450811374 instance=ExtResource("1_en275")]
+transform = Transform3D(2.995, 0, 0, 0, 2.995, 0, 0, 0, 2.995, 0, -0.21581233, 0)
+
+[node name="out_of_4_models_for_item_UVed1_CleanSphere_StressBall_" parent="stress_ball" index="0" unique_id=1736593378]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
+surface_material_override/0 = SubResource("ORMMaterial3D_5u241")
+
+[editable path="stress_ball"]
