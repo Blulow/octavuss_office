@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://clbsjexlieou0"]
+
+[ext_resource type="Script" uid="uid://bvm8wms8nbprm" path="res://scripts/stat.gd" id="1_bqnuy"]
+[ext_resource type="Texture2D" uid="uid://buhk7fqq440bi" path="res://assets/images/calm_menu.png" id="1_mdebr"]
+[ext_resource type="Texture2D" uid="uid://du2fwegswubsa" path="res://assets/images/white_bar.png" id="2_bqnuy"]
+[ext_resource type="Texture2D" uid="uid://bint6v6mq0v7v" path="res://assets/images/calm_bar.png" id="3_rv86t"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bqnuy"]
+viewport_path = NodePath("Bar/StatBar/SubViewport")
+
+[node name="Stat" type="Node3D" unique_id=645005355]
+script = ExtResource("1_bqnuy")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2072066385]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
+texture = ExtResource("1_mdebr")
+
+[node name="Bar" type="Node3D" parent="." unique_id=711059731]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.41916925, -0.6138229, 0)
+
+[node name="WhiteBar" type="Sprite3D" parent="Bar" unique_id=1528990208]
+transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, -0.015041113, 0, -0.0060671717)
+texture = ExtResource("2_bqnuy")
+
+[node name="StatBar" type="Sprite3D" parent="Bar" unique_id=1701554841]
+transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, 0, -0.024490416, 0.015119642)
+texture = SubResource("ViewportTexture_bqnuy")
+
+[node name="SubViewport" type="SubViewport" parent="Bar/StatBar" unique_id=624843196]
+transparent_bg = true
+size = Vector2i(888, 102)
+render_target_update_mode = 4
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Bar/StatBar/SubViewport" unique_id=1831164242]
+custom_maximum_size = Vector2(876, 84)
+offset_right = 876.0
+offset_bottom = 84.0
+nine_patch_stretch = true
+stretch_margin_left = 100
+stretch_margin_top = 42
+stretch_margin_right = 100
+stretch_margin_bottom = 42
+texture_progress = ExtResource("3_rv86t")

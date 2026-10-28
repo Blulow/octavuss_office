@@ -6,6 +6,7 @@ signal fact_added(new_fact: Fact)
 signal facts_reset
 signal game_end(ending: int)
 signal reset_game
+signal stat_applied
 
 var money: int = 1000
 #var deescalationMultiplier: float = 1.0

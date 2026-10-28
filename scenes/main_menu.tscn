@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
 [ext_resource type="Shader" uid="uid://dhmu2l8b2f010" path="res://assets/shader/papercam2d.gdshader" id="17_j7ex8"]
 [ext_resource type="Script" uid="uid://bhvh0ut0mnac4" path="res://scripts/shop_navigate.gd" id="18_svtp6"]
-[ext_resource type="Texture2D" uid="uid://bkfm0hy52tho" path="res://icon.svg" id="19_svtp6"]
+[ext_resource type="PackedScene" uid="uid://brw7r004eirvy" path="res://scenes/client.tscn" id="19_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://c3x63tjv3fxev" path="res://scenes/shop.tscn" id="20_gw5y6"]
 [ext_resource type="Shader" uid="uid://drbuviww2gyb3" path="res://assets/shader/outline3d.gdshader" id="21_1dfpl"]
 
@@ -85,15 +85,15 @@ animations = [{
 [sub_resource type="ViewportTexture" id="ViewportTexture_u8ny3"]
 viewport_path = NodePath("UI/Book/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1dfpl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qywvv"]
 viewport_path = NodePath("CurvedPage/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qywvv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3wgol"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("13_hstxw")
 shader_parameter/curve_strength = 0.6420000779950001
-shader_parameter/albedo_tex = SubResource("ViewportTexture_1dfpl")
+shader_parameter/albedo_tex = SubResource("ViewportTexture_qywvv")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Gradient" id="Gradient_a8gd2"]
@@ -134,10 +134,6 @@ shader_parameter/outline_thickness = 3.00000011875
 shader_parameter/constant_width = true
 shader_parameter/distance_falloff = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wgol"]
-resource_local_to_scene = true
-next_pass = SubResource("ShaderMaterial_032fp")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1acrt"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
@@ -147,6 +143,10 @@ resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1a85y"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_032fp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl5e0"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
@@ -384,7 +384,7 @@ own_world_3d = true
 transparent_bg = true
 
 [node name="Page" parent="UI/Book/SubViewport" unique_id=1650568177 instance=ExtResource("12_a8gd2")]
-surface_material_override/0 = SubResource("ShaderMaterial_qywvv")
+surface_material_override/0 = SubResource("ShaderMaterial_3wgol")
 camera_pos = Vector3(-1.02, 1, -0.015)
 camera_rot = Vector3(-1.555, 0, -0.01)
 font_size = 23
@@ -542,26 +542,26 @@ transform = Transform3D(-2.810162e-08, -1, -7.040074e-08, 2.4567217e-15, 4.37113
 mesh = SubResource("PlaneMesh_drhbd")
 surface_material_override/0 = SubResource("StandardMaterial3D_gw5y6")
 
-[node name="Client" type="Sprite3D" parent="World" unique_id=866781146]
+[node name="Client" parent="World" unique_id=357058631 instance=ExtResource("19_1dfpl")]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000001, 0, 0.31939495, -1.9246533)
-texture = ExtResource("19_svtp6")
 
 [node name="GetPos" type="Marker3D" parent="World/Client" unique_id=1642017859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
 
 [node name="Shop" parent="." unique_id=1933303201 instance=ExtResource("20_gw5y6")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 7.812, 3.158, 2.923)
 
 [node name="Mesh" parent="Shop/Headphones" parent_id_path=PackedInt32Array(1933303201, 2135113639) index="0" unique_id=1483267050]
-material = SubResource("StandardMaterial3D_3wgol")
-
-[node name="Mesh" parent="Shop/StressBall" parent_id_path=PackedInt32Array(1933303201, 1625085186) index="0" unique_id=1483267050]
 material = SubResource("StandardMaterial3D_1acrt")
 
-[node name="Mesh" parent="Shop/Newspaper" parent_id_path=PackedInt32Array(1933303201, 552804308) index="0" unique_id=1483267050]
+[node name="Mesh" parent="Shop/StressBall" parent_id_path=PackedInt32Array(1933303201, 1625085186) index="0" unique_id=1483267050]
 material = SubResource("StandardMaterial3D_vr8o3")
 
-[node name="Mesh" parent="Shop/EnergyDrink" parent_id_path=PackedInt32Array(1933303201, 1186247369) index="0" unique_id=1483267050]
+[node name="Mesh" parent="Shop/Newspaper" parent_id_path=PackedInt32Array(1933303201, 552804308) index="0" unique_id=1483267050]
 material = SubResource("StandardMaterial3D_1a85y")
+
+[node name="Mesh" parent="Shop/EnergyDrink" parent_id_path=PackedInt32Array(1933303201, 1186247369) index="0" unique_id=1483267050]
+material = SubResource("StandardMaterial3D_hl5e0")
 
 [node name="ShopNavigate" type="Node" parent="." unique_id=1189272012 node_paths=PackedStringArray("choice_ui", "destination_node", "btn", "shop", "session", "follower", "follower_start", "follower_destination", "delivery")]
 script = ExtResource("18_svtp6")
@@ -596,5 +596,5 @@ mouse_filter = 2
 [editable path="Shop/StressBall"]
 [editable path="Shop/Newspaper"]
 [editable path="Shop/EnergyDrink"]
+[editable path="Shop/Mirror/mirror"]
 [editable path="Shop/board"]
-[editable path="Shop/mirror"]

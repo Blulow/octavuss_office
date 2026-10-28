@@ -134,5 +134,4 @@ func _show_message(msg: Dictionary) -> void:
 	PlayerData.apply_stat("fact", float(effects.get("fact", "0")))
 	PlayerData.apply_stat("sp", float(effects.get("sp", "0")))
 	
-	$StatsLabel.text = "CALM: %d | FACT: %d | SP: %d" % [PlayerData.stats.calm.value, PlayerData.stats.fact.value, PlayerData.stats.sp.value]
 	PlayerData.update_character_expression()

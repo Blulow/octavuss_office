@@ -21,8 +21,3 @@ facts_box = NodePath("../FactsBox2")
 
 [node name="FactsBox2" parent="." unique_id=847717659 node_paths=PackedStringArray("choice_box") instance=ExtResource("4_facts")]
 choice_box = NodePath("../ChoiceBox")
-
-[node name="StatsLabel" type="Label" parent="." unique_id=1943265462]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "CALM: 2 | FACT: 2 | SP: 6"
