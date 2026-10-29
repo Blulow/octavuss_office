@@ -119,4 +119,8 @@ func _update_buy_button(item: Item) -> void:
 	elif item_bought:
 		button_text3d.text = "Already Bought an Item"
 	else:
-		button_text3d.text =  "Buy"
+		button_text3d.text = "Buy"
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(buy_button, "scale", buy_button.scale + Vector3(0.1, 0.1, 0.1), 0.1)
+		tween.tween_property(buy_button, "scale", buy_button.scale, 0.1)

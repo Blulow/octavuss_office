@@ -1,5 +1,5 @@
 class_name Item
-extends CSGBox3D
+extends Node3D
 
 signal selected(item: Item)
 signal purchased(item: Item)

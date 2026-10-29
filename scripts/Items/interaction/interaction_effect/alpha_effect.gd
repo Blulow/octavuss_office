@@ -57,7 +57,7 @@ func _on_done() -> void:
 func _get_alpha() -> float:
 	if target is GeometryInstance3D:
 		return 1.0 - target.transparency
-	return target.modulate.a
+	return target.get_child(0).get_child(0).modulate.a
 
 func _set_alpha(a: float) -> void:
 	if target is GeometryInstance3D:
