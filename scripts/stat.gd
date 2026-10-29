@@ -18,4 +18,4 @@ func shake() -> void:
 	var tween = create_tween()
 	tween.tween_interval(0.08)
 	for amp in [0.02, -0.02, 0.01, -0.01, 0.0]:
-		tween.tween_property($Bar, "position:x", amp, 0.06)
+		tween.tween_property($Bar, "position:x", amp + 1.3, 0.06)

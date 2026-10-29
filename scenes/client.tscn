@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cr8tn783v21yf" path="res://scripts/client.gd" id="1_umycy"]
 [ext_resource type="PackedScene" uid="uid://clbsjexlieou0" path="res://scenes/stat.tscn" id="2_1t5vp"]
-[ext_resource type="Texture2D" uid="uid://bkfm0hy52tho" path="res://icon.svg" id="2_4tr0r"]
+[ext_resource type="Texture2D" uid="uid://dm5sor8m2cm5a" path="res://assets/images/characters/lvl1_client_distressed.png" id="2_umycy"]
 [ext_resource type="Texture2D" uid="uid://buhk7fqq440bi" path="res://assets/images/calm_menu.png" id="3_r26j7"]
+[ext_resource type="Texture2D" uid="uid://ft7hb80ab7vx" path="res://assets/images/characters/lvl1_client_censoredface1.png" id="3_ta3x6"]
 [ext_resource type="Texture2D" uid="uid://bint6v6mq0v7v" path="res://assets/images/calm_bar.png" id="4_t0ykn"]
+[ext_resource type="Texture2D" uid="uid://cvc5b3t1iflry" path="res://assets/images/characters/lvl1_client_censoredface2.png" id="4_u5oxf"]
 [ext_resource type="Texture2D" uid="uid://dnjvif5tmpumr" path="res://assets/images/fact_menu.png" id="5_5q6u5"]
+[ext_resource type="Texture2D" uid="uid://n64gopv3fgg7" path="res://assets/images/characters/lvl1_client_censoredface3.png" id="5_svewj"]
 [ext_resource type="Texture2D" uid="uid://bk0m3ilnx5m2p" path="res://assets/images/fact_bar.png" id="6_umycy"]
+[ext_resource type="Texture2D" uid="uid://bqwbph0t2c200" path="res://assets/images/characters/lvl1_client_censoredface4.png" id="6_v3vnk"]
 [ext_resource type="Texture2D" uid="uid://b52qru17ftvbj" path="res://assets/images/clout_stamp.png" id="7_7rsog"]
 [ext_resource type="Texture2D" uid="uid://dwv6l8n2kt6qk" path="res://assets/images/clout_bar.png" id="8_dueaf"]
 
@@ -14,10 +18,43 @@
 script = ExtResource("1_umycy")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=2069269905]
-texture = ExtResource("2_4tr0r")
+transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, 0, 0, 0)
+texture = ExtResource("2_umycy")
+
+[node name="AngryHead" type="Marker3D" parent="Sprite3D" unique_id=1429443426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2486506, 0)
+
+[node name="ConfusedHead" type="Marker3D" parent="Sprite3D" unique_id=824136393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6003235, 3.9741812, 0)
+
+[node name="DistressedHead" type="Marker3D" parent="Sprite3D" unique_id=827657962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97911483, 3.709632, -1.4449611e-06)
+
+[node name="Shapes" type="Node3D" parent="Sprite3D" unique_id=973528820]
+transform = Transform3D(1.5650002, 0, 0, 0, 1.5650002, 0, 0, 0, 1.5650002, 1.0198071, 3.2755404, 1.737691)
+
+[node name="Sprite3D" type="Sprite3D" parent="Sprite3D/Shapes" unique_id=744471406]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0, 0, 1.6114274)
+double_sided = false
+texture = ExtResource("3_ta3x6")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Sprite3D/Shapes" unique_id=1820347218]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0, 0, 1.0263361)
+double_sided = false
+texture = ExtResource("4_u5oxf")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Sprite3D/Shapes" unique_id=310356245]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0.62790465)
+double_sided = false
+texture = ExtResource("5_svewj")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sprite3D/Shapes" unique_id=1177279141]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0.31825793)
+double_sided = false
+texture = ExtResource("6_v3vnk")
 
 [node name="Stats" type="Node3D" parent="." unique_id=740211875]
-transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, 0.42150497, 0.8122151, 0)
+transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, 1.5312495, 1.0587497, 0)
 
 [node name="CalmStat" parent="Stats" unique_id=645005355 instance=ExtResource("2_1t5vp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2112124, 1.0004854, 0)
@@ -25,11 +62,14 @@ stat_texture = ExtResource("3_r26j7")
 stat_bar_texture = ExtResource("4_t0ykn")
 
 [node name="FactStat" parent="Stats" unique_id=1751343023 instance=ExtResource("2_1t5vp")]
-transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, 1.4709606, 1.0006144, 0)
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, -0.19898635, -0.042810857, 0)
 stat_texture = ExtResource("5_5q6u5")
 stat_bar_texture = ExtResource("6_umycy")
 
 [node name="SPStat" parent="Stats" unique_id=1001085084 instance=ExtResource("2_1t5vp")]
-transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, 3.105466, 0.9947257, 0)
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, -0.18850425, -1.1662581, 0)
 stat_texture = ExtResource("7_7rsog")
 stat_bar_texture = ExtResource("8_dueaf")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=539191955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3652017, 0.96353674, 2.4277074)

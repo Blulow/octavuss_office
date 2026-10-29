@@ -79,14 +79,6 @@ func apply_stat(id: String, value: float) -> void:
 	stats[id].value += value * stats[id].multiplier
 	stat_applied.emit()
 
-func update_character_expression() -> void:
-	if stats.calm.value < 2:
-		print("angery")
-	elif stats.calm.value < 4:
-		print("mid")
-	else:
-		print("kalm")
-
 func get_ending() -> void:
 	var _ending: int = -1
 	

@@ -134,5 +134,3 @@ func _show_message(msg: Dictionary) -> void:
 	PlayerData.apply_stat("calm", float(effects.get("calm", "0")))
 	PlayerData.apply_stat("fact", float(effects.get("fact", "0")))
 	PlayerData.apply_stat("sp", float(effects.get("sp", "0")))
-	
-	PlayerData.update_character_expression()
