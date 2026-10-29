@@ -79,10 +79,10 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	
 	var choice_box: ChoiceBox = facts_box.choice_box
 	
-	var buttons := choice_box.list.get_children()
+	var buttons := choice_box.get_node("Buttons").get_children()
 	
 	for i in buttons.size():
 		if choices.has(i):
-			choice_box._highlight("red", buttons[i])
+			choice_box._highlight("green", buttons[i])
 	
 	return {"choices": choices, "fact_id": fact_id}

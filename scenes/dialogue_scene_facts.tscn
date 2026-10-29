@@ -13,6 +13,7 @@ box = NodePath("DialogueBox")
 choice_box = NodePath("ChoiceBox")
 
 [node name="DialogueBox" parent="." unique_id=1938035501 instance=ExtResource("2_box")]
+visible = false
 
 [node name="ChoiceBox" parent="." unique_id=1136377435 node_paths=PackedStringArray("facts_box") instance=ExtResource("3_choice")]
 width = 620.0

@@ -55,9 +55,10 @@ func show_line(line: Dictionary, vars: Dictionary = {}) -> void:
 	_animate_speaker()
 	var color_name := String(line.get("color", ""))
 	if color_name != "":
-		text_label.add_theme_color_override("default_color", Color.from_string(color_name, Color.WHITE))
+		text_label.add_theme_color_override("default_color", Color.from_string(color_name, Color(0.227, 0.227, 0.227, 1.0)))
 	else:
-		text_label.remove_theme_color_override("default_color")
+		#text_label.remove_theme_color_override("default_color")
+		pass
 	var parsed := parse_scripted_text(String(line.get("text", "")), {
 		"vars": vars,
 		"punct": _punct_seconds(line.get("punct", 0.0)),
@@ -86,18 +87,18 @@ func show_line(line: Dictionary, vars: Dictionary = {}) -> void:
 func _fit_and_place() -> void:
 	if not _placed:
 		modulate.a = 0.0
-	var vp := get_viewport_rect().size
+	#var vp := get_viewport_rect().size
 	custom_minimum_size = Vector2.ZERO
-	size.x = vp.x
+	#size.x = vp.x
 	for i in 2:
 		await get_tree().process_frame
-	size.y = get_combined_minimum_size().y
-	var target := Vector2(0.0, vp.y - size.y)
-	position = target + Vector2(0.0, SLIDE_PX)
+	#size.y = get_combined_minimum_size().y
+	#var target := Vector2(0.0, vp.y - size.y)
+	#position = target + Vector2(0.0, SLIDE_PX)
 	if _move_tween != null and _move_tween.is_valid():
 		_move_tween.kill()
 	_move_tween = create_tween()
-	_move_tween.tween_property(self, "position", target, 0.12).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	#_move_tween.tween_property(self, "position", target, 0.12).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	if not _placed:
 		_placed = true
 		_move_tween.parallel().tween_property(self, "modulate:a", 1.0, 0.12)

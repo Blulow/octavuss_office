@@ -1,29 +1,136 @@
 [gd_scene format=3 uid="uid://caiarpyc05rrx"]
 
 [ext_resource type="Script" uid="uid://bkwwom3i403la" path="res://scripts/choice_box.gd" id="1_choice"]
+[ext_resource type="Script" uid="uid://7wg3fb7emlyt" path="res://scripts/choice_button.gd" id="2_agea6"]
+[ext_resource type="Texture2D" uid="uid://c20utct68prke" path="res://assets/images/choice_answer_button_copy.png" id="2_ddgls"]
+[ext_resource type="Texture2D" uid="uid://doars06ha1dde" path="res://assets/images/choice_answer_button_copy_2.png" id="3_agea6"]
+[ext_resource type="Texture2D" uid="uid://dfjcne6kmdc3j" path="res://assets/images/choice_answer_button_copy_3.png" id="4_q1jmx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_choice"]
 content_margin_left = 14.0
 content_margin_top = 12.0
 content_margin_right = 14.0
 content_margin_bottom = 12.0
-bg_color = Color(0.05, 0.05, 0.08, 0.93)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+bg_color = Color(0.050708726, 0.050708726, 0.07846785, 0)
 border_color = Color(1, 1, 1, 0.85)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1jmx"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agea6"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvwa5"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
 [node name="ChoiceBox" type="PanelContainer" unique_id=1126092536]
 process_mode = 3
-visible = false
 theme_override_styles/panel = SubResource("StyleBoxFlat_choice")
 script = ExtResource("1_choice")
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=1366075572]
 layout_mode = 2
 theme_override_constants/separation = 8
+
+[node name="Buttons" type="Control" parent="." unique_id=751427637]
+layout_mode = 2
+
+[node name="ChoiceButton" type="Button" parent="Buttons" unique_id=269025136]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 391.0
+offset_right = 359.0
+offset_bottom = 612.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_q1jmx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_agea6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kvwa5")
+script = ExtResource("2_agea6")
+metadata/_custom_type_script = "uid://7wg3fb7emlyt"
+
+[node name="TextureRect" type="TextureRect" parent="Buttons/ChoiceButton" unique_id=1761554526]
+layout_mode = 0
+offset_left = -25.000006
+offset_top = -25.999998
+offset_right = 377.0
+offset_bottom = 252.0
+scale = Vector2(0.83, 0.83)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_ddgls")
+
+[node name="Label" type="Label" parent="Buttons/ChoiceButton" unique_id=212115322]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 39.0
+offset_right = 284.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(0.203125, 0.203125, 0.203125, 1)
+autowrap_mode = 2
+
+[node name="ChoiceButton2" type="Button" parent="Buttons" unique_id=1673839725]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 392.0
+offset_right = 732.0
+offset_bottom = 615.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_q1jmx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_agea6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kvwa5")
+script = ExtResource("2_agea6")
+metadata/_custom_type_script = "uid://7wg3fb7emlyt"
+
+[node name="TextureRect" type="TextureRect" parent="Buttons/ChoiceButton2" unique_id=1036721693]
+layout_mode = 0
+offset_left = -27.999998
+offset_top = -30.999998
+offset_right = 374.0
+offset_bottom = 247.0
+scale = Vector2(0.83, 0.83)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_agea6")
+
+[node name="Label" type="Label" parent="Buttons/ChoiceButton2" unique_id=1017699189]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 59.0
+offset_right = 280.0
+offset_bottom = 186.0
+theme_override_colors/font_color = Color(0.203125, 0.203125, 0.203125, 1)
+autowrap_mode = 2
+
+[node name="ChoiceButton3" type="Button" parent="Buttons" unique_id=124851895]
+layout_mode = 0
+offset_left = 772.0
+offset_top = 395.0
+offset_right = 1122.0
+offset_bottom = 619.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_q1jmx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_agea6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kvwa5")
+script = ExtResource("2_agea6")
+metadata/_custom_type_script = "uid://7wg3fb7emlyt"
+
+[node name="TextureRect" type="TextureRect" parent="Buttons/ChoiceButton3" unique_id=1617853690]
+layout_mode = 0
+offset_left = -26.999998
+offset_top = -25.999998
+offset_right = 375.0
+offset_bottom = 252.0
+scale = Vector2(0.83, 0.83)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_q1jmx")
+
+[node name="Label" type="Label" parent="Buttons/ChoiceButton3" unique_id=796549892]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 47.0
+offset_right = 301.0
+offset_bottom = 185.0
+theme_override_colors/font_color = Color(0.203125, 0.203125, 0.203125, 1)
+autowrap_mode = 2

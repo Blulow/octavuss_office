@@ -1,40 +1,51 @@
 [gd_scene format=3 uid="uid://cb5ue2xennvxk"]
 
 [ext_resource type="Script" uid="uid://b5fsm7c3w2h8t" path="res://scripts/dialogue_box.gd" id="1_box"]
+[ext_resource type="Texture2D" uid="uid://cwr20tu1go8cr" path="res://assets/images/dialog_box.png" id="2_fu8b5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_box"]
-content_margin_left = 16.0
-content_margin_top = 14.0
-content_margin_right = 16.0
-content_margin_bottom = 14.0
-bg_color = Color(0.05, 0.05, 0.08, 0.93)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 0.85)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8ny3"]
+bg_color = Color(0.49803922, 0.49803922, 0.49803922, 0)
 
 [node name="DialogueBox" type="PanelContainer" unique_id=1127138211 node_paths=PackedStringArray("speaker_label", "text_label")]
 process_mode = 3
-visible = false
-theme_override_styles/panel = SubResource("StyleBoxFlat_box")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u8ny3")
 script = ExtResource("1_box")
 speaker_label = NodePath("VBox/SpeakerLabel")
 text_label = NodePath("VBox/TextLabel")
 
-[node name="VBox" type="VBoxContainer" parent="." unique_id=590805042]
+[node name="VBox" type="Control" parent="." unique_id=730159676]
 layout_mode = 2
-theme_override_constants/separation = 6
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBox" unique_id=2104748276]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+mouse_filter = 2
+texture = ExtResource("2_fu8b5")
 
 [node name="SpeakerLabel" type="Label" parent="VBox" unique_id=397560952]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.88, 0.45, 1)
+layout_mode = 0
+offset_left = 93.0
+offset_top = 393.0
+offset_right = 209.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0.6850586, 0.953125, 0.8715396, 1)
 theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
 
 [node name="TextLabel" type="RichTextLabel" parent="VBox" unique_id=1125660645]
-layout_mode = 2
+layout_mode = 0
+offset_left = 85.0
+offset_top = 464.0
+offset_right = 1074.0
+offset_bottom = 588.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.16409835, 0.16409835, 0.16409835, 1)
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 fit_content = true
