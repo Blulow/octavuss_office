@@ -84,13 +84,14 @@ func set_drop_active(active: bool) -> void:
 
 func _add_button(option: Dictionary, index: int) -> void:
 	if _options.size() == 1:
-		global_position.x += 350
+		global_position.x = 350
 		btn1.visible = true
 		btn2.visible = false
 		btn3.visible = false
 		if index == 0:
 			btn1.get_node("Label").text = String(option.get("text", "Option %d" % (index + 1)))
 	elif _options.size() == 2:
+		global_position.x = 157
 		btn1.visible = true
 		btn2.visible = true
 		btn3.visible = false
@@ -99,6 +100,7 @@ func _add_button(option: Dictionary, index: int) -> void:
 		if index == 1:
 			btn2.get_node("Label").text = String(option.get("text", "Option %d" % (index + 1)))
 	elif _options.size() == 3:
+		global_position.x = 0
 		btn1.visible = true
 		btn2.visible = true
 		btn3.visible = true
