@@ -157,9 +157,8 @@ offset_bottom = 40.0
 scale = Vector2(0.325, 0.325)
 texture = ExtResource("15_ir15t")
 
-[node name="SettingsPanelWiring" type="Node" parent="UI" unique_id=1590177796 node_paths=PackedStringArray("open_button", "parent")]
+[node name="SettingsPanelWiring" type="Node" parent="UI" unique_id=1590177796 node_paths=PackedStringArray("parent")]
 script = ExtResource("17_ssvqc")
-open_button = NodePath("")
 panel_scene = ExtResource("18_264po")
 parent = NodePath("../../DialogueSceneFacts")
 direction = 0

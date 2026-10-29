@@ -10,7 +10,7 @@ extends CanvasLayer
 func _ready() -> void:
 	money_label.text = str(PlayerData.money)
 	PlayerData.money_changed.connect(func(amount):
-		money_label.text = amount)
+		money_label.text = str(amount))
 	
 	pause.pressed.connect(settings_wiring._on_button_pressed)
 	
