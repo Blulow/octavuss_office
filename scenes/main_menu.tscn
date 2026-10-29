@@ -497,7 +497,7 @@ mesh = SubResource("PlaneMesh_drhbd")
 surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
 
 [node name="Wall2" type="MeshInstance3D" parent="World" unique_id=209531136]
-transform = Transform3D(-1.2904843, -8.742278e-08, 5.0042694e-15, 0, -4.371139e-08, -1.3095481, 1.1281772e-07, -1, 5.724217e-08, 0, 0, 4.3330913)
+transform = Transform3D(-3.6934628, -8.7422784e-08, 5.0042694e-15, 0, -4.3711392e-08, -1.3095481, 3.228928e-07, -1.0000001, 5.724217e-08, 0, 0, 4.3330913)
 mesh = SubResource("PlaneMesh_drhbd")
 surface_material_override/0 = SubResource("StandardMaterial3D_68xlc")
 
