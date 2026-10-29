@@ -32,11 +32,11 @@ func setup(fact: Fact, usable_ids: Array) -> void:
 	if _label == null:
 		_label = Label.new()
 		_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		_label.add_theme_font_size_override("font_size", 17)
+		_label.add_theme_font_size_override("font_size", 12)
 		add_child(_label)
 	#_label.text = String(fact.get("text", ""))
 	_label.text = fact.text
-	_label.add_theme_color_override("font_color", Color.WHITE if usable else DIM_COLOR)
+	_label.add_theme_color_override("font_color", Color.BLACK if usable else Color(0.3, 0.3, 0.3, 0.8))
 	add_theme_stylebox_override("panel", _make_panel(usable))
 
 func get_choices_from_facts(fact_id: String, usable_ids: Array):
@@ -50,17 +50,30 @@ func get_choices_from_facts(fact_id: String, usable_ids: Array):
 	
 	return _choices
 
-func _make_panel(usable: bool) -> StyleBoxFlat:
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.08, 0.09, 0.13, 0.9)
-	style.border_color = HIGHLIGHT_BLUE if usable else DISABLED_BORDER
-	style.set_border_width_all(1)
-	style.set_corner_radius_all(6)
-	style.content_margin_left = 10.0
-	style.content_margin_right = 10.0
-	style.content_margin_top = 6.0
-	style.content_margin_bottom = 6.0
-	return style
+func _make_panel(usable: bool) -> StyleBox:
+	#var style := StyleBoxFlat.new()
+	#style.bg_color = Color(0.08, 0.09, 0.13, 0.9)
+	#style.border_color = HIGHLIGHT_BLUE if usable else DISABLED_BORDER
+	#style.set_border_width_all(1)
+	#style.set_corner_radius_all(6)
+	#style.content_margin_left = 10.0
+	#style.content_margin_right = 10.0
+	#style.content_margin_top = 6.0
+	#style.content_margin_bottom = 6.0
+	#return style
+	
+	var stylebox = StyleBoxTexture.new()
+	stylebox.texture = preload("res://assets/images/white_bar.png")
+	stylebox.set_texture_margin(SIDE_LEFT, 20.0)
+	stylebox.set_texture_margin(SIDE_TOP, 20.0)
+	stylebox.set_texture_margin(SIDE_RIGHT, 20.0)
+	stylebox.set_texture_margin(SIDE_BOTTOM, 20.0)
+	stylebox.content_margin_left = 16.0
+	stylebox.content_margin_top = 16.0
+	stylebox.content_margin_right = 16.0
+	stylebox.content_margin_bottom = 16.0
+	stylebox.modulate_color = Color(1.0, 1.0, 1.0) if usable else Color(0.8, 0.8, 0.8, 0.8)
+	return stylebox
 
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
@@ -72,7 +85,8 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	preview.add_theme_stylebox_override("panel", _make_panel(true))
 	var label := Label.new()
 	label.text = _label.text
-	label.add_theme_font_size_override("font_size", 17)
+	label.add_theme_font_size_override("font_size", 12)
+	label.add_theme_color_override("font_color", Color.BLACK)
 	preview.add_child(label)
 	preview.modulate = Color(1, 1, 1, 0.9)
 	set_drag_preview(preview)
