@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dte2085j46tfn"]
 
-[ext_resource type="Script" uid="uid://dh3o3exb1u6bj" path="res://slider.gd" id="1_ju2t0"]
+[ext_resource type="Script" uid="uid://dx3lu7lvya85a" path="res://slider.gd" id="1_ju2t0"]
 
 [node name="HSlider" type="HSlider" unique_id=1085877740]
+custom_minimum_size = Vector2(220, 0)
 offset_right = 200.0
 offset_bottom = 16.0
 size_flags_horizontal = 3
