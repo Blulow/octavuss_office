@@ -9,7 +9,7 @@ signal game_end(ending: int)
 signal reset_game
 signal stat_applied
 
-var money: int = 1000
+var money: int = 5
 #var deescalationMultiplier: float = 1.0
 #var informationMultiplier: float = 1.0
 
@@ -106,7 +106,7 @@ func get_ending() -> void:
 	game_end.emit(_ending)
 
 func reset() -> void:
-	money = 1000
+	money = 5
 	
 	#deescalationMultiplier = 1.0
 	#informationMultiplier = 1.0

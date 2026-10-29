@@ -9,7 +9,7 @@ signal action_finish
 @export var dialogue_scene: DialogueScene
 @export var sessions_files: Array[JSON]
 @export var choice_ui_manager: ChoiceUIManager
-@export var money_add_per_session: int = 50
+@export var money_add_per_session: int = 5
 
 var accept_choices: bool = false
 

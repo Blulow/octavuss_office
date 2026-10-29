@@ -17,6 +17,7 @@ var _spawning := false  # blocks double-clicks during the one-frame wait below
 
 
 func _ready() -> void:
+	if not open_button: return
 	open_button.onclick.connect(_on_button_pressed)
 
 
