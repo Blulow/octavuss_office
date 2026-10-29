@@ -15,6 +15,7 @@ extends Node3D
 @onready var settings: Strip2D = $UI/Book/Strips/TextureRect2/Strip2
 @onready var quit_game: Strip2D = $UI/Book/Strips/TextureRect3/Strip3
 @onready var book_sprite: AnimatedTextureRect = $UI/Book/AnimatedTextureRect
+@onready var book_audio: AudioStreamPlayer2D = $UI/BookAudio
 var hovering: bool = false
 
 @onready var paper: TextureRect = $UI/Paper
@@ -277,7 +278,12 @@ func _on_start_game_onhover():
 		return
 	book_sprite.animation = "open"
 	book_sprite.visible = true
+	
 	await get_tree().create_timer(1/5).timeout
+	
+	book_audio.stream = preload("res://assets/sounds/sfx/page_open.wav")
+	book_audio.play()
+	
 	book_sprite.play()
 	await book_sprite.finished
 	book_sprite.visible = false
@@ -288,7 +294,12 @@ func _on_settings_onhover():
 		return
 	book_sprite.animation = "open"
 	book_sprite.visible = true
+	
 	await get_tree().create_timer(1/5).timeout
+	
+	book_audio.stream = preload("res://assets/sounds/sfx/page_open.wav")
+	book_audio.play()
+	
 	book_sprite.play()
 	await book_sprite.finished
 	book_sprite.visible = false
@@ -299,7 +310,12 @@ func _on_quit_game_onhover():
 		return
 	book_sprite.animation = "open"
 	book_sprite.visible = true
+	
 	await get_tree().create_timer(1/5).timeout
+	
+	book_audio.stream = preload("res://assets/sounds/sfx/page_open.wav")
+	book_audio.play()
+	
 	book_sprite.play()
 	await book_sprite.finished
 	book_sprite.visible = false
@@ -310,7 +326,12 @@ func _on_start_game_onexit():
 		return
 	book_sprite.animation = "close"
 	book_sprite.visible = true
+	
 	await get_tree().create_timer(1/10).timeout
+	
+	book_audio.stream = preload("res://assets/sounds/sfx/page_close.wav")
+	book_audio.play()
+	
 	book_sprite.play()
 	await book_sprite.finished
 	book_sprite.visible = false
@@ -321,7 +342,12 @@ func _on_settings_onexit():
 		return
 	book_sprite.animation = "close"
 	book_sprite.visible = true
+	
 	await get_tree().create_timer(1/10).timeout
+	
+	book_audio.stream = preload("res://assets/sounds/sfx/page_close.wav")
+	book_audio.play()
+	
 	book_sprite.play()
 	await book_sprite.finished
 	book_sprite.visible = false
@@ -332,7 +358,12 @@ func _on_quit_game_onexit():
 		return
 	book_sprite.animation = "close"
 	book_sprite.visible = true
+	
 	await get_tree().create_timer(1/10).timeout
+	
+	book_audio.stream = preload("res://assets/sounds/sfx/page_close.wav")
+	book_audio.play()
+	
 	book_sprite.play()
 	await book_sprite.finished
 	book_sprite.visible = false

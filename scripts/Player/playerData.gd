@@ -40,6 +40,12 @@ var stats: Dictionary[String, StatData] = {
 var pending_fact: Fact = Fact.new()
 var session_index: int = 0
 
+func _ready() -> void:
+	#await get_tree().create_timer(1.0).timeout
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(PlayerData.audio_settings.master / 100.0))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(PlayerData.audio_settings.music / 100.0))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(PlayerData.audio_settings.sfx / 100.0))
+	
 func can_afford(cost: int) -> bool:
 	return money >= cost
 

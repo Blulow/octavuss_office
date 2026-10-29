@@ -15,6 +15,7 @@ var instance: Control
 var is_open := false
 var _spawning := false  # blocks double-clicks during the one-frame wait below
 
+@onready var clipboard_audio: AudioStreamPlayer2D = $ClipboardAudio
 
 func _ready() -> void:
 	if not open_button: return
@@ -34,9 +35,14 @@ func _on_button_pressed() -> void:
 		instance.show()
 		UITween.slide_in(instance, rest_pos, direction, add_rotation,
 				0.6, in_overshoot)
+		print("e")
+		#clipboard_audio.stream = preload("res://assets/sounds/sfx/clipboard_open.wav")
+		#clipboard_audio.play()
 	else:
 		UITween.slide_out(instance, rest_pos, direction, add_rotation,
 				0.5, out_overshoot)
+		#clipboard_audio.stream = preload("res://assets/sounds/sfx/clipboard_close.wav")
+		#clipboard_audio.play()
 
 
 func _spawn() -> void:
