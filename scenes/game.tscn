@@ -27,9 +27,6 @@ process_mode = 3
 
 [node name="ChoiceUi" parent="ChoiceCanvas" unique_id=539166642 instance=ExtResource("2_yqjtg")]
 
-[node name="BuySomething" parent="ChoiceCanvas/ChoiceUi/CenterContainer/VBoxContainer" parent_id_path=PackedInt32Array(539166642, 1236340906) index="1" unique_id=1705236234]
-script = null
-
 [node name="FactsCanvas" type="CanvasLayer" parent="." unique_id=1861971381 node_paths=PackedStringArray("facts_list")]
 process_mode = 3
 script = ExtResource("3_lnu2h")
@@ -109,5 +106,3 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.17, 0.17)
 texture = ExtResource("12_dinhu")
-
-[editable path="ChoiceCanvas/ChoiceUi"]
