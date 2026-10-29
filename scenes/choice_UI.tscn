@@ -37,6 +37,7 @@ theme_override_constants/separation = 51
 [node name="FactCheck" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1965742284]
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_u8ny3")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_37s4m")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_iorau")
@@ -80,6 +81,7 @@ text = "FACT CHECK"
 [node name="BuySomething" type="Button" parent="CenterContainer/VBoxContainer" unique_id=125108009]
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8d211")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_37s4m")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_iorau")

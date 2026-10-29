@@ -12,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://hl8gocycs3dn" path="res://assets/images/page_1.PNG" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
-[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/UI/settings_panel.gd" id="12_7b55j"]
+[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/ui/settings_panel.gd" id="12_7b55j"]
 [ext_resource type="PackedScene" uid="uid://dfppk43mgk0cj" path="res://scenes/curved_page.tscn" id="12_a8gd2"]
 [ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
-[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://settings menu.tscn" id="13_5pajh"]
+[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_5pajh"]
 [ext_resource type="Shader" uid="uid://bl1mycnmgx5di" path="res://assets/shader/curve_plane.gdshader" id="13_hstxw"]
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
 [ext_resource type="Texture2D" uid="uid://y03s7vj54n5e" path="res://assets/images/paper_ending.png" id="15_1acrt"]
@@ -25,7 +25,6 @@
 [ext_resource type="Script" uid="uid://bhvh0ut0mnac4" path="res://scripts/shop_navigate.gd" id="18_svtp6"]
 [ext_resource type="PackedScene" uid="uid://brw7r004eirvy" path="res://scenes/client.tscn" id="19_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://c3x63tjv3fxev" path="res://scenes/shop.tscn" id="20_gw5y6"]
-[ext_resource type="Shader" uid="uid://drbuviww2gyb3" path="res://assets/shader/outline3d.gdshader" id="21_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://ddnsslucrlopo" path="res://scenes/particles.tscn" id="23_vr8o3"]
 [ext_resource type="Shader" uid="uid://dyob2qjpd80uc" path="res://assets/shader/orb.gdshader" id="24_1a85y"]
 
@@ -90,15 +89,15 @@ animations = [{
 [sub_resource type="ViewportTexture" id="ViewportTexture_u8ny3"]
 viewport_path = NodePath("UI/Book/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1a85y"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vr8o3"]
 viewport_path = NodePath("CurvedPage/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hl5e0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1a85y"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("13_hstxw")
 shader_parameter/curve_strength = 0.6420000779950001
-shader_parameter/albedo_tex = SubResource("ViewportTexture_1a85y")
+shader_parameter/albedo_tex = SubResource("ViewportTexture_vr8o3")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_drhbd"]
@@ -130,32 +129,6 @@ shader_parameter/scroll_speed = 0.05
 
 [sub_resource type="SphereMesh" id="SphereMesh_13qdw"]
 material = SubResource("ShaderMaterial_b1lj4")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_032fp"]
-render_priority = 0
-shader = ExtResource("21_1dfpl")
-shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/normal_threshold = 0.5
-shader_parameter/depth_threshold = 0.05
-shader_parameter/outline_thickness = 3.00000011875
-shader_parameter/constant_width = true
-shader_parameter/distance_falloff = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_engjn"]
-resource_local_to_scene = true
-next_pass = SubResource("ShaderMaterial_032fp")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6h3lr"]
-resource_local_to_scene = true
-next_pass = SubResource("ShaderMaterial_032fp")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj67d"]
-resource_local_to_scene = true
-next_pass = SubResource("ShaderMaterial_032fp")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6vcge"]
-resource_local_to_scene = true
-next_pass = SubResource("ShaderMaterial_032fp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8ny3"]
 shader = ExtResource("17_j7ex8")
@@ -395,7 +368,7 @@ own_world_3d = true
 transparent_bg = true
 
 [node name="Page" parent="UI/Book/SubViewport" unique_id=1650568177 instance=ExtResource("12_a8gd2")]
-surface_material_override/0 = SubResource("ShaderMaterial_hl5e0")
+surface_material_override/0 = SubResource("ShaderMaterial_1a85y")
 camera_pos = Vector3(-1.02, 1, -0.015)
 camera_rot = Vector3(-1.555, 0, -0.01)
 font_size = 23
@@ -559,18 +532,6 @@ mesh = SubResource("SphereMesh_13qdw")
 [node name="Shop" parent="." unique_id=1933303201 instance=ExtResource("20_gw5y6")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 7.812, 3.158, 2.923)
 
-[node name="Mesh" parent="Shop/Headphones" parent_id_path=PackedInt32Array(1933303201, 2135113639) index="0" unique_id=1483267050]
-material = SubResource("StandardMaterial3D_engjn")
-
-[node name="Mesh" parent="Shop/StressBall" parent_id_path=PackedInt32Array(1933303201, 1625085186) index="0" unique_id=1483267050]
-material = SubResource("StandardMaterial3D_6h3lr")
-
-[node name="Mesh" parent="Shop/Newspaper" parent_id_path=PackedInt32Array(1933303201, 552804308) index="0" unique_id=1483267050]
-material = SubResource("StandardMaterial3D_dj67d")
-
-[node name="Mesh" parent="Shop/EnergyDrink" parent_id_path=PackedInt32Array(1933303201, 1186247369) index="0" unique_id=1483267050]
-material = SubResource("StandardMaterial3D_6vcge")
-
 [node name="ShopNavigate" type="Node" parent="." unique_id=1189272012 node_paths=PackedStringArray("choice_ui", "destination_node", "btn", "shop", "session", "follower", "follower_start", "follower_destination", "delivery")]
 script = ExtResource("18_svtp6")
 choice_ui = NodePath("../Game/ChoiceUIManager")
@@ -601,8 +562,14 @@ mouse_filter = 2
 [editable path="Game/ChoiceCanvas/ChoiceUi"]
 [editable path="Shop"]
 [editable path="Shop/Headphones"]
+[editable path="Shop/Headphones/Mesh/Mesh"]
 [editable path="Shop/StressBall"]
+[editable path="Shop/StressBall/Mesh/Mesh"]
 [editable path="Shop/Newspaper"]
+[editable path="Shop/Newspaper/Mesh/sticky_note_2"]
+[editable path="Shop/Newspaper/Mesh/Mesh"]
 [editable path="Shop/EnergyDrink"]
+[editable path="Shop/EnergyDrink/Mesh/sticky_note_3"]
+[editable path="Shop/EnergyDrink/Mesh/Mesh"]
 [editable path="Shop/Mirror/mirror"]
 [editable path="Shop/board"]

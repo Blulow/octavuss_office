@@ -172,7 +172,7 @@ func _on_back_onclick():
 	
 	PlayerData.reset()
 	
-	await close_end_tween()
+	await close_end_tween(true)
 	
 	book.visible = true
 	title.visible = true
@@ -207,11 +207,12 @@ func start_game_tween (tween : Tween):
 	tween.tween_property(client, "global_position:x", client.global_position.x + 20, 1.0)
 	tween.tween_interval(1.0)
 
-func close_end_tween() -> void:
+func close_end_tween(down: bool = false) -> void:
 	var tween = create_tween()
 	tween.set_parallel()
-	tween.tween_property(trans_cam, "global_position", player_cam.global_position, 0.3)
-	tween.tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
+	if not down:
+		tween.tween_property(trans_cam, "global_position", player_cam.global_position, 0.3)
+		tween.tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
 	tween.tween_property(paper, "global_position:y", paper.global_position.y + 1000, 0.3)
 	tween.tween_property(book2, "global_position:y", book2.global_position.y + 1000, 0.3)
 
