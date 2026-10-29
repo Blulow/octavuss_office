@@ -25,6 +25,19 @@ var _animating := false
 func _ready() -> void:
 	pressed.connect(_toggle)
 	blur.gui_input.connect(_on_blur_gui_input)
+	
+	visible = false
+	modulate.a = 0
+	PlayerData.game_start.connect(func():
+		visible = true
+		var tween = create_tween()
+		tween.tween_property(self, "modulate:a", 1, 0.3))
+	PlayerData.game_end.connect(func(ending):
+		var tween = create_tween()
+		tween.tween_property(self, "modulate:a", 0, 0.3)
+		await tween.finished
+		visible = false)
+	
 	var offscreen: float = get_viewport_rect().size.y
 	notebook.position.y = offscreen
 	notebook_ui.offset.y = offscreen

@@ -9,6 +9,7 @@ signal finished
 #@onready var choice_box: ChoiceBox = $ChoiceBox
 @export var box: DialogueBox
 @export var choice_box: ChoiceBox
+@export var notebook_btn: AnimatedButton
 
 var _data: Dictionary = {}
 var _sets: Array = []

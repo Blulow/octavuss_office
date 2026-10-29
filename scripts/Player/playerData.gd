@@ -4,6 +4,7 @@ extends Node
 signal money_changed(new_amount: int)
 signal fact_added(new_fact: Fact)
 signal facts_reset
+signal game_start
 signal game_end(ending: int)
 signal reset_game
 signal stat_applied

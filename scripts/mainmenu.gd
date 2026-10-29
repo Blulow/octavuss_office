@@ -131,6 +131,7 @@ func _on_start_game_onclick():
 	
 	#name_stand.visible = false
 	PlayerData.game_started = true
+	PlayerData.game_start.emit()
 	var tween = create_tween()
 	start_game_tween(tween)
 	await tween.finished
@@ -148,6 +149,7 @@ func _on_restart_onclick():
 	
 	PlayerData.reset()
 	PlayerData.game_started = true
+	PlayerData.game_start.emit()
 	
 	await close_end_tween()
 	
