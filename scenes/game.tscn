@@ -175,8 +175,9 @@ anchor_bottom = 1.0
 
 [node name="NoteBook" parent="NotebookOverlay" unique_id=445173662 instance=ExtResource("9_vtaks")]
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=788798615]
+[node name="UI" type="CanvasLayer" parent="." unique_id=788798615 node_paths=PackedStringArray("session_manager")]
 script = ExtResource("11_ca42v")
+session_manager = NodePath("../SessionManager")
 
 [node name="NotebookButton" type="Button" parent="UI" unique_id=2014425624 node_paths=PackedStringArray("overlay")]
 custom_minimum_size = Vector2(40, 40)
@@ -244,6 +245,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.325, 0.325)
 texture = ExtResource("15_ir15t")
+
+[node name="SessionLabel" type="Label" parent="UI" unique_id=1121107440]
+offset_left = 400.0
+offset_top = 34.0
+offset_right = 779.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 85
+text = "Session 1"
 
 [node name="SettingsPanelWiring" type="Node" parent="UI" unique_id=1590177796 node_paths=PackedStringArray("parent")]
 script = ExtResource("17_ssvqc")
