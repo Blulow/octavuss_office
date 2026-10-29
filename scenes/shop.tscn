@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cdp6ibmmjc1io" path="res://assets/model/mirror.glb" id="10_44xle"]
 [ext_resource type="Texture2D" uid="uid://bvb1dgsg5w8to" path="res://assets/textures/checkpoint jam environment2_BaseColor.png" id="11_24it5"]
 [ext_resource type="Texture2D" uid="uid://defswq55j20vi" path="res://assets/textures/checkpoint jam environment2_Normal.png" id="12_7mqwv"]
+[ext_resource type="Texture2D" uid="uid://dlal3cmti385t" path="res://assets/images/characters/doctor.png" id="16_5u241"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_032fp"]
 render_priority = 0
@@ -27,19 +28,19 @@ shader_parameter/outline_thickness = 3.00000011875
 shader_parameter/constant_width = true
 shader_parameter/distance_falloff = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6sft"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqync"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4ofw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yuijs"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_heatd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aa4hd"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1v8qu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68utx"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
@@ -68,8 +69,6 @@ stencil_mode = 3
 stencil_flags = 1
 stencil_compare = 5
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xrivr"]
-
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_msd4h"]
 albedo_texture = ExtResource("11_24it5")
 normal_enabled = true
@@ -92,7 +91,7 @@ visible = false
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -11.621645, -1.0241597, -5.163946)
 
 [node name="Mesh" parent="Headphones" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
-material = SubResource("StandardMaterial3D_y6sft")
+material = SubResource("StandardMaterial3D_pqync")
 item_name = "Newspaper"
 price = 4
 item_description = "Noise muffler: Muffles out noise with negative influence, makes the client not feel pressured over time"
@@ -109,7 +108,7 @@ transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -11.621645, 1.8163545
 
 [node name="Mesh" parent="StressBall" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
 transform = Transform3D(1.44, 0, 0, 0, 1.4399999, 0, 0, 0, 1.44, 0, 0, 0)
-material = SubResource("StandardMaterial3D_m4ofw")
+material = SubResource("StandardMaterial3D_yuijs")
 item_name = "Stress Ball"
 price = 2
 item_description = "Stress Ball: Temporarily calms down client, but can make them think less actively"
@@ -129,7 +128,7 @@ stat_name = "fact"
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -9.621645, 1.8163545, -5.163946)
 
 [node name="Mesh" parent="Newspaper" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
-material = SubResource("StandardMaterial3D_heatd")
+material = SubResource("StandardMaterial3D_aa4hd")
 item_name = "Newspaper"
 price = 5
 item_description = "Information Wiki: A wiki full of information about constructing information, lets the client gradually think more"
@@ -145,7 +144,7 @@ stat_name = "fact"
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -7.621645, 1.8163545, -5.163946)
 
 [node name="Mesh" parent="EnergyDrink" index="0" unique_id=1483267050 node_paths=PackedStringArray("perks")]
-material = SubResource("StandardMaterial3D_1v8qu")
+material = SubResource("StandardMaterial3D_68utx")
 item_name = "Energy Drink"
 price = 1
 item_description = "Energy Drink: Boosts the client's confidence by a lot temporarily, but can worsen their logic and attitude"
@@ -325,7 +324,7 @@ shape = SubResource("BoxShape3D_xrivr")
 [node name="mirror" parent="Mirror" unique_id=1189326179 instance=ExtResource("10_44xle")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -0.27931833, -3.2732677, 0.7754588)
 
-[node name="Mirror_obj1_Cylinder003" parent="Mirror/mirror" index="0" unique_id=1556360157]
+[node name="Mirror_obj1_Cylinder003" parent="Mirror/mirror" index="0" unique_id=1932642695]
 transform = Transform3D(0.035, 0, 0, 0, -1.5298985e-09, -0.035, 0, 0.035, -1.5298985e-09, 0.4175501, 0, 0)
 surface_material_override/0 = SubResource("ORMMaterial3D_24it5")
 
@@ -348,16 +347,16 @@ transform = Transform3D(2.88, 0, 0, 0, 2.88, 0, 0, 0, 2.88, -23.929745, 1.110807
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.07969, -0.9450002, -21.307999)
 
 [node name="PlayerReflectEndPoint" type="Marker3D" parent="." unique_id=1306431018]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.0753481, -0.94693565, -8.171267)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.50850415, -0.94693565, -8.120404)
 
-[node name="PlayerReflect" type="CSGMesh3D" parent="." unique_id=741920682]
-transform = Transform3D(2.5, 0, 7.1054274e-15, 0, 2.5, 0, -1.4210855e-14, 0, 2.5, 0.107877254, -0.9450002, -14.561914)
-mesh = SubResource("CapsuleMesh_xrivr")
+[node name="PlayerReflect" type="Sprite3D" parent="." unique_id=610603140]
+transform = Transform3D(0.365, 0, 2.074785e-15, 0, 0.365, 0, -2.074785e-15, 0, 0.365, 0.107877254, -0.9450002, -14.561914)
+texture = ExtResource("16_5u241")
 
 [node name="board" parent="." unique_id=788358636 instance=ExtResource("9_m4ofw")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -11.343654, -0.2601738, -5.49668)
 
-[node name="BlackBoard_obj_Box001" parent="board" index="0" unique_id=1437998873]
+[node name="BlackBoard_obj_Box001" parent="board" index="0" unique_id=1037749724]
 transform = Transform3D(0.04, 0, 0, 0, -1.7484555e-09, -0.04, 0, 0.04, -1.7484555e-09, 0, 0, 0.70781374)
 material_override = SubResource("ORMMaterial3D_msd4h")
 
