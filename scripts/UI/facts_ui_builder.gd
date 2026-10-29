@@ -25,7 +25,10 @@ var source_text: String = ""
 
 func _ready() -> void:
 	facts_box.global_position.x = -600
+	facts_box.rotation = 0.1
 	return_btn.pressed.connect(func():
+		facts_box.global_position.x = -600
+		facts_box.rotation = 0.1
 		choice_ui.hide()
 		var before_facts: Array = dialogue_scene._facts.duplicate()
 		before_facts.pop_back()
