@@ -22,6 +22,8 @@ const CLOSING_META := &"_closing"
 ## true = free the panel after it exits, false = just hide it.
 @export var free_when_done := true
 
+@onready var clipboard_audio: AudioStreamPlayer2D = $"../ClipboardAudio"
+
 
 func _ready() -> void:
 	if panel == null:
@@ -31,6 +33,8 @@ func _ready() -> void:
 
 func close() -> void:
 	close_panel(panel, direction, add_rotation, duration, overshoot, free_when_done)
+	clipboard_audio.stream = preload("res://assets/sounds/sfx/clipboard_close.wav")
+	clipboard_audio.play()
 
 
 static func close_panel(

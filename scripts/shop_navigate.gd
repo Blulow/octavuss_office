@@ -14,6 +14,8 @@ extends Node
 @export var follower_destination: Node3D
 @export var delivery: ItemDelivery
 
+@export var woosh_audio: AudioStreamPlayer2D
+
 var _tween: Tween
 
 # Saved state so we can reverse
@@ -64,6 +66,9 @@ func rotate_then_move(
 
 	var end_rotation: Vector3 = obj.rotation_degrees + rotation_offset_degrees
 
+	woosh_audio.stream = preload("res://assets/sounds/sfx/woosh_in.wav")
+	woosh_audio.play()
+
 	_tween = get_tree().create_tween()
 	_tween.set_trans(Tween.TRANS_SINE)
 	_tween.set_ease(Tween.EASE_IN_OUT)
@@ -79,6 +84,9 @@ func rotate_then_move(
 func reverse_move() -> void:
 	if not _has_moved or not is_instance_valid(_moved_obj):
 		return
+
+	woosh_audio.stream = preload("res://assets/sounds/sfx/woosh_out.wav")
+	woosh_audio.play()
 
 	if _tween and _tween.is_running():
 		_tween.kill()

@@ -17,6 +17,7 @@ const FactItemScript := preload("res://scripts/fact_item.gd")
 @export var header: HBoxContainer
 @export var list: VBoxContainer
 @export var minimize: AnimatedButton
+@export var clipboard_audio: AudioStreamPlayer2D
 
 var _dragging := false          # a fact row is being dragged
 var _dragging_box := false      # the panel itself is being dragged
@@ -158,10 +159,14 @@ func _toggle_collapsed() -> void:
 	if _collapsed:
 		#minimize.text = "+"
 		minimize.get_node("TextureRect").texture = preload("res://assets/images/maximize.png")
+		clipboard_audio.stream = preload("res://assets/sounds/sfx/clipboard_close.wav")
+		clipboard_audio.play()
 		_restore_position = position
 	else:
 		#minimize.text = "-"
 		minimize.get_node("TextureRect").texture = preload("res://assets/images/minimize.png")
+		clipboard_audio.stream = preload("res://assets/sounds/sfx/clipboard_open.wav")
+		clipboard_audio.play()
 		list.show()
 
 	var start_position: Vector2 = position

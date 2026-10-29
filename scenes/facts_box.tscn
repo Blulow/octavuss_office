@@ -12,7 +12,7 @@ region = Rect2(520, 20, 813, 1043)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kx4f"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="FactsBox" type="Control" unique_id=1208479403 node_paths=PackedStringArray("header", "list", "minimize")]
+[node name="FactsBox" type="Control" unique_id=1208479403 node_paths=PackedStringArray("header", "list", "minimize", "clipboard_audio")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -22,6 +22,7 @@ script = ExtResource("1_facts")
 header = NodePath("Header")
 list = NodePath("List")
 minimize = NodePath("Header/Minimize")
+clipboard_audio = NodePath("ClipboardAudio")
 
 [node name="Background" type="TextureRect" parent="." unique_id=967821443]
 layout_mode = 0
@@ -77,3 +78,5 @@ offset_right = 267.0
 offset_bottom = 320.0
 mouse_filter = 0
 theme_override_constants/separation = 8
+
+[node name="ClipboardAudio" type="AudioStreamPlayer2D" parent="." unique_id=1945667691]

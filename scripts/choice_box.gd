@@ -18,6 +18,8 @@ const HIGHLIGHT_GREEN := Color(0.479, 0.965, 0.725, 1.0)
 @onready var btn2: ChoiceButton = $Buttons/ChoiceButton2
 @onready var btn3: ChoiceButton = $Buttons/ChoiceButton3
 
+@onready var paper_audio: AudioStreamPlayer2D = $PaperAudio
+
 var _buttons: Array[Button] = []
 var _anchor_y := 0.0
 var _drop_active := false
@@ -42,6 +44,15 @@ func _ready() -> void:
 func choice_button_hover(button: Button) -> void:
 	var tween = create_tween()
 	tween.tween_property(button, "scale", Vector2(1.1, 1.1), 0.1)
+	
+	match randi_range(1, 3):
+		1:
+			paper_audio.stream = preload("res://assets/sounds/sfx/paper_select_1.wav")
+		2:
+			paper_audio.stream = preload("res://assets/sounds/sfx/paper_select_2.wav")
+		3:
+			paper_audio.stream = preload("res://assets/sounds/sfx/paper_select_3.wav")
+	paper_audio.play()
 
 func choice_button_exit(button: Button) -> void:
 	var tween = create_tween()

@@ -205,6 +205,8 @@ offset_bottom = 244.0
 scale = Vector2(0.315, 0.315)
 texture = ExtResource("12_dinhu")
 
+[node name="NotebookAudio" type="AudioStreamPlayer2D" parent="UI/NotebookButton" unique_id=712460890]
+
 [node name="Money" type="Control" parent="UI" unique_id=1125710103]
 layout_mode = 3
 anchors_preset = 0
@@ -259,3 +261,6 @@ script = ExtResource("17_ssvqc")
 panel_scene = ExtResource("18_264po")
 parent = NodePath("../../DialogueSceneFacts")
 direction = 0
+
+[node name="ClipboardAudio" type="AudioStreamPlayer2D" parent="UI/SettingsPanelWiring" unique_id=813184353]
+bus = &"SFX"

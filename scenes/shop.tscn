@@ -298,6 +298,8 @@ item_price = NodePath("../ColorRect/ItemPrice")
 item_description_label = NodePath("../../Mirror/Description")
 money_label = NodePath("../ColorRect/Money")
 
+[node name="ItemBuyAudio" type="AudioStreamPlayer3D" parent="CanvasLayer/Shop_UI" unique_id=524338737]
+
 [node name="Mirror" type="Node3D" parent="." unique_id=821524511]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1707265, -0.32350802, -5.9492016)
 
@@ -320,7 +322,7 @@ mesh = SubResource("CylinderMesh_7mqwv")
 material = SubResource("StandardMaterial3D_j7ex8")
 
 [node name="Description" type="Label3D" parent="Mirror" unique_id=965422724]
-transform = Transform3D(1, 0, 0, 0, 1, 0, -2.2737368e-13, 0, 1, -4.1619644, 3.6753473, 1.1558404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, -2.2737368e-13, 0, 1, -4.1619644, 3.4580421, 1.9731429)
 pixel_size = 0.002
 render_priority = 1
 modulate = Color(0.14453125, 0.14453125, 0.14453125, 1)

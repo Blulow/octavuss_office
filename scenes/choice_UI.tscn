@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c2j2653bqfa5i"]
 
 [ext_resource type="Script" uid="uid://b3ccbwtmxl1sy" path="res://scripts/button.gd" id="1_37s4m"]
+[ext_resource type="Script" uid="uid://b7nlya17th6lh" path="res://scripts/choice_ui.gd" id="1_iorau"]
 [ext_resource type="Texture2D" uid="uid://d1hk1sgtkxifr" path="res://assets/images/unlock_new_facts.png" id="2_37s4m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8ny3"]
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iorau")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=531631355]
 layout_mode = 1
@@ -136,3 +138,8 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 42
 text = "CHOOSE AN ACTION"
 horizontal_alignment = 1
+
+[node name="PaperAudio" type="AudioStreamPlayer2D" parent="." unique_id=974703460]
+
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/FactCheck" to="." method="_on_fact_check_mouse_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/BuySomething" to="." method="_on_buy_something_mouse_entered"]

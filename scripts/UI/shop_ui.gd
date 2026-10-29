@@ -76,6 +76,9 @@ func _on_item_purchased(item: Item) -> void:
 	money_label.text = "Money: " + str(PlayerData.money)
 	item_bought = true
 	_update_buy_button(item)
+	
+	$ItemBuyAudio.stream = preload("res://assets/sounds/sfx/item_buy.wav")
+	$ItemBuyAudio.play()
 
 	# wait 1 second, then fire the event (true = timer keeps running even if the tree is paused)
 	await get_tree().create_timer(1.5, true).timeout

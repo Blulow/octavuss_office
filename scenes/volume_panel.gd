@@ -9,12 +9,18 @@ func _ready() -> void:
 	music_slider.value_changed.connect(_on_music_value_changed)
 	sfx_slider.value_changed.connect(_on_sfx_value_changed)
 	
+	$CloseButton.mouse_entered.connect(_on_btn_entered)
+	
 	master_slider.value = PlayerData.audio_settings.master
 	music_slider.value = PlayerData.audio_settings.music
 	sfx_slider.value = PlayerData.audio_settings.sfx
 
 func _on_close_button_pressed() -> void:
 	visible = false
+
+func _on_btn_entered() -> void:
+	$StampAudio.stream = preload("res://assets/sounds/sfx/stamp_click.wav")
+	$StampAudio.play()
 
 func _on_music_value_changed(value: float) -> void:
 	PlayerData.audio_settings.music = value

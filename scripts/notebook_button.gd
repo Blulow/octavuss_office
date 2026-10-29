@@ -18,6 +18,8 @@ const BOOK_OPAQUE := Rect2(85, 164, 1825, 916)
 @onready var notebook_ui: CanvasLayer = notebook.get_node("UI")
 @onready var blur: ColorRect = overlay.get_node("Blur")
 
+@onready var notebook_audio: AudioStreamPlayer2D = $NotebookAudio
+
 var _open := false
 var _animating := false
 
@@ -39,8 +41,12 @@ func _toggle() -> void:
 	_open = not _open
 	overlay.visible = true
 	if _open:
+		notebook_audio.stream = preload("res://assets/sounds/sfx/woosh_in.wav")
+		notebook_audio.play()
 		await _open_notebook()
 	else:
+		notebook_audio.stream = preload("res://assets/sounds/sfx/woosh_out.wav")
+		notebook_audio.play()
 		await _close_notebook()
 	_animating = false
 

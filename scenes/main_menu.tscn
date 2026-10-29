@@ -539,7 +539,7 @@ mesh = SubResource("SphereMesh_13qdw")
 [node name="Shop" parent="." unique_id=1933303201 instance=ExtResource("20_gw5y6")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 7.812, 3.158, 2.923)
 
-[node name="ShopNavigate" type="Node" parent="." unique_id=1189272012 node_paths=PackedStringArray("choice_ui", "destination_node", "btn", "shop", "session", "follower", "follower_start", "follower_destination", "delivery")]
+[node name="ShopNavigate" type="Node" parent="." unique_id=1189272012 node_paths=PackedStringArray("choice_ui", "destination_node", "btn", "shop", "session", "follower", "follower_start", "follower_destination", "delivery", "woosh_audio")]
 script = ExtResource("18_svtp6")
 choice_ui = NodePath("../Game/ChoiceUIManager")
 destination_node = NodePath("../Shop/Camera3D")
@@ -551,6 +551,9 @@ follower = NodePath("../Shop/PlayerReflect")
 follower_start = NodePath("../Shop/PlayerReflectStartPoint")
 follower_destination = NodePath("../Shop/PlayerReflectEndPoint")
 delivery = NodePath("../Player/ItemDelivery")
+woosh_audio = NodePath("WooshAudio")
+
+[node name="WooshAudio" type="AudioStreamPlayer2D" parent="ShopNavigate" unique_id=1966424077]
 
 [node name="PaperShader" type="CanvasLayer" parent="." unique_id=932288097]
 

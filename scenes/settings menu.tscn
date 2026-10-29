@@ -79,4 +79,10 @@ close_button = NodePath("../Button3")
 panel = NodePath("..")
 direction = 1
 
+[node name="ClipboardAudio" type="AudioStreamPlayer2D" parent="." unique_id=1234135813]
+
+[node name="StampAudio" type="AudioStreamPlayer2D" parent="." unique_id=658664409]
+position = Vector2(442.00003, 206)
+scale = Vector2(0.51866215, 0.5123724)
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

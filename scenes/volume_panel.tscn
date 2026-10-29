@@ -181,4 +181,6 @@ pivot_offset = Vector2(0, 0)
 icon = ExtResource("4_rdtvf")
 flat = true
 
+[node name="StampAudio" type="AudioStreamPlayer2D" parent="." unique_id=1877555546]
+
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
