@@ -23,6 +23,9 @@ var hovering: bool = false
 @onready var restart: Strip2D = $UI/Book2/Strips/TextureRect/Strip
 @onready var back: Strip2D = $UI/Book2/Strips/TextureRect2/Strip2
 
+@onready var client: Node3D = $World/Client
+var session_manager: SessionManager
+
 @onready var dialogues: Node3D = $Game
 
 @export_multiline var opening_text: String = """
@@ -83,6 +86,14 @@ func _ready() -> void:
 		" process_mode=", process_mode,
 		" mouse=", Input.mouse_mode)
 	
+	session_manager = dialogues.get_node("SessionManager")
+	session_manager.session_end.connect(func():
+		await client_swing_out()
+		session_manager.action_start.emit())
+	session_manager.action_finish.connect(func():
+		await client_swing_in()
+		session_manager.session_start.emit())
+	
 	PlayerData.game_end.connect(_on_game_end)
 	
 	start_game.active = true
@@ -138,7 +149,7 @@ func _on_start_game_onclick():
 	
 	book.visible = false
 	title.visible = false
-	dialogues.get_node("SessionManager").load_next_session(true)
+	session_manager.load_next_session(true)
 
 func _on_quit_game_onclick():
 	get_tree().quit()
@@ -153,7 +164,7 @@ func _on_restart_onclick():
 	
 	await close_end_tween()
 	
-	dialogues.get_node("SessionManager").load_next_session(true)
+	session_manager.load_next_session(true)
 
 func _on_back_onclick():
 	restart.active = false
@@ -182,12 +193,19 @@ func _on_back_onclick():
 	tween.tween_property(title, "global_position:y", title.global_position.y - 1000, 0.3)
 
 func start_game_tween (tween : Tween):
+	client.global_position.x -= 20
+	
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_parallel()
 	tween.tween_property(trans_cam, "global_position", player_cam.global_position, 0.3)
 	tween.tween_property(trans_cam, "global_rotation", player_cam.global_rotation, 0.3)
 	tween.tween_property(book, "global_position:y", book.global_position.y + 1000, 0.3)
 	tween.tween_property(title, "global_position:y", title.global_position.y + 1000, 0.3)
+	
+	tween.set_parallel(false)
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.tween_property(client, "global_position:x", client.global_position.x + 20, 1.0)
+	tween.tween_interval(1.0)
 
 func close_end_tween() -> void:
 	var tween = create_tween()
@@ -238,6 +256,19 @@ func _process(delta: float) -> void:
 		page_text.camera_pos = page_states[3 if is_open else 1].pos
 		page_text.camera_rot = page_states[3 if is_open else 1].rot
 		page_text.get_surface_override_material(0).set_shader_parameter("curve_strength", page_states[3 if is_open else 1].curve)
+
+func client_swing_in() -> void:
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.tween_property(client, "global_position:x", client.global_position.x + 20, 1.0)
+	await tween.finished
+
+func client_swing_out() -> void:
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(client, "global_position:x", client.global_position.x - 20, 0.7)
+	await tween.finished
 
 func _on_start_game_onhover():
 	hovering = true

@@ -1,6 +1,11 @@
 extends Control
 class_name SessionManager
 
+signal session_start
+signal session_end
+signal action_start
+signal action_finish
+
 @export var dialogue_scene: DialogueScene
 @export var sessions_files: Array[JSON]
 @export var choice_ui_manager: ChoiceUIManager
@@ -9,6 +14,7 @@ class_name SessionManager
 var accept_choices: bool = false
 
 func _ready():
+	action_start.connect(_on_action_start)
 	dialogue_scene.finished.connect(_on_dialogue_finished)
 
 func load_next_session(first = false) -> void:
@@ -29,11 +35,18 @@ func _on_dialogue_finished() -> void:
 	accept_choices = true
 	
 	await choice_ui_manager.hidden
+	action_finish.emit()
+	
+	await session_start
 	load_next_session()
 	PlayerData.add_money(money_add_per_session)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		if not accept_choices: return
-		choice_ui_manager.show_ui()
 		accept_choices = false
+		
+		session_end.emit()
+
+func _on_action_start() -> void:
+	choice_ui_manager.show_ui()

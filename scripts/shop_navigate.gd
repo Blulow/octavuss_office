@@ -98,11 +98,17 @@ func reverse_move() -> void:
 	await _tween.finished
 	_has_moved = false
 	
+	session.action_finish.emit()
+	
+	await session.session_start
+	
 	if shop.bought_item != null and delivery != null:
 		await delivery.play(shop.bought_item)    # new
 	
-	await get_tree().create_timer(1, true).timeout  
+	#await get_tree().create_timer(1, true).timeout  
+	
 	session.load_next_session()
+	PlayerData.add_money(session.money_add_per_session)
 	
 
 func _reset_follower_to_start() -> void:
