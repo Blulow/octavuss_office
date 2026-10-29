@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://h5s5tpnu800y" path="res://assets/model/energy_drink.glb" id="1_sh0nh"]
 [ext_resource type="Texture2D" uid="uid://bvb1dgsg5w8to" path="res://assets/textures/checkpoint jam environment2_BaseColor.png" id="2_iktrc"]
 [ext_resource type="Texture2D" uid="uid://defswq55j20vi" path="res://assets/textures/checkpoint jam environment2_Normal.png" id="3_0odfv"]
+[ext_resource type="Shader" uid="uid://dyob2qjpd80uc" path="res://assets/shader/orb.gdshader" id="4_0odfv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdemo"]
 size = Vector3(0.5951538, 1, 0.5944824)
@@ -12,8 +13,20 @@ albedo_texture = ExtResource("2_iktrc")
 normal_enabled = true
 normal_texture = ExtResource("3_0odfv")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b1lj4"]
+render_priority = 0
+shader = ExtResource("4_0odfv")
+shader_parameter/glow_color = Color(0.3, 0.7, 1, 1)
+shader_parameter/intensity = 3.0000001425
+shader_parameter/falloff = 4.50000019
+shader_parameter/noise_strength = 0.5
+shader_parameter/noise_scale = 2.0
+shader_parameter/scroll_speed = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_xrivr"]
+
 [node name="EnergyDrink" type="RigidBody3D" unique_id=1723676252]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1162177833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013824463, 0, -0.037719727)
@@ -22,8 +35,13 @@ shape = SubResource("BoxShape3D_kdemo")
 [node name="energy_drink" parent="." unique_id=722643209 instance=ExtResource("1_sh0nh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22916144, -0.5969658, 2.2371287)
 
-[node name="out_of_4_models_for_item_UVed1_EnergyDrink" parent="energy_drink" index="0" unique_id=1626673393]
+[node name="out_of_4_models_for_item_UVed1_EnergyDrink" parent="energy_drink" index="0" unique_id=1418749399]
 transform = Transform3D(-0.03793858, 0.032567836, -1.4235855e-09, 4.767554e-17, -2.1855697e-09, -0.049999997, -0.032567836, -0.03793858, 1.6583485e-09, 1.1074293, 4.7683716e-07, -4.1158695)
 surface_material_override/0 = SubResource("ORMMaterial3D_ue4dh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=617181103]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_b1lj4")
+mesh = SubResource("SphereMesh_xrivr")
 
 [editable path="energy_drink"]

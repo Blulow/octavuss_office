@@ -12,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://hl8gocycs3dn" path="res://assets/images/page_1.PNG" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
-[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/ui/settings_panel.gd" id="12_7b55j"]
+[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/UI/settings_panel.gd" id="12_7b55j"]
 [ext_resource type="PackedScene" uid="uid://dfppk43mgk0cj" path="res://scenes/curved_page.tscn" id="12_a8gd2"]
 [ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
-[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_5pajh"]
+[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://settings menu.tscn" id="13_5pajh"]
 [ext_resource type="Shader" uid="uid://bl1mycnmgx5di" path="res://assets/shader/curve_plane.gdshader" id="13_hstxw"]
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
 [ext_resource type="Texture2D" uid="uid://y03s7vj54n5e" path="res://assets/images/paper_ending.png" id="15_1acrt"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://brw7r004eirvy" path="res://scenes/client.tscn" id="19_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://c3x63tjv3fxev" path="res://scenes/shop.tscn" id="20_gw5y6"]
 [ext_resource type="Shader" uid="uid://drbuviww2gyb3" path="res://assets/shader/outline3d.gdshader" id="21_1dfpl"]
+[ext_resource type="PackedScene" uid="uid://ddnsslucrlopo" path="res://scenes/particles.tscn" id="23_vr8o3"]
+[ext_resource type="Shader" uid="uid://dyob2qjpd80uc" path="res://assets/shader/orb.gdshader" id="24_1a85y"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8ny3"]
 
@@ -88,15 +90,15 @@ animations = [{
 [sub_resource type="ViewportTexture" id="ViewportTexture_u8ny3"]
 viewport_path = NodePath("UI/Book/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1acrt"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1a85y"]
 viewport_path = NodePath("CurvedPage/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vr8o3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hl5e0"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("13_hstxw")
 shader_parameter/curve_strength = 0.6420000779950001
-shader_parameter/albedo_tex = SubResource("ViewportTexture_1acrt")
+shader_parameter/albedo_tex = SubResource("ViewportTexture_1a85y")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_drhbd"]
@@ -116,6 +118,19 @@ stencil_mode = 3
 stencil_flags = 1
 stencil_compare = 5
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b1lj4"]
+render_priority = 0
+shader = ExtResource("24_1a85y")
+shader_parameter/glow_color = Color(0.3, 0.7, 1, 1)
+shader_parameter/intensity = 2.0
+shader_parameter/falloff = 2.5
+shader_parameter/noise_strength = 0.5
+shader_parameter/noise_scale = 2.0
+shader_parameter/scroll_speed = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_13qdw"]
+material = SubResource("ShaderMaterial_b1lj4")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_032fp"]
 render_priority = 0
 shader = ExtResource("21_1dfpl")
@@ -126,19 +141,19 @@ shader_parameter/outline_thickness = 3.00000011875
 shader_parameter/constant_width = true
 shader_parameter/distance_falloff = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1a85y"]
-resource_local_to_scene = true
-next_pass = SubResource("ShaderMaterial_032fp")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl5e0"]
-resource_local_to_scene = true
-next_pass = SubResource("ShaderMaterial_032fp")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_engjn"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6h3lr"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_032fp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj67d"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_032fp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6vcge"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_032fp")
 
@@ -163,15 +178,19 @@ mesh = SubResource("CapsuleMesh_u8ny3")
 [node name="PlayerCam" type="Camera3D" parent="Player" unique_id=1977211648]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6272142, -0.37168598)
 
-[node name="ItemDelivery" type="Node" parent="Player" unique_id=1664052139 node_paths=PackedStringArray("showcase", "start_point", "end_point")]
+[node name="ItemDelivery" type="Node" parent="Player" unique_id=1664052139 node_paths=PackedStringArray("showcase", "start_point", "end_point", "particles")]
 script = ExtResource("2_gw5y6")
 showcase = NodePath("../../Shop/ItemShowcase")
 start_point = NodePath("../HandPos")
 end_point = NodePath("../../World/Client/GetPos")
+arc_height = 2.0
 travel_time = 1.2
 rise_distance = 0.8
 rise_time = 0.7
 fade_delay = 0.5
+particles = NodePath("../../World/Client/ClientParticles")
+use_rigidbody = true
+launch_speed = 7.0
 
 [node name="HandPos" type="Marker3D" parent="Player" unique_id=173825106]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45351362, 0, 0)
@@ -376,7 +395,7 @@ own_world_3d = true
 transparent_bg = true
 
 [node name="Page" parent="UI/Book/SubViewport" unique_id=1650568177 instance=ExtResource("12_a8gd2")]
-surface_material_override/0 = SubResource("ShaderMaterial_vr8o3")
+surface_material_override/0 = SubResource("ShaderMaterial_hl5e0")
 camera_pos = Vector3(-1.02, 1, -0.015)
 camera_rot = Vector3(-1.555, 0, -0.01)
 font_size = 23
@@ -522,20 +541,35 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000001, 0, 
 [node name="GetPos" type="Marker3D" parent="World/Client" unique_id=1642017859]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
 
+[node name="ClientParticles" parent="World/Client" unique_id=530848067 node_paths=PackedStringArray("scale_target") instance=ExtResource("23_vr8o3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, -0.15811133)
+emitting = false
+amount = 20
+spread = 40.0
+glow_intensity = 4.0
+enter_exit_time = 1.0
+scale_target = NodePath("../MeshInstance3D")
+start_scale = Vector3(1, 1, 1)
+peak_scale = Vector3(3.5, 3.5, 3.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Client" unique_id=1001769297]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.24641207, -0.59709644)
+mesh = SubResource("SphereMesh_13qdw")
+
 [node name="Shop" parent="." unique_id=1933303201 instance=ExtResource("20_gw5y6")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 7.812, 3.158, 2.923)
 
 [node name="Mesh" parent="Shop/Headphones" parent_id_path=PackedInt32Array(1933303201, 2135113639) index="0" unique_id=1483267050]
-material = SubResource("StandardMaterial3D_1a85y")
-
-[node name="Mesh" parent="Shop/StressBall" parent_id_path=PackedInt32Array(1933303201, 1625085186) index="0" unique_id=1483267050]
-material = SubResource("StandardMaterial3D_hl5e0")
-
-[node name="Mesh" parent="Shop/Newspaper" parent_id_path=PackedInt32Array(1933303201, 552804308) index="0" unique_id=1483267050]
 material = SubResource("StandardMaterial3D_engjn")
 
-[node name="Mesh" parent="Shop/EnergyDrink" parent_id_path=PackedInt32Array(1933303201, 1186247369) index="0" unique_id=1483267050]
+[node name="Mesh" parent="Shop/StressBall" parent_id_path=PackedInt32Array(1933303201, 1625085186) index="0" unique_id=1483267050]
 material = SubResource("StandardMaterial3D_6h3lr")
+
+[node name="Mesh" parent="Shop/Newspaper" parent_id_path=PackedInt32Array(1933303201, 552804308) index="0" unique_id=1483267050]
+material = SubResource("StandardMaterial3D_dj67d")
+
+[node name="Mesh" parent="Shop/EnergyDrink" parent_id_path=PackedInt32Array(1933303201, 1186247369) index="0" unique_id=1483267050]
+material = SubResource("StandardMaterial3D_6vcge")
 
 [node name="ShopNavigate" type="Node" parent="." unique_id=1189272012 node_paths=PackedStringArray("choice_ui", "destination_node", "btn", "shop", "session", "follower", "follower_start", "follower_destination", "delivery")]
 script = ExtResource("18_svtp6")

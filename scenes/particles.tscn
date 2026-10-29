@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ddnsslucrlopo"]
+
+[ext_resource type="Script" uid="uid://b8x677oidljjl" path="res://scripts/fx/rising_particles.gd" id="1_xmlf0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ynjm5"]
+direction = Vector3(0, 1, 0)
+spread = 25.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+
+[node name="ClientParticles" type="GPUParticles3D" unique_id=530848067]
+process_material = SubResource("ParticleProcessMaterial_ynjm5")
+script = ExtResource("1_xmlf0")
+play_duration = null
+start_scale = null
+peak_scale = null
