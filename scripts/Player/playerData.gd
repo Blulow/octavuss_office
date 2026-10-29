@@ -17,6 +17,12 @@ var facts_collected : Array[Fact]
 
 var game_started : bool
 
+var audio_settings: Dictionary = {
+	"master": 100,
+	"music": 50,
+	"sfx": 50
+}
+
 class StatData:
 	func _init(_value: float = 1, _multiplier: float = 1) -> void:
 		value = _value

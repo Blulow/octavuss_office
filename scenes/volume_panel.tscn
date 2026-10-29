@@ -154,13 +154,13 @@ layout_mode = 2
 theme_override_constants/separation = -25
 alignment = 1
 
-[node name="SFX" type="Label" parent="ScrollContainer/VBoxContainer/PanelContainer3/HBoxContainer" unique_id=1133916573]
+[node name="Master" type="Label" parent="ScrollContainer/VBoxContainer/PanelContainer3/HBoxContainer" unique_id=1133916573]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.35546875, 0.24716187, 1)
 theme_override_fonts/font = ExtResource("1_1whqq")
 theme_override_font_sizes/font_size = 31
-text = "VOL"
+text = "Master"
 
 [node name="HSlider" parent="ScrollContainer/VBoxContainer/PanelContainer3/HBoxContainer" unique_id=1763246198 instance=ExtResource("2_ylhix")]
 custom_maximum_size = Vector2(220, -1)
