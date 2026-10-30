@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://bl1mycnmgx5di" path="res://assets/shader/curve_plane.gdshader" id="1_3v0ws"]
 [ext_resource type="Script" uid="uid://xlfi8x6u8udp" path="res://scripts/curved_page.gd" id="2_551yg"]
+[ext_resource type="FontFile" uid="uid://cipgiamvavecd" path="res://assets/fonts/RoadSooned-Regular.otf" id="3_m25g2"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_u8ny3"]
 subdivide_width = 32
@@ -15,6 +16,7 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_3v0ws")
 shader_parameter/curve_strength = 0.43900006835249994
+shader_parameter/axis = 0
 shader_parameter/albedo_tex = SubResource("ViewportTexture_uguvf")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 
@@ -49,6 +51,12 @@ offset_right = 68.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 29
-text = "
-"
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_m25g2")
+theme_override_font_sizes/font_size = 7
+text = "asdsdsadadsaasd
+asdsad
+sadsa
+dsadsad
+asdas
+dsad"

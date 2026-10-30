@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b3ccbwtmxl1sy" path="res://scripts/button.gd" id="1_37s4m"]
 [ext_resource type="Script" uid="uid://b7nlya17th6lh" path="res://scripts/choice_ui.gd" id="1_iorau"]
 [ext_resource type="Texture2D" uid="uid://d1hk1sgtkxifr" path="res://assets/images/unlock_new_facts.png" id="2_37s4m"]
+[ext_resource type="FontFile" uid="uid://cipgiamvavecd" path="res://assets/fonts/RoadSooned-Regular.otf" id="4_p6cgo"]
+[ext_resource type="FontFile" uid="uid://c1px0mcx1h5vp" path="res://assets/fonts/EraserRegular.ttf" id="5_88hmx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8ny3"]
 content_margin_left = 600.0
@@ -77,8 +79,9 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.07243347, 0.39453125, 0.37188375, 1)
-theme_override_font_sizes/font_size = 63
-text = "FACT CHECK"
+theme_override_fonts/font = ExtResource("4_p6cgo")
+theme_override_font_sizes/font_size = 36
+text = "INVESTIGATE"
 
 [node name="BuySomething" type="Button" parent="CenterContainer/VBoxContainer" unique_id=125108009]
 custom_minimum_size = Vector2(600, 150)
@@ -122,7 +125,8 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.07243347, 0.39453125, 0.37188375, 1)
-theme_override_font_sizes/font_size = 63
+theme_override_fonts/font = ExtResource("4_p6cgo")
+theme_override_font_sizes/font_size = 36
 text = "BUY SOMETHING"
 
 [node name="Label" type="Label" parent="." unique_id=1622194203]
@@ -130,12 +134,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -205.0
-offset_top = 40.0
-offset_right = 206.0
-offset_bottom = 98.0
+offset_left = -233.0
+offset_top = 57.0
+offset_right = 234.0
+offset_bottom = 115.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 42
+theme_override_fonts/font = ExtResource("5_88hmx")
+theme_override_font_sizes/font_size = 45
 text = "CHOOSE AN ACTION"
 horizontal_alignment = 1
 

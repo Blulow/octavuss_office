@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cipgiamvavecd"
-path="res://.godot/imported/RoadSooned-Regular.otf-fc025826cd18d2759204123f5eb3edb7.fontdata"
+uid="uid://c1px0mcx1h5vp"
+path="res://.godot/imported/EraserRegular.ttf-552569ccde394812ec90385361b8732d.fontdata"
 
 [deps]
 
-source_file="res://RoadSooned-Regular.otf"
-dest_files=["res://.godot/imported/RoadSooned-Regular.otf-fc025826cd18d2759204123f5eb3edb7.fontdata"]
+source_file="res://assets/fonts/EraserRegular.ttf"
+dest_files=["res://.godot/imported/EraserRegular.ttf-552569ccde394812ec90385361b8732d.fontdata"]
 
 [params]
 

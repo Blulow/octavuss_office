@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://djn6ejhd4tbyk" path="res://scripts/Items/interaction/interaction_effect/sound_effect.gd" id="12_2xo3q"]
 [ext_resource type="Texture2D" uid="uid://cait3h07ks864" path="res://assets/buttons/stamp.png" id="12_j134a"]
 [ext_resource type="AudioStream" uid="uid://iawg57ynxic6" path="res://assets/sounds/sfx/paper_select_2.wav" id="13_3l6h1"]
+[ext_resource type="FontFile" uid="uid://c1px0mcx1h5vp" path="res://assets/fonts/EraserRegular.ttf" id="14_1ytmg"]
+[ext_resource type="FontFile" uid="uid://cipgiamvavecd" path="res://assets/fonts/RoadSooned-Regular.otf" id="15_ngcwe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bdmwb"]
 
@@ -112,10 +114,11 @@ stream = ExtResource("13_3l6h1")
 bus = &"SFX"
 
 [node name="SoldOut" type="Label3D" parent="." unique_id=744121879]
-transform = Transform3D(0.99997514, -0.0017103245, 0.006842496, 0.0017022667, 0.99999785, 0.0011830329, -0.0068445047, -0.0011713536, 0.99997586, 0, 0, 0.76161253)
+transform = Transform3D(0.99997514, -0.0017103245, 0.0068424945, 0.0017022665, 0.9999978, 0.0011830329, -0.0068445047, -0.0011713536, 0.99997586, 0, -0.046077807, 1.474899)
 visible = false
 text = "SOLD 
 OUT"
+font = ExtResource("14_1ytmg")
 font_size = 50
 
 [node name="PriceTag" type="Sprite3D" parent="." unique_id=341984428]
@@ -124,9 +127,10 @@ shaded = true
 texture = ExtResource("12_j134a")
 
 [node name="Price" type="Label3D" parent="PriceTag" unique_id=1470500813]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04022772, 0.078891516, 0.17076933)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04022772, -0.012846708, 0.3601281)
 modulate = Color(0, 0, 0, 1)
 text = "$5"
-font_size = 146
+font = ExtResource("15_ngcwe")
+font_size = 75
 
 [editable path="Mesh/Mesh"]

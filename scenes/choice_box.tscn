@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://7wg3fb7emlyt" path="res://scripts/choice_button.gd" id="2_agea6"]
 [ext_resource type="Texture2D" uid="uid://c20utct68prke" path="res://assets/images/choice_answer_button_copy.png" id="2_ddgls"]
 [ext_resource type="Texture2D" uid="uid://doars06ha1dde" path="res://assets/images/choice_answer_button_copy_2.png" id="3_agea6"]
+[ext_resource type="FontFile" uid="uid://cipgiamvavecd" path="res://assets/fonts/RoadSooned-Regular.otf" id="4_kvwa5"]
 [ext_resource type="Texture2D" uid="uid://dfjcne6kmdc3j" path="res://assets/images/choice_answer_button_copy_3.png" id="4_q1jmx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_choice"]
@@ -58,17 +59,22 @@ offset_left = -25.000006
 offset_top = -25.999998
 offset_right = 377.0
 offset_bottom = 252.0
-scale = Vector2(0.83, 0.83)
+scale = Vector2(0.85, 0.85)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_ddgls")
 
 [node name="Label" type="Label" parent="Buttons/ChoiceButton" unique_id=212115322]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 39.0
-offset_right = 284.0
-offset_bottom = 183.0
+offset_left = 32.0
+offset_top = 35.0
+offset_right = 291.0
+offset_bottom = 182.0
 theme_override_colors/font_color = Color(0.203125, 0.203125, 0.203125, 1)
+theme_override_fonts/font = ExtResource("4_kvwa5")
+theme_override_font_sizes/font_size = 9
+text = "You are tied between two worlds, the forum gives you a sense of belonging that you've been missing elsewhere, but your brother's wishes matter to you."
+horizontal_alignment = 3
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="ChoiceButton2" type="Button" parent="Buttons" unique_id=1673839725]
@@ -90,17 +96,22 @@ offset_left = -27.999998
 offset_top = -30.999998
 offset_right = 374.0
 offset_bottom = 247.0
-scale = Vector2(0.83, 0.83)
+scale = Vector2(0.9, 0.9)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("3_agea6")
 
 [node name="Label" type="Label" parent="Buttons/ChoiceButton2" unique_id=1017699189]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 59.0
-offset_right = 280.0
-offset_bottom = 186.0
+offset_left = 26.0
+offset_top = 45.0
+offset_right = 290.0
+offset_bottom = 192.0
 theme_override_colors/font_color = Color(0.203125, 0.203125, 0.203125, 1)
+theme_override_fonts/font = ExtResource("4_kvwa5")
+theme_override_font_sizes/font_size = 9
+text = "You are tied between two worlds, the forum gives you a sense of belonging that you've been missing elsewhere, but your brother's wishes matter to you."
+horizontal_alignment = 3
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="ChoiceButton3" type="Button" parent="Buttons" unique_id=124851895]
@@ -122,17 +133,22 @@ offset_left = -26.999998
 offset_top = -25.999998
 offset_right = 375.0
 offset_bottom = 252.0
-scale = Vector2(0.83, 0.83)
+scale = Vector2(0.85, 0.85)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_q1jmx")
 
 [node name="Label" type="Label" parent="Buttons/ChoiceButton3" unique_id=796549892]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 47.0
-offset_right = 301.0
+offset_left = 40.0
+offset_top = 29.0
+offset_right = 304.0
 offset_bottom = 185.0
 theme_override_colors/font_color = Color(0.203125, 0.203125, 0.203125, 1)
+theme_override_fonts/font = ExtResource("4_kvwa5")
+theme_override_font_sizes/font_size = 9
+text = "You are tied between two worlds, the forum gives you a sense of belonging that you've been missing elsewhere, but your brother's wishes matter to you."
+horizontal_alignment = 3
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="PaperAudio" type="AudioStreamPlayer2D" parent="." unique_id=961794031]

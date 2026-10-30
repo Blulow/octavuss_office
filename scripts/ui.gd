@@ -36,7 +36,7 @@ func _ready() -> void:
 		tween.tween_property(pause, "modulate:a", 1, 0.3)
 		
 		session_label.modulate.a = 0
-		session_label.text = "Session: " + str(PlayerData.session_index + 1)
+		session_label.text = "SESSION: " + str(PlayerData.session_index + 1)
 		var tween2 = create_tween()
 		tween2.tween_property(session_label, "modulate:a", 0.5, 1.0)
 		tween2.tween_interval(1.0)
@@ -57,7 +57,7 @@ func _ready() -> void:
 	
 	session_manager.session_start.connect(func():
 		session_label.modulate.a = 0
-		session_label.text = "Session: " + str(PlayerData.session_index + 1)
+		session_label.text = "SESSION: " + str(PlayerData.session_index + 1)
 		var tween = create_tween()
 		tween.tween_property(session_label, "modulate:a", 0.5, 1.0)
 		tween.tween_interval(1.0)

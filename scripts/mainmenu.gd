@@ -127,7 +127,7 @@ func _ready() -> void:
 	page_text.set_deferred("text", opening_text)
 	page_text.set_deferred("camera_pos", page_states[0].pos)
 	page_text.set_deferred("camera_rot", page_states[0].rot)
-	page_text.set_deferred("font_size", 13)
+	page_text.set_deferred("font_size", 7)
 	page_text.get_surface_override_material(0).call_deferred("set_shader_parameter", "curve_strength", page_states[0].curve)
 	
 	if PlayerData.game_started:

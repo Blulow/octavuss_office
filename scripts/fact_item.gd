@@ -32,7 +32,8 @@ func setup(fact: Fact, usable_ids: Array) -> void:
 	if _label == null:
 		_label = Label.new()
 		_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		_label.add_theme_font_size_override("font_size", 12)
+		_label.add_theme_font_size_override("font_size", 8)
+		_label.add_theme_font_override("font", preload("res://assets/fonts/RoadSooned-Regular.otf"))
 		add_child(_label)
 	#_label.text = String(fact.get("text", ""))
 	_label.text = fact.text

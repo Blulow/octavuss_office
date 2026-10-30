@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxp8arg6wt7on" path="res://scripts/facts_box.gd" id="1_facts"]
 [ext_resource type="Texture2D" uid="uid://qdij1tbuw2pf" path="res://assets/buttons/clipboard checkpoint.png" id="2_clip"]
+[ext_resource type="FontFile" uid="uid://cipgiamvavecd" path="res://assets/fonts/RoadSooned-Regular.otf" id="3_6b00u"]
 [ext_resource type="Script" uid="uid://b3ccbwtmxl1sy" path="res://scripts/button.gd" id="3_6kx4f"]
 [ext_resource type="Texture2D" uid="uid://dx3dtlminev1f" path="res://assets/images/minimize.png" id="4_84cv4"]
 
@@ -45,7 +46,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.95)
 theme_override_colors/font_outline_color = Color(0.05, 0.12, 0.16, 0.9)
 theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_6b00u")
+theme_override_font_sizes/font_size = 10
 text = "FACTS"
 
 [node name="Spacer" type="Control" parent="Header" unique_id=1683743178]

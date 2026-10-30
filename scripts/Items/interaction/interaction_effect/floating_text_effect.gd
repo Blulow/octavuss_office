@@ -28,6 +28,8 @@ func _ready() -> void:
 	_label.outline_modulate = Color.BLACK
 	_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	_label.no_depth_test = true
+	_label.font = preload("res://assets/fonts/EraserRegular.ttf")
+	_label.render_priority = 2
 	_label.hide()
 	# Parented to the scene, not the item, so it doesn't move when the item does.
 	# Deferred because the scene is still setting up its children during _ready().

@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://djf51fmexl62j" path="res://assets/shader/square_hole.gdshader" id="3_264po"]
 [ext_resource type="Script" uid="uid://bdk0rss6jqxih" path="res://scripts/ui/facts_ui_builder.gd" id="3_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://wc5xt0rq5ilh" path="res://assets/images/return_button.png" id="4_5newe"]
+[ext_resource type="FontFile" uid="uid://cipgiamvavecd" path="res://assets/fonts/RoadSooned-Regular.otf" id="4_37s47"]
 [ext_resource type="Script" uid="uid://dl58dnjwb7fam" path="res://scripts/session_manager.gd" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://co5dhliqpfxqm" path="res://scenes/facts_box.tscn" id="5_1kice"]
 [ext_resource type="JSON" path="res://assets/dialog/session3.json" id="5_dinhu"]
@@ -21,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://ccecjqwepi1sd" path="res://assets/images/menu_memu.png" id="15_ir15t"]
 [ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/ui/settings_panel.gd" id="17_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="18_264po"]
+[ext_resource type="FontFile" uid="uid://c1px0mcx1h5vp" path="res://assets/fonts/EraserRegular.ttf" id="19_37s47"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ssvqc"]
 shader = ExtResource("3_264po")
@@ -97,7 +99,8 @@ offset_right = 198.0
 offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("19_37s47")
+theme_override_font_sizes/font_size = 43
 text = "Fact 1: aldsadjlkhsa"
 horizontal_alignment = 1
 
@@ -112,6 +115,8 @@ offset_top = 198.0
 offset_right = 300.5
 offset_bottom = 403.0
 grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("4_37s47")
+theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "Fact 1: You went to the original gathering venue to investigate. Through the host of the event, you gain access to footage from the security cameras. Record from the sky with drones, you inspect the footage, and find out that the person pushing Leon’s brother is actually the result of getting a domino effect in the crowd.
 "
@@ -227,10 +232,11 @@ texture = ExtResource("13_trtic")
 [node name="Label" type="Label" parent="UI/Money" unique_id=1531371833]
 layout_mode = 0
 offset_left = 81.0
-offset_top = 6.0
+offset_top = 15.0
 offset_right = 170.0
-offset_bottom = 78.0
+offset_bottom = 87.0
 theme_override_colors/font_color = Color(0.07058824, 0.39607844, 0.37254903, 1)
+theme_override_fonts/font = ExtResource("19_37s47")
 theme_override_font_sizes/font_size = 52
 text = "99"
 horizontal_alignment = 1
@@ -255,8 +261,9 @@ offset_left = 400.0
 offset_top = 34.0
 offset_right = 779.0
 offset_bottom = 150.0
+theme_override_fonts/font = ExtResource("19_37s47")
 theme_override_font_sizes/font_size = 85
-text = "Session 1"
+text = "SESSION 1"
 
 [node name="SettingsPanelWiring" type="Node" parent="UI" unique_id=1590177796 node_paths=PackedStringArray("parent")]
 script = ExtResource("17_ssvqc")

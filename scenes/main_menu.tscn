@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dcs5upxi18ff6" path="res://scripts/Items/item_delivery.gd" id="2_gw5y6"]
 [ext_resource type="Texture2D" uid="uid://dljk52dilrweh" path="res://assets/images/book.PNG" id="3_rcqid"]
 [ext_resource type="PackedScene" uid="uid://df8j3swg8lxma" path="res://scenes/ui/strip2d.tscn" id="4_1ajci"]
+[ext_resource type="FontFile" uid="uid://cipgiamvavecd" path="res://assets/fonts/RoadSooned-Regular.otf" id="4_hl5e0"]
 [ext_resource type="Texture2D" uid="uid://cj0n7lbjgvt88" path="res://assets/buttons/bookmark colored start.png" id="5_rcqid"]
 [ext_resource type="Texture2D" uid="uid://didx8i5u30ct6" path="res://assets/buttons/bookmark colored settings.png" id="6_1ajci"]
 [ext_resource type="Texture2D" uid="uid://wm53id1hvk0t" path="res://assets/buttons/bookmark colored quit.png" id="7_7b55j"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_5pajh"]
 [ext_resource type="Shader" uid="uid://bl1mycnmgx5di" path="res://assets/shader/curve_plane.gdshader" id="13_hstxw"]
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
+[ext_resource type="FontFile" uid="uid://c1px0mcx1h5vp" path="res://assets/fonts/EraserRegular.ttf" id="15_1a85y"]
 [ext_resource type="Texture2D" uid="uid://y03s7vj54n5e" path="res://assets/images/paper_ending.png" id="15_1acrt"]
 [ext_resource type="Texture2D" uid="uid://ikevcb64r40l" path="res://assets/images/RESTART_ending.png" id="16_vr8o3"]
 [ext_resource type="Shader" uid="uid://dhmu2l8b2f010" path="res://assets/shader/papercam2d.gdshader" id="17_j7ex8"]
@@ -89,16 +91,16 @@ animations = [{
 [sub_resource type="ViewportTexture" id="ViewportTexture_u8ny3"]
 viewport_path = NodePath("UI/Book/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vr8o3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hl5e0"]
 viewport_path = NodePath("CurvedPage/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1a85y"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_engjn"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("13_hstxw")
 shader_parameter/curve_strength = 0.6420000779950001
 shader_parameter/axis = 0
-shader_parameter/albedo_tex = SubResource("ViewportTexture_vr8o3")
+shader_parameter/albedo_tex = SubResource("ViewportTexture_hl5e0")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_drhbd"]
@@ -211,16 +213,18 @@ TITLE"
 transform = Transform3D(0.98928577, 0, 0.14599197, 0, 1, 0, -0.14599197, 0, 0.98928577, -0.5002061, -0.22344017, 0.5701404)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MainMenuUI/NameStand" unique_id=1193740616]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0.054950446)
+transform = Transform3D(1.1958884, 0, 0, 0, 0.7215607, -0.7215607, 1.4901161e-08, 0.72156066, 0.72156066, 0.0020397902, 0, 0.05525148)
 mesh = SubResource("PlaneMesh_u8ny3")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MainMenuUI/NameStand" unique_id=633596970]
-transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, -0.08770272)
+transform = Transform3D(1.1958884, 0, 0, 0, 0.69265276, 0.72156066, 1.4901161e-08, -0.69265276, 0.7215606, -0.0020398498, 0, -0.088003725)
 mesh = SubResource("PlaneMesh_u8ny3")
 
 [node name="Label3D" type="Label3D" parent="MainMenuUI/NameStand" unique_id=1887682974]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0.057092637)
-text = "Dr Player"
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.012027919, -0.009323582, 0.07571995)
+text = "Dr Octavus"
+font = ExtResource("4_hl5e0")
+font_size = 17
 
 [node name="Lights" type="Node3D" parent="." unique_id=334996124]
 
@@ -361,7 +365,7 @@ layout_mode = 0
 offset_left = 45.0
 offset_top = -180.0
 offset_right = 557.0
-offset_bottom = 332.0
+offset_bottom = 388.0
 texture = SubResource("ViewportTexture_u8ny3")
 
 [node name="SubViewport" type="SubViewport" parent="UI/Book" unique_id=1681019446]
@@ -369,7 +373,7 @@ own_world_3d = true
 transparent_bg = true
 
 [node name="Page" parent="UI/Book/SubViewport" unique_id=1650568177 instance=ExtResource("12_a8gd2")]
-surface_material_override/0 = SubResource("ShaderMaterial_1a85y")
+surface_material_override/0 = SubResource("ShaderMaterial_engjn")
 camera_pos = Vector3(-1.02, 1, -0.015)
 camera_rot = Vector3(-1.555, 0, -0.01)
 font_size = 23
@@ -379,6 +383,7 @@ offset_left = 107.0
 offset_top = 307.0
 offset_right = 354.0
 offset_bottom = 546.0
+theme_override_fonts/font = ExtResource("15_1a85y")
 theme_override_font_sizes/font_size = 86
 text = "GAME
 TITLE"
@@ -393,14 +398,16 @@ scale = Vector2(0.705, 0.705)
 texture = ExtResource("15_1acrt")
 
 [node name="Label" type="Label" parent="UI/Paper" unique_id=1887241441]
-custom_maximum_size = Vector2(650, 500)
+custom_maximum_size = Vector2(650, 800)
 layout_mode = 0
 offset_left = 44.74772
 offset_top = 43.71416
-offset_right = 414.92572
-offset_bottom = 425.10516
+offset_right = 694.74774
+offset_bottom = 843.7142
 theme_override_colors/font_color = Color(0.0625, 0.0625, 0.0625, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = ExtResource("4_hl5e0")
+theme_override_font_sizes/font_size = 14
+text = "sadsadsad sad asd as dsad sad sad sad asd sadd asd adss d sad sad sad sad sa sad sad sad sad sad sad sad sad sad sa ad sad sa dsad sad sad sa dsad da sd sad sad asd sad sad sad ad sadsa d ad ad ad sad sad sad sad sad sad sad ds adsa dsa dsa dsa dsa dsa aD as dsadsadsad sad asd as dsad sad sad sad asd sadd asd adss d sad sad sad sad sa sad sad sad sad sad sad sad sad sad sa ad sad sa dsad sad sad sa dsad da sd sad sad asd sad sad sad ad sadsa d ad ad ad sad sad sad sad sad sad sad ds adsa dsa dsa dsa dsa dsa aD as dsadsadsad sad asd as dsad sad sad sad asd sadd asd adss d sad sad sad sad sa sad sad sad sad sad sad sad sad sad sa ad sad sa dsad sad sad sa dsad da sd sad sad asd sad sad sad ad sadsa d ad ad ad sad sad sad sad sad sad sad ds adsa dsa dsa dsa dsa dsa aD as dsadsadsad sad asd as dsad sad sad sad asd sadd asd adss d sad sad sad sad sa sad sad sad sad sad sad sad sad sad sa ad sad sa dsad sad sad sa dsad da sd sad sad asd sad sad sad ad sadsa d ad ad ad sad sad sad sad sad sad sad ds adsa dsa dsa dsa dsa dsa aD as d"
 autowrap_mode = 2
 
 [node name="Book2" type="Control" parent="UI" unique_id=481316849]
