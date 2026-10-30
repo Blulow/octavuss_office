@@ -111,12 +111,12 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -299.5
-offset_top = 198.0
+offset_top = 215.0
 offset_right = 300.5
-offset_bottom = 403.0
+offset_bottom = 420.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("4_37s47")
-theme_override_font_sizes/normal_font_size = 9
+theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "Fact 1: You went to the original gathering venue to investigate. Through the host of the event, you gain access to footage from the security cameras. Record from the sky with drones, you inspect the footage, and find out that the person pushing Leon’s brother is actually the result of getting a domino effect in the crowd.
 "

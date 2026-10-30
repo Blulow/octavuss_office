@@ -6,7 +6,7 @@ uniform sampler2D screen_texture : hint_screen_texture, filter_nearest;
 // Tune these parameters inside the Inspector
 uniform vec4 line_color : source_color = vec4(0.1, 0.1, 0.1, 1.0);
 uniform float line_thickness : hint_range(0.0, 5.0) = 1.0;
-uniform float color_steps : hint_range(2.0, 30.0) = 5.0; // Flattens shading
+uniform float color_steps : hint_range(2.0, 50.0) = 5.0; // Flattens shading
 uniform float paper_grain_strength : hint_range(0.0, 0.2) = 0.05;
 
 // Pseudo-random noise for the paper pulp texture

@@ -135,11 +135,16 @@ func _ready() -> void:
 		await get_tree().process_frame
 		_on_start_game_onclick()
 	
+	$Music.stream = preload("res://assets/sounds/warmcoldroom.ogg")
+	$Music.play()
 
 func _on_start_game_onclick():
 	start_game.active = false
 	settings.active = false
 	quit_game.active = false
+	
+	$Music.stream = preload("res://assets/sounds/warmcoldroom_2.ogg")
+	$Music.play()
 	
 	#name_stand.visible = false
 	PlayerData.game_started = true
@@ -219,6 +224,9 @@ func close_end_tween(down: bool = false) -> void:
 
 func _on_game_end(ending: int) -> void:
 	PlayerData.game_started = false
+	
+	$Music.stream = preload("res://assets/sounds/warmcoldroom.ogg")
+	$Music.play()
 	
 	paper.visible = true
 	book2.visible = true

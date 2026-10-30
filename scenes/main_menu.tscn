@@ -136,8 +136,8 @@ material = SubResource("ShaderMaterial_b1lj4")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8ny3"]
 shader = ExtResource("17_j7ex8")
 shader_parameter/line_color = Color(0.1, 0.1, 0.1, 1)
-shader_parameter/line_thickness = 0.4950000235125
-shader_parameter/color_steps = 30.0
+shader_parameter/line_thickness = 0.0290000013775
+shader_parameter/color_steps = 18.882000801895
 shader_parameter/paper_grain_strength = 0.05
 
 [node name="MainMenu" type="Node3D" unique_id=1446060369]
@@ -231,7 +231,7 @@ font_size = 17
 [node name="SpotLight3D" type="SpotLight3D" parent="Lights" unique_id=1455996595]
 transform = Transform3D(0.96775514, -0.0071286685, -0.25179207, 0.25175235, -0.006022652, 0.967773, -0.008415388, -0.9999565, -0.0040337937, -2.1907377, 6.31761, 0.07854998)
 light_color = Color(0.7578125, 1, 0.9259191, 1)
-light_energy = 9.25
+light_energy = 3.712
 shadow_enabled = true
 shadow_opacity = 0.08
 spot_range = 10.382
@@ -240,7 +240,7 @@ spot_angle = 88.36
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights" unique_id=1176063429]
 transform = Transform3D(-0.96429217, 0.014743952, 0.2644302, 0.26446164, 0.00019033377, 0.96439624, 0.014168682, 0.9998913, -0.0040827473, 1.9578328, 6.31761, 0.07854998)
 light_color = Color(0.7578125, 1, 0.9259191, 1)
-light_energy = 9.25
+light_energy = 3.712
 shadow_enabled = true
 shadow_opacity = 0.08
 spot_range = 10.382
@@ -249,7 +249,7 @@ spot_angle = 88.36
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights/SpotLight3D2" unique_id=1203897868]
 transform = Transform3D(0.2580588, -0.946674, 0.19290876, 0.9658262, 0.25778422, -0.026967434, -0.02419948, 0.19327554, 0.9808461, -5.357319, -1.0879327, 2.0860124)
 light_color = Color(0.7578125, 1, 0.9259191, 1)
-light_energy = 9.25
+light_energy = 3.712
 shadow_enabled = true
 shadow_opacity = 0.08
 spot_range = 10.382
@@ -574,6 +574,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1571069814]
+process_mode = 3
+bus = &"Music"
 
 [connection signal="onclick" from="MainMenuUI/Book/Strips/Strip" to="." method="_on_strip_onclick"]
 

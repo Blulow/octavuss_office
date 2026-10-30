@@ -20,7 +20,7 @@ var game_started : bool
 var audio_settings: Dictionary = {
 	"master": 100,
 	"music": 50,
-	"sfx": 50
+	"sfx": 100
 }
 
 class StatData:
