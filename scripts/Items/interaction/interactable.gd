@@ -7,6 +7,8 @@ signal select_changed(is_selected: bool)
 signal activated            # the click (a request, not a state change)
 signal action_succeeded
 signal action_failed
+signal deactivate_success
+
 
 @export var body: CollisionObject3D
 @export var disabled := false
@@ -50,3 +52,5 @@ func set_selected(value: bool) -> void:
 # The owner reports outcomes; effects react to them.
 func succeed() -> void: action_succeeded.emit()
 func fail() -> void: action_failed.emit()
+
+func success_inactive() -> void: deactivate_success.emit()

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c3x63tjv3fxev"]
 
 [ext_resource type="PackedScene" uid="uid://cgifnq3gtvylk" path="res://scenes/item.tscn" id="1_8r1wq"]
-[ext_resource type="Script" uid="uid://bg507o0isd4yh" path="res://scripts/ui/shop_ui.gd" id="1_xfvoa"]
+[ext_resource type="Script" uid="uid://bg507o0isd4yh" path="res://scripts/UI/shop_ui.gd" id="1_xfvoa"]
 [ext_resource type="Script" uid="uid://25yb702hmhup" path="res://scripts/Items/Perks/boost_information_perk.gd" id="2_032fp"]
 [ext_resource type="Script" uid="uid://bc0evra1uga06" path="res://scripts/Items/Perks/boost_deescalation_perk.gd" id="3_2fc2m"]
 [ext_resource type="PackedScene" uid="uid://dxubqmbsopjaw" path="res://scenes/shop_items/headphones.tscn" id="3_j14q8"]
-[ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/ui/button_switch_scene.gd" id="4_8r1wq"]
+[ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/UI/button_switch_scene.gd" id="4_8r1wq"]
 [ext_resource type="PackedScene" uid="uid://b0ek4dm1ueos4" path="res://scenes/shop_items/stress_ball.tscn" id="5_5u241"]
 [ext_resource type="Script" uid="uid://bmppctg560kb6" path="res://scripts/Items/item_showcase.gd" id="6_ajxib"]
 [ext_resource type="PackedScene" uid="uid://brkcy4dncnouo" path="res://scenes/shop_items/newspaper.tscn" id="7_pqync"]
@@ -17,7 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://cdp6ibmmjc1io" path="res://assets/model/mirror.glb" id="10_44xle"]
 [ext_resource type="Texture2D" uid="uid://bvb1dgsg5w8to" path="res://assets/textures/checkpoint jam environment2_BaseColor.png" id="11_24it5"]
 [ext_resource type="Texture2D" uid="uid://defswq55j20vi" path="res://assets/textures/checkpoint jam environment2_Normal.png" id="12_7mqwv"]
-[ext_resource type="Texture2D" uid="uid://d1hk1sgtkxifr" path="res://assets/images/unlock_new_facts.png" id="12_yuijs"]
+[ext_resource type="Script" uid="uid://c4w116vq78lhu" path="res://scripts/Items/interaction/interactable.gd" id="13_ru2r1"]
+[ext_resource type="Script" uid="uid://dq6ksdkasoa4g" path="res://scripts/Items/interaction/interaction_effect/lift_effect.gd" id="14_lxs01"]
+[ext_resource type="Script" uid="uid://bk7fmjj2hru2u" path="res://scripts/Items/interaction/interaction_effect/alpha_effect.gd" id="15_lxs01"]
 [ext_resource type="Texture2D" uid="uid://dlal3cmti385t" path="res://assets/images/characters/doctor.png" id="16_5u241"]
 [ext_resource type="Texture2D" uid="uid://6pkr77a0xavy" path="res://assets/images/choice_answer_button_.png" id="16_aa4hd"]
 
@@ -31,7 +33,11 @@ albedo_color = Color(0.2627451, 1, 1, 0)
 stencil_mode = 3
 stencil_flags = 2
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ru2r1"]
+load_path = "res://.godot/imported/unlock_new_facts.png-e2b0248faddcbd9330be0f88745f0d38.s3tc.ctex"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_xrivr"]
+size = Vector3(15.649216, 2.9067383, 1)
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_24it5"]
 render_priority = 1
@@ -74,7 +80,7 @@ preview_scene = ExtResource("3_j14q8")
 [node name="Mesh" parent="Headphones/Mesh" index="0" unique_id=1139939809]
 transform = Transform3D(0.81699336, 0, -3.5527137e-15, 0, 0.81699336, 0, -1.4210855e-14, 0, 3.4722219, -0.10635185, 0, 3.8480148)
 
-[node name="Plane003" parent="Headphones/Mesh/Mesh" index="0" unique_id=700221134]
+[node name="Plane003" parent="Headphones/Mesh/Mesh" index="0" unique_id=839300693]
 transform = Transform3D(-0.00019737169, -0.022999115, 0, 0, 0, -0.022999959, 0.022999112, -0.0001973718, 0, 1.1046495, -0.8500148, -0.541461)
 
 [node name="OutlineEffect" parent="Headphones/Mesh/Effects" parent_id_path=PackedInt32Array(2135113639, 1279989910) index="2" unique_id=981090973 node_paths=PackedStringArray("mesh")]
@@ -99,7 +105,7 @@ item_description = "Stress Ball: Temporarily calms down client, but can make the
 perks = [NodePath("../CalmBoost"), NodePath("../FactBoost")]
 preview_scene = ExtResource("5_5u241")
 
-[node name="Plane003" parent="StressBall/Mesh/Mesh" parent_id_path=PackedInt32Array(1625085186, 1139939809) index="0" unique_id=700221134]
+[node name="Plane003" parent="StressBall/Mesh/Mesh" parent_id_path=PackedInt32Array(1625085186, 1139939809) index="0" unique_id=839300693]
 transform = Transform3D(0.00045511188, -0.024995858, 1.0926037e-09, 0, -1.0927848e-09, -0.025, 0.024995863, 0.00045511196, -1.9893571e-11, 1.2013607, -0.8978131, -0.49509668)
 
 [node name="OutlineEffect" parent="StressBall/Mesh/Effects" parent_id_path=PackedInt32Array(1625085186, 1279989910) index="2" unique_id=981090973 node_paths=PackedStringArray("mesh")]
@@ -130,7 +136,7 @@ preview_scene = ExtResource("7_pqync")
 [node name="sticky_note_2" parent="Newspaper/Mesh" index="0" unique_id=1260996072 instance=ExtResource("7_yuijs")]
 transform = Transform3D(-7.142385e-08, 0, 1.6339872, 0, 1.6339872, 0, -6.944444, 0, -3.0355133e-07, 1.0634341, -1.4839501, 2.8089037)
 
-[node name="Plane001" parent="Newspaper/Mesh/sticky_note_2" index="0" unique_id=313532799]
+[node name="Plane001" parent="Newspaper/Mesh/sticky_note_2" index="0" unique_id=791732042]
 transform = Transform3D(-0.013, -1.9629456e-09, 8.5803074e-17, 0, -5.6824806e-10, -0.013, 1.9629456e-09, -0.013, 5.6824806e-10, 0.079619646, 0.47117734, -0.7319288)
 
 [node name="Mesh" parent="Newspaper/Mesh" index="1" unique_id=1139939809]
@@ -160,7 +166,7 @@ preview_scene = ExtResource("8_yuijs")
 [node name="sticky_note_3" parent="EnergyDrink/Mesh" index="0" unique_id=1599332051 instance=ExtResource("9_aa4hd")]
 transform = Transform3D(1, 0, 1.4210853e-14, 0, 1, 0, -1.4210853e-14, 0, 1, 0, 0, 0)
 
-[node name="Plane002" parent="EnergyDrink/Mesh/sticky_note_3" index="0" unique_id=1159336888]
+[node name="Plane002" parent="EnergyDrink/Mesh/sticky_note_3" index="0" unique_id=32496730]
 transform = Transform3D(-8.742277e-10, -0.02, 8.742277e-10, 0, -8.742277e-10, -0.02, 0.02, -8.742277e-10, 3.8213706e-17, -1.0773306, -0.6671799, 0.47428226)
 
 [node name="Mesh" parent="EnergyDrink/Mesh" index="1" unique_id=1139939809]
@@ -284,7 +290,7 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 text = "Money:"
 
-[node name="Shop_UI" type="Control" parent="CanvasLayer" unique_id=2054328244 node_paths=PackedStringArray("name_label", "feedback_label", "buy_button", "button_text3d", "item_price", "item_description_label", "money_label")]
+[node name="Shop_UI" type="Control" parent="CanvasLayer" unique_id=2054328244 node_paths=PackedStringArray("name_label", "feedback_label", "buy_button", "button_text3d", "item_price", "item_description_label", "money_label", "btn_interactable")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -297,6 +303,7 @@ button_text3d = NodePath("../../Mirror/BuyNowBTN/Label3D")
 item_price = NodePath("../ColorRect/ItemPrice")
 item_description_label = NodePath("../../Mirror/Description")
 money_label = NodePath("../ColorRect/Money")
+btn_interactable = NodePath("../../Mirror/BuyNowBTN/Interactable")
 
 [node name="ItemBuyAudio" type="AudioStreamPlayer3D" parent="CanvasLayer/Shop_UI" unique_id=524338737]
 
@@ -337,7 +344,7 @@ transform = Transform3D(0.325, 0, 8.881784e-16, 0, 0.325, 0, -8.881784e-16, 0, 0
 flip_h = true
 flip_v = true
 render_priority = 1
-texture = ExtResource("12_yuijs")
+texture = SubResource("CompressedTexture2D_ru2r1")
 
 [node name="Label3D" type="Label3D" parent="Mirror/BuyNowBTN" unique_id=1650090731]
 transform = Transform3D(1, -6.337423e-22, 1.4210855e-13, 6.337423e-22, 1, -3.109869e-16, -1.4210855e-13, 3.109869e-16, 1, 0, 0.010684967, 0.32847786)
@@ -349,12 +356,33 @@ font_size = 381
 [node name="StaticBody3D" type="StaticBody3D" parent="Mirror/BuyNowBTN" unique_id=456401525]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mirror/BuyNowBTN/StaticBody3D" unique_id=2094615076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020378113, 0.16870213, 0)
 shape = SubResource("BoxShape3D_xrivr")
+
+[node name="Interactable" type="Node" parent="Mirror/BuyNowBTN" unique_id=29926442 node_paths=PackedStringArray("body")]
+script = ExtResource("13_ru2r1")
+body = NodePath("../StaticBody3D")
+metadata/_custom_type_script = "uid://c4w116vq78lhu"
+
+[node name="LiftEffect" type="Node" parent="Mirror/BuyNowBTN" unique_id=823339045 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("14_lxs01")
+target = NodePath("..")
+interactable = NodePath("../Interactable")
+metadata/_custom_type_script = "uid://dq6ksdkasoa4g"
+
+[node name="AlphaEffect" type="Node" parent="Mirror/BuyNowBTN" unique_id=774137594 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("15_lxs01")
+target = NodePath("..")
+target_alpha = 0.5
+from_alpha = 1.0
+interactable = NodePath("../Interactable")
+trigger = 2
+metadata/_custom_type_script = "uid://bk7fmjj2hru2u"
 
 [node name="mirror" parent="Mirror" unique_id=1189326179 instance=ExtResource("10_44xle")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -0.27931833, -3.2732677, 0.7754588)
 
-[node name="Mirror_obj1_Cylinder003" parent="Mirror/mirror" index="0" unique_id=1932642695]
+[node name="Mirror_obj1_Cylinder003" parent="Mirror/mirror" index="0" unique_id=462005081]
 transform = Transform3D(0.035, 0, 0, 0, -1.5298985e-09, -0.035, 0, 0.035, -1.5298985e-09, 0.4175501, 0, 0)
 surface_material_override/0 = SubResource("ORMMaterial3D_24it5")
 
@@ -392,7 +420,7 @@ texture = ExtResource("16_5u241")
 [node name="board" parent="." unique_id=788358636 instance=ExtResource("9_m4ofw")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -11.343654, -0.2601738, -5.49668)
 
-[node name="BlackBoard_obj_Box001" parent="board" index="0" unique_id=1037749724]
+[node name="BlackBoard_obj_Box001" parent="board" index="0" unique_id=1733946554]
 transform = Transform3D(0.04, 0, 0, 0, -1.7484555e-09, -0.04, 0, 0.04, -1.7484555e-09, 0, 0, 0.70781374)
 material_override = SubResource("ORMMaterial3D_msd4h")
 
