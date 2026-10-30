@@ -78,7 +78,7 @@ radial_segments = 15
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7ex8"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(0.2627451, 1, 1, 0)
+albedo_color = Color(0, 1, 1, 0)
 stencil_mode = 3
 stencil_flags = 2
 
@@ -97,6 +97,10 @@ normal_texture = ExtResource("12_7mqwv")
 stencil_mode = 3
 stencil_flags = 1
 stencil_compare = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8ny3"]
+transparency = 1
+albedo_color = Color(0.4509804, 1, 1, 0.45490196)
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_msd4h"]
 albedo_texture = ExtResource("11_24it5")
@@ -478,6 +482,13 @@ flip_h = true
 render_priority = 1
 texture = ExtResource("16_aa4hd")
 
+[node name="mirror2" parent="Mirror" unique_id=1830205758 instance=ExtResource("10_44xle")]
+transform = Transform3D(-8.305164e-08, 0, 1.9, 0, 1.9, 0, -1.9, 0, -8.305164e-08, -0.27931833, -3.5037754, 0.34489298)
+
+[node name="Mirror_obj1_Cylinder003" parent="Mirror/mirror2" index="0" unique_id=1932642695]
+transform = Transform3D(0.035000008, 0, 0, 0, -1.5298987e-09, -0.035000008, 0, 0.035000008, -1.5298987e-09, 0.17891645, 0.22590959, -0.04380095)
+surface_material_override/0 = SubResource("StandardMaterial3D_u8ny3")
+
 [node name="ItemShowcase" type="Node3D" parent="." unique_id=1216995261 node_paths=PackedStringArray("spawn_point", "display_point", "faller")]
 script = ExtResource("6_ajxib")
 spawn_point = NodePath("../ItemSpawn")
@@ -525,4 +536,5 @@ material_override = SubResource("ORMMaterial3D_msd4h")
 [editable path="EnergyDrink/Mesh/sticky_note_3/energy_drink"]
 [editable path="EnergyDrink/Mesh/Mesh"]
 [editable path="Mirror/mirror"]
+[editable path="Mirror/mirror2"]
 [editable path="board"]
