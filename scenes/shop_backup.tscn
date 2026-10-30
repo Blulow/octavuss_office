@@ -1,0 +1,438 @@
+[gd_scene format=3 uid="uid://bv333y4f6351a"]
+
+[ext_resource type="PackedScene" uid="uid://cgifnq3gtvylk" path="res://scenes/item.tscn" id="1_iplpc"]
+[ext_resource type="PackedScene" uid="uid://dxubqmbsopjaw" path="res://scenes/shop_items/headphones.tscn" id="2_riciq"]
+[ext_resource type="Script" uid="uid://bc0evra1uga06" path="res://scripts/Items/Perks/boost_deescalation_perk.gd" id="3_3fo7h"]
+[ext_resource type="PackedScene" uid="uid://b0ek4dm1ueos4" path="res://scenes/shop_items/stress_ball.tscn" id="4_4bhku"]
+[ext_resource type="Script" uid="uid://25yb702hmhup" path="res://scripts/Items/Perks/boost_information_perk.gd" id="5_642g2"]
+[ext_resource type="PackedScene" uid="uid://brkcy4dncnouo" path="res://scenes/shop_items/newspaper.tscn" id="6_r64ii"]
+[ext_resource type="PackedScene" uid="uid://waqnitvh5f2l" path="res://assets/model/sticky_note_2.glb" id="7_rsyv3"]
+[ext_resource type="PackedScene" uid="uid://b3b8kk7p4djgf" path="res://scenes/shop_items/energy_drink.tscn" id="8_4xc24"]
+[ext_resource type="PackedScene" uid="uid://bbvf3yeefwarh" path="res://assets/model/sticky_note_3.glb" id="9_g56yo"]
+[ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/UI/button_switch_scene.gd" id="10_aofcj"]
+[ext_resource type="Script" uid="uid://bg507o0isd4yh" path="res://scripts/UI/shop_ui.gd" id="11_2yq64"]
+[ext_resource type="Script" uid="uid://c4w116vq78lhu" path="res://scripts/Items/interaction/interactable.gd" id="12_jyncu"]
+[ext_resource type="Script" uid="uid://dq6ksdkasoa4g" path="res://scripts/Items/interaction/interaction_effect/lift_effect.gd" id="13_81nc4"]
+[ext_resource type="Script" uid="uid://bk7fmjj2hru2u" path="res://scripts/Items/interaction/interaction_effect/alpha_effect.gd" id="14_p31yk"]
+[ext_resource type="PackedScene" uid="uid://cdp6ibmmjc1io" path="res://assets/model/mirror.glb" id="15_06flb"]
+[ext_resource type="Texture2D" uid="uid://bvb1dgsg5w8to" path="res://assets/textures/checkpoint jam environment2_BaseColor.png" id="16_jelar"]
+[ext_resource type="Texture2D" uid="uid://defswq55j20vi" path="res://assets/textures/checkpoint jam environment2_Normal.png" id="17_b3swk"]
+[ext_resource type="Texture2D" uid="uid://6pkr77a0xavy" path="res://assets/images/choice_answer_button_.png" id="18_3etsf"]
+[ext_resource type="Script" uid="uid://bmppctg560kb6" path="res://scripts/Items/item_showcase.gd" id="19_v813a"]
+[ext_resource type="Script" uid="uid://bbhqup6ou0a58" path="res://scripts/Items/interaction/fall_and_hide.gd" id="20_4uufk"]
+[ext_resource type="Texture2D" uid="uid://dlal3cmti385t" path="res://assets/images/characters/doctor.png" id="21_gb3l8"]
+[ext_resource type="PackedScene" uid="uid://b1dss203uw78i" path="res://assets/model/board.glb" id="22_rqkka"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7mqwv"]
+radial_segments = 15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7ex8"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.2627451, 1, 1, 0)
+stencil_mode = 3
+stencil_flags = 2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ru2r1"]
+load_path = "res://.godot/imported/unlock_new_facts.png-e2b0248faddcbd9330be0f88745f0d38.s3tc.ctex"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xrivr"]
+size = Vector3(15.649216, 2.9067383, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_24it5"]
+render_priority = 1
+transparency = 1
+albedo_texture = ExtResource("16_jelar")
+normal_enabled = true
+normal_texture = ExtResource("17_b3swk")
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_msd4h"]
+albedo_texture = ExtResource("16_jelar")
+normal_enabled = true
+normal_texture = ExtResource("17_b3swk")
+
+[node name="Shop" type="Node3D" unique_id=1933303201]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0, 0, 0)
+
+[node name="ItemShow" type="Marker3D" parent="." unique_id=1557637050]
+transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -1.8926541, -1.5621834, -6.728497)
+
+[node name="ItemSpawn" type="Marker3D" parent="." unique_id=172283420]
+transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, -12.913254, -0.67549324, -7.1126766)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=903580205]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.125342, 0.21454382, 0.9909744)
+visible = false
+
+[node name="Headphones" parent="." unique_id=2135113639 instance=ExtResource("1_iplpc")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -11.621645, -1.0241597, -5.163946)
+
+[node name="Mesh" parent="Headphones" index="0" unique_id=1670234148 node_paths=PackedStringArray("perks")]
+item_name = "Newspaper"
+price = 4
+item_description = "Noise muffler: Muffles out noise with negative influence, makes the client not feel pressured over time"
+perks = [NodePath("../SPMulBoost")]
+preview_scene = ExtResource("2_riciq")
+
+[node name="Mesh" parent="Headphones/Mesh" index="0" unique_id=1139939809]
+transform = Transform3D(0.81699336, 0, -3.5527137e-15, 0, 0.81699336, 0, -1.4210855e-14, 0, 3.4722219, -0.10635185, 0, 3.8480148)
+
+[node name="Plane003" parent="Headphones/Mesh/Mesh" index="0" unique_id=839300693]
+transform = Transform3D(-0.00019737169, -0.022999115, 0, 0, 0, -0.022999959, 0.022999112, -0.0001973718, 0, 1.1046495, -0.8500148, -0.541461)
+
+[node name="OutlineEffect" parent="Headphones/Mesh/Effects" parent_id_path=PackedInt32Array(2135113639, 1279989910) index="2" unique_id=981090973 node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../../Mesh/Plane003")
+
+[node name="AlphaEffect" parent="Headphones/Mesh/Effects" parent_id_path=PackedInt32Array(2135113639, 1279989910) index="3" unique_id=1094295868 node_paths=PackedStringArray("target")]
+target = NodePath("../../Mesh/Plane003")
+
+[node name="SPMulBoost" type="Node" parent="Headphones" unique_id=1905915769]
+script = ExtResource("3_3fo7h")
+multiplier = -0.2
+stat_name = "sp"
+
+[node name="StressBall" parent="." unique_id=1625085186 instance=ExtResource("1_iplpc")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -11.621645, 1.8163545, -5.163946)
+
+[node name="Mesh" parent="StressBall" index="0" unique_id=1670234148 node_paths=PackedStringArray("perks")]
+transform = Transform3D(1.44, 0, 0, 0, 1.4399999, 0, 0, 0, 1.44, 0, 0, 0.11816025)
+item_name = "Stress Ball"
+price = 2
+item_description = "Stress Ball: Temporarily calms down client, but can make them think less actively"
+perks = [NodePath("../CalmBoost"), NodePath("../FactBoost")]
+preview_scene = ExtResource("4_4bhku")
+
+[node name="Plane003" parent="StressBall/Mesh/Mesh" parent_id_path=PackedInt32Array(1625085186, 1139939809) index="0" unique_id=839300693]
+transform = Transform3D(0.00045511188, -0.024995858, 1.0926037e-09, 0, -1.0927848e-09, -0.025, 0.024995863, 0.00045511196, -1.9893571e-11, 1.2013607, -0.8978131, -0.49509668)
+
+[node name="OutlineEffect" parent="StressBall/Mesh/Effects" parent_id_path=PackedInt32Array(1625085186, 1279989910) index="2" unique_id=981090973 node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../../Mesh/Plane003")
+
+[node name="AlphaEffect" parent="StressBall/Mesh/Effects" parent_id_path=PackedInt32Array(1625085186, 1279989910) index="3" unique_id=1094295868 node_paths=PackedStringArray("target")]
+target = NodePath("../../Mesh/Plane003")
+
+[node name="CalmBoost" type="Node" parent="StressBall" unique_id=323754971]
+script = ExtResource("5_642g2")
+amount = 4.0
+
+[node name="FactBoost" type="Node" parent="StressBall" unique_id=695024231]
+script = ExtResource("5_642g2")
+amount = -2.0
+stat_name = "fact"
+
+[node name="Newspaper" parent="." unique_id=552804308 instance=ExtResource("1_iplpc")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.2, -9.621645, 1.8163545, -5.163946)
+
+[node name="Mesh" parent="Newspaper" index="0" unique_id=1670234148 node_paths=PackedStringArray("perks")]
+item_name = "Newspaper"
+price = 5
+item_description = "Information Wiki: A wiki full of information about constructing information, lets the client gradually think more"
+perks = [NodePath("../FactMulBoost")]
+preview_scene = ExtResource("6_r64ii")
+
+[node name="sticky_note_2" parent="Newspaper/Mesh" index="0" unique_id=1260996072 instance=ExtResource("7_rsyv3")]
+transform = Transform3D(-7.142385e-08, 0, 1.6339872, 0, 1.6339872, 0, -6.944444, 0, -3.0355133e-07, 1.0634341, -1.4839501, 2.8089037)
+
+[node name="Plane001" parent="Newspaper/Mesh/sticky_note_2" index="0" unique_id=791732042]
+transform = Transform3D(-0.013, -1.9629456e-09, 8.5803074e-17, 0, -5.6824806e-10, -0.013, 1.9629456e-09, -0.013, 5.6824806e-10, 0.079619646, 0.47117734, -0.7319288)
+
+[node name="Mesh" parent="Newspaper/Mesh" index="1" unique_id=1139939809]
+visible = false
+
+[node name="OutlineEffect" parent="Newspaper/Mesh/Effects" parent_id_path=PackedInt32Array(552804308, 1279989910) index="2" unique_id=981090973 node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../../sticky_note_2/Plane001")
+
+[node name="AlphaEffect" parent="Newspaper/Mesh/Effects" parent_id_path=PackedInt32Array(552804308, 1279989910) index="3" unique_id=1094295868 node_paths=PackedStringArray("target")]
+target = NodePath("../../sticky_note_2/Plane001")
+
+[node name="FactMulBoost" type="Node" parent="Newspaper" unique_id=1685230699]
+script = ExtResource("3_3fo7h")
+multiplier = 0.2
+stat_name = "fact"
+
+[node name="EnergyDrink" parent="." unique_id=1186247369 instance=ExtResource("1_iplpc")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -7.621645, 1.8163545, -5.163946)
+
+[node name="Mesh" parent="EnergyDrink" index="0" unique_id=1670234148 node_paths=PackedStringArray("perks")]
+item_name = "Energy Drink"
+price = 1
+item_description = "Energy Drink: Boosts the client's confidence by a lot temporarily, but can worsen their logic and attitude"
+perks = [NodePath("../CalmBoost"), NodePath("../FactBoost"), NodePath("../SPBoost")]
+preview_scene = ExtResource("8_4xc24")
+
+[node name="sticky_note_3" parent="EnergyDrink/Mesh" index="0" unique_id=1599332051 instance=ExtResource("9_g56yo")]
+transform = Transform3D(1, 0, 1.4210853e-14, 0, 1, 0, -1.4210853e-14, 0, 1, 0, 0, 0)
+
+[node name="Plane002" parent="EnergyDrink/Mesh/sticky_note_3" index="0" unique_id=32496730]
+transform = Transform3D(-8.742277e-10, -0.02, 8.742277e-10, 0, -8.742277e-10, -0.02, 0.02, -8.742277e-10, 3.8213706e-17, -1.0773306, -0.6671799, 0.47428226)
+
+[node name="Mesh" parent="EnergyDrink/Mesh" index="1" unique_id=1139939809]
+visible = false
+
+[node name="OutlineEffect" parent="EnergyDrink/Mesh/Effects" parent_id_path=PackedInt32Array(1186247369, 1279989910) index="2" unique_id=981090973 node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../../sticky_note_3/Plane002")
+
+[node name="AlphaEffect" parent="EnergyDrink/Mesh/Effects" parent_id_path=PackedInt32Array(1186247369, 1279989910) index="3" unique_id=1094295868 node_paths=PackedStringArray("target")]
+target = NodePath("../../sticky_note_3/Plane002")
+
+[node name="CalmBoost" type="Node" parent="EnergyDrink" unique_id=713497157]
+script = ExtResource("5_642g2")
+amount = -1.0
+
+[node name="FactBoost" type="Node" parent="EnergyDrink" unique_id=561921654]
+script = ExtResource("5_642g2")
+amount = -1.0
+stat_name = "fact"
+
+[node name="SPBoost" type="Node" parent="EnergyDrink" unique_id=471241235]
+script = ExtResource("5_642g2")
+amount = -5.0
+stat_name = "sp"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1758458402]
+process_mode = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1692989539]
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ItemName" type="Label" parent="CanvasLayer/ColorRect" unique_id=719069757]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 50.0
+offset_right = 235.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 40
+text = "Item Name"
+
+[node name="ItemPrice" type="Label" parent="CanvasLayer/ColorRect" unique_id=329122679]
+modulate = Color(0, 0.60784316, 0, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -98.0
+offset_right = 112.0
+offset_bottom = -43.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "$100"
+
+[node name="ItemFeedback" type="Label" parent="CanvasLayer/ColorRect" unique_id=700257297]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.799988
+offset_top = -167.0
+offset_right = 111.79999
+offset_bottom = -112.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect" unique_id=1948452405]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -174.79999
+offset_top = -92.0
+offset_right = -28.799988
+offset_bottom = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "BUY ITEM"
+
+[node name="ItemDescription" type="Label" parent="CanvasLayer/ColorRect" unique_id=1192658638]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 0
+offset_left = 23.799988
+offset_top = 110.0
+offset_right = 423.8
+offset_bottom = 510.0
+autowrap_mode = 1
+
+[node name="ReturnButton" type="Button" parent="CanvasLayer/ColorRect" unique_id=8961996]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -75.0
+offset_top = 12.0
+offset_right = -13.0
+offset_bottom = 43.0
+grow_horizontal = 0
+text = "Return"
+script = ExtResource("10_aofcj")
+next_scene_path = "uid://b5qqds04rkp5q"
+
+[node name="Money" type="Label" parent="CanvasLayer/ColorRect" unique_id=1283342806]
+layout_mode = 0
+offset_left = 19.799988
+offset_top = 12.0
+offset_right = 76.79999
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "Money:"
+
+[node name="Shop_UI" type="Control" parent="CanvasLayer" unique_id=2054328244 node_paths=PackedStringArray("name_label", "feedback_label", "buy_button", "button_text3d", "item_price", "item_description_label", "money_label", "btn_interactable")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_2yq64")
+name_label = NodePath("../ColorRect/ItemName")
+feedback_label = NodePath("../ColorRect/ItemFeedback")
+buy_button = NodePath("../../Mirror/BuyNowBTN/StaticBody3D")
+button_text3d = NodePath("../../Mirror/BuyNowBTN/Label3D")
+item_price = NodePath("../ColorRect/ItemPrice")
+item_description_label = NodePath("../../Mirror/Description")
+money_label = NodePath("../ColorRect/Money")
+btn_interactable = NodePath("../../Mirror/BuyNowBTN/Interactable")
+
+[node name="ItemBuyAudio" type="AudioStreamPlayer3D" parent="CanvasLayer/Shop_UI" unique_id=524338737]
+
+[node name="Mirror" type="Node3D" parent="." unique_id=821524511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1707265, -0.32350802, -5.9492016)
+
+[node name="Mirror" type="CSGMesh3D" parent="Mirror" unique_id=235643030]
+transform = Transform3D(2.7, 0, 0, 0, -4.371139e-09, -2.7, 0, 0.1, -1.1802075e-07, -0.5619817, 2.1516085, 0.7012596)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7mqwv")
+material = SubResource("StandardMaterial3D_j7ex8")
+
+[node name="Mirror2" type="CSGMesh3D" parent="Mirror" unique_id=2022051828]
+transform = Transform3D(3.2, 0, 0, 0, -4.371139e-09, -3.2, 0, 0.1, -1.3987645e-07, -0.3988998, -1.0169368, 0.7012596)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7mqwv")
+material = SubResource("StandardMaterial3D_j7ex8")
+
+[node name="Mirror3" type="CSGMesh3D" parent="Mirror" unique_id=890966991]
+transform = Transform3D(3, 0, 0, 0, -4.371139e-09, -3, 0, 0.1, -1.3113416e-07, -0.13776052, 0.41344857, 0.7012596)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_7mqwv")
+material = SubResource("StandardMaterial3D_j7ex8")
+
+[node name="Description" type="Label3D" parent="Mirror" unique_id=965422724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -2.2737368e-13, 0, 1, -4.1619644, 3.4580421, 1.9731429)
+pixel_size = 0.002
+render_priority = 1
+modulate = Color(0.14453125, 0.14453125, 0.14453125, 1)
+font_size = 86
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 1200.0
+
+[node name="BuyNowBTN" type="Sprite3D" parent="Mirror" unique_id=1118464051]
+transform = Transform3D(0.325, 0, 8.881784e-16, 0, 0.325, 0, -8.881784e-16, 0, 0.325, -5.179845, -1.5336792, 1.3946209)
+flip_h = true
+flip_v = true
+render_priority = 1
+texture = SubResource("CompressedTexture2D_ru2r1")
+
+[node name="Label3D" type="Label3D" parent="Mirror/BuyNowBTN" unique_id=1650090731]
+transform = Transform3D(1, -6.337423e-22, 1.4210855e-13, 6.337423e-22, 1, -3.109869e-16, -1.4210855e-13, 3.109869e-16, 1, 0, 0.010684967, 0.32847786)
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "BUY"
+font_size = 381
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mirror/BuyNowBTN" unique_id=456401525]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mirror/BuyNowBTN/StaticBody3D" unique_id=2094615076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020378113, 0.16870213, 0)
+shape = SubResource("BoxShape3D_xrivr")
+
+[node name="Interactable" type="Node" parent="Mirror/BuyNowBTN" unique_id=29926442 node_paths=PackedStringArray("body")]
+script = ExtResource("12_jyncu")
+body = NodePath("../StaticBody3D")
+metadata/_custom_type_script = "uid://c4w116vq78lhu"
+
+[node name="LiftEffect" type="Node" parent="Mirror/BuyNowBTN" unique_id=823339045 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("13_81nc4")
+target = NodePath("..")
+interactable = NodePath("../Interactable")
+metadata/_custom_type_script = "uid://dq6ksdkasoa4g"
+
+[node name="AlphaEffect" type="Node" parent="Mirror/BuyNowBTN" unique_id=774137594 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("14_p31yk")
+target = NodePath("..")
+target_alpha = 0.5
+from_alpha = 1.0
+interactable = NodePath("../Interactable")
+trigger = 2
+metadata/_custom_type_script = "uid://bk7fmjj2hru2u"
+
+[node name="mirror" parent="Mirror" unique_id=1189326179 instance=ExtResource("15_06flb")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -0.27931833, -3.2732677, 0.7754588)
+
+[node name="Mirror_obj1_Cylinder003" parent="Mirror/mirror" index="0" unique_id=462005081]
+transform = Transform3D(0.035, 0, 0, 0, -1.5298985e-09, -0.035, 0, 0.035, -1.5298985e-09, 0.4175501, 0, 0)
+surface_material_override/0 = SubResource("ORMMaterial3D_24it5")
+
+[node name="Sprite3D" type="Sprite3D" parent="Mirror" unique_id=1911331751]
+transform = Transform3D(0.795, 0, 0, 0, 0.99, 0, 0, 0, 1, -2.984442, 2.9629252, 1.6768746)
+flip_h = true
+render_priority = 1
+texture = ExtResource("18_3etsf")
+
+[node name="ItemShowcase" type="Node3D" parent="." unique_id=1216995261 node_paths=PackedStringArray("spawn_point", "display_point", "faller")]
+script = ExtResource("19_v813a")
+spawn_point = NodePath("../ItemSpawn")
+display_point = NodePath("../ItemShow")
+overshoot = 0.1
+lean_degrees = 5.0
+faller = NodePath("FallAndHide")
+
+[node name="FallAndHide" type="Node" parent="ItemShowcase" unique_id=1566973998]
+script = ExtResource("20_4uufk")
+tumble = 0.1
+
+[node name="Marker3D3" type="Marker3D" parent="." unique_id=883503695]
+transform = Transform3D(2.88, 0, 0, 0, 2.88, 0, 0, 0, 2.88, -23.929745, 1.110807, -4.280363)
+
+[node name="PlayerReflectStartPoint" type="Marker3D" parent="." unique_id=457638123]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.07969, -0.9450002, -21.307999)
+
+[node name="PlayerReflectEndPoint" type="Marker3D" parent="." unique_id=1306431018]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.50850415, -0.94693565, -8.120404)
+
+[node name="PlayerReflect" type="Sprite3D" parent="." unique_id=610603140]
+transform = Transform3D(0.365, 0, 2.074785e-15, 0, 0.365, 0, -2.074785e-15, 0, 0.365, 0.107877254, -0.9450002, -14.561914)
+texture = ExtResource("21_gb3l8")
+
+[node name="board" parent="." unique_id=788358636 instance=ExtResource("22_rqkka")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -11.343654, -0.2601738, -5.49668)
+
+[node name="BlackBoard_obj_Box001" parent="board" index="0" unique_id=1733946554]
+transform = Transform3D(0.04, 0, 0, 0, -1.7484555e-09, -0.04, 0, 0.04, -1.7484555e-09, 0, 0, 0.70781374)
+material_override = SubResource("ORMMaterial3D_msd4h")
+
+[editable path="Headphones"]
+[editable path="Headphones/Mesh/Mesh"]
+[editable path="StressBall"]
+[editable path="StressBall/Mesh/Mesh"]
+[editable path="Newspaper"]
+[editable path="Newspaper/Mesh/sticky_note_2"]
+[editable path="Newspaper/Mesh/Mesh"]
+[editable path="EnergyDrink"]
+[editable path="EnergyDrink/Mesh/sticky_note_3"]
+[editable path="EnergyDrink/Mesh/Mesh"]
+[editable path="Mirror/mirror"]
+[editable path="board"]

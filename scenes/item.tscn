@@ -11,7 +11,9 @@
 [ext_resource type="Script" uid="uid://bk7fmjj2hru2u" path="res://scripts/Items/interaction/interaction_effect/alpha_effect.gd" id="9_v0cwl"]
 [ext_resource type="Script" uid="uid://d1wyt8i6a3gng" path="res://scripts/Items/interaction/interaction_effect/floating_text_effect.gd" id="10_xr48l"]
 [ext_resource type="Script" uid="uid://gd37khl718s7" path="res://scripts/Items/interaction/interaction_effect/scale_effect.gd" id="11_j134a"]
+[ext_resource type="Script" uid="uid://djn6ejhd4tbyk" path="res://scripts/Items/interaction/interaction_effect/sound_effect.gd" id="12_2xo3q"]
 [ext_resource type="Texture2D" uid="uid://cait3h07ks864" path="res://assets/buttons/stamp.png" id="12_j134a"]
+[ext_resource type="AudioStream" uid="uid://iawg57ynxic6" path="res://assets/sounds/sfx/paper_select_2.wav" id="13_3l6h1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bdmwb"]
 
@@ -29,7 +31,7 @@ label3d = NodePath("../PriceTag/Price")
 [node name="Mesh" parent="Mesh" unique_id=1139939809 instance=ExtResource("1_xr48l")]
 transform = Transform3D(0.8169933, 0, 0, 0, 0.8169933, 0, 0, 0, 3.4722219, -0.1063518, 0, 3.7304313)
 
-[node name="Plane003" parent="Mesh/Mesh" index="0" unique_id=700221134]
+[node name="Plane003" parent="Mesh/Mesh" index="0" unique_id=839300693]
 transform = Transform3D(0.00041870185, -0.02299615, 0, 0, 0, -0.022999959, 0.022996146, 0.0004187018, 0, 1.10465, -0.8500146, -0.66101396)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Mesh" unique_id=202659764]
@@ -57,15 +59,13 @@ interactable = NodePath("../../Interactable")
 trigger = 3
 metadata/_custom_type_script = "uid://ccctgufiq5qts"
 
-[node name="OutlineEffect" type="Node" parent="Mesh/Effects" unique_id=981090973 node_paths=PackedStringArray("mesh", "interactable")]
+[node name="OutlineEffect" type="Node" parent="Mesh/Effects" unique_id=981090973 node_paths=PackedStringArray("interactable")]
 script = ExtResource("5_d265e")
-mesh = NodePath("")
 interactable = NodePath("../../Interactable")
 metadata/_custom_type_script = "uid://cdca8d4cw8a1a"
 
-[node name="AlphaEffect" type="Node" parent="Mesh/Effects" unique_id=1094295868 node_paths=PackedStringArray("target", "reveal_node", "interactable")]
+[node name="AlphaEffect" type="Node" parent="Mesh/Effects" unique_id=1094295868 node_paths=PackedStringArray("reveal_node", "interactable")]
 script = ExtResource("9_v0cwl")
-target = NodePath("")
 target_alpha = 0.5
 from_alpha = 1.0
 reveal_node = NodePath("../../../SoldOut")
@@ -100,6 +100,15 @@ overshoot = 0.2
 settle_fraction = 0.5
 interactable = NodePath("../../Interactable")
 trigger = 1
+
+[node name="SoundEffect" type="Node" parent="Mesh/Effects" unique_id=155390497 node_paths=PackedStringArray("interactable")]
+script = ExtResource("12_2xo3q")
+interactable = NodePath("../../Interactable")
+trigger = 1
+metadata/_custom_type_script = "uid://djn6ejhd4tbyk"
+
+[node name="PaperAudio" type="AudioStreamPlayer3D" parent="Mesh/Effects/SoundEffect" unique_id=1978682354]
+stream = ExtResource("13_3l6h1")
 
 [node name="SoldOut" type="Label3D" parent="." unique_id=744121879]
 transform = Transform3D(0.99997514, -0.0017103245, 0.006842496, 0.0017022667, 0.99999785, 0.0011830329, -0.0068445047, -0.0011713536, 0.99997586, 0, 0, 0.76161253)
