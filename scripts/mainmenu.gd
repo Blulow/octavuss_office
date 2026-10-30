@@ -164,6 +164,9 @@ func _on_restart_onclick():
 	restart.active = false
 	back.active = false
 	
+	$Music.stream = preload("res://assets/sounds/warmcoldroom_2.ogg")
+	$Music.play()
+	
 	PlayerData.reset()
 	PlayerData.game_started = true
 	PlayerData.game_start.emit()
