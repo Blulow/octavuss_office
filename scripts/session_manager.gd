@@ -47,7 +47,7 @@ func _on_dialogue_finished() -> void:
 	PlayerData.add_money(money_add_per_session)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("click"):
 		if not accept_choices: return
 		accept_choices = false
 		

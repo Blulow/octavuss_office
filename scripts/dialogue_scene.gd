@@ -53,11 +53,10 @@ func _load_dialog(path: String) -> void:
 		PlayerData.pending_fact = Fact.new()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if _finished: return
-		
-			_advance()
+	if event.is_action_pressed("click"):
+		if _finished: return
+	
+		_advance()
 		
 
 

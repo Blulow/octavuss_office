@@ -56,3 +56,6 @@ theme_override_font_sizes/bold_font_size = 11
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
+
+[node name="SpeechAudio" type="AudioStreamPlayer3D" parent="." unique_id=900818250]
+bus = &"SFX"

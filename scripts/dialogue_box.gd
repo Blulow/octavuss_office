@@ -161,12 +161,31 @@ func _apply_visible(display: float = -1.0) -> void:
 		var now: float = _fx_state["now"]
 		var stop := mini(shown, times.size())
 		for i in range(_last_shown, stop):
+			if times[i - 1] != 0:
+				speech_audio(now - times[i - 1])
 			times[i] = now
 		_last_shown = stop
 	if shown >= _total:
 		_finish_typing()
 	else:
 		text_label.visible_characters = shown
+
+
+func speech_audio(length: float) -> void:
+	var sfx: AudioStream
+	
+	match randi_range(1, 3):
+		1:
+			sfx = preload("res://assets/sounds/sfx/Attempt 1.wav")
+		2:
+			sfx = preload("res://assets/sounds/sfx/Attempt 2.wav")
+		3:
+			sfx = preload("res://assets/sounds/sfx/Attempt 3.wav")
+	
+	$SpeechAudio.stream = sfx
+	$SpeechAudio.play(randf() * sfx.get_length())
+	await get_tree().create_timer(length).timeout
+	$SpeechAudio.stop()
 
 
 func _finish_typing() -> void:
