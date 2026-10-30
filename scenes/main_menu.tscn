@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://hl8gocycs3dn" path="res://assets/images/page_1.PNG" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
-[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/UI/settings_panel.gd" id="12_7b55j"]
+[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/ui/settings_panel.gd" id="12_7b55j"]
 [ext_resource type="PackedScene" uid="uid://dfppk43mgk0cj" path="res://scenes/curved_page.tscn" id="12_a8gd2"]
 [ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
-[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://settings menu.tscn" id="13_5pajh"]
+[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_5pajh"]
 [ext_resource type="Shader" uid="uid://bl1mycnmgx5di" path="res://assets/shader/curve_plane.gdshader" id="13_hstxw"]
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
 [ext_resource type="FontFile" uid="uid://c1px0mcx1h5vp" path="res://assets/fonts/EraserRegular.ttf" id="15_1a85y"]
@@ -496,6 +496,7 @@ mouse_filter = 2
 session_popup = NodePath("../Session Panel")
 
 [node name="Session Panel" parent="Game" unique_id=1910848528 instance=ExtResource("23_engjn")]
+mouse_filter = 2
 
 [node name="World" type="Node3D" parent="." unique_id=69397929]
 

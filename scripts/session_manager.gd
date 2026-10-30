@@ -23,7 +23,7 @@ func load_next_session(first = false) -> void:
 	if PlayerData.session_index >= sessions_files.size(): 
 		printerr("out of bounds")
 		return
-	session_popup.play("SESSION " + str(PlayerData.session_index))
+	session_popup.play("SESSION " + str(PlayerData.session_index + 1))
 
 func _start_dialogue():
 	dialogue_scene.start_session(sessions_files[PlayerData.session_index].resource_path)
