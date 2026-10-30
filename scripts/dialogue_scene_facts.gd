@@ -111,11 +111,15 @@ func _on_choice_chosen(index: int) -> void:
 	choice_box.updated.clear()
 	facts_box.show_facts(_facts, [])
 
-func parse_condition(text: String) -> Dictionary:
-	var regex = RegEx.new()
-	regex.compile("^([a-zA-Z_][a-zA-Z0-9_]*)\\s*(>=|<=|==|!=|>|<)\\s*(-?\\d+(?:\\.\\d+)?)$")
+static var _condition_regex: RegEx
 
-	var result = regex.search(text)
+
+func parse_condition(text: String) -> Dictionary:
+	# Compile the pattern once and reuse it, instead of rebuilding it on every
+	# condition check.
+	if _condition_regex == null:
+		_condition_regex = RegEx.create_from_string("^([a-zA-Z_][a-zA-Z0-9_]*)\\s*(>=|<=|==|!=|>|<)\\s*(-?\\d+(?:\\.\\d+)?)$")
+	var result = _condition_regex.search(text)
 
 	if result == null:
 		return {}

@@ -16,7 +16,8 @@ const BOOK_OPAQUE := Rect2(85, 164, 1825, 916)
 @export var overlay: CanvasLayer
 @onready var notebook: Node2D = overlay.get_node("NoteBook")
 @onready var notebook_ui: CanvasLayer = notebook.get_node("UI")
-@onready var blur: ColorRect = overlay.get_node("Blur")
+@onready var blur_h: ColorRect = overlay.get_node("BlurH")
+@onready var blur_v: ColorRect = overlay.get_node("BlurV")
 
 var _open := false
 var _animating := false
@@ -24,7 +25,7 @@ var _animating := false
 
 func _ready() -> void:
 	pressed.connect(_toggle)
-	blur.gui_input.connect(_on_blur_gui_input)
+	blur_v.gui_input.connect(_on_blur_gui_input)
 	var offscreen: float = get_viewport_rect().size.y
 	notebook.position.y = offscreen
 	notebook_ui.offset.y = offscreen
@@ -103,16 +104,15 @@ func _slide(target_y: float) -> void:
 
 
 func _fade_blur(target: float, duration: float) -> void:
-	var material: ShaderMaterial = blur.material as ShaderMaterial
 	var tween := create_tween()
-	tween.tween_method(_set_blur, material.get_shader_parameter("radius"), target, duration)
+	tween.tween_method(_set_blur, _current_blur(), target, duration)
 	await tween.finished
 
 
 func _set_blur(value: float) -> void:
-	var material: ShaderMaterial = blur.material as ShaderMaterial
-	material.set_shader_parameter("radius", value)
+	(blur_h.material as ShaderMaterial).set_shader_parameter("radius", value)
+	(blur_v.material as ShaderMaterial).set_shader_parameter("radius", value)
 
 
 func _current_blur() -> float:
-	return (blur.material as ShaderMaterial).get_shader_parameter("radius")
+	return (blur_h.material as ShaderMaterial).get_shader_parameter("radius")

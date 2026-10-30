@@ -13,9 +13,15 @@
 [ext_resource type="Texture2D" uid="uid://bkfm0hy52tho" path="res://icon.svg" id="10_kvpfn"]
 [ext_resource type="Script" uid="uid://bh1kups7o0m31" path="res://scripts/notebook_button.gd" id="11_dinhu"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvpfn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blur_h"]
 shader = ExtResource("8_0tnpc")
 shader_parameter/radius = 4.0
+shader_parameter/direction = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blur_v"]
+shader = ExtResource("8_0tnpc")
+shader_parameter/radius = 4.0
+shader_parameter/direction = 1
 
 [node name="Game" type="Node3D" unique_id=679770426]
 
@@ -73,8 +79,18 @@ visible = false
 [node name="BackBufferCopy" type="BackBufferCopy" parent="NotebookOverlay" unique_id=1038036895]
 copy_mode = 2
 
-[node name="Blur" type="ColorRect" parent="NotebookOverlay" unique_id=587517690]
-material = SubResource("ShaderMaterial_kvpfn")
+[node name="BlurH" type="ColorRect" parent="NotebookOverlay" unique_id=587517690]
+material = SubResource("ShaderMaterial_blur_h")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="NotebookOverlay" unique_id=1038036896]
+copy_mode = 2
+
+[node name="BlurV" type="ColorRect" parent="NotebookOverlay" unique_id=587517691]
+material = SubResource("ShaderMaterial_blur_v")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
