@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://uuoimgv5myh"
 path.s3tc="res://.godot/imported/sticky note_BaseColor.png-ce542ae342fb5a657c932367b846bb66.s3tc.ctex"
+path.etc2="res://.godot/imported/sticky note_BaseColor.png-ce542ae342fb5a657c932367b846bb66.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/sticky note_BaseColor.png"
-dest_files=["res://.godot/imported/sticky note_BaseColor.png-ce542ae342fb5a657c932367b846bb66.s3tc.ctex"]
+dest_files=["res://.godot/imported/sticky note_BaseColor.png-ce542ae342fb5a657c932367b846bb66.s3tc.ctex", "res://.godot/imported/sticky note_BaseColor.png-ce542ae342fb5a657c932367b846bb66.etc2.ctex"]
 
 [params]
 

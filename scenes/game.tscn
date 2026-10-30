@@ -186,6 +186,7 @@ script = ExtResource("11_ca42v")
 session_manager = NodePath("../SessionManager")
 
 [node name="NotebookButton" type="Button" parent="UI" unique_id=2014425624 node_paths=PackedStringArray("overlay")]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 anchors_preset = 2
 anchor_top = 1.0

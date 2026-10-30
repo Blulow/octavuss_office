@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnjvif5tmpumr"
 path.s3tc="res://.godot/imported/fact_menu.png-fce0e06d15c37958b7e80665f092918c.s3tc.ctex"
+path.etc2="res://.godot/imported/fact_menu.png-fce0e06d15c37958b7e80665f092918c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/images/fact_menu.png"
-dest_files=["res://.godot/imported/fact_menu.png-fce0e06d15c37958b7e80665f092918c.s3tc.ctex"]
+dest_files=["res://.godot/imported/fact_menu.png-fce0e06d15c37958b7e80665f092918c.s3tc.ctex", "res://.godot/imported/fact_menu.png-fce0e06d15c37958b7e80665f092918c.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://comegix7hky5y"
 path.s3tc="res://.godot/imported/environment_sofa_BaseColor.png-77f1e5dcbc05665bf4cbbf20c7c5b42a.s3tc.ctex"
+path.etc2="res://.godot/imported/environment_sofa_BaseColor.png-77f1e5dcbc05665bf4cbbf20c7c5b42a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/environment_sofa_BaseColor.png"
-dest_files=["res://.godot/imported/environment_sofa_BaseColor.png-77f1e5dcbc05665bf4cbbf20c7c5b42a.s3tc.ctex"]
+dest_files=["res://.godot/imported/environment_sofa_BaseColor.png-77f1e5dcbc05665bf4cbbf20c7c5b42a.s3tc.ctex", "res://.godot/imported/environment_sofa_BaseColor.png-77f1e5dcbc05665bf4cbbf20c7c5b42a.etc2.ctex"]
 
 [params]
 

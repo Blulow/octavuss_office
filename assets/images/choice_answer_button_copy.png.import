@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c20utct68prke"
 path.s3tc="res://.godot/imported/choice_answer_button_copy.png-d6eab9c78e7562430d6e4b8a8c030271.s3tc.ctex"
+path.etc2="res://.godot/imported/choice_answer_button_copy.png-d6eab9c78e7562430d6e4b8a8c030271.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/images/choice_answer_button_copy.png"
-dest_files=["res://.godot/imported/choice_answer_button_copy.png-d6eab9c78e7562430d6e4b8a8c030271.s3tc.ctex"]
+dest_files=["res://.godot/imported/choice_answer_button_copy.png-d6eab9c78e7562430d6e4b8a8c030271.s3tc.ctex", "res://.godot/imported/choice_answer_button_copy.png-d6eab9c78e7562430d6e4b8a8c030271.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1hk1sgtkxifr"
 path.s3tc="res://.godot/imported/unlock_new_facts.png-e2b0248faddcbd9330be0f88745f0d38.s3tc.ctex"
+path.etc2="res://.godot/imported/unlock_new_facts.png-e2b0248faddcbd9330be0f88745f0d38.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/images/unlock_new_facts.png"
-dest_files=["res://.godot/imported/unlock_new_facts.png-e2b0248faddcbd9330be0f88745f0d38.s3tc.ctex"]
+dest_files=["res://.godot/imported/unlock_new_facts.png-e2b0248faddcbd9330be0f88745f0d38.s3tc.ctex", "res://.godot/imported/unlock_new_facts.png-e2b0248faddcbd9330be0f88745f0d38.etc2.ctex"]
 
 [params]
 

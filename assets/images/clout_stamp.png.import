@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b52qru17ftvbj"
 path.s3tc="res://.godot/imported/clout_stamp.png-148708e686d93d604c987c3727524419.s3tc.ctex"
+path.etc2="res://.godot/imported/clout_stamp.png-148708e686d93d604c987c3727524419.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/images/clout_stamp.png"
-dest_files=["res://.godot/imported/clout_stamp.png-148708e686d93d604c987c3727524419.s3tc.ctex"]
+dest_files=["res://.godot/imported/clout_stamp.png-148708e686d93d604c987c3727524419.s3tc.ctex", "res://.godot/imported/clout_stamp.png-148708e686d93d604c987c3727524419.etc2.ctex"]
 
 [params]
 

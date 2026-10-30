@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://csh6mi6vvnj1d"
 path.s3tc="res://.godot/imported/facts_box_stroke.png-2028b02b68c474f81e9200b92606d1d4.s3tc.ctex"
+path.etc2="res://.godot/imported/facts_box_stroke.png-2028b02b68c474f81e9200b92606d1d4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/images/facts_box_stroke.png"
-dest_files=["res://.godot/imported/facts_box_stroke.png-2028b02b68c474f81e9200b92606d1d4.s3tc.ctex"]
+dest_files=["res://.godot/imported/facts_box_stroke.png-2028b02b68c474f81e9200b92606d1d4.s3tc.ctex", "res://.godot/imported/facts_box_stroke.png-2028b02b68c474f81e9200b92606d1d4.etc2.ctex"]
 
 [params]
 

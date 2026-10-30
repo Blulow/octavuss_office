@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://buhk7fqq440bi"
 path.s3tc="res://.godot/imported/calm_menu.png-115c549e02857802d46ced84781bf978.s3tc.ctex"
+path.etc2="res://.godot/imported/calm_menu.png-115c549e02857802d46ced84781bf978.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/images/calm_menu.png"
-dest_files=["res://.godot/imported/calm_menu.png-115c549e02857802d46ced84781bf978.s3tc.ctex"]
+dest_files=["res://.godot/imported/calm_menu.png-115c549e02857802d46ced84781bf978.s3tc.ctex", "res://.godot/imported/calm_menu.png-115c549e02857802d46ced84781bf978.etc2.ctex"]
 
 [params]
 

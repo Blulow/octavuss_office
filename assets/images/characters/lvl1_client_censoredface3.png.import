@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://n64gopv3fgg7"
 path.s3tc="res://.godot/imported/lvl1_client_censoredface3.png-6b00b1ace35c90b5bed6c6627a13769d.s3tc.ctex"
+path.etc2="res://.godot/imported/lvl1_client_censoredface3.png-6b00b1ace35c90b5bed6c6627a13769d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/images/characters/lvl1_client_censoredface3.png"
-dest_files=["res://.godot/imported/lvl1_client_censoredface3.png-6b00b1ace35c90b5bed6c6627a13769d.s3tc.ctex"]
+dest_files=["res://.godot/imported/lvl1_client_censoredface3.png-6b00b1ace35c90b5bed6c6627a13769d.s3tc.ctex", "res://.godot/imported/lvl1_client_censoredface3.png-6b00b1ace35c90b5bed6c6627a13769d.etc2.ctex"]
 
 [params]
 

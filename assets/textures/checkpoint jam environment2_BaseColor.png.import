@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvb1dgsg5w8to"
 path.s3tc="res://.godot/imported/checkpoint jam environment2_BaseColor.png-f759941fb6a4af607a6c175eef827480.s3tc.ctex"
+path.etc2="res://.godot/imported/checkpoint jam environment2_BaseColor.png-f759941fb6a4af607a6c175eef827480.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/checkpoint jam environment2_BaseColor.png"
-dest_files=["res://.godot/imported/checkpoint jam environment2_BaseColor.png-f759941fb6a4af607a6c175eef827480.s3tc.ctex"]
+dest_files=["res://.godot/imported/checkpoint jam environment2_BaseColor.png-f759941fb6a4af607a6c175eef827480.s3tc.ctex", "res://.godot/imported/checkpoint jam environment2_BaseColor.png-f759941fb6a4af607a6c175eef827480.etc2.ctex"]
 
 [params]
 
