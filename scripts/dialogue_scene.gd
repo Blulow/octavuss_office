@@ -29,6 +29,7 @@ func start_session(path: String):
 	_finished = false
 	_index = -1
 	_set_index = 0
+	PlayerData.history.clear()
 	_load_dialog(path)
 	_advance()
 
@@ -122,6 +123,10 @@ func _show_responses(responses: Array) -> void:
 
 func _show_message(msg: Dictionary) -> void:
 	box.show_line(msg, _vars)
+	PlayerData.history.append({
+		"name": String(msg.get("name", msg.get("speaker", ""))),
+		"text": String(msg.get("text", ""))
+	})
 	
 	if not msg.has("effects"): return
 	

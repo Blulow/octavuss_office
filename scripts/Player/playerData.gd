@@ -11,6 +11,9 @@ var money: int = 500
 
 var facts_collected : Array[Fact]
 
+# Conversation history: the lines the player has actually seen, in order.
+var history: Array = []
+
 var game_started : bool
 
 class StatData:
@@ -101,6 +104,7 @@ func reset() -> void:
 	stats.sp = StatData.new(6, 1)
 	
 	facts_collected.clear()   # your current reset() doesn't clear facts
+	history.clear()
 	
 	money_changed.emit(money)
 	facts_reset.emit()
