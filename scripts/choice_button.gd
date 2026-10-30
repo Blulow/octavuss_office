@@ -16,6 +16,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 func add_return_button() -> void:
 	var return_btn: ReturnFactButton = return_btn_scene.instantiate()
 	add_child(return_btn)
-	return_btn.position = Vector2(-30, 0)
+	return_btn.position = Vector2(-30, -20)
 	return_btn.set_anchors_preset(Control.PRESET_CENTER_LEFT)
 	return_btn.pressed.connect(return_btn_pressed.emit)

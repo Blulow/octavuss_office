@@ -26,6 +26,12 @@ var source_text: String = ""
 func _ready() -> void:
 	facts_box.global_position.x = -600
 	facts_box.rotation = 0.1
+	
+	#return_btn.mouse_entered.connect(func():
+		#$PaperAudio.stream = preload("res://assets/sounds/sfx/paper_select_3.wav")
+		#$PaperAudio.play()
+		#)
+	
 	return_btn.pressed.connect(func():
 		facts_box.global_position.x = -600
 		facts_box.rotation = 0.1
