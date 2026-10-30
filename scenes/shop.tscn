@@ -22,8 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://cdp6ibmmjc1io" path="res://assets/model/mirror.glb" id="10_44xle"]
 [ext_resource type="Texture2D" uid="uid://bvb1dgsg5w8to" path="res://assets/textures/checkpoint jam environment2_BaseColor.png" id="11_24it5"]
 [ext_resource type="Texture2D" uid="uid://defswq55j20vi" path="res://assets/textures/checkpoint jam environment2_Normal.png" id="12_7mqwv"]
-[ext_resource type="Texture2D" uid="uid://d1hk1sgtkxifr" path="res://assets/images/unlock_new_facts.png" id="12_yuijs"]
+[ext_resource type="Script" uid="uid://c4w116vq78lhu" path="res://scripts/Items/interaction/interactable.gd" id="13_ru2r1"]
+[ext_resource type="Script" uid="uid://dq6ksdkasoa4g" path="res://scripts/Items/interaction/interaction_effect/lift_effect.gd" id="14_lxs01"]
 [ext_resource type="PackedScene" uid="uid://8m3pb4v714gh" path="res://assets/model/newspaper.glb" id="14_ouqob"]
+[ext_resource type="Script" uid="uid://bk7fmjj2hru2u" path="res://scripts/Items/interaction/interaction_effect/alpha_effect.gd" id="15_lxs01"]
 [ext_resource type="Shader" uid="uid://5tgva33g8jug" path="res://assets/shader/curve_plane_without_culling.gdshader" id="15_ouqob"]
 [ext_resource type="Texture2D" uid="uid://dlal3cmti385t" path="res://assets/images/characters/doctor.png" id="16_5u241"]
 [ext_resource type="Texture2D" uid="uid://6pkr77a0xavy" path="res://assets/images/choice_answer_button_.png" id="16_aa4hd"]
@@ -39,7 +41,7 @@ normal_texture = ExtResource("4_5lclc")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ouqob"]
 render_priority = 0
 shader = ExtResource("6_lxs01")
-shader_parameter/curve_strength = -0.053999955064999994
+shader_parameter/curve_strength = -0.05399995506499999
 shader_parameter/axis = 1
 shader_parameter/albedo_tex = ExtResource("11_24it5")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
@@ -63,7 +65,7 @@ shader_parameter/albedo_color = Color(1, 1, 1, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8ny3"]
 render_priority = 0
 shader = ExtResource("6_lxs01")
-shader_parameter/curve_strength = 0.23200005851999994
+shader_parameter/curve_strength = 0.2320000585199999
 shader_parameter/axis = 4
 shader_parameter/albedo_tex = ExtResource("11_24it5")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
@@ -78,7 +80,11 @@ albedo_color = Color(0.2627451, 1, 1, 0)
 stencil_mode = 3
 stencil_flags = 2
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ru2r1"]
+load_path = "res://.godot/imported/unlock_new_facts.png-e2b0248faddcbd9330be0f88745f0d38.s3tc.ctex"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_xrivr"]
+size = Vector3(15.649216, 2.9067383, 1)
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_24it5"]
 render_priority = 1
@@ -361,7 +367,7 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 text = "Money:"
 
-[node name="Shop_UI" type="Control" parent="CanvasLayer" unique_id=2054328244 node_paths=PackedStringArray("name_label", "feedback_label", "buy_button", "button_text3d", "item_price", "item_description_label", "money_label")]
+[node name="Shop_UI" type="Control" parent="CanvasLayer" unique_id=2054328244 node_paths=PackedStringArray("name_label", "feedback_label", "buy_button", "button_text3d", "item_price", "item_description_label", "money_label", "btn_interactable")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -374,6 +380,7 @@ button_text3d = NodePath("../../Mirror/BuyNowBTN/Label3D")
 item_price = NodePath("../ColorRect/ItemPrice")
 item_description_label = NodePath("../../Mirror/Description")
 money_label = NodePath("../ColorRect/Money")
+btn_interactable = NodePath("../../Mirror/BuyNowBTN/Interactable")
 
 [node name="ItemBuyAudio" type="AudioStreamPlayer3D" parent="CanvasLayer/Shop_UI" unique_id=524338737]
 
@@ -414,7 +421,7 @@ transform = Transform3D(0.325, 0, 8.881784e-16, 0, 0.325, 0, -8.881784e-16, 0, 0
 flip_h = true
 flip_v = true
 render_priority = 1
-texture = ExtResource("12_yuijs")
+texture = SubResource("CompressedTexture2D_ru2r1")
 
 [node name="Label3D" type="Label3D" parent="Mirror/BuyNowBTN" unique_id=1650090731]
 transform = Transform3D(1, -6.337423e-22, 1.4210855e-13, 6.337423e-22, 1, -3.109869e-16, -1.4210855e-13, 3.109869e-16, 1, 0, 0.010684967, 0.32847786)
@@ -426,7 +433,28 @@ font_size = 381
 [node name="StaticBody3D" type="StaticBody3D" parent="Mirror/BuyNowBTN" unique_id=456401525]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mirror/BuyNowBTN/StaticBody3D" unique_id=2094615076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020378113, 0.16870213, 0)
 shape = SubResource("BoxShape3D_xrivr")
+
+[node name="Interactable" type="Node" parent="Mirror/BuyNowBTN" unique_id=29926442 node_paths=PackedStringArray("body")]
+script = ExtResource("13_ru2r1")
+body = NodePath("../StaticBody3D")
+metadata/_custom_type_script = "uid://c4w116vq78lhu"
+
+[node name="LiftEffect" type="Node" parent="Mirror/BuyNowBTN" unique_id=823339045 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("14_lxs01")
+target = NodePath("..")
+interactable = NodePath("../Interactable")
+metadata/_custom_type_script = "uid://dq6ksdkasoa4g"
+
+[node name="AlphaEffect" type="Node" parent="Mirror/BuyNowBTN" unique_id=774137594 node_paths=PackedStringArray("target", "interactable")]
+script = ExtResource("15_lxs01")
+target = NodePath("..")
+target_alpha = 0.5
+from_alpha = 1.0
+interactable = NodePath("../Interactable")
+trigger = 2
+metadata/_custom_type_script = "uid://bk7fmjj2hru2u"
 
 [node name="mirror" parent="Mirror" unique_id=1189326179 instance=ExtResource("10_44xle")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -0.27931833, -3.2732677, 0.7754588)

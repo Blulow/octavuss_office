@@ -15,7 +15,7 @@ var current_item: Item
 var item_bought : bool = false
 var items: Array[Item]
 var bought_item: Item
-
+@export var btn_interactable: Interactable
 signal bought
 
 func _on_enter_shop() -> void:
@@ -39,6 +39,8 @@ func reset_item_selection() -> void:
 		current_item.set_selected(false)
 		current_item = null
 	_update_buy_button(current_item)
+	btn_interactable.success_inactive()
+
 
 func _on_reset_game() -> void:
 	reset_item_selection()
@@ -72,6 +74,7 @@ func _on_item_purchased(item: Item) -> void:
 	if item != current_item:
 		return
 	bought_item = item          # new
+	btn_interactable.succeed()
 	feedback_label.text = "Item purchased!"
 	money_label.text = "Money: " + str(PlayerData.money)
 	item_bought = true

@@ -16,6 +16,7 @@ func _ready() -> void:
 	interactable.select_changed.connect(_on_select_changed)
 	interactable.action_succeeded.connect(func(): _enter(Trigger.SUCCESS))
 	interactable.action_failed.connect(func(): _enter(Trigger.FAIL))
+	interactable.deactivate_success.connect(func(): _exit(Trigger.SUCCESS))
 
 # Walks up the tree and returns the first Interactable that is a child of an ancestor.
 func _find_interactable() -> Interactable:
@@ -40,6 +41,8 @@ func _enter(t: Trigger) -> void:
 func _exit(t: Trigger) -> void:
 	if t == trigger:
 		deactivate()
+
+
 
 # Subclasses override these two only.
 func activate() -> void: pass

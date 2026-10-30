@@ -35,7 +35,8 @@ func activate() -> void:
 	_tween.tween_callback(_on_done)
 
 func deactivate() -> void:
-	reveal_node.visible = false
+	if reveal_node != null:
+		reveal_node.visible = false
 	
 	if not restore_on_deactivate:
 		return
