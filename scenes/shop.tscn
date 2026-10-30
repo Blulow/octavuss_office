@@ -4,22 +4,69 @@
 [ext_resource type="Script" uid="uid://bg507o0isd4yh" path="res://scripts/ui/shop_ui.gd" id="1_xfvoa"]
 [ext_resource type="Script" uid="uid://25yb702hmhup" path="res://scripts/Items/Perks/boost_information_perk.gd" id="2_032fp"]
 [ext_resource type="Script" uid="uid://bc0evra1uga06" path="res://scripts/Items/Perks/boost_deescalation_perk.gd" id="3_2fc2m"]
+[ext_resource type="PackedScene" uid="uid://je6kx7t456wx" path="res://assets/model/headphones.glb" id="3_68utx"]
 [ext_resource type="PackedScene" uid="uid://dxubqmbsopjaw" path="res://scenes/shop_items/headphones.tscn" id="3_j14q8"]
+[ext_resource type="Texture2D" uid="uid://uuoimgv5myh" path="res://assets/textures/sticky note_BaseColor.png" id="3_mihhf"]
+[ext_resource type="Texture2D" uid="uid://cjl4ri7ltlppa" path="res://assets/textures/sticky note_Normal.png" id="4_5lclc"]
 [ext_resource type="Script" uid="uid://ckvdk6xuymy83" path="res://scripts/ui/button_switch_scene.gd" id="4_8r1wq"]
 [ext_resource type="PackedScene" uid="uid://b0ek4dm1ueos4" path="res://scenes/shop_items/stress_ball.tscn" id="5_5u241"]
 [ext_resource type="Script" uid="uid://bmppctg560kb6" path="res://scripts/Items/item_showcase.gd" id="6_ajxib"]
+[ext_resource type="Shader" uid="uid://bl1mycnmgx5di" path="res://assets/shader/curve_plane.gdshader" id="6_lxs01"]
 [ext_resource type="PackedScene" uid="uid://brkcy4dncnouo" path="res://scenes/shop_items/newspaper.tscn" id="7_pqync"]
 [ext_resource type="Script" uid="uid://bbhqup6ou0a58" path="res://scripts/Items/interaction/fall_and_hide.gd" id="7_y6sft"]
 [ext_resource type="PackedScene" uid="uid://waqnitvh5f2l" path="res://assets/model/sticky_note_2.glb" id="7_yuijs"]
 [ext_resource type="PackedScene" uid="uid://b3b8kk7p4djgf" path="res://scenes/shop_items/energy_drink.tscn" id="8_yuijs"]
 [ext_resource type="PackedScene" uid="uid://bbvf3yeefwarh" path="res://assets/model/sticky_note_3.glb" id="9_aa4hd"]
 [ext_resource type="PackedScene" uid="uid://b1dss203uw78i" path="res://assets/model/board.glb" id="9_m4ofw"]
+[ext_resource type="PackedScene" uid="uid://m6a6ef5crivd" path="res://assets/model/stress_ball.glb" id="10_5lclc"]
 [ext_resource type="PackedScene" uid="uid://cdp6ibmmjc1io" path="res://assets/model/mirror.glb" id="10_44xle"]
 [ext_resource type="Texture2D" uid="uid://bvb1dgsg5w8to" path="res://assets/textures/checkpoint jam environment2_BaseColor.png" id="11_24it5"]
 [ext_resource type="Texture2D" uid="uid://defswq55j20vi" path="res://assets/textures/checkpoint jam environment2_Normal.png" id="12_7mqwv"]
 [ext_resource type="Texture2D" uid="uid://d1hk1sgtkxifr" path="res://assets/images/unlock_new_facts.png" id="12_yuijs"]
+[ext_resource type="PackedScene" uid="uid://8m3pb4v714gh" path="res://assets/model/newspaper.glb" id="14_ouqob"]
+[ext_resource type="Shader" uid="uid://5tgva33g8jug" path="res://assets/shader/curve_plane_without_culling.gdshader" id="15_ouqob"]
 [ext_resource type="Texture2D" uid="uid://dlal3cmti385t" path="res://assets/images/characters/doctor.png" id="16_5u241"]
 [ext_resource type="Texture2D" uid="uid://6pkr77a0xavy" path="res://assets/images/choice_answer_button_.png" id="16_aa4hd"]
+[ext_resource type="PackedScene" uid="uid://h5s5tpnu800y" path="res://assets/model/energy_drink.glb" id="18_p0at6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mt8ix"]
+albedo_color = Color(1, 0.94140625, 0.0625, 1)
+albedo_texture = ExtResource("3_mihhf")
+normal_enabled = true
+normal_scale = 1.35
+normal_texture = ExtResource("4_5lclc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ouqob"]
+render_priority = 0
+shader = ExtResource("6_lxs01")
+shader_parameter/curve_strength = -0.053999955064999994
+shader_parameter/axis = 1
+shader_parameter/albedo_tex = ExtResource("11_24it5")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0at6"]
+render_priority = 0
+shader = ExtResource("6_lxs01")
+shader_parameter/curve_strength = -0.33999996865000004
+shader_parameter/axis = 0
+shader_parameter/albedo_tex = ExtResource("11_24it5")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mt8ix"]
+render_priority = 0
+shader = ExtResource("15_ouqob")
+shader_parameter/curve_strength = 0.25400005956500005
+shader_parameter/axis = 2
+shader_parameter/albedo_tex = ExtResource("11_24it5")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8ny3"]
+render_priority = 0
+shader = ExtResource("6_lxs01")
+shader_parameter/curve_strength = 0.23200005851999994
+shader_parameter/axis = 4
+shader_parameter/albedo_tex = ExtResource("11_24it5")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7mqwv"]
 radial_segments = 15
@@ -75,7 +122,15 @@ preview_scene = ExtResource("3_j14q8")
 transform = Transform3D(0.81699336, 0, -3.5527137e-15, 0, 0.81699336, 0, -1.4210855e-14, 0, 3.4722219, -0.10635185, 0, 3.8480148)
 
 [node name="Plane003" parent="Headphones/Mesh/Mesh" index="0" unique_id=700221134]
-transform = Transform3D(-0.00019737169, -0.022999115, 0, 0, 0, -0.022999959, 0.022999112, -0.0001973718, 0, 1.1046495, -0.8500148, -0.541461)
+transform = Transform3D(-0.0001973717, -0.022999115, 0, 0, 0, -0.022999959, 0.022999112, -0.00019737182, 0, 1.1019869, -0.85001504, -0.5460458)
+surface_material_override/0 = SubResource("StandardMaterial3D_mt8ix")
+
+[node name="headphones" parent="Headphones/Mesh/Mesh" index="1" unique_id=1457843671 instance=ExtResource("3_68utx")]
+transform = Transform3D(1.4702744e-07, -0.25352862, -1.9838663, 3.340005e-09, 1.9838663, -0.2535286, 2, 1.8532669e-08, 1.1651986e-07, -0.91630745, 0.012556553, -7.367031)
+
+[node name="Headphones_001Shape" parent="Headphones/Mesh/Mesh/headphones" index="0" unique_id=1017285960]
+transform = Transform3D(0.0009049279, 0.0004257022, 0.0025951378, 0.00018614829, -0.0018674025, -0.012637713, -2.4913534e-06, 0.015098531, -0.0016362171, 3.1955438, -0.09807509, -0.5363493)
+surface_material_override/0 = SubResource("ShaderMaterial_ouqob")
 
 [node name="OutlineEffect" parent="Headphones/Mesh/Effects" parent_id_path=PackedInt32Array(2135113639, 1279989910) index="2" unique_id=981090973 node_paths=PackedStringArray("mesh")]
 mesh = NodePath("../../Mesh/Plane003")
@@ -100,7 +155,14 @@ perks = [NodePath("../CalmBoost"), NodePath("../FactBoost")]
 preview_scene = ExtResource("5_5u241")
 
 [node name="Plane003" parent="StressBall/Mesh/Mesh" parent_id_path=PackedInt32Array(1625085186, 1139939809) index="0" unique_id=700221134]
-transform = Transform3D(0.00045511188, -0.024995858, 1.0926037e-09, 0, -1.0927848e-09, -0.025, 0.024995863, 0.00045511196, -1.9893571e-11, 1.2013607, -0.8978131, -0.49509668)
+transform = Transform3D(0.00045511182, -0.024995856, 1.0926036e-09, 1.6168826e-18, -1.0927846e-09, -0.024999995, 0.024995862, 0.00045511193, -1.9893571e-11, 1.2013607, -0.8978131, -0.49509668)
+surface_material_override/0 = SubResource("StandardMaterial3D_mt8ix")
+
+[node name="stress_ball" parent="StressBall/Mesh/Mesh" parent_id_path=PackedInt32Array(1625085186, 1139939809) index="1" unique_id=829708221 instance=ExtResource("10_5lclc")]
+
+[node name="out_of_4_models_for_item_UVed1_CleanSphere_StressBall_" parent="StressBall/Mesh/Mesh/stress_ball" index="0" unique_id=494245357]
+transform = Transform3D(-1.7499755e-09, 3.554525e-11, 0.035, 0.034464896, 0.00017419399, 1.5065089e-09, -0.0060967896, 0.0009847113, -1.5298987e-09, 0.4976492, -0.037778854, -1.009839)
+surface_material_override/0 = SubResource("ShaderMaterial_p0at6")
 
 [node name="OutlineEffect" parent="StressBall/Mesh/Effects" parent_id_path=PackedInt32Array(1625085186, 1279989910) index="2" unique_id=981090973 node_paths=PackedStringArray("mesh")]
 mesh = NodePath("../../Mesh/Plane003")
@@ -132,6 +194,13 @@ transform = Transform3D(-7.142385e-08, 0, 1.6339872, 0, 1.6339872, 0, -6.944444,
 
 [node name="Plane001" parent="Newspaper/Mesh/sticky_note_2" index="0" unique_id=313532799]
 transform = Transform3D(-0.013, -1.9629456e-09, 8.5803074e-17, 0, -5.6824806e-10, -0.013, 1.9629456e-09, -0.013, 5.6824806e-10, 0.079619646, 0.47117734, -0.7319288)
+surface_material_override/0 = SubResource("StandardMaterial3D_mt8ix")
+
+[node name="newspaper" parent="Newspaper/Mesh/sticky_note_2" unique_id=402769111 instance=ExtResource("14_ouqob")]
+
+[node name="out_of_4_models_for_item_UVed1_Newspaper_3" parent="Newspaper/Mesh/sticky_note_2/newspaper" index="0" unique_id=833201461]
+transform = Transform3D(-0.0014503854, -0.0010367025, 0.0009839799, -0.009025918, -0.003935429, -0.0001745049, -0.0040532923, 0.009134421, 3.649305e-05, 0.36019444, 0.8960628, -0.6377816)
+surface_material_override/0 = SubResource("ShaderMaterial_mt8ix")
 
 [node name="Mesh" parent="Newspaper/Mesh" index="1" unique_id=1139939809]
 visible = false
@@ -162,6 +231,14 @@ transform = Transform3D(1, 0, 1.4210853e-14, 0, 1, 0, -1.4210853e-14, 0, 1, 0, 0
 
 [node name="Plane002" parent="EnergyDrink/Mesh/sticky_note_3" index="0" unique_id=1159336888]
 transform = Transform3D(-8.742277e-10, -0.02, 8.742277e-10, 0, -8.742277e-10, -0.02, 0.02, -8.742277e-10, 3.8213706e-17, -1.0773306, -0.6671799, 0.47428226)
+surface_material_override/0 = SubResource("StandardMaterial3D_mt8ix")
+
+[node name="energy_drink" parent="EnergyDrink/Mesh/sticky_note_3" unique_id=1288396289 instance=ExtResource("18_p0at6")]
+transform = Transform3D(0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0, -3.5527137e-15, 0, 0.99999994, -0.039092064, 0, 0.87730026)
+
+[node name="out_of_4_models_for_item_UVed1_EnergyDrink" parent="EnergyDrink/Mesh/sticky_note_3/energy_drink" index="0" unique_id=1372934449]
+transform = Transform3D(-0.023653816, 0.00012697377, 0.0074443244, -0.008059735, -0.00045275406, -0.020782726, 0.0007315834, -0.00088254624, 0.0117327515, 0.08158302, -0.3335389, -0.70788217)
+surface_material_override/0 = SubResource("ShaderMaterial_u8ny3")
 
 [node name="Mesh" parent="EnergyDrink/Mesh" index="1" unique_id=1139939809]
 visible = false
@@ -322,7 +399,7 @@ mesh = SubResource("CylinderMesh_7mqwv")
 material = SubResource("StandardMaterial3D_j7ex8")
 
 [node name="Description" type="Label3D" parent="Mirror" unique_id=965422724]
-transform = Transform3D(1, 0, 0, 0, 1, 0, -2.2737368e-13, 0, 1, -4.1619644, 3.4580421, 1.9731429)
+transform = Transform3D(1, 0, 0, 0, 1, 0, -2.2737368e-13, 0, 1, -4.4821215, 3.0230336, 1.9731429)
 pixel_size = 0.002
 render_priority = 1
 modulate = Color(0.14453125, 0.14453125, 0.14453125, 1)
@@ -359,7 +436,7 @@ transform = Transform3D(0.035, 0, 0, 0, -1.5298985e-09, -0.035, 0, 0.035, -1.529
 surface_material_override/0 = SubResource("ORMMaterial3D_24it5")
 
 [node name="Sprite3D" type="Sprite3D" parent="Mirror" unique_id=1911331751]
-transform = Transform3D(0.795, 0, 0, 0, 0.99, 0, 0, 0, 1, -2.984442, 2.9629252, 1.6768746)
+transform = Transform3D(0.795, 0, 0, 0, 0.99, 0, 0, 0, 1, -3.1874583, 2.6132462, 1.6768746)
 flip_h = true
 render_priority = 1
 texture = ExtResource("16_aa4hd")
@@ -398,13 +475,17 @@ material_override = SubResource("ORMMaterial3D_msd4h")
 
 [editable path="Headphones"]
 [editable path="Headphones/Mesh/Mesh"]
+[editable path="Headphones/Mesh/Mesh/headphones"]
 [editable path="StressBall"]
 [editable path="StressBall/Mesh/Mesh"]
+[editable path="StressBall/Mesh/Mesh/stress_ball"]
 [editable path="Newspaper"]
 [editable path="Newspaper/Mesh/sticky_note_2"]
+[editable path="Newspaper/Mesh/sticky_note_2/newspaper"]
 [editable path="Newspaper/Mesh/Mesh"]
 [editable path="EnergyDrink"]
 [editable path="EnergyDrink/Mesh/sticky_note_3"]
+[editable path="EnergyDrink/Mesh/sticky_note_3/energy_drink"]
 [editable path="EnergyDrink/Mesh/Mesh"]
 [editable path="Mirror/mirror"]
 [editable path="board"]
