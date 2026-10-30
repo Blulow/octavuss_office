@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://hl8gocycs3dn" path="res://assets/images/page_1.PNG" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://c6uedym22bktt" path="res://assets/images/page_3.PNG" id="10_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf8mv0e3m0lhw" path="res://assets/images/page_2.PNG" id="11_a8gd2"]
-[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/ui/settings_panel.gd" id="12_7b55j"]
+[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/UI/settings_panel.gd" id="12_7b55j"]
 [ext_resource type="PackedScene" uid="uid://dfppk43mgk0cj" path="res://scenes/curved_page.tscn" id="12_a8gd2"]
 [ext_resource type="PackedScene" uid="uid://db0cmrkkmfc16" path="res://scenes/game.tscn" id="12_flqon"]
-[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://scenes/settings menu.tscn" id="13_5pajh"]
+[ext_resource type="PackedScene" uid="uid://djtxrqeg6047t" path="res://settings menu.tscn" id="13_5pajh"]
 [ext_resource type="Shader" uid="uid://bl1mycnmgx5di" path="res://assets/shader/curve_plane.gdshader" id="13_hstxw"]
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
 [ext_resource type="FontFile" uid="uid://c1px0mcx1h5vp" path="res://assets/fonts/EraserRegular.ttf" id="15_1a85y"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://bhvh0ut0mnac4" path="res://scripts/shop_navigate.gd" id="18_svtp6"]
 [ext_resource type="PackedScene" uid="uid://brw7r004eirvy" path="res://scenes/client.tscn" id="19_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://c3x63tjv3fxev" path="res://scenes/shop.tscn" id="20_gw5y6"]
+[ext_resource type="PackedScene" uid="uid://deubpga20k4vc" path="res://scenes/ui/Session.tscn" id="23_engjn"]
 [ext_resource type="PackedScene" uid="uid://ddnsslucrlopo" path="res://scenes/particles.tscn" id="23_vr8o3"]
 [ext_resource type="Shader" uid="uid://dyob2qjpd80uc" path="res://assets/shader/orb.gdshader" id="24_1a85y"]
 
@@ -91,16 +92,16 @@ animations = [{
 [sub_resource type="ViewportTexture" id="ViewportTexture_u8ny3"]
 viewport_path = NodePath("UI/Book/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hl5e0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_engjn"]
 viewport_path = NodePath("CurvedPage/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_engjn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6h3lr"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("13_hstxw")
 shader_parameter/curve_strength = 0.6420000779950001
 shader_parameter/axis = 0
-shader_parameter/albedo_tex = SubResource("ViewportTexture_hl5e0")
+shader_parameter/albedo_tex = SubResource("ViewportTexture_engjn")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_drhbd"]
@@ -373,7 +374,7 @@ own_world_3d = true
 transparent_bg = true
 
 [node name="Page" parent="UI/Book/SubViewport" unique_id=1650568177 instance=ExtResource("12_a8gd2")]
-surface_material_override/0 = SubResource("ShaderMaterial_engjn")
+surface_material_override/0 = SubResource("ShaderMaterial_6h3lr")
 camera_pos = Vector3(-1.02, 1, -0.015)
 camera_rot = Vector3(-1.555, 0, -0.01)
 font_size = 23
@@ -490,8 +491,11 @@ bus = &"SFX"
 
 [node name="Game" parent="." unique_id=679770426 instance=ExtResource("12_flqon")]
 
-[node name="SessionManager" parent="Game" index="3" unique_id=1515956607]
+[node name="SessionManager" parent="Game" index="3" unique_id=1515956607 node_paths=PackedStringArray("session_popup")]
 mouse_filter = 2
+session_popup = NodePath("../Session Panel")
+
+[node name="Session Panel" parent="Game" unique_id=1910848528 instance=ExtResource("23_engjn")]
 
 [node name="World" type="Node3D" parent="." unique_id=69397929]
 

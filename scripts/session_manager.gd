@@ -12,17 +12,22 @@ signal action_finish
 @export var money_add_per_session: int = 5
 
 var accept_choices: bool = false
+@export var session_popup: SessionUIManager
 
 func _ready():
 	action_start.connect(_on_action_start)
 	dialogue_scene.finished.connect(_on_dialogue_finished)
-
+	session_popup.sequence_finished.connect(_start_dialogue)
+	
 func load_next_session(first = false) -> void:
 	if PlayerData.session_index >= sessions_files.size(): 
 		printerr("out of bounds")
 		return
-	
+	session_popup.play("SESSION " + str(PlayerData.session_index))
+
+func _start_dialogue():
 	dialogue_scene.start_session(sessions_files[PlayerData.session_index].resource_path)
+
 
 func _on_dialogue_finished() -> void:
 	PlayerData.session_index += 1

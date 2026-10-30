@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://deubpga20k4vc"]
+
+[ext_resource type="Shader" uid="uid://fsoauxr4xq5r" path="res://assets/shader/screen_blur.gdshader" id="1_cdcyd"]
+[ext_resource type="Script" uid="uid://dheth1p8xsygu" path="res://scripts/UI/session_ui_animation.gd" id="1_hxowv"]
+[ext_resource type="Texture2D" uid="uid://d1hk1sgtkxifr" path="res://assets/images/unlock_new_facts.png" id="2_cdcyd"]
+[ext_resource type="FontFile" uid="uid://c1px0mcx1h5vp" path="res://assets/fonts/EraserRegular.ttf" id="3_u5uxn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hxowv"]
+shader = ExtResource("1_cdcyd")
+shader_parameter/radius = 0.0
+
+[node name="Session Panel" type="Control" unique_id=1910848528 node_paths=PackedStringArray("blur_rect", "popup", "message")]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hxowv")
+blur_rect = NodePath("Blur")
+popup = NodePath("TextureRect")
+blur_radius = 4.0
+message = NodePath("TextureRect/Label")
+
+[node name="Blur" type="ColorRect" parent="." unique_id=601034701]
+material = SubResource("ShaderMaterial_hxowv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=67636294]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -99.0
+offset_right = 1194.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cdcyd")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1562184717]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 64.0
+offset_right = 1306.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_u5uxn")
+theme_override_font_sizes/font_size = 200
+text = "SESSION 1"
+horizontal_alignment = 1
+vertical_alignment = 1
