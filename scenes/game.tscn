@@ -139,6 +139,7 @@ rotation = 0.11842839
 scale = Vector2(1.67, 1.67)
 
 [node name="PaperAudio" type="AudioStreamPlayer2D" parent="FactsCanvas" unique_id=160678505]
+bus = &"SFX"
 
 [node name="ChoiceUIManager" type="Node" parent="." unique_id=315396107 node_paths=PackedStringArray("canvas_instance", "facts_canvas", "facts_button")]
 script = ExtResource("1_uwrxv")
@@ -206,6 +207,7 @@ scale = Vector2(0.315, 0.315)
 texture = ExtResource("12_dinhu")
 
 [node name="NotebookAudio" type="AudioStreamPlayer2D" parent="UI/NotebookButton" unique_id=712460890]
+bus = &"SFX"
 
 [node name="Money" type="Control" parent="UI" unique_id=1125710103]
 layout_mode = 3

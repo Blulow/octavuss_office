@@ -20,8 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://d37warxbuyts5" path="res://scenes/world/world_objects.tscn" id="13_rcqid"]
 [ext_resource type="Texture2D" uid="uid://y03s7vj54n5e" path="res://assets/images/paper_ending.png" id="15_1acrt"]
 [ext_resource type="Texture2D" uid="uid://ikevcb64r40l" path="res://assets/images/RESTART_ending.png" id="16_vr8o3"]
-[ext_resource type="Texture2D" uid="uid://4pkxwrciphrs" path="res://assets/images/Back_to_menu_ending_copy.png" id="17_1a85y"]
 [ext_resource type="Shader" uid="uid://dhmu2l8b2f010" path="res://assets/shader/papercam2d.gdshader" id="17_j7ex8"]
+[ext_resource type="Texture2D" uid="uid://b3v0pwluviart" path="res://assets/images/backtomenubutton.png" id="17_vr8o3"]
 [ext_resource type="Script" uid="uid://bhvh0ut0mnac4" path="res://scripts/shop_navigate.gd" id="18_svtp6"]
 [ext_resource type="PackedScene" uid="uid://brw7r004eirvy" path="res://scenes/client.tscn" id="19_1dfpl"]
 [ext_resource type="PackedScene" uid="uid://c3x63tjv3fxev" path="res://scenes/shop.tscn" id="20_gw5y6"]
@@ -463,7 +463,7 @@ offset_top = 0.6387286
 offset_right = 622.7168
 offset_bottom = 89.638725
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("17_1a85y")
+texture = ExtResource("17_vr8o3")
 mask = NodePath("..")
 parent = NodePath("../..")
 
@@ -555,6 +555,7 @@ delivery = NodePath("../Player/ItemDelivery")
 woosh_audio = NodePath("WooshAudio")
 
 [node name="WooshAudio" type="AudioStreamPlayer2D" parent="ShopNavigate" unique_id=1966424077]
+bus = &"SFX"
 
 [node name="PaperShader" type="CanvasLayer" parent="." unique_id=932288097]
 

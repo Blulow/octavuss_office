@@ -1,6 +1,8 @@
 extends Node
 
 @export var open_button: Strip2D
+@export var button: Button
+@export var use_button: bool = false
 @export var panel_scene: PackedScene
 ## A plain Control or CanvasLayer child, NOT a Container (containers fight the tween).
 @export var parent: CanvasLayer
@@ -18,8 +20,12 @@ var _spawning := false  # blocks double-clicks during the one-frame wait below
 @onready var clipboard_audio: AudioStreamPlayer2D = $ClipboardAudio
 
 func _ready() -> void:
-	if not open_button: return
-	open_button.onclick.connect(_on_button_pressed)
+	if use_button:
+		if not button: return
+		button.pressed.connect(_on_button_pressed)
+	else:
+		if not open_button: return
+		open_button.onclick.connect(_on_button_pressed)
 
 
 func _on_button_pressed() -> void:

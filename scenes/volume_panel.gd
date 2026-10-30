@@ -15,8 +15,8 @@ func _ready() -> void:
 	music_slider.value = PlayerData.audio_settings.music
 	sfx_slider.value = PlayerData.audio_settings.sfx
 
-func _on_close_button_pressed() -> void:
-	visible = false
+#func _on_close_button_pressed() -> void:
+	#visible = false
 
 func _on_btn_entered() -> void:
 	$StampAudio.stream = preload("res://assets/sounds/sfx/stamp_click.wav")

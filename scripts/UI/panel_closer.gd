@@ -33,8 +33,10 @@ func _ready() -> void:
 
 func close() -> void:
 	close_panel(panel, direction, add_rotation, duration, overshoot, free_when_done)
-	clipboard_audio.stream = preload("res://assets/sounds/sfx/clipboard_close.wav")
-	clipboard_audio.play()
+	
+	if clipboard_audio:
+		clipboard_audio.stream = preload("res://assets/sounds/sfx/clipboard_close.wav")
+		clipboard_audio.play()
 
 
 static func close_panel(

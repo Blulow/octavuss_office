@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dte2085j46tfn" path="res://scenes/input_elements/slider.tscn" id="2_ylhix"]
 [ext_resource type="Texture2D" uid="uid://cait3h07ks864" path="res://assets/buttons/stamp.png" id="3_m28kp"]
 [ext_resource type="Texture2D" uid="uid://bpnsr7ttj5gqj" path="res://assets/buttons/back buttons checkpoint copy 3.png" id="4_rdtvf"]
+[ext_resource type="Script" uid="uid://lqe5v5fu7lcu" path="res://scripts/ui/panel_closer.gd" id="8_bfy0n"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bfy0n"]
 content_margin_left = 20.0
@@ -182,5 +183,15 @@ icon = ExtResource("4_rdtvf")
 flat = true
 
 [node name="StampAudio" type="AudioStreamPlayer2D" parent="." unique_id=1877555546]
+bus = &"SFX"
+
+[node name="RemoveSettings" type="Node" parent="." unique_id=1710368763 node_paths=PackedStringArray("close_button", "panel")]
+script = ExtResource("8_bfy0n")
+close_button = NodePath("../CloseButton")
+panel = NodePath("..")
+direction = 0
+
+[node name="ClipboardAudio" type="AudioStreamPlayer2D" parent="." unique_id=1405505914]
+bus = &"SFX"
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

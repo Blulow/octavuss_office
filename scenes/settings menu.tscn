@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bpnsr7ttj5gqj" path="res://assets/buttons/back buttons checkpoint copy 3.png" id="6_i67n8"]
 [ext_resource type="PackedScene" uid="uid://cvcvv7kvtsrkp" path="res://scenes/volume_panel.tscn" id="7_wxhqg"]
 [ext_resource type="Script" uid="uid://lqe5v5fu7lcu" path="res://scripts/ui/panel_closer.gd" id="9_7ndgi"]
+[ext_resource type="Script" uid="uid://e8qm7l8bibq6" path="res://scripts/ui/settings_panel.gd" id="10_cspvc"]
 
 [node name="Control" type="Control" unique_id=428628215]
 z_index = 1
@@ -80,9 +81,24 @@ panel = NodePath("..")
 direction = 1
 
 [node name="ClipboardAudio" type="AudioStreamPlayer2D" parent="." unique_id=1234135813]
+bus = &"SFX"
 
 [node name="StampAudio" type="AudioStreamPlayer2D" parent="." unique_id=658664409]
 position = Vector2(442.00003, 206)
 scale = Vector2(0.51866215, 0.5123724)
+bus = &"SFX"
+
+[node name="SettingsPanelWiring" type="Node" parent="." unique_id=880966805 node_paths=PackedStringArray("button", "parent")]
+script = ExtResource("10_cspvc")
+button = NodePath("../Button")
+use_button = true
+panel_scene = ExtResource("7_wxhqg")
+parent = NodePath("../VolumePanelLayer")
+direction = 0
+
+[node name="ClipboardAudio" type="AudioStreamPlayer2D" parent="SettingsPanelWiring" unique_id=801966509]
+bus = &"SFX"
+
+[node name="VolumePanelLayer" type="CanvasLayer" parent="." unique_id=1581535802]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
