@@ -92,16 +92,16 @@ animations = [{
 [sub_resource type="ViewportTexture" id="ViewportTexture_u8ny3"]
 viewport_path = NodePath("UI/Book/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6h3lr"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_engjn"]
 viewport_path = NodePath("CurvedPage/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dj67d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6h3lr"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("13_hstxw")
 shader_parameter/curve_strength = 0.6420000779950001
 shader_parameter/axis = 0
-shader_parameter/albedo_tex = SubResource("ViewportTexture_6h3lr")
+shader_parameter/albedo_tex = SubResource("ViewportTexture_engjn")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_drhbd"]
@@ -374,7 +374,7 @@ own_world_3d = true
 transparent_bg = true
 
 [node name="Page" parent="UI/Book/SubViewport" unique_id=1650568177 instance=ExtResource("12_a8gd2")]
-surface_material_override/0 = SubResource("ShaderMaterial_dj67d")
+surface_material_override/0 = SubResource("ShaderMaterial_6h3lr")
 camera_pos = Vector3(-1.02, 1, -0.015)
 camera_rot = Vector3(-1.555, 0, -0.01)
 font_size = 23
