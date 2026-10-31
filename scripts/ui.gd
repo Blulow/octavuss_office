@@ -26,12 +26,12 @@ func _ready() -> void:
 	pause.modulate.a = 0
 	
 	PlayerData.game_start.connect(func():
-		notebook_button.visible = true
+		#notebook_button.visible = true
 		money.visible = true
 		pause.visible = true
 		var tween = create_tween()
 		tween.set_parallel()
-		tween.tween_property(notebook_button, "modulate:a", 1, 0.3)
+		#tween.tween_property(notebook_button, "modulate:a", 1, 0.3)
 		tween.tween_property(money, "modulate:a", 1, 0.3)
 		tween.tween_property(pause, "modulate:a", 1, 0.3)
 		
@@ -46,11 +46,11 @@ func _ready() -> void:
 	PlayerData.game_end.connect(func(ending):
 		var tween = create_tween()
 		tween.set_parallel()
-		tween.tween_property(notebook_button, "modulate:a", 0, 0.3)
+		#tween.tween_property(notebook_button, "modulate:a", 0, 0.3)
 		tween.tween_property(money, "modulate:a", 0, 0.3)
 		tween.tween_property(pause, "modulate:a", 0, 0.3)
 		await tween.finished
-		notebook_button.visible = false
+		#notebook_button.visible = false
 		money.visible = false
 		pause.visible = false
 		)

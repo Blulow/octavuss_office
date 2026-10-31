@@ -218,9 +218,9 @@ bus = &"SFX"
 [node name="Money" type="Control" parent="UI" unique_id=1125710103]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 108.0
+offset_left = 957.0
 offset_top = 11.0
-offset_right = 148.0
+offset_right = 997.0
 offset_bottom = 51.0
 
 [node name="TextureRect" type="TextureRect" parent="UI/Money" unique_id=650738301]
