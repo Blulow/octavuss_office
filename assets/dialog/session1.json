@@ -41,7 +41,7 @@
 			  {
 				"speaker": "N1",
 				"name": "Leon",
-				"text": "No one in (community name) seems to support me doing this."
+				"text": "No one in TIDELINE seems to support me doing this."
 			  }
 			]
 		  },
@@ -51,7 +51,7 @@
 			  {
 				"speaker": "N1",
 				"name": "Leon",
-				"text": "Yeah, right? But no one in (community name) seems to support my idea.",
+				"text": "Yeah, right? But no one in TIDELINE seems to support my idea.",
 				"effects": {
 				  "sp": "+1"
 				}
@@ -64,7 +64,7 @@
 			  {
 				"speaker": "N1",
 				"name": "Leon",
-				"text": "I mean it was obvious once you see it, there are a lot of these videos that shows the group doing things to our community.",
+				"text": "I mean it was obvious once you see it, there are a lot of these videos that shows the group doing things to our community, TIDELINE.",
 				"effects": {
 				  "calm": "-1",
 				  "sp": "+2"

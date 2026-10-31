@@ -74,10 +74,14 @@ var page_timer: float = 0.0
 var page_interval: float = 1/10
 
 var ending_texts = [
-	"Thinking about everything, I guess retaliating might be too big of a move... I do want everyone in **(community name) to be in a better place, maybe we should work together towards that instead. I guess I'd say the proof of the videos might just be an influence after all, not sure why, but it needs more looking and finding. Well then, this might be a good decision, I’ll see what I can do.",
-	"After all this, I still don’t understand why I shouldn’t make a move… Maybe the videos are fake, but it’s hard to get our reputation back like this… So, for **(community name), I will do this for us to be in a higher standing. I’ll give it my all.",
-	"After everything… maybe the videos are fake, maybe I shouldn’t trust the forum. But I still want to make this move, for **(community name), I need to get our reputation back. So we all can be in a higher standing, and not fall back. Then, I guess I'll do my best.",
-	"Everything considered, making a move still speaks out. The videos might be fake, but the reputation we lost might not be able to be regained... I'm doing this for **(community name), so we can be in a better place. I don’t care anymore, I have to do this."
+	"""Ending 1:
+		Thinking about everything, I guess retaliating might be too big of a move... I do want everyone in TIDELINE to be in a better place, maybe we should work together towards that instead. I guess I'd say the proof of the videos might just be an influence after all, not sure why, but it needs more looking and finding. Well then, this might be a good decision, I’ll see what I can do.""",
+	"""Ending 2:
+		After all this, I still don’t understand why I shouldn’t make a move… Maybe the videos are fake, but it’s hard to get our reputation back like this… So, for TIDELINE, I will do this for us to be in a higher standing. I’ll give it my all.""",
+	"""Ending 3:
+		After everything… maybe the videos are fake, maybe I shouldn’t trust the forum. But I still want to make this move, for TIDELINE, I need to get our reputation back. So we all can be in a higher standing, and not fall back. Then, I guess I'll do my best.""",
+	"""Ending 4:
+		Everything considered, making a move still speaks out. The videos might be fake, but the reputation we lost might not be able to be regained... I'm doing this for TIDELINE, so we can be in a better place. I don’t care anymore, I have to do this."""
 ]
 
 func _ready() -> void:
